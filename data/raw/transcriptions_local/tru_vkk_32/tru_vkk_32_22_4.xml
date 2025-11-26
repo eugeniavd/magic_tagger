@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title type="supplied" xml:lang="en">Mitoshka</title>
+        <title type="supplied" xml:lang="ru">Митошка</title>
+        <respStmt>
+          <resp>Transcription</resp>
+          <name>Evgeniia Vdovichenko</name>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>For research use; rights depend on the holding archive.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <!-- Collection identifiers -->
+            <repository>Estonian Folklore Archives (ERA)</repository>
+            <collection xml:lang="et">TRÜ, VKK (Tartu Riiklik Ülikool, Vene keele kateeder)</collection>
+            <collection xml:lang="ru">Тартуский университет, кафедра русского языка</collection>
+            <collection xml:lang="en">University of Tartu, Department of Russian Language</collection>
+            <idno>32</idno>
+          </msIdentifier>
+          <physDesc>
+            <handDesc>
+              <handNote xml:id="hand-col015" medium="ink">
+              <persName xml:lang="ru" role="collector" type="pseudonym" key="col015">col015</persName>
+            </handNote>
+              <handNote xml:id="hand-collectors" medium="ink">
+                <desc>Collector’s hand: <ref target="#hand-col015">col015</ref>.</desc>
+              </handNote>
+            </handDesc>
+            <p>Manuscript; page and line references follow the original.</p>
+          </physDesc>
+          <history>
+            <origin>
+              <origDate when="1968">1968</origDate>
+              <origPlace>
+                <placeName xml:lang="et" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=mm&amp;lang=en&amp;kohanimi=96088051&amp;f2v=Y&amp;f3v=Y&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;f14v=Y&amp;of=tb">
+                Venemaa, Pihkva obl., Pihkva raj., Zalita nim. saar
+                </placeName>
+                <placeName xml:lang="ru" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=mm&amp;lang=en&amp;kohanimi=96088051&amp;f2v=Y&amp;f3v=Y&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;f14v=Y&amp;of=tb">
+                Россия, Псковская область, Псковский район, остров имени Залита
+                </placeName>
+                <placeName xml:lang="en" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=mm&amp;lang=en&amp;kohanimi=96088051&amp;f2v=Y&amp;f3v=Y&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;f14v=Y&amp;of=tb">
+                Russia, Pskovskaja oblast’, Pskovskiy rayon, ostrov imeni Zalita
+                </placeName>
+              </origPlace>
+            </origin>
+          </history>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <transcriptionDesc>
+        <p>This file’s primary layer is a phonetic transcription as recorded by the collector; it preserves original diacritics and signs (see #accent, 
+          #long, #pal, #underbar, #underparen, #pause1/#pause2). No orthographic normalization layer is provided in this file.
+        </p>
+      </transcriptionDesc>
+
+      <projectDesc>
+        <p>Encoded with TEI; page breaks via &lt;pb n=""/&gt;, line breaks via &lt;lb n=""/&gt;.</p>
+      </projectDesc>
+
+      <tagsDecl>
+        <rendition xml:id="indent">paragraph indent</rendition>
+        <rendition xml:id="pause1">short pause (|)</rendition>
+        <rendition xml:id="pause2">long pause (||)</rendition>
+        <rendition xml:id="pal">palatalization mark</rendition>
+        <rendition xml:id="accent">stress mark</rendition>
+        <rendition xml:id="long">long sound (vowel, consonant or hard articulation)</rendition>
+        <rendition xml:id="underbar">underbar on letter (syllabic/reduced articulation)</rendition>
+        <rendition xml:id="underparen">under-arc between words (single)</rendition>
+        <rendition xml:id="overstrike">overstrike (struck/erased mark)</rendition>
+        <rendition xml:id="sup">superscript letter (above)</rendition>
+        <rendition xml:id="overwrite">overwritten (overpainted) correction</rendition>
+        <rendition xml:id="underline">single underline</rendition>
+      </tagsDecl>
+
+      <charDecl>
+        <char xml:id="accentChar">
+          <charName>COMBINING ACUTE ACCENT</charName>
+          <mapping type="unicode">U+0301</mapping>
+          <!-- ́ -->
+          <desc>Stress mark; combining diacritic applied to preceding base character.</desc>
+        </char>
+
+        <char xml:id="longChar">
+          <charName>COMBINING MACRON</charName>
+          <mapping type="unicode">U+0304</mapping>
+          <!-- ̄ -->
+          <desc>Length mark over vowels or consonants.</desc>
+        </char>
+
+        <char xml:id="palChar">
+          <charName>MODIFIER LETTER PRIME</charName>
+          <mapping type="unicode">U+02B9</mapping>
+          <!-- ʹ -->
+          <desc>Palatalization mark after consonant.</desc>
+        </char>
+
+        <char xml:id="underparenChar">
+          <charName>UNDERTIE</charName>
+          <mapping type="unicode">U+203F</mapping>
+          <!-- ‿ -->
+          <desc>Under-arc joining words (sandhi tie).</desc>
+        </char>
+
+        <char xml:id="pause1Char">
+          <charName>VERTICAL LINE</charName>
+          <mapping type="unicode">U+007C</mapping>
+          <!-- | -->
+          <desc>Short pause.</desc>
+        </char>
+
+        <char xml:id="pause2Char">
+          <charName>DOUBLE VERTICAL LINE</charName>
+          <mapping type="unicode">U+2016</mapping>
+          <!-- ‖ -->
+          <desc>Long pause.</desc>
+        </char>
+
+        <char xml:id="underbarChar">
+          <charName>COMBINING LOW LINE</charName>
+          <mapping type="unicode">U+0332</mapping>
+          <!-- ̲ -->
+         <desc>Underbar diacritic; may mark syllabic consonant or reduced vowel context.</desc>
+        </char>
+      </charDecl>
+      
+      <classDecl>
+        <taxonomy xml:id="grapheme">
+          <category xml:id="pal">
+            <catDesc>Soft (palatalized) consonant</catDesc>
+          </category>
+          <category xml:id="length">
+           <catDesc>Long vowel or consonant (duration mark)</catDesc>
+          </category>
+          <category xml:id="pause">
+            <catDesc>Pause marks in performance transcription</catDesc>
+          </category>
+          <category xml:id="stress">
+            <catDesc>Stressed vowel</catDesc>
+          </category>
+        </taxonomy>
+        <taxonomy xml:id="transcrType">
+          <category xml:id="phonetic">
+            <catDesc>Phonetic transcription</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+      
+      <editorialDecl>
+        <p>Transcription type: phonetic (collector’s notation preserved).</p>
+
+        <p><b>Stress (</b><code>#accent</code><b>):</b> retained in <code>orig</code> as <code>&lt;hi rendition="#accent"/&gt;</code>; 
+              omitted in normalized exports.
+        </p>
+        <p><b>Length (</b><code>#long</code><b>):</b> retained in <code>orig</code> as <code>&lt;hi rendition="#long"/&gt;</code>; 
+              normalization may resolve to doubling or vowel length per legend/context (documented elsewhere).
+        </p>
+        <p><b>Palatalization (</b><code>#pal</code><b>):</b> retained after the base consonant as <code>&lt;hi rendition="#pal"/&gt;</code>; 
+              normalization may map to ь.
+        </p>
+        <p><b>Under-arc joins (</b><code>#underparen</code><b>):</b> retained as <code>&lt;g ref="#underparenChar" place="below"/&gt;</code>; 
+              not interpreted as morphological joining in this edition; optional conversion to <code>&lt;join type="word-merge"/&gt;</code> may 
+              be added later via script.
+        </p>
+        <p><b>Pauses (</b><code>#pause1/#pause2</code><b>):</b> retained as <code>&lt;pause rendition="#pause1"/&gt;</code> / <code>&lt;pause rendition="#pause2"/&gt;</code>
+              in <code>orig</code>; dropped from orthographic NLP export; may be rendered as “|”/“‖” in phonetic export.
+        </p>
+        <p><b>Struck marks:</b> crossed out signs encoded as <code>&lt;del rendition="#overstrike"&gt;…&lt;/del&gt;</code>.
+        </p>
+        <p>Syllabic consonants or reduced vowels are marked as <code>&lt;hi rendition="#underbar"/&gt;</code> (Unicode U+0332).</p>
+      </editorialDecl>
+    </encodingDesc>
+
+    <profileDesc>
+      <langUsage>
+        <language ident="ru">Russian</language>
+      </langUsage>
+      <textClass>
+        <catRef target="#phonetic"/>
+        <keywords scheme="local">
+          <term>genre: SKAZKA</term>
+        </keywords>
+      </textClass>
+    </profileDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+      
+      <div type="magic_tale" xml:id="tru_vkk_32_22_4" n="4">
+        <!-- Optional: store collection/volume as attributes for quick access -->
+
+        <!-- PAGE 1 -->
+        <pb n="22"/>
+        <add place="top-right" hand="#hand-collectors">
+          <signed xml:lang="ru">
+            Записано от
+            <persName xml:lang="ru" role="narrator" type="pseudonym" key="nar004">nar004</persName> (12 лет). 
+            Сказка, услышанная от бабушки (<persName>nar003</persName>).
+          </signed>
+        </add>
+        <head type="title" place="top-left" xml:lang="ru">Мит<hi rendition="#accent">о</hi>шка</head>
+          <lb n="01"/>Жил-был дед с бабой. У них ну было детей. 
+          <lb n="02"/>Дед все время хотел мальчика, и вот один 
+          <lb n="03"/>раз дед пошел в сарай прясть лён. И слышит:
+          <lb n="04"/>кто-то кричит из-пд льна: "Дедка я здесь!"
+          <lb n="05"/>Тогда дед и туда, и сюда - нигде нет. 
+          <lb n="06"/>Тогда он пошел к бабе: "Баба, у нас в сарае
+          <lb n="07"/>какой-то мальчишка". Дед с бабой пошли в 
+          <lb n="08"/>сарай, посмотрели в лен, а там мальчишка. 
+          <lb n="09"/>Тогда дед и спрашивает: "Мальчик, как тебя
+          <lb n="10"/>зовут?" А он им отвечает: "Мен<subst><del rendition="#overstrike">ья</del><add place="above">а</add></subst> зовут
+          <lb n="11"/>Митошка". Дед его спрашивает: "Мальчик,
+          <lb n="12"/>чиво ты любишь делать?"
+          <lb n="13"/>А Митошка говорит: "Я люблю удить рыбу".
+          <lb n="14"/>Дед пошел в лес, сделал митошке челнок,
+          <lb n="15"/>покрасил в синий цвет,сделал весла,
+          <lb n="16"/>покрасил в красный цвет, дал Митошке
+          <lb n="17"/>удочки, и он поехал <hi rendition="#accent">у</hi>дить. Дедушка
+          <lb n="18"/>с бабушкой пообедали, бабушка завернула
+          <lb n="19"/>в узелок обед Митошке и отправилась на
+          <lb n="20"/>берег. Бабушка стала кричать: "Митошка,
+          <lb n="21"/>сынок, подъедь! Я тябе обед принясла".
+          <lb n="22"/>Митошка услышал голос бабушки и 
+        
+
+        <!-- PAGE 2 -->
+        <pb n="23"/>
+          <lb n="01"/>подъехал. Взял он обед, отдал бабушке рыбу
+          <lb n="02"/>и опять уехал удить. Другой раз бабушка
+          <lb n="03"/>пришла к берегу и стала кричать Митошку,
+          <lb n="04"/>а на дереве сидела Баба-Яга, она услышала,
+          <lb n="05"/>что кричит бабушка Митошке. 
+          <lb n="06"/>Митошка подъехал к бабушке, отдал рыбу 
+          <lb n="07"/>и уехал опять. Бабушка ушла, Баба-Яга слезла
+          <lb n="08"/>с дерева и подошла к реке. Она стала кричать
+          <lb n="09"/>Митошку грубым голосом: "Митошинька,
+          <lb n="10"/>подъедь ко мне, я тебе обед принесла".
+          <lb n="11"/>Митошка услышал, что это не бабушкин
+          <lb n="12"/>голос и отъехал подальше. Она увидела, 
+          <lb n="13"/>что Митошка отъехал подальше, побежала
+          <lb n="14"/>к кузнецу и говорит: "Кузнец, перекуй мне
+          <lb n="15"/>горло". Кузнец перековал, она прибяжала к 
+          <lb n="16"/>ряке и закричала тонким голосом:
+          <lb n="17"/>"Митошинька, подъедь ко мне, я тебе обед
+          <lb n="18"/>принясла". Митошка услышал, что тонкий 
+          <lb n="19"/>голос кричит, как у бабушки, и подъехал. 
+          <lb n="20"/>Баба-Яга схватила яво и понесла в дом. 
+          <lb n="21"/>Дед приходит к реке и видит: челнок 
+          <lb n="22"/>пустой, Митошки нет. Он побяжал к 
+          <lb n="23"/>бабке и говорит: "Митошки нет". Они
+          <lb n="24"/>стали искать - так и ня нашли. 
+          <lb n="25"/>В то время Баба-Яга принясла яво до-
+          <lb n="26"/>мой и говорит служанке Аленке: "Истопи
+          <lb n="27"/>шесть поленниц дров и изжарь мне этого
+          <lb n="28"/>Митошку". Тогда Аленка истопила печь, 
+          <lb n="29"/>поставила лопату и говорит: "Садись!"
+          <lb n="30"/>А Митошка говорит: "Я ня знаю как."
+          <lb n="31"/>Взял и сел п<hi rendition="#accent">о</hi>перек лопат<subst><del rendition="#overstrike">у</del><add place="above">ы</add></subst>.
+          <lb n="32"/>Тогда она и говорит: "Ня так." А он: "Ня
+          <lb n="33"/>знаю как". Тогда он опять говорит: "А ты
+
+          <!-- PAGE 3 -->
+        <pb n="24"/>
+          <lb n="01"/>покажь, как надо садиться".
+          <lb n="02"/>Она подобрала сарафан и села на лопату,
+          <lb n="03"/>а печь была открыта. Он он<hi rendition="#accent">у</hi> и толкнул туда,
+          <lb n="04"/>а печь заслонкой закрыл. Сам побяжал
+          <lb n="05"/>во двор и думает: "Куда мне спрятаться?"
+          <lb n="06"/>Видит: <subst><del type="word" rendition="#overstrike">сидит</del><add place="right">стоит</add></subst> высокое дерево, он
+          <lb n="07"/>взял и залез. Баба-Яга приходит. Она откры-
+          <lb n="08"/>вает печь и достает оттуда Аленку. 
+          <lb n="09"/>Съела все мясо, пошла во двор и стала 
+          <lb n="10"/>кататься с горы и говорит: "Сладко-сладко
+          <lb n="11"/>Митошкино мясо". А Митошка с сосны: 
+          <lb n="12"/>"Сладко-сладко Аленкино мясо".
+          <lb n="13"/>Она первый раз не услышала. Потом 
+          <lb n="14"/>опять говорит: "Сладко-сладко Митошки-
+          <lb n="15"/>но мясо". И покатилась с горы. 
+          <lb n="16"/>А Митошка с дерева: "Сладко-сладко
+          <lb n="17"/>Аленкино мясо". Баба-Яга услышала, что 
+          <lb n="18"/>говорит Митошка с дерева и стала грысть
+          <lb n="19"/>сосну. Грызет-грызет и сломала все
+          <lb n="20"/>зубы. Побяжала к кузнецу и говорит: 
+          <lb n="21"/>"Скуй мне железные зубы". Кузнец сковал. 
+          <lb n="22"/>Баба-Яга прибяжала во двор и стала
+          <lb n="23"/>опять грысть дерево. Дерево уже шатается, 
+          <lb n="24"/>а она все грызет. Митошка видит: 
+          <lb n="25"/>летят гуси. Он кричит: "Гуси, возьмите
+          <lb n="26"/>меня с собой".
+          <lb n="27"/>А гуси: "Там летит один гусь без перьев.
+          <lb n="28"/>Он и возьмет тябя".
+          <lb n="29"/>И видит: лятит пятый без перьев гусь. 
+          <lb n="30"/>Митошка и кричит: "Гусь, возьми меня,
+          <lb n="31"/>а то Баба-Яга меня съест.
+          <lb n="32"/>Гусь и кричит: "Счас подлячу, ты
+      
+
+          <!-- PAGE 4 -->
+        <pb n="25"/>
+          <lb n="01"/>и садись". Подлятел гусь, Митошка 
+          <lb n="02"/>сел, и они полетели к дедке и бабке. 
+          <lb n="03"/>Баба-Яга сгрызла дерево, дерево повалилось, 
+          <lb n="04"/>и она побяжала к верхушке. Подбяжала, 
+          <lb n="05"/>а там никого и нет. А гусь с Митошкой
+          <lb n="06"/>сели на дедушкин двор, Митошка слез,
+          <lb n="07"/>и стали они жить-поживать и добра
+          <lb n="08"/>наживать, а дед с бабкой оставили
+          <lb n="09"/>у себя и гуся. 
+          <lb n="10"/>Вот и сказке конец, тот, кто слушал, 
+          <lb n="11"/>тот молодец. 
+        <add place="bottom-right" hand="#hand-collectors">
+          <signed xml:lang="ru">
+            Обработано
+            <persName xml:lang="ru" role="collector" type="pseudonym" key="col015">col015</persName>.
+          </signed>
+        </add>
+      </div>
+    </body>
+  </text>
+</TEI> 

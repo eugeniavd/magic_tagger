@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title type="supplied" xml:lang="en">The Scarlet Flower</title>
+        <title type="supplied" xml:lang="ru">Аленький цветочек</title>
+        <respStmt>
+          <resp>Transcription</resp>
+          <name>Evgeniia Vdovichenko</name>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>For research use; rights depend on the holding archive.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <!-- Collection identifiers -->
+            <repository>Estonian Folklore Archives (ERA)</repository>
+            <collection xml:lang="et">TRÜ, VKK (Tartu Riiklik Ülikool, Vene keele kateeder)</collection>
+            <collection xml:lang="ru">Тартуский университет, кафедра русского языка</collection>
+            <collection xml:lang="en">University of Tartu, Department of Russian Language</collection>
+            <idno>43</idno>
+          </msIdentifier>
+          <physDesc>
+            <handDesc>
+              <handNote xml:id="hand-col013" medium="ink">
+              <persName xml:lang="ru" role="collector" type="pseudonym" key="col013">col013</persName>
+            </handNote>
+              <handNote xml:id="hand-collectors" medium="ink">
+                <desc>Collector’s hand: <ref target="#hand-col013">col013</ref>.</desc>
+              </handNote>
+            </handDesc>
+            <p>Manuscript; page and line references follow the original.</p>
+          </physDesc>
+          <history>
+            <origin>
+              <origDate when="1967">1967</origDate>
+              <origPlace>
+                <placeName xml:lang="et" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=mm&amp;lang=en&amp;kohanimi=96013970&amp;f2v=Y&amp;f3v=Y&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;f14v=Y&amp;of=tb">
+                Venemaa, Pihkva obl., Petseri raj., Pankjavitsa k.
+                </placeName>
+                <placeName xml:lang="ru" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=mm&amp;lang=en&amp;kohanimi=96013970&amp;f2v=Y&amp;f3v=Y&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;f14v=Y&amp;of=tb">
+                Россия, Псковская область, Печорский район, деревня Паниковичи
+                </placeName>
+                <placeName xml:lang="en" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=mm&amp;lang=en&amp;kohanimi=96013970&amp;f2v=Y&amp;f3v=Y&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;f14v=Y&amp;of=tb">
+                Russia, Pskovskaja oblast’, Pechorskiy rayon, Panikovichi
+                </placeName>
+              </origPlace>
+            </origin>
+          </history>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <transcriptionDesc>
+        <p>This file’s primary layer is a phonetic transcription as recorded by the collector; it preserves original diacritics and signs (see #accent, 
+          #long, #pal, #underbar, #underparen, #pause1/#pause2). No orthographic normalization layer is provided in this file.
+        </p>
+      </transcriptionDesc>
+
+      <projectDesc>
+        <p>Encoded with TEI; page breaks via &lt;pb n=""/&gt;, line breaks via &lt;lb n=""/&gt;.</p>
+      </projectDesc>
+
+      <tagsDecl>
+        <rendition xml:id="indent">paragraph indent</rendition>
+        <rendition xml:id="pause1">short pause (|)</rendition>
+        <rendition xml:id="pause2">long pause (||)</rendition>
+        <rendition xml:id="pal">palatalization mark</rendition>
+        <rendition xml:id="accent">stress mark</rendition>
+        <rendition xml:id="long">long sound (vowel, consonant or hard articulation)</rendition>
+        <rendition xml:id="underbar">underbar on letter (syllabic/reduced articulation)</rendition>
+        <rendition xml:id="underparen">under-arc between words (single)</rendition>
+        <rendition xml:id="overstrike">overstrike (struck/erased mark)</rendition>
+        <rendition xml:id="sup">superscript letter (above)</rendition>
+        <rendition xml:id="overwrite">overwritten (overpainted) correction</rendition>
+        <rendition xml:id="underline">single underline</rendition>
+      </tagsDecl>
+
+      <charDecl>
+        <char xml:id="accentChar">
+          <charName>COMBINING ACUTE ACCENT</charName>
+          <mapping type="unicode">U+0301</mapping>
+          <!-- ́ -->
+          <desc>Stress mark; combining diacritic applied to preceding base character.</desc>
+        </char>
+
+        <char xml:id="longChar">
+          <charName>COMBINING MACRON</charName>
+          <mapping type="unicode">U+0304</mapping>
+          <!-- ̄ -->
+          <desc>Length mark over vowels or consonants.</desc>
+        </char>
+
+        <char xml:id="palChar">
+          <charName>MODIFIER LETTER PRIME</charName>
+          <mapping type="unicode">U+02B9</mapping>
+          <!-- ʹ -->
+          <desc>Palatalization mark after consonant.</desc>
+        </char>
+
+        <char xml:id="underparenChar">
+          <charName>UNDERTIE</charName>
+          <mapping type="unicode">U+203F</mapping>
+          <!-- ‿ -->
+          <desc>Under-arc joining words (sandhi tie).</desc>
+        </char>
+
+        <char xml:id="pause1Char">
+          <charName>VERTICAL LINE</charName>
+          <mapping type="unicode">U+007C</mapping>
+          <!-- | -->
+          <desc>Short pause.</desc>
+        </char>
+
+        <char xml:id="pause2Char">
+          <charName>DOUBLE VERTICAL LINE</charName>
+          <mapping type="unicode">U+2016</mapping>
+          <!-- ‖ -->
+          <desc>Long pause.</desc>
+        </char>
+
+        <char xml:id="underbarChar">
+          <charName>COMBINING LOW LINE</charName>
+          <mapping type="unicode">U+0332</mapping>
+          <!-- ̲ -->
+         <desc>Underbar diacritic; may mark syllabic consonant or reduced vowel context.</desc>
+        </char>
+      </charDecl>
+      
+      <classDecl>
+        <taxonomy xml:id="grapheme">
+          <category xml:id="pal">
+            <catDesc>Soft (palatalized) consonant</catDesc>
+          </category>
+          <category xml:id="length">
+           <catDesc>Long vowel or consonant (duration mark)</catDesc>
+          </category>
+          <category xml:id="pause">
+            <catDesc>Pause marks in performance transcription</catDesc>
+          </category>
+          <category xml:id="stress">
+            <catDesc>Stressed vowel</catDesc>
+          </category>
+        </taxonomy>
+        <taxonomy xml:id="transcrType">
+          <category xml:id="phonetic">
+            <catDesc>Phonetic transcription</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+      
+      <editorialDecl>
+        <p>Transcription type: phonetic (collector’s notation preserved).</p>
+
+        <p><b>Stress (</b><code>#accent</code><b>):</b> retained in <code>orig</code> as <code>&lt;hi rendition="#accent"/&gt;</code>; 
+              omitted in normalized exports.
+        </p>
+        <p><b>Length (</b><code>#long</code><b>):</b> retained in <code>orig</code> as <code>&lt;hi rendition="#long"/&gt;</code>; 
+              normalization may resolve to doubling or vowel length per legend/context (documented elsewhere).
+        </p>
+        <p><b>Palatalization (</b><code>#pal</code><b>):</b> retained after the base consonant as <code>&lt;hi rendition="#pal"/&gt;</code>; 
+              normalization may map to ь.
+        </p>
+        <p><b>Under-arc joins (</b><code>#underparen</code><b>):</b> retained as <code>&lt;g ref="#underparenChar" place="below"/&gt;</code>; 
+              not interpreted as morphological joining in this edition; optional conversion to <code>&lt;join type="word-merge"/&gt;</code> may 
+              be added later via script.
+        </p>
+        <p><b>Pauses (</b><code>#pause1/#pause2</code><b>):</b> retained as <code>&lt;pause rendition="#pause1"/&gt;</code> / <code>&lt;pause rendition="#pause2"/&gt;</code>
+              in <code>orig</code>; dropped from orthographic NLP export; may be rendered as “|”/“‖” in phonetic export.
+        </p>
+        <p><b>Struck marks:</b> crossed out signs encoded as <code>&lt;del rendition="#overstrike"&gt;…&lt;/del&gt;</code>.
+        </p>
+        <p>Syllabic consonants or reduced vowels are marked as <code>&lt;hi rendition="#underbar"/&gt;</code> (Unicode U+0332).</p>
+      </editorialDecl>
+    </encodingDesc>
+
+    <profileDesc>
+      <langUsage>
+        <language ident="ru">Russian</language>
+      </langUsage>
+      <textClass>
+        <catRef target="#phonetic"/>
+        <keywords scheme="local">
+          <term>genre: SKAZKA</term>
+        </keywords>
+      </textClass>
+    </profileDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+      
+      <div type="magic_tale" xml:id="tru_vkk_43_8_2" n="2">
+        <!-- Optional: store collection/volume as attributes for quick access -->
+
+        <!-- PAGE 1 -->
+        <pb n="8"/>
+        <add place="top-center" hand="#hand-collectors">
+          <signed xml:lang="ru">
+            <persName xml:lang="ru" role="narrator" type="pseudonym" key="nar001">
+              nar001
+            </persName>
+            <seg type="age" rend="parentheses">86 лет</seg>
+          </signed>
+        </add>
+        <head type="title" place="top-center" xml:lang="ru">Сказка<lb/>Аленький цветочек</head>
+          <lb n="01"/>Жили-были дед да баба. У них
+          <lb n="02"/>были две дочери. Паехали аднаж-
+          <lb n="03"/>ды дед са старухай на базар. 
+          <lb n="04"/>Стали прасить дочери, чтобы,
+          <lb n="05"/>им купили гастиницы. Старшая
+          <lb n="06"/>папрасила ей купить залатое
+          <lb n="07"/>платьице с серебряной вышив-
+          <lb n="08"/>кой и мед<hi rendition="#accent">я</hi>ным кушачком. 
+        
+        <p rendition="#indent">
+          <lb n="09"/>Меньшая всево-навсево попроси-
+          <lb n="10"/>ла батюшку с матушкай купить
+          <lb n="11"/>ей маленький аленький цветочек. 
+        </p>
+
+        <p rendition="#indent">
+          <lb n="12"/>Прашло ровна три дня. 
+          <lb n="13"/>Приехали дед со старузой да-
+          <lb n="14"/>мой, а на вазу лежит залатое
+          <lb n="15"/>платьице с серебряной вышивкой, 
+          <lb n="16"/>медяным кушачком. Обрадова-
+          <lb n="17"/>лась старшая дочь, закручини-
+          <lb n="18"/>лась младшая. И молвила
+          <lb n="19"/>меньшая дочь: "Пойду я, матуш-
+          <lb n="20"/>ка и батюшка, сама искать
+          <lb n="21"/>маленький аленький цветочнк".
+         </p>  
+
+        <p rendition="#indent">
+          <lb n="22"/>Собралась она быстрёхань-
+          <lb n="23"/>ко и атправилась в далёкий
+          <lb n="24"/>путь за аленьким цветочком. 
+        </p>
+
+
+        <!-- PAGE 2 -->
+        <pb n="9"/>
+        <p rendition="#indent">
+          <lb n="01"/>Долга ли, коратка ли ана
+          <lb n="02"/>шла, увидала перед сабой
+          <lb n="03"/>агромный з<hi rendition="#accent">а</hi>мак. Пастуча-
+          <lb n="04"/>лась ана, но никто ей не 
+          <lb n="05"/>атветил. Пашла ана дальше. 
+          <lb n="06"/>Увидала стол, накрытый
+          <lb n="07"/>явствами, а кругом все
+          <lb n="08"/>пуста. Села ана, паабеда-
+          <lb n="09"/>ла и очень была в абиде,
+          <lb n="10"/>что н<hi rendition="#accent">е</hi>каво была паблагада-
+          <lb n="11"/>рить. Пашла ана даль-
+          <lb n="12"/>ше и пришла в чудесный
+          <lb n="13"/>сад. Увидела она на гряд-
+          <lb n="14"/>ке точь-в-точь такой алень-
+          <lb n="15"/>кий цветочек, а каторам 
+          <lb n="16"/>всё время думала. Хатела 
+          <lb n="17"/>ево сарвать, но какой-то
+          <lb n="18"/>голас сказал: "Не тронь
+          <lb n="19"/>ево. Всё здесь, милая кра-
+          <lb n="20"/>савица, тваё, но только
+          <lb n="21"/>этот цветочек не прикасае-
+          <lb n="22"/>мый. Ты дрлжна здесь
+          <lb n="23"/>прабыть семь лет и таг-
+          <lb n="24"/>да этот аленький цветочек 
+          <lb n="25"/>будет твой. 
+        </p>
+
+        <p rendition="#indent">
+          <lb n="26"/>Пралетела незаметна
+          <lb n="27"/>ровна три года.
+        </p>
+
+        <p rendition="#indent">
+          <lb n="28"/>Каждое утро приха-
+          <lb n="29"/>дила младшая счестра
+          <lb n="30"/>в сад любоваться аленьким
+
+        <!-- PAGE 3 -->
+        <pb n="10"/>
+          <lb n="01"/>цветочком. 
+        </p>
+
+        <p rendition="#indent"> 
+          <lb n="02"/>В адно солнечное утро
+          <lb n="03"/>сарвала ана ево. И сразу
+          <lb n="04"/>солнце зашло за тучки
+          <lb n="05"/>тёмные, птицы перестали
+          <lb n="06"/>петь. Кругом всё сразу
+          <lb n="07"/>померкло.
+        </p> 
+
+        <p rendition="#indent">
+          <lb n="08"/>Взглянула ана пад куст
+          <lb n="09"/>и увидела страшное-престраш-
+          <lb n="10"/>ное страшилище. Испугалась
+          <lb n="11"/>она и заплакала горючими
+          <lb n="12"/>слезьми и одна слезиночка
+          <lb n="13"/>с леваво глазу упала пряма
+          <lb n="14"/>чудовищу на лапу. Прагн<hi rendition="#accent">а</hi>-
+          <lb n="15"/>ла красна д<hi rendition="#accent">е</hi>вица страх прочь
+          <lb n="16"/>от себя. Прильнула она к ч<hi rendition="#accent">у</hi>-
+          <lb n="17"/>довищу и поцеловала ево пря-
+          <lb n="18"/>мо в уста. 
+        </p>
+
+        <p rendition="#indent">
+          <lb n="19"/>Вдруг всё з<hi rendition="#accent">а</hi>жило, заигра-
+          <lb n="20"/>ла музыка, запели птицы, 
+          <lb n="21"/>а ч<hi rendition="#accent">у</hi>дище стала красивый-рас-
+          <lb n="22"/>хароший парень. 
+        </p>
+
+        <p rendition="#indent">
+          <lb n="23"/>Добрый моладец рассказал, 
+          <lb n="24"/>что он был закалдован ведьмой
+          <lb n="25"/>и должен был быть чудовищем
+          <lb n="26"/>до тех пор, пака ево не палюбят.
+        </p>
+
+        <p rendition="#indent">
+          <lb n="27"/>И стали они жить-паживать
+          <lb n="28"/>и горя не знать. И живут ани
+          <lb n="29"/>да с<hi rendition="#accent">и</hi>х пор, коль не померли.
+          <lb n="30"/>Тут и сказке конец.
+        </p>
+        <add place="bottom-right" hand="#hand-collectors">
+          <signed>С.О.</signed>
+        </add>
+      </div>
+    </body>
+  </text>
+</TEI> 

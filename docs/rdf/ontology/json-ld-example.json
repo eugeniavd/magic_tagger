@@ -1,0 +1,136 @@
+{
+  "@context": {
+    "rft": "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "skos": "https://www.w3.org/2009/08/skos-reference/skos.html",
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "id": "@id",
+    "type": "@type"
+  },
+  "@graph": [
+    {
+      "id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_1_309_38",
+      "type": "rft:Tale",
+      "dcterms:identifier": "era_vene_1_309_38",
+      "dcterms:description": "Девушка без рук, которой возвращают руки.",
+      "dcterms:isPartOf": [
+        { "id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/era_vene" },
+        { "id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_1" }
+      ],
+      "dcterms:created": {
+        "@value": "1930-05-24",
+        "@type": "xsd:date"
+      },
+      "rft:narrator": {
+        "id": "https://github.com/eugeniavd/magic_tagger/rdf/person/maria_ivanna"
+      },
+      "rft:collector": {
+        "id": "https://github.com/eugeniavd/magic_tagger/rdf/person/paul_ariste"
+      },
+      "rft:hasGenre": {
+        "id": "https://github.com/eugeniavd/magic_tagger/rdf/genre/imemuinasjutt"
+      },
+      "rft:hasTaleType": {
+        "id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/706"
+      },
+      "rft:recordingPlace": {
+        "id": "https://github.com/eugeniavd/magic_tagger/rdf/place/tartu_maarja"
+      }
+    },
+
+    {
+      "id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/era_vene",
+      "type": "dcterms:Collection",
+      "rdfs:label": "ERA, Vene"
+    },
+
+    {
+      "id": "https://github.com/eugeniavd/magic_tagger/rdf/person/maria_ivanna",
+      "type": [
+        "rft:Narrator",
+        "crm:E21_Person",
+        "prov:Agent"
+      ],
+      "rdfs:label": "Maria Ivanna"
+    },
+
+    {
+      "id": "https://github.com/eugeniavd/magic_tagger/rdf/person/paul_ariste",
+      "type": [
+        "rft:Collector",
+        "crm:E21_Person",
+        "prov:Agent"
+      ],
+      "rdfs:label": "Paul Ariste"
+    },
+
+    {
+      "id": "https://github.com/eugeniavd/magic_tagger/rdf/place/tartu_maarja",
+      "type": "crm:E53_Place",
+      "rdfs:label": "Tartu-Maarja"
+    },
+
+    {
+      "id": "https://github.com/eugeniavd/magic_tagger/rdf/genre/imemuinasjutt",
+      "type": [
+        "rft:Genre",
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "imemuinasjutt",
+        "@language": "et"
+      },
+      "skos:inScheme": {
+        "id": "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#GenreScheme"
+      }
+    },
+
+    {
+      "id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/706",
+      "type": [
+        "rft:TaleType",
+        "skos:Concept"
+      ],
+      "skos:notation": "706",
+      "skos:prefLabel": {
+        "@value": "The Maiden Without Hands",
+        "@language": "en"
+      },
+      "skos:inScheme": {
+        "id": "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#ATU_Scheme"
+      }
+    },
+
+    {
+      "id": "https://github.com/eugeniavd/magic_tagger/rdf/recordingEvent/era_vene_1_309_38",
+      "type": [
+        "rft:RecordingEvent",
+        "prov:Activity",
+        "crm:E7_Activity"
+      ],
+      "prov:startedAtTime": {
+        "@value": "1930-05-24",
+        "@type": "xsd:date"
+      },
+      "prov:wasAssociatedWith": [
+        { "id": "https://github.com/eugeniavd/magic_tagger/rdf/person/paul_ariste" },
+        { "id": "https://github.com/eugeniavd/magic_tagger/rdf/person/maria_ivanna" }
+      ],
+      "crm:P7_took_place_at": {
+        "id": "https://github.com/eugeniavd/magic_tagger/rdf/place/tartu_maarja"
+      }
+    },
+
+    {
+      "id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_1_309_38#prov",
+      "type": "rft:Tale",
+      "dcterms:identifier": "era_vene_1_309_38",
+      "prov:wasGeneratedBy": {
+        "id": "https://github.com/eugeniavd/magic_tagger/rdf/recordingEvent/era_vene_1_309_38"
+      }
+    }
+  ]
+}

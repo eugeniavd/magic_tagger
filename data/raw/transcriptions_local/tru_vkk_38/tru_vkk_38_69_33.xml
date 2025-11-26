@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title type="supplied" xml:lang="en">The Tale of Foma Brut</title>
+        <title type="supplied" xml:lang="ru">Сказка о Фоме Бруте</title>
+        <title type="variant" subtype="dialect" xml:lang="ru">
+          <choice><sic>Скаска пра Хаму Брута</sic><corr>Сказка про Хому Брута</corr></choice>
+        </title>
+        <respStmt>
+          <resp>Transcription</resp>
+          <name>Evgeniia Vdovichenko</name>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>For research use; rights depend on the holding archive.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <!-- Collection identifiers -->
+            <repository>Estonian Folklore Archives (ERA)</repository>
+            <collection xml:lang="et">TRÜ, VKK (Tartu Riiklik Ülikool, Vene keele kateeder)</collection>
+            <collection xml:lang="ru">Тартуский университет, кафедра русского языка</collection>
+            <collection xml:lang="en">University of Tartu, Department of Russian Language</collection>
+            <idno>38</idno>
+          </msIdentifier>
+          <physDesc>
+            <handDesc>
+            <!-- Candidates -->
+            <handNote xml:id="hand-col001" medium="ink">
+              <persName xml:lang="ru" role="collector" type="pseudonym" key="col001">col001</persName>
+            </handNote>
+            <handNote xml:id="hand-col010" medium="ink">
+              <persName xml:lang="ru" role="collector" type="pseudonym" key="col010">col010</persName>
+            </handNote> 
+            <!-- Collector’s hand uncertain; one of:  -->
+              <handNote xml:id="hand-collectors" medium="ink">
+                <desc>Unknown collector’s hand; one of:
+                  <ref target="#hand-col001">col001</ref>,
+                  <ref target="#hand-col010">col010</ref>
+                </desc>
+              </handNote>
+            </handDesc>
+            <p>Manuscript; page and line references follow the original.</p>
+          </physDesc>
+          <history>
+            <origin>
+              <origDate when="1967">1967</origDate>
+              <origPlace>
+                <placeName xml:lang="et" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=mm&amp;lang=en&amp;kohanimi=96013780&amp;f2v=Y&amp;f3v=Y&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;f14v=Y&amp;of=tb">
+                Venemaa, Pihkva obl., Petseri raj., Laura
+                </placeName>
+                <placeName xml:lang="ru" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=mm&amp;lang=en&amp;kohanimi=96013780&amp;f2v=Y&amp;f3v=Y&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;f14v=Y&amp;of=tb">
+                Россия, Псковская область, Печерский район, (пгт.) Лавры
+                </placeName>
+                <placeName xml:lang="en" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=mm&amp;lang=en&amp;kohanimi=96013780&amp;f2v=Y&amp;f3v=Y&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;f14v=Y&amp;of=tb">
+                Russia, Pskovskaja oblast’, Pechorskiy rayon., Lavry, (pgt.)
+                </placeName>
+              </origPlace>
+            </origin>
+          </history>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <transcriptionDesc>
+        <p>This file’s primary layer is a phonetic transcription as recorded by the collector; it preserves original diacritics and signs (see #accent, 
+          #long, #pal, #underbar, #underparen, #pause1/#pause2). No orthographic normalization layer is provided in this file.
+        </p>
+      </transcriptionDesc>
+
+      <projectDesc>
+        <p>Encoded with TEI; page breaks via &lt;pb n=""/&gt;, line breaks via &lt;lb n=""/&gt;.</p>
+      </projectDesc>
+
+      <tagsDecl>
+        <rendition xml:id="indent">paragraph indent</rendition>
+        <rendition xml:id="pause1">short pause (|)</rendition>
+        <rendition xml:id="pause2">long pause (||)</rendition>
+        <rendition xml:id="pal">palatalization mark</rendition>
+        <rendition xml:id="accent">stress mark</rendition>
+        <rendition xml:id="long">long sound (vowel, consonant or hard articulation)</rendition>
+        <rendition xml:id="underbar">underbar on letter (syllabic/reduced articulation)</rendition>
+        <rendition xml:id="underparen">under-arc between words (single)</rendition>
+        <rendition xml:id="overstrike">overstrike (struck/erased mark)</rendition>
+        <rendition xml:id="sup">superscript letter (above)</rendition>
+        <rendition xml:id="overwrite">overwritten (overpainted) correction</rendition>
+        <rendition xml:id="underline">single underline</rendition>
+      </tagsDecl>
+
+      <charDecl>
+        <char xml:id="accentChar">
+          <charName>COMBINING ACUTE ACCENT</charName>
+          <mapping type="unicode">U+0301</mapping>
+          <!-- ́ -->
+          <desc>Stress mark; combining diacritic applied to preceding base character.</desc>
+        </char>
+
+        <char xml:id="longChar">
+          <charName>COMBINING MACRON</charName>
+          <mapping type="unicode">U+0304</mapping>
+          <!-- ̄ -->
+          <desc>Length mark over vowels or consonants.</desc>
+        </char>
+
+        <char xml:id="palChar">
+          <charName>MODIFIER LETTER PRIME</charName>
+          <mapping type="unicode">U+02B9</mapping>
+          <!-- ʹ -->
+          <desc>Palatalization mark after consonant.</desc>
+        </char>
+
+        <char xml:id="underparenChar">
+          <charName>UNDERTIE</charName>
+          <mapping type="unicode">U+203F</mapping>
+          <!-- ‿ -->
+          <desc>Under-arc joining words (sandhi tie).</desc>
+        </char>
+
+        <char xml:id="pause1Char">
+          <charName>VERTICAL LINE</charName>
+          <mapping type="unicode">U+007C</mapping>
+          <!-- | -->
+          <desc>Short pause.</desc>
+        </char>
+
+        <char xml:id="pause2Char">
+          <charName>DOUBLE VERTICAL LINE</charName>
+          <mapping type="unicode">U+2016</mapping>
+          <!-- ‖ -->
+          <desc>Long pause.</desc>
+        </char>
+
+        <char xml:id="underbarChar">
+          <charName>COMBINING LOW LINE</charName>
+          <mapping type="unicode">U+0332</mapping>
+          <!-- ̲ -->
+         <desc>Underbar diacritic; may mark syllabic consonant or reduced vowel context.</desc>
+        </char>
+      </charDecl>
+      
+      <classDecl>
+        <taxonomy xml:id="grapheme">
+          <category xml:id="pal">
+            <catDesc>Soft (palatalized) consonant</catDesc>
+          </category>
+          <category xml:id="length">
+           <catDesc>Long vowel or consonant (duration mark)</catDesc>
+          </category>
+          <category xml:id="pause">
+            <catDesc>Pause marks in performance transcription</catDesc>
+          </category>
+          <category xml:id="stress">
+            <catDesc>Stressed vowel</catDesc>
+          </category>
+        </taxonomy>
+        <taxonomy xml:id="transcrType">
+          <category xml:id="phonetic">
+            <catDesc>Phonetic transcription</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+      
+      <editorialDecl>
+        <p>Transcription type: phonetic (collector’s notation preserved).</p>
+
+        <p><b>Stress (</b><code>#accent</code><b>):</b> retained in <code>orig</code> as <code>&lt;hi rendition="#accent"/&gt;</code>; 
+              omitted in normalized exports.
+        </p>
+        <p><b>Length (</b><code>#long</code><b>):</b> retained in <code>orig</code> as <code>&lt;hi rendition="#long"/&gt;</code>; 
+              normalization may resolve to doubling or vowel length per legend/context (documented elsewhere).
+        </p>
+        <p><b>Palatalization (</b><code>#pal</code><b>):</b> retained after the base consonant as <code>&lt;hi rendition="#pal"/&gt;</code>; 
+              normalization may map to ь.
+        </p>
+        <p><b>Under-arc joins (</b><code>#underparen</code><b>):</b> retained as <code>&lt;g ref="#underparenChar" place="below"/&gt;</code>; 
+              not interpreted as morphological joining in this edition; optional conversion to <code>&lt;join type="word-merge"/&gt;</code> may 
+              be added later via script.
+        </p>
+        <p><b>Pauses (</b><code>#pause1/#pause2</code><b>):</b> retained as <code>&lt;pause rendition="#pause1"/&gt;</code> / <code>&lt;pause rendition="#pause2"/&gt;</code>
+              in <code>orig</code>; dropped from orthographic NLP export; may be rendered as “|”/“‖” in phonetic export.
+        </p>
+        <p><b>Struck marks:</b> crossed out signs encoded as <code>&lt;del rendition="#overstrike"&gt;…&lt;/del&gt;</code>.
+        </p>
+        <p>Syllabic consonants or reduced vowels are marked as <code>&lt;hi rendition="#underbar"/&gt;</code> (Unicode U+0332).</p>
+      </editorialDecl>
+    </encodingDesc>
+
+    <profileDesc>
+      <langUsage>
+        <language ident="ru">Russian</language>
+      </langUsage>
+      <textClass>
+        <catRef target="#phonetic"/>
+        <keywords scheme="local">
+          <term>genre: SKAZKA</term>
+        </keywords>
+      </textClass>
+    </profileDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+      
+      <div type="magic_tale" xml:id="tru_vkk_38_69_33" n="33">
+        <!-- Optional: store collection/volume as attributes for quick access -->
+
+        <!-- PAGE 1 -->
+        <pb n="69"/>
+          <p rendition="#indent">
+            <lb n="01"/>Шэтши адин моло<hi rendition="#pal">д</hi>эц из
+            <lb n="02"/><hi rendition="#pal">н</hi>авир<hi rendition="#pal">с</hi>и<hi rendition="#pal">т</hi>эта<del type="diacritic" rendition="#overstrike"><hi rendition="#pal"/></del> на сваю ст<hi rendition="#accent">а</hi>рану,
+            <lb n="03"/>в южнаю <hi rendition="#pal">з</hi>ам<hi rendition="#pal">л</hi>у. А зва<hi rendition="#pal">л</hi>и 
+            <lb n="04"/>этава м<hi rendition="#accent">о</hi>латца Хам<hi rendition="#accent">о</hi>j, а па 
+            <lb n="05"/>ба<hi rendition="#pal">т</hi>уш<hi rendition="#pal">к</hi>э Брутам<del type="letter" rendition="#overstrike">а</del>. Шол он <hi rendition="#pal">д</hi>э<hi rendition="#pal">н</hi>,
+            <lb n="06"/>два, а на т<hi rendition="#pal">р</hi>э<hi rendition="#pal">т</hi>иj за<hi rendition="#pal">н</hi>амох.
+            <lb n="07"/><hi rendition="#pal">Н</hi>эпаго<hi rendition="#pal">д</hi> была; в<hi rendition="#pal">с</hi>о с<hi rendition="#pal">н</hi>эгам за-
+            <lb n="08"/><hi rendition="#pal">м</hi>ало. Прашол он jащо <hi rendition="#pal">н</hi>амного
+            <lb n="09"/>саж<hi rendition="#accent">о</hi>н и вдруг прет сабоj
+            <lb n="10"/>избу у<hi rendition="#pal">в</hi>адал. А в этаj из<hi rendition="#pal">б</hi>э
+            <lb n="11"/>ж<hi rendition="#accent">ы</hi>л<hi rendition="#accent">а</hi> вдава. Вст<hi rendition="#pal">р</hi>э<hi rendition="#pal">т</hi>ила jаво
+            <lb n="12"/>вдава. напаила, накармила
+            <lb n="13"/>и спа<hi rendition="#pal">т</hi> улажыла, а сама с
+            <lb n="14"/><hi rendition="#pal">н</hi>им <hi rendition="#pal">л</hi>агла. И ат jаjо ж<hi rendition="#accent">а</hi>ра
+            <lb n="15"/>стал он снова <hi rendition="#pal">с</hi>и<hi rendition="#pal">л</hi>ным, да
+            <lb n="16"/>ладным. Пражыл у <hi rendition="#pal">н</hi>аjо Хам<hi rendition="#accent">а</hi>
+            <lb n="17"/>т<hi rendition="#pal">р</hi>и д<hi rendition="#pal">н</hi>а и т<hi rendition="#pal">р</hi>и ночи и парашыл
+            <lb n="18"/>да<hi rendition="#pal">л</hi>э и<hi rendition="#pal">т</hi>и<hi rendition="#pal">т</hi>; замучала jаво баба,
+            <lb n="19"/>jа<hi rendition="#pal">т</hi>ит jаjо в боч<hi rendition="#pal">к</hi>у. Ан <hi rendition="#pal">н</hi>а хочит
+            <lb n="20"/>вдава jаво пуща<hi rendition="#pal">т</hi>. Падаждал
+            <lb n="21"/>Хама кагда ана пашла па в<hi rendition="#accent">о</hi>ду
+            <lb n="22"/>и у<hi rendition="#pal">б</hi>аж<hi rendition="#accent">а</hi>л. И<hi rendition="#pal">д</hi>о<hi rendition="#pal">т</hi> он, а стужа
+            
+          
+        <!-- PAGE 2 -->
+        <pb n="70"/>
+            <lb n="01"/>кос<hi rendition="#pal">т</hi>и халади<hi rendition="#pal">т</hi>, па(д)т спот <hi rendition="#pal">л</hi>э<hi rendition="#pal">з</hi>эт,
+            <lb n="02"/>а ша<hi rendition="#pal">н</hi>э<hi rendition="#pal">л</hi>ка у <hi rendition="#pal">н</hi>аво чаj ни ис
+            <lb n="03"/><hi rendition="#accent">а</hi>глицкава су<hi rendition="#pal">к</hi>на. <hi rendition="#pal">В</hi>и<hi rendition="#pal">д</hi>ит, стаит
+            <lb n="04"/>в натго<hi rendition="#pal">р</hi>jэ храм божыj, макаф<hi rendition="#pal">к</hi>и
+            <lb n="05"/>залатыjа б<hi rendition="#pal">л</hi>ас<hi rendition="#pal">т</hi>ат. Зашол он, 
+            <lb n="06"/>аукнул, ан <hi rendition="#pal">н</hi>эт никаво. Вдруг
+            <lb n="07"/><hi rendition="#pal">в</hi>и<hi rendition="#pal">д</hi>ит, спускаjэ<del type="letter" rendition="#overstrike">тс</del>ца на <hi rendition="#pal">н</hi>аво
+            <lb n="08"/>ч<hi rendition="#accent">у</hi><hi rendition="#pal">д</hi>ища, а на <hi rendition="#pal">в</hi>ит б<hi rendition="#accent">у</hi>та баба.
+            <lb n="09"/>И слышыт он голас вдавы: "<hi rendition="#pal">Н</hi>а
+            <lb n="10"/>заха<hi rendition="#pal">т</hi>эл Хам<hi rendition="#accent">а</hi> са мноjу, та<hi rendition="#pal">к</hi>
+            <lb n="11"/>и <hi rendition="#pal">н</hi>а жы<hi rendition="#pal">т</hi> <hi rendition="#pal">т</hi>а<hi rendition="#pal">б</hi>э б<hi rendition="#accent">о</hi><hi rendition="#pal">л</hi>э". И п<hi rendition="#accent">а</hi>-
+            <lb n="12"/><hi rendition="#pal">н</hi>ал Хам<hi rendition="#accent">а</hi>, што вдава эта - ве<hi rendition="#pal">д</hi>ма
+            <lb n="13"/>и налажыл к<hi rendition="#pal">р</hi>эснаjэ зна<hi rendition="#pal">м</hi>эниjэ
+            <lb n="14"/>и прашапт<hi rendition="#accent">а</hi>л аднаму jаму из-
+            <lb n="15"/><hi rendition="#pal">в</hi>эснуjу ма<hi rendition="#pal">л</hi>итву и <hi rendition="#pal">п</hi>арстом пра-
+            <lb n="16"/><hi rendition="#pal">в</hi>ол (3) т<hi rendition="#pal">р</hi>и раза па <hi rendition="#pal">з</hi>ам<hi rendition="#pal">л</hi>э вкрух
+            <lb n="17"/><hi rendition="#pal">с</hi>а<hi rendition="#pal">б</hi>а. <hi rendition="#pal">Н</hi>а можэт вэ<hi rendition="#pal">д</hi>ма за
+            <lb n="18"/>кард<hi rendition="#accent">о</hi>н этат <hi rendition="#pal">н</hi>а<hi rendition="#pal">в</hi>и<hi rendition="#pal">д</hi>имыj пра-
+            <lb n="19"/>бра<hi rendition="#pal">т</hi>са, а тут гаспо<hi rendition="#pal">т</hi> Бох
+            <lb n="20"/>в<hi rendition="#pal">н</hi>ал Ха<hi rendition="#pal">м</hi><hi rendition="#accent">э</hi>: прака<hi rendition="#pal">т</hi>ил<hi rendition="#pal">с</hi>а гром
+            <lb n="21"/>па <hi rendition="#pal">з</hi>ам<hi rendition="#pal">л</hi>э и упала <hi rendition="#pal">в</hi>э<hi rendition="#pal">д</hi>ма
+            <lb n="22"/><hi rendition="#pal">б</hi>эздыханаjа.
+          </p> 
+          
+          <p rendition="#indent">
+            <lb n="23"/>Тут и скас<hi rendition="#pal">к</hi>э ка<hi rendition="#pal">н</hi>эц.
+          </p>  
+
+        <add place="bottom-right" hand="#hand-collectors">
+          <signed>Записана от
+            <persName xml:lang="ru" role="narrator" type="pseudonym" key="nar006">
+              nar006
+            </persName>. 
+            пос. Лавры
+          </signed>
+        </add>
+      </div>
+    </body>
+  </text>
+</TEI> 

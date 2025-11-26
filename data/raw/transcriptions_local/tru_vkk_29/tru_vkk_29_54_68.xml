@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title type="supplied" xml:lang="en">The Tale of Prince Bova</title>
+        <title type="supplied" xml:lang="ru">Сказка о Бове Королевиче</title>
+        <respStmt>
+          <resp>Transcription</resp>
+          <name>Evgeniia Vdovichenko</name>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>For research use; rights depend on the holding archive.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <!-- Collection identifiers -->
+            <repository>Estonian Folklore Archives (ERA)</repository>
+            <collection xml:lang="et">TRÜ, VKK (Tartu Riiklik Ülikool, Vene keele kateeder)</collection>
+            <collection xml:lang="ru">Тартуский университет, кафедра русского языка</collection>
+            <collection xml:lang="en">University of Tartu, Department of Russian Language</collection>
+            <idno>29</idno>
+          </msIdentifier>
+          <physDesc>
+            <handDesc>
+            <!-- Candidates -->
+            <handNote xml:id="hand-col009" medium="ink">
+              <persName xml:lang="ru" role="collector" type="pseudonym" key="col009">col009</persName>
+            </handNote>
+            <handNote xml:id="hand-col017" medium="ink">
+              <persName xml:lang="ru" role="collector" type="pseudonym" key="col017">col017</persName>
+            </handNote>
+            <handNote xml:id="hand-col020" medium="ink">
+              <persName xml:lang="ru" role="collector" type="pseudonym" key="col020">col020</persName>
+            </handNote>
+            <!-- Collector’s hand uncertain; one of:  -->
+              <handNote xml:id="hand-collectors" medium="ink">
+                <desc>Unknown collector’s hand; one of:
+                  <ref target="#hand-col009">col009</ref>,
+                  <ref target="#hand-col017">col017</ref>,
+                  <ref target="#hand-col020">col020</ref>
+                </desc>
+              </handNote>
+            </handDesc>
+            <p>Manuscript; page and line references follow the original.</p>
+          </physDesc>
+          <history>
+            <origin>
+              <origDate from="1966-07-13" to="1966-07-21">13-21 июля 1966</origDate>
+              <origPlace>
+                <placeName xml:lang="et" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=mm&amp;lang=en&amp;kohanimi=96013526&amp;f2v=Y&amp;f3v=Y&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;f14v=Y&amp;of=tb">
+                Pihkva oblast, Izborskij ss, Dubrovka
+                </placeName>
+                <placeName xml:lang="ru" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=mm&amp;lang=en&amp;kohanimi=96013526&amp;f2v=Y&amp;f3v=Y&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;f14v=Y&amp;of=tb">
+                Россия, Псковская область, Ирбосский район, Дубровка к.
+                </placeName>
+                <placeName xml:lang="en" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=mm&amp;lang=en&amp;kohanimi=96013526&amp;f2v=Y&amp;f3v=Y&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;f14v=Y&amp;of=tb">
+                Pskovskaya oblast’, Dubrovka
+                </placeName>
+              </origPlace>
+            </origin>
+          </history>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <transcriptionDesc>
+        <p>This file’s primary layer is a phonetic transcription as recorded by the collector; it preserves original diacritics and signs (see #accent, 
+          #long, #pal, #underbar, #underparen, #pause1/#pause2). No orthographic normalization layer is provided in this file.
+        </p>
+      </transcriptionDesc>
+
+      <projectDesc>
+        <p>Encoded with TEI; page breaks via &lt;pb n=""/&gt;, line breaks via &lt;lb n=""/&gt;.</p>
+      </projectDesc>
+
+      <tagsDecl>
+        <rendition xml:id="indent">paragraph indent</rendition>
+        <rendition xml:id="pause1">short pause (|)</rendition>
+        <rendition xml:id="pause2">long pause (||)</rendition>
+        <rendition xml:id="pal">palatalization mark</rendition>
+        <rendition xml:id="accent">stress mark</rendition>
+        <rendition xml:id="long">long sound (vowel, consonant or hard articulation)</rendition>
+        <rendition xml:id="underbar">underbar on letter (syllabic/reduced articulation)</rendition>
+        <rendition xml:id="underparen">under-arc between words (single)</rendition>
+        <rendition xml:id="overstrike">overstrike (struck/erased mark)</rendition>
+        <rendition xml:id="sup">superscript letter (above)</rendition>
+        <rendition xml:id="overwrite">overwritten (overpainted) correction</rendition>
+        <rendition xml:id="underline">single underline</rendition>
+      </tagsDecl>
+
+      <charDecl>
+        <char xml:id="accentChar">
+          <charName>COMBINING ACUTE ACCENT</charName>
+          <mapping type="unicode">U+0301</mapping>
+          <!-- ́ -->
+          <desc>Stress mark; combining diacritic applied to preceding base character.</desc>
+        </char>
+
+        <char xml:id="longChar">
+          <charName>COMBINING MACRON</charName>
+          <mapping type="unicode">U+0304</mapping>
+          <!-- ̄ -->
+          <desc>Length mark over vowels or consonants.</desc>
+        </char>
+
+        <char xml:id="palChar">
+          <charName>MODIFIER LETTER PRIME</charName>
+          <mapping type="unicode">U+02B9</mapping>
+          <!-- ʹ -->
+          <desc>Palatalization mark after consonant.</desc>
+        </char>
+
+        <char xml:id="underparenChar">
+          <charName>UNDERTIE</charName>
+          <mapping type="unicode">U+203F</mapping>
+          <!-- ‿ -->
+          <desc>Under-arc joining words (sandhi tie).</desc>
+        </char>
+
+        <char xml:id="pause1Char">
+          <charName>VERTICAL LINE</charName>
+          <mapping type="unicode">U+007C</mapping>
+          <!-- | -->
+          <desc>Short pause.</desc>
+        </char>
+
+        <char xml:id="pause2Char">
+          <charName>DOUBLE VERTICAL LINE</charName>
+          <mapping type="unicode">U+2016</mapping>
+          <!-- ‖ -->
+          <desc>Long pause.</desc>
+        </char>
+
+        <char xml:id="underbarChar">
+          <charName>COMBINING LOW LINE</charName>
+          <mapping type="unicode">U+0332</mapping>
+          <!-- ̲ -->
+         <desc>Underbar diacritic; may mark syllabic consonant or reduced vowel context.</desc>
+        </char>
+      </charDecl>
+      
+      <classDecl>
+        <taxonomy xml:id="grapheme">
+          <category xml:id="pal">
+            <catDesc>Soft (palatalized) consonant</catDesc>
+          </category>
+          <category xml:id="length">
+           <catDesc>Long vowel or consonant (duration mark)</catDesc>
+          </category>
+          <category xml:id="pause">
+            <catDesc>Pause marks in performance transcription</catDesc>
+          </category>
+          <category xml:id="stress">
+            <catDesc>Stressed vowel</catDesc>
+          </category>
+        </taxonomy>
+        <taxonomy xml:id="transcrType">
+          <category xml:id="phonetic">
+            <catDesc>Phonetic transcription</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+      
+      <editorialDecl>
+        <p>Transcription type: phonetic (collector’s notation preserved).</p>
+
+        <p><b>Stress (</b><code>#accent</code><b>):</b> retained in <code>orig</code> as <code>&lt;hi rendition="#accent"/&gt;</code>; 
+              omitted in normalized exports.
+        </p>
+        <p><b>Length (</b><code>#long</code><b>):</b> retained in <code>orig</code> as <code>&lt;hi rendition="#long"/&gt;</code>; 
+              normalization may resolve to doubling or vowel length per legend/context (documented elsewhere).
+        </p>
+        <p><b>Palatalization (</b><code>#pal</code><b>):</b> retained after the base consonant as <code>&lt;hi rendition="#pal"/&gt;</code>; 
+              normalization may map to ь.
+        </p>
+        <p><b>Under-arc joins (</b><code>#underparen</code><b>):</b> retained as <code>&lt;g ref="#underparenChar" place="below"/&gt;</code>; 
+              not interpreted as morphological joining in this edition; optional conversion to <code>&lt;join type="word-merge"/&gt;</code> may 
+              be added later via script.
+        </p>
+        <p><b>Pauses (</b><code>#pause1/#pause2</code><b>):</b> retained as <code>&lt;pause rendition="#pause1"/&gt;</code> / <code>&lt;pause rendition="#pause2"/&gt;</code>
+              in <code>orig</code>; dropped from orthographic NLP export; may be rendered as “|”/“‖” in phonetic export.
+        </p>
+        <p><b>Struck marks:</b> crossed out signs encoded as <code>&lt;del rendition="#overstrike"&gt;…&lt;/del&gt;</code>.
+        </p>
+        <p>Syllabic consonants or reduced vowels are marked as <code>&lt;hi rendition="#underbar"/&gt;</code> (Unicode U+0332).</p>
+      </editorialDecl>
+    </encodingDesc>
+
+    <profileDesc>
+      <langUsage>
+        <language ident="ru">Russian</language>
+      </langUsage>
+      <textClass>
+        <catRef target="#phonetic"/>
+        <keywords scheme="local">
+          <term>genre: SKAZKA</term>
+        </keywords>
+      </textClass>
+    </profileDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+      
+      <div type="magic_tale" xml:id="tru_vkk_29_54_68" n="68">
+        <!-- Optional: store collection/volume as attributes for quick access -->
+
+        <!-- PAGE 1 -->
+        <pb n="54"/>
+          <p rendition="#indent">
+            <lb n="01"/>В некатарам царстви, в некатарам
+            <lb n="02"/>государстви или в том, каторам мы
+            <lb n="03"/>щас живём жил-был ца<hi rendition="#pal">р</hi> па имини
+            <lb n="04"/>Вислаф Андронавич. Вот он слюбил<hi rendition="#pal">с</hi>а с
+            <lb n="05"/>с адной палюбовницай. Он, кагда паехал
+            <lb n="06"/>к ней, у яво радил<hi rendition="#pal">с</hi>а сын Бава Кара-
+            <lb n="07"/>левич. И вот, кагда он уехал, астала<hi rendition="#pal">с</hi>
+            <lb n="08"/>у няго дома одна жана и приехал
+            <lb n="09"/>к ней другой мущина - наездник. 
+            <lb n="10"/><subst><del type="letter" rendition="#overwrite">о</del><add place="inline">А</add></subst> в ней был уже ма<hi rendition="#pal">л</hi>чик ради<subst><del type="letter" rendition="#overwrite">в</del><add place="inline">ф</add></subst>ши.
+            <lb n="11"/>Ани наряшили исхити<hi rendition="#pal">т</hi> ма<hi rendition="#pal">л</hi>чика.
+            <lb n="12"/>Кагда палюбовник ряшил ма<hi rendition="#pal">л</hi>чика утра-
+            <lb n="13"/>ви<hi rendition="#pal">т</hi>, но ма<hi rendition="#pal">т</hi> ни сагласила<hi rendition="#pal">с</hi> этава
+            <lb n="14"/>здела<hi rendition="#pal">т</hi>. Тагда ана сказала, што атвя-
+            <lb n="15"/>дити ма<hi rendition="#pal">л</hi>чика в падвал и пускай он
+            <lb n="16"/>там памре голадом. Он сидел там
+            <lb n="17"/>ни ефши, ни пифши се<hi rendition="#pal">м</hi> дней. 
+            <lb n="18"/>Чирис се<hi rendition="#pal">м</hi> дней он стал на акно
+            <lb n="19"/>погриба и стал крича<hi rendition="#pal">т</hi>: милая
+            <lb n="20"/>мая нянюшка дай мне стакан вады
+            <lb n="21"/>и какую-нибу<hi rendition="#pal">т</hi> плиснючаю корачку. 
+            <lb n="22"/>Тагда нянюшка исжалила<hi rendition="#pal">с</hi> над ним,
+            <lb n="23"/>пашла в комнату, взила неска<hi rendition="#pal">л</hi>ко
+            <lb n="24"/>кускоф хлеба и стакан вады и пашла
+            
+          
+        <!-- PAGE 2 -->
+        <pb n="55"/>
+            <lb n="01"/>к ма<hi rendition="#pal">л</hi>чику. Но в дви<hi rendition="#pal">р</hi>ах пазнакомил 
+            <lb n="02"/>этат наездник. Он спрасил што
+            <lb n="03"/>куда ты нясеш<del type="letter" rendition="#overstrike">ь</del> хлеп и стакан вады.
+            <lb n="04"/>Ана атветила: госпади божи мой,
+            <lb n="05"/>гаварит, се<hi rendition="#pal">м</hi> млетево сбирягла
+            <lb n="06"/>и он с голоду памирае наш Бава
+            <lb n="07"/>Каралевич. Тагда он вирнул её
+            <lb n="08"/>абратна. Намазал хлеп ядам, 
+            <lb n="09"/>штобы ма<hi rendition="#pal">л</hi>чик атравил<hi rendition="#pal">с</hi>а, и
+            <lb n="10"/>атдал нянюшки. А в них была
+            <lb n="11"/>там горнична сабачка. Кагда нянюшка
+            <lb n="12"/>падашла к погрибу, тагда она
+            <lb n="13"/>атветила Баве Каралевичу: милай
+            <lb n="14"/>мой сынок Б.К. я нису тибе
+            <lb n="15"/>хлеба и стакан вады. Но он
+            <lb n="16"/>травлёный. Таг<subst><del type="letter" rendition="#overwrite">б</del><add place="inline">д</add></subst>а Бава Каралевич
+            <lb n="17"/>гаварит: милая мая нянюшка
+            <lb n="18"/>аста<hi rendition="#pal">ф</hi> мне проста двери. Нянюш-
+            <lb n="19"/>ка так и аставила яму двери
+            
+
+        <!-- PAGE 3 -->
+        <pb n="56"/>
+            <lb n="01"/>просты. Он даждал<hi rendition="#pal">с</hi>а ночи и 
+            <lb n="02"/>вышел с погребу. Шёл день, 
+            <lb n="03"/>другой, на третий де<hi rendition="#pal">н</hi> стал
+            <lb n="04"/>чуствава<hi rendition="#pal">т</hi> си<hi rendition="#pal">б</hi>а усталым, но
+            <lb n="05"/>паследния силы умножил и 
+            <lb n="06"/>пашёл да<hi rendition="#pal">л</hi>ши. Вдрук пришёл
+            <lb n="07"/>в низнакомае гасударства. Зашёл
+            <lb n="08"/>туда и папал к царю Афрону.
+            <lb n="09"/>Тагда ца<hi rendition="#pal">р</hi> Афрон иво спрасил:
+            <lb n="10"/>ис какова ты гасударства? Он
+            <lb n="11"/>атветил: сам я из гасударства
+            <lb n="12"/>Бабинавы, ма<hi rendition="#pal">т</hi> мая прачка, 
+            <lb n="13"/>атец мой трубачист. Ца<hi rendition="#pal">р</hi> яво
+            <lb n="14"/>принял. Он пражил неска<hi rendition="#pal">л</hi>ка
+            <lb n="15"/>времени. Уж стала ему деся<del type="letter" rendition="#overstrike">ь</del><add place="inline"><hi rendition="#pal">т</hi></add>
+            <lb n="16"/>лет. У царя была оче<hi rendition="#pal">н</hi> кра-
+            <lb n="17"/>сивая дочка. 
+            <lb n="18"/>(Тут <subst><del type="word" rendition="#overstrike">рассказчик</del><add place="above">сказочник</add></subst> сказал, что он
+            <lb n="19"/>пропустил приключения Бовы и 
+            <lb n="20"/>принялся их рассказывать.)
+          </p> 
+            
+        
+        <!-- PAGE 4 -->
+        <pb n="57"/>
+          <p rendition="#indent">
+            <lb n="01"/>Кагда ис погриба вышил, то па-
+            <lb n="02"/>пал к разбойникам. Там он пра-
+            <lb n="03"/>жил 3 года. Деся<hi rendition="#pal">т</hi> лет стало.
+            <lb n="04"/>Разбойники ездили варава<hi rendition="#pal">т</hi>, а
+            <lb n="05"/>он аставал<hi rendition="#pal">с</hi>а. Стали они ат-
+            <lb n="06"/>правля<hi rendition="#pal">т</hi> тавары заграницу. Он
+            <lb n="07"/>стал прасиц<del type="letter" rendition="#overstrike">с</del>а с ними. Поехали. 
+            <lb n="08"/>Им нада была аграби<hi rendition="#pal">т</hi> адин
+            <lb n="09"/>магазин. Ма<hi rendition="#pal">л</hi>чик забрал<hi rendition="#pal">с</hi>я на-
+            <lb n="10"/>верх как кошка и стал выбра-
+            <lb n="11"/>сыва<hi rendition="#pal">т</hi> сукна и разные тавары. 
+            <lb n="12"/>Важаку пандравила<hi rendition="#pal">с</hi>, што ха-
+            <lb n="13"/>рашо ма<hi rendition="#pal">л</hi>чик работал. Тагда
+            <lb n="14"/>стали атправля<hi rendition="#pal">т</hi> тавары на
+            <lb n="15"/>парахот. Ма<hi rendition="#pal">л</hi>чик стал пра-
+            <lb n="16"/>сица тоже. Ряшили взя<hi rendition="#pal">т</hi>
+            <lb n="17"/>ево с сабой и пустилися в море. 
+            <lb n="18"/>На карабле он стал всё ра<hi rendition="#long">щ</hi>у-
+            <lb n="19"/>пыва<hi rendition="#pal">т</hi>, как карабе<hi rendition="#pal">л</hi> идёт. Карабе<hi rendition="#pal">л</hi>
+            <lb n="20"/>збил<hi rendition="#pal">с</hi> с прави<hi rendition="#pal">л</hi>най пути и ня
+            <lb n="21"/>пашёл па прави<hi rendition="#pal">л</hi>ной дороги и при-
+            
+
+        <!-- PAGE 5 -->
+        <pb n="58"/>
+            <lb n="01"/>ехали в незнакомае гасударства.
+            <lb n="02"/>Нача<hi rendition="#pal">л</hi>ник сказал разузнайте, што
+            <lb n="03"/>за гасударства. Адин пашол. Тагда
+            <lb n="04"/>ца<hi rendition="#pal">р</hi> выслал стражу штобы па-
+            <lb n="05"/>сматре<hi rendition="#pal">т</hi> щем пришоцы карабе<hi rendition="#pal">л</hi>.
+            <lb n="06"/>Пасы<hi rendition="#pal">л</hi>ным папал<hi rendition="#pal">с</hi>а этат ма<hi rendition="#pal">л</hi>чик
+            <lb n="07"/>навстречу. Он загаварил их
+            <lb n="08"/>так, што ани забыли зачем
+            <lb n="09"/>пришли. Паслали втарую стражу.
+            <lb n="10"/>Такжи. Тагда пашол сам 
+            <lb n="11"/>ца<hi rendition="#pal">р</hi>, узна<hi rendition="#pal">т</hi> што за ма<hi rendition="#pal">л</hi>чик
+            <lb n="12"/>такой. Стал распрашива<hi rendition="#pal">т</hi>
+            <lb n="13"/>с щем и как пришол карабе<hi rendition="#pal">л</hi>.
+            <lb n="14"/>Патом стал иска<hi rendition="#pal">т</hi> старшива, 
+            <lb n="15"/>кто хазяин. Тагда он стал 
+            <lb n="16"/>шуме<hi rendition="#pal">т</hi> ни на щёт таварав, 
+            <lb n="17"/>а на щёт таво, штобы прада<hi rendition="#pal">т</hi>
+            <lb n="18"/>этава ма<hi rendition="#pal">л</hi>чика. Фулюганы пери-
+            <lb n="19"/>талкавали и прадали. 
+          </p> 
+
+          <p rendition="#indent">
+            <lb n="20"/>Кагда ца<hi rendition="#pal">р</hi> привёл ма<hi rendition="#pal">л</hi>чика
+            <lb n="21"/>дамой, то паставил ево конюхом
+            <lb n="22"/>на канюшню. У этава царю была
+            <lb n="23"/>оче<hi rendition="#pal">н</hi> красивая дочка.
+    
+
+        <!-- PAGE 6 -->
+        <pb n="59"/>
+            <lb n="01"/>Ма<hi rendition="#pal">л</hi>чику была уже 16-17 лет.
+            <lb n="02"/>Пришло время сенакоса. Ма<hi rendition="#pal">л</hi>чик
+            <lb n="03"/>бегал, сабирал цвяты и плёл
+            <lb n="04"/>вянки. Вечером приежает
+            <lb n="05"/>абратна. Дочка выскачила вон
+            <lb n="06"/>и сарвала с няво адин вянок. 
+            <lb n="07"/>Яму стала стыдно. Он запря-
+            <lb n="08"/>та<hi rendition="#pal">л</hi>а в канюшни. Яво три
+            <lb n="09"/>дня разыскивали и кагда нашли
+            <lb n="10"/>привяли в комнаты. Ца<hi rendition="#pal">р</hi> спра-
+            <lb n="11"/>шиваит пачяму ты стисняиш-
+            <lb n="12"/><hi rendition="#pal">с</hi>а, ана хочит пашути<hi rendition="#pal">т</hi>. Уга-
+            <lb n="13"/>варили яво и дочка гаварит
+            <lb n="14"/>ва<hi rendition="#pal">з</hi>мём яво в прислуги. Он
+            <lb n="15"/>прожил так три года. Ани уже 
+            <lb n="16"/>пазнакомили<hi rendition="#pal">с</hi> с этай девачкой. 
+            <lb n="17"/>И ани друк в друга влюбили<hi rendition="#pal">с</hi>. 
+            <lb n="18"/>Аднажды он увидил, што вся
+            <lb n="19"/>симья в растрои. Тагда он стал
+            <lb n="20"/>спрашива<hi rendition="#pal">т</hi> у дочки царя, пачи-
+            <lb n="21"/>му ана в такой пичали. Ана дол-
+            <lb n="22"/>га ня гаварила. Патом сказала. 
+            
+            
+        <!-- PAGE 7 -->
+        <pb n="60"/>
+            <lb n="01"/>Пад наши гасдарства падходит
+            <lb n="02"/>ниприяти<hi rendition="#pal">л</hi>, хочит миня замуш
+            <lb n="03"/>взя<hi rendition="#pal">т</hi>, папу с мамой в плен
+            <lb n="04"/>забра<hi rendition="#pal">т</hi>, а племя зжеч и пепил
+            <lb n="05"/>разбраса<hi rendition="#pal">т</hi> па воздуху. 
+          </p> 
+
+          <p rendition="#indent">
+            <lb n="06"/>- Разряшите мне с вашим
+            <lb n="07"/>папай пашуме<hi rendition="#pal">т</hi>. Он пашёл
+            <lb n="08"/>к царю и стал проси<hi rendition="#pal">т</hi> разре-
+            <lb n="09"/>шения срази<subst><del type="letter" rendition="#overwrite">т</del><add place="inline">ц</add></subst>а с неприятелем.
+            <lb n="10"/>Ца<hi rendition="#pal">р</hi> гаварит: "Ох, маладой
+            <lb n="11"/>юноша, всё маё войско бяжит
+            <lb n="12"/>абратна, а ты хочеш срази<subst><del type="letter" rendition="#overwrite">т</del><add place="inline">ц</add></subst>а."
+            <lb n="13"/>Но ца<hi rendition="#pal">р</hi> удяржа<hi rendition="#pal">т</hi> яво ни мог. 
+            <lb n="14"/>Он тагда вышил на канюшню, 
+            <lb n="15"/>сел на каня, взял железную
+            <lb n="16"/>матыгу и пихалку для навоза
+            <lb n="17"/>и паехал сражаца. И начал
+            <lb n="18"/>разбрасыва<hi rendition="#pal">т</hi> ниприятеля:
+            <lb n="19"/>направа пятнаца<hi rendition="#pal">т</hi> валица, 
+            <lb n="20"/>налива - дваца<hi rendition="#pal">т</hi>. И мамин-
+            <lb n="21"/>та<hi rendition="#pal">л</hi>но перибил эта войска.
+            <lb n="22"/>Вярнул<hi rendition="#pal">с</hi>а абратна. Ево при-
+          
+
+        <!-- PAGE 8 -->
+        <pb n="61"/>
+            <lb n="01"/>няли с калако<hi rendition="#pal">л</hi>ным звонам.
+            <lb n="02"/>Тагда ца<hi rendition="#pal">р</hi> стал спрашива<hi rendition="#pal">т</hi>
+            <lb n="03"/>с какова он гасударства. Он
+            <lb n="04"/>не признал<hi rendition="#pal">с</hi>а.
+          </p> 
+
+          <p rendition="#indent">
+            <lb n="05"/>- Если жалаеш<del type="diacritic" rendition="#overstrike"><hi rendition="#pal"/></del>, я магу
+            <lb n="06"/>атда<hi rendition="#pal">т</hi> тебе палавину сваево
+            <lb n="07"/>гасударства или дочк<subst><del type="letter" rendition="#overwrite">ь</del><add place="inline">у</add></subst> замуш.
+          </p> 
+
+          <p rendition="#indent">
+            <lb n="08"/>Он ничиво ня взял. Пражил 
+            <lb n="09"/>там еще неска<hi rendition="#pal">л</hi>ка лет. Тагда
+            <lb n="10"/>паявил<hi rendition="#pal">с</hi>а втарой багаты<hi rendition="#pal">р</hi>
+            <lb n="11"/>галава с пивной катёл, а в 
+            <lb n="12"/>плечах касая саже<hi rendition="#pal">н</hi>. Гаварит
+            <lb n="13"/>если ни атдаш<del type="diacritic" rendition="#overstrike"><hi rendition="#pal"/></del> сваю дочку, 
+            <lb n="14"/>то буду тибя голадам ма-
+            <lb n="15"/>ри<hi rendition="#pal">т</hi>, холадом, а всё равно в 
+            <lb n="16"/>плен забяру. Бава каралевич
+            <lb n="17"/>апя<hi rendition="#pal">т</hi> стал просит сразица. 
+            <lb n="18"/>Ца<hi rendition="#pal">р</hi> сказал: "Так тибя ни-
+            <lb n="19"/>как с ним ни сразица. Ес<hi rendition="#pal">т</hi>
+            <lb n="20"/>у маево дедушки ко<hi rendition="#pal">н</hi> за
+            <lb n="21"/>двинацатью ципями в земли.
+            
+
+        <!-- PAGE 9 -->
+        <pb n="62"/>
+            <lb n="01"/>Авёс сыплют па к<subst><del type="letter" rendition="#overwrite">ь</del><add place="inline">у</add></subst>зову па
+            <lb n="02"/>трубам. Если сможим с ним 
+            <lb n="03"/>работа<hi rendition="#pal">т</hi>, разряшим даста<hi rendition="#pal">т</hi>. 
+            <lb n="04"/>Скора пришли слуги, шес<hi rendition="#pal">т</hi>
+            <lb n="05"/>двирей аткрыли, а шес<hi rendition="#pal">т</hi>
+            <lb n="06"/>астала<hi rendition="#pal">с</hi> не аткрыта. Тагда
+            <lb n="07"/>Бава Каралевич крикнул: Ми-
+            <lb n="08"/>лой мой конь Чёрный Вихо<hi rendition="#pal">р</hi>
+            <lb n="09"/>ста<hi rendition="#pal">н</hi> пирида мной как лист
+            <lb n="10"/>пирид травой. Кагда ко<hi rendition="#pal">н</hi> услы-
+            <lb n="11"/>шал, стал лама<hi rendition="#pal">т</hi> двери и
+            <lb n="12"/>рва<hi rendition="#pal">т</hi> цепи. <w>с<subst><del rendition="#overwrite">а</del><add place="inline">л</add></subst><subst><del rendition="#overstrike">рв</del><add place="above">ам</add></subst>ал</w> шес<hi rendition="#pal">т</hi>
+            <lb n="13"/>двирей, сарвал двинаца<hi rendition="#pal">т</hi> ци-
+            <lb n="14"/>пей и выпрыгнул на волю. Ха-
+            <lb n="15"/>тел пасматре<hi rendition="#pal">т</hi> кто яво кри-
+            <lb n="16"/>чал, а Бава Каралевич уже сидел
+            <lb n="17"/>на ём. Кагда он неско<hi rendition="#pal">л</hi>ко кру-
+            <lb n="18"/>гов сделал, тагда ко<hi rendition="#pal">н</hi> успакоил-
+            <lb n="19"/><hi rendition="#pal">с</hi>а, а Бава слез с каня и 
+            <lb n="20"/>пашёл к царю гаварит: "Ми-
+            <lb n="21"/>ластивый гасуда<hi rendition="#pal">р</hi>-батюшка
+            <lb n="22"/>разряшите мне слова сказа<hi rendition="#pal">т</hi>
+            <lb n="23"/>Ес<hi rendition="#pal">т</hi> у вас аружие ат лоша-
+            
+
+        <!-- PAGE 10 -->
+        <pb n="63"/>
+            <lb n="01"/>ди или нету? Тагда ца<hi rendition="#pal">р</hi>
+            <lb n="02"/>павел яво ва втарой погриб:
+            <lb n="03"/>"Если ни сможи<hi rendition="#pal">ш</hi> с этим
+            <lb n="04"/>мичом абращаца, то тябе
+            <lb n="05"/>багатыря ня пабеди<hi rendition="#pal">т</hi>. Взял
+            <lb n="06"/>два мича одина на  пийсят
+            <lb n="07"/>пудов, один<del type="letter" rendition="#overstrike">а</del> на двацатпя<hi rendition="#pal">т</hi>.
+            <lb n="08"/>Бава взял на 25 пудов и бросил
+            <lb n="09"/>как сухую лучину. Оче<hi rendition="#pal">н</hi> лёхкий.
+            <lb n="10"/>Взял на 50 пудов. Когда он выи-
+            <lb n="11"/>хал в чистае поле, то увидил, 
+            <lb n="12"/>што всё царское войско бя-
+            <lb n="13"/>жит абратна. Бава пригато-
+            <lb n="14"/>вил меч и паехал на бага-
+            <lb n="15"/>тыря и разрубил яво на
+            <lb n="16"/>две части. Вся царская 
+            <lb n="17"/>семья наблюдала эта. Бава К.
+            <lb n="18"/>павернул абратна г<g ref="#underparenChar" place="below"/>дому. 
+            <lb n="19"/>ца<hi rendition="#pal">р</hi> аставил яво за сына. 
+            <lb n="20"/>После этава все улягли<hi rendition="#pal">с</hi>
+            <lb n="21"/>спа<hi rendition="#pal">т</hi>.
+          </p> 
+
+          <p rendition="#indent">
+            <lb n="22"/>Старые конюхи стали
+            <lb n="23"/>завидова<hi rendition="#pal">т</hi> яму. Они задума-
+           
+
+        <!-- PAGE 11 -->
+        <pb n="64"/>
+            <lb n="01"/>ли уничтожи<hi rendition="#pal">т</hi> яво. Адин
+            <lb n="02"/>конюх придлажил: " <subst><del type="letter" rendition="#overwrite">С</del><add place="inline">З</add></subst>делаим 
+            <lb n="03"/>абложнае пи<hi rendition="#pal">с</hi>мо и пашлём
+            <lb n="04"/>яво к царю Далмату. Дастали
+            <lb n="05"/>царскую адежду. Один адел её
+            <lb n="06"/>и пришёл к Баве. Тот падумал
+            <lb n="07"/>што это ца<hi rendition="#pal">р</hi> и паехал с  
+            <lb n="08"/>пи<hi rendition="#pal">с</hi>мом к Далмату. Он 
+            <lb n="09"/>ехал де<hi rendition="#pal">н</hi>, другой и третий.
+            <lb n="10"/>Было жарко. Жажда стала яво
+            <lb n="11"/>адалева<hi rendition="#pal">т</hi>. Он захател пи<hi rendition="#pal">т</hi>
+            <lb n="12"/>хо<hi rendition="#pal">т</hi> грязи. Вдрук видит ста-
+            <lb n="13"/>рик бирёт воду с калоца. О
+            <lb n="14"/>к ниму падъехал и папрасил
+            <lb n="15"/>вады. Старик налил вады
+            <lb n="16"/>и всыпал туда со<hi rendition="#long">н</hi>ых капи<hi rendition="#pal">л</hi>.
+            <lb n="17"/>Бава заснял и упал с лошади.
+            <lb n="18"/>Так он пролижал три дня. 
+            <lb n="19"/>Старик увёл коня и забрал
+            <lb n="20"/>меч. <subst><del type="letter" rendition="#overwrite">О</del><add place="inline">А</add></subst>ставил адно пи<hi rendition="#pal">с</hi>мо. 
+            <lb n="21"/>Бава пашёл пешим. Ско<hi rendition="#pal">л</hi>ка
+            <lb n="22"/>ни шол дабрал<hi rendition="#pal">с</hi>а да царя
+            <lb n="23"/>Далмата. Кагда Далмат
+      
+
+        <!-- PAGE 12 -->
+        <pb n="65"/>
+            <lb n="01"/>стал чита<hi rendition="#pal">т</hi> пи<hi rendition="#pal">с</hi>мо, яво
+            <lb n="02"/>глаза налили<hi rendition="#pal">с</hi> кровью. Говорит
+            <lb n="03"/>папал<hi rendition="#pal">с</hi>а ты мне на зубы, ты
+            <lb n="04"/>убил 3-ёх маих братьив.
+            <lb n="05"/>Я тиб<subst><del type="letter" rendition="#overwrite">у</del><add place="inline">я</add></subst> уничтожу. Тагда
+            <lb n="06"/>схватили Баву и пасадили
+            <lb n="07"/>в падвал. Там сидел он три 
+            <lb n="08"/>дня и стал дума<hi rendition="#pal">т</hi> как
+            <lb n="09"/>спасти<hi rendition="#pal">с</hi>. Он стал разыскива<hi rendition="#pal">т</hi>
+            <lb n="10"/>кусок жилеза и нашёл старый 
+            <lb n="11"/>засоф. Стал с ним в тёмный
+            <lb n="12"/>угалок. Кагда туда вхадила
+            <lb n="13"/>войска, он убивал всех сначала
+            <lb n="14"/>па два, па три, па пятку...
+            <lb n="15"/>пака ни пирибил всех. Выска-
+            <lb n="16"/>чил из падвала, пашол на море.
+            <lb n="17"/>Видит, стаит карабе<hi rendition="#pal">л</hi>. вска-
+            <lb n="18"/>чил на ниво и стал крича<hi rendition="#pal">т</hi>:
+            <lb n="19"/>"<subst><del type="letter" rendition="#overwrite">О</del><add place="inline">А</add></subst>тчаливайти!" Ево ни стали
+            <lb n="20"/>слуша<hi rendition="#pal">т</hi>. Он начал матрософ
+            <lb n="21"/>браса<hi rendition="#pal">т</hi> в воду. Сам сел за 
+            <lb n="22"/>ру<hi rendition="#pal">л</hi> и паехал, куда глаза гли-
+            <lb n="23"/>дят. Ехал двое суток по
+            
+
+        <!-- PAGE 13 -->
+        <pb n="66"/>
+            <lb n="01"/>вады, выехал на то место, где
+            <lb n="02"/>пил воду у старика. И пашол
+            <lb n="03"/>па лугу. видит этава старика, 
+            <lb n="04"/>схватил яво за бороду и начал
+            <lb n="05"/>трясти. Старик испугал<hi rendition="#pal">с</hi>а
+            <lb n="06"/>и гаварит: "Вот твой меч
+            <lb n="07"/>(а падал палку), махни три
+            <lb n="08"/>раза, будет апя<hi rendition="#pal">т</hi> меч. А ко<hi rendition="#pal">н</hi>
+            <lb n="09"/>ходит в лугу. Твая жана у
+            <lb n="10"/>царя Далмата в пляну. На воды,
+            <lb n="11"/>ты будиш старым, если па-
+            <lb n="12"/>моиш<hi rendition="#pal">с</hi>а. Он стал стариком.
+            <lb n="13"/>Пашол к царю Далмату. Жана
+            <lb n="14"/>яво сидела на кры<hi rendition="#pal">л</hi>цах. и
+            <lb n="15"/>адаривала нищих. Но если
+            <lb n="16"/>кто вспаминал пра Баву Коро-
+            <lb n="17"/>левича, таму отрубали голову.
+            <lb n="18"/>Он встал в талпу старикоф, 
+            <lb n="19"/>начал старикоф талка<hi rendition="#pal">т</hi>. Па-
+            <lb n="20"/>дашол к жане и сказал, што
+            <lb n="21"/>он видел нидавна Баву. <subst><del type="letter" rendition="#overwrite">О</del><add place="inline">А</add></subst>на
+            <lb n="22"/>атвила ево в атде<hi rendition="#pal">л</hi>ную
+            <lb n="23"/>старану. Он скащал, што
+            
+
+        <!-- PAGE 14 -->
+        <pb n="67"/>
+            <lb n="01"/>привидёт к ней Баву Кара-
+            <lb n="02"/>левича вечиром в лесу.
+          </p> 
+          
+          <p rendition="#indent">
+            <lb n="03"/>Аблил<hi rendition="#pal">с</hi>а вадой, кат<subst><del type="letter" rendition="#overwrite">у</del><add place="inline">о</add></subst>рую
+            <lb n="04"/>яму дал старик и стал
+            <lb n="05"/>а<hi rendition="#pal">п</hi>а<hi rendition="#pal">т</hi> маладым и краси-
+            <lb n="06"/>вым, пазвал сваяво каня. 
+            <lb n="07"/>Кагда жана яв<subst><del type="letter" rendition="#overwrite">у</del><add place="inline">о</add></subst> увидела, ана
+            <lb n="08"/>схватл яво в ахапки и они 
+            <lb n="09"/>пацелавалиса. Сели ани на 
+            <lb n="10"/>каня и убижали ат царя
+            <lb n="11"/>Далмата.
+          </p> 
+
+          <p rendition="#indent">
+            <lb n="12"/>И жили ани вмести
+            <lb n="13"/>долга и счастлива. 
+          </p> 
+          
+          <p rendition="#indent">
+            <lb n="14"/>Тут и сказки <hi rendition="underline">канец</hi>.
+          </p>
+
+
+        <add place="bottom-right" hand="#hand-collectors">
+          <signed>
+            <persName xml:lang="ru" role="narrator" type="pseudonym" key="nar005">
+              nar005
+            </persName>
+            <lb n="a1"/><seg type="age" rendition="parentheses">около 60-ти лет</seg>
+          </signed>
+        </add>   
+      </div>
+    </body>
+  </text>
+</TEI>

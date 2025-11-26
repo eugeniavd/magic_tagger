@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title type="supplied" xml:lang="en">Untitled tale</title>
+        <title type="supplied" xml:lang="ru">Сказка</title>
+        <respStmt>
+          <resp>Transcription</resp>
+          <name>Evgeniia Vdovichenko</name>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>For research use; rights depend on the holding archive.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <!-- Collection identifiers -->
+            <repository>Estonian Folklore Archives (ERA)</repository>
+            <collection xml:lang="et">TRÜ, VKK (Tartu Riiklik Ülikool, Vene keele kateeder)</collection>
+            <collection xml:lang="ru">Тартуский университет, кафедра русского языка</collection>
+            <collection xml:lang="en">University of Tartu, Department of Russian Language</collection>
+            <idno>18</idno>
+          </msIdentifier>
+          <physDesc>
+            <handDesc>
+            <!-- Candidates -->
+            <handNote xml:id="hand-col018" medium="ink">
+              <persName xml:lang="ru" role="collector" type="pseudonym" key="col018">col018</persName>
+            </handNote>
+            <handNote xml:id="hand-col014" medium="ink">
+              <persName xml:lang="ru" role="collector" type="pseudonym" key="col014">col014</persName>
+            </handNote>
+            <handNote xml:id="hand-col016" medium="ink">
+              <persName xml:lang="ru" role="collector" type="pseudonym" key="col016">col016</persName>
+            </handNote>
+            <!-- Collector’s hand uncertain; one of:  -->
+              <handNote xml:id="hand-collectors" medium="ink">
+                <desc>Unknown collector’s hand; one of:
+                  <ref target="#hand-col018">col018</ref>,
+                  <ref target="#hand-col014">col014</ref>,
+                  <ref target="#hand-col016">col016</ref>,
+                </desc>
+              </handNote>
+            </handDesc>
+            <p>Manuscript; page and line references follow the original.</p>
+          </physDesc>
+          <history>
+            <origin>
+              <origDate when="1964-07">июль 1964</origDate>
+              <origPlace>
+                <placeName xml:lang="et" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=ee&amp;lang=en&amp;kohanimi=Uuskula+k&amp;f2v=Y&amp;keel=&amp;f3v=Y&amp;allikas=&amp;staatus=&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;x1d=&amp;x1m=&amp;x1s=&amp;x2d=&amp;x2m=&amp;x2s=&amp;y1d=&amp;y1m=&amp;y1s=&amp;y2d=&amp;y2m=&amp;y2s=&amp;f14v=Y&amp;of=tb">
+                Kohtla-Järve raj., Uusküla k.
+                </placeName>
+                <placeName xml:lang="ru" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=ee&amp;lang=en&amp;kohanimi=Uuskula+k&amp;f2v=Y&amp;keel=&amp;f3v=Y&amp;allikas=&amp;staatus=&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;x1d=&amp;x1m=&amp;x1s=&amp;x2d=&amp;x2m=&amp;x2s=&amp;y1d=&amp;y1m=&amp;y1s=&amp;y2d=&amp;y2m=&amp;y2s=&amp;f14v=Y&amp;of=tb">
+                Кохтла-Ярвеский район, деревня Уэкюля
+                </placeName>
+                <placeName xml:lang="en" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=ee&amp;lang=en&amp;kohanimi=Uuskula+k&amp;f2v=Y&amp;keel=&amp;f3v=Y&amp;allikas=&amp;staatus=&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;x1d=&amp;x1m=&amp;x1s=&amp;x2d=&amp;x2m=&amp;x2s=&amp;y1d=&amp;y1m=&amp;y1s=&amp;y2d=&amp;y2m=&amp;y2s=&amp;f14v=Y&amp;of=tb">
+                Uusküla village, Kohtla-Järve district
+                </placeName>
+              </origPlace>
+            </origin>
+          </history>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <transcriptionDesc>
+        <p>This file’s primary layer is a phonetic transcription as recorded by the collector; it preserves original diacritics and signs (see #accent, 
+          #long, #pal, #underbar, #underparen, #pause1/#pause2). No orthographic normalization layer is provided in this file.
+        </p>
+      </transcriptionDesc>
+
+      <projectDesc>
+        <p>Encoded with TEI; page breaks via &lt;pb n=""/&gt;, line breaks via &lt;lb n=""/&gt;.</p>
+      </projectDesc>
+
+      <tagsDecl>
+        <rendition xml:id="indent">paragraph indent</rendition>
+        <rendition xml:id="pause1">short pause (|)</rendition>
+        <rendition xml:id="pause2">long pause (||)</rendition>
+        <rendition xml:id="pal">palatalization mark</rendition>
+        <rendition xml:id="accent">stress mark</rendition>
+        <rendition xml:id="long">long sound (vowel, consonant or hard articulation)</rendition>
+        <rendition xml:id="underbar">underbar mark (syllabic consonant or reduced vowel)</rendition>
+        <rendition xml:id="underparen">under-arc between words (single)</rendition>
+        <rendition xml:id="overstrike">overstrike (struck/erased mark)</rendition>
+        <rendition xml:id="sup">superscript letter (above)</rendition>
+        <rendition xml:id="overwrite">overwritten (overpainted) correction</rendition>
+        <rendition xml:id="underline">single underline</rendition>
+      </tagsDecl>
+
+      <charDecl>
+        <char xml:id="accentChar">
+          <charName>COMBINING ACUTE ACCENT</charName>
+          <mapping type="unicode">U+0301</mapping>
+          <!-- ́ -->
+          <desc>Stress mark; combining diacritic applied to preceding base character.</desc>
+        </char>
+
+        <char xml:id="longChar">
+          <charName>COMBINING MACRON</charName>
+          <mapping type="unicode">U+0304</mapping>
+          <!-- ̄ -->
+          <desc>Length mark over vowels or consonants.</desc>
+        </char>
+
+        <char xml:id="palChar">
+          <charName>MODIFIER LETTER PRIME</charName>
+          <mapping type="unicode">U+02B9</mapping>
+          <!-- ʹ -->
+          <desc>Palatalization mark after consonant.</desc>
+        </char>
+
+        <char xml:id="underparenChar">
+          <charName>UNDERTIE</charName>
+          <mapping type="unicode">U+203F</mapping>
+          <!-- ‿ -->
+          <desc>Under-arc joining words (sandhi tie).</desc>
+        </char>
+
+        <char xml:id="pause1Char">
+          <charName>VERTICAL LINE</charName>
+          <mapping type="unicode">U+007C</mapping>
+          <!-- | -->
+          <desc>Short pause.</desc>
+        </char>
+
+        <char xml:id="pause2Char">
+          <charName>DOUBLE VERTICAL LINE</charName>
+          <mapping type="unicode">U+2016</mapping>
+          <!-- ‖ -->
+          <desc>Long pause.</desc>
+        </char>
+
+        <char xml:id="underbarChar">
+          <charName>COMBINING LOW LINE</charName>
+          <mapping type="unicode">U+0332</mapping>
+          <!-- ̲ -->
+         <desc>Underbar diacritic; may mark syllabic consonant or reduced vowel context.</desc>
+        </char>
+      </charDecl>
+      
+      <classDecl>
+        <taxonomy xml:id="grapheme">
+          <category xml:id="pal">
+            <catDesc>Soft (palatalized) consonant</catDesc>
+          </category>
+          <category xml:id="length">
+           <catDesc>Long vowel or consonant (duration mark)</catDesc>
+          </category>
+          <category xml:id="pause">
+            <catDesc>Pause marks in performance transcription</catDesc>
+          </category>
+          <category xml:id="stress">
+            <catDesc>Stressed vowel</catDesc>
+          </category>
+        </taxonomy>
+        <taxonomy xml:id="transcrType">
+          <category xml:id="phonetic">
+            <catDesc>Phonetic transcription</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+      
+      <editorialDecl>
+        <p>Transcription type: phonetic (collector’s notation preserved).</p>
+        <p><b>Stress (</b><code>#accent</code><b>):</b> retained in <code>orig</code> as <code>&lt;hi rendition="#accent"/&gt;</code>; 
+              omitted in normalized exports.
+        </p>
+        <p><b>Length (</b><code>#long</code><b>):</b> retained in <code>orig</code> as <code>&lt;hi rendition="#long"/&gt;</code>; 
+              normalization may resolve to doubling or vowel length per legend/context (documented elsewhere).
+        </p>
+        <p><b>Palatalization (</b><code>#pal</code><b>):</b> retained after the base consonant as <code>&lt;hi rendition="#pal"/&gt;</code>; 
+              normalization may map to ь.
+        </p>
+        <p><b>Under-arc joins (</b><code>#underparen</code><b>):</b> retained as <code>&lt;g ref="#underparenChar" place="below"/&gt;</code>; 
+              not interpreted as morphological joining in this edition; optional conversion to <code>&lt;join type="word-merge"/&gt;</code> may 
+              be added later via script.
+        </p>
+        <p><b>Pauses (</b><code>#pause1/#pause2</code><b>):</b> retained as <code>&lt;pause rendition="#pause1"/&gt;</code> / <code>&lt;pause rendition="#pause2"/&gt;</code>
+              in <code>orig</code>; dropped from orthographic NLP export; may be rendered as “|”/“‖” in phonetic export.
+        </p>
+        <p><b>Struck marks:</b> crossed out signs encoded as <code>&lt;del rendition="#overstrike"&gt;…&lt;/del&gt;</code>.
+        </p>
+        <p>Syllabic consonants or reduced vowels are marked as <code>&lt;hi rendition="#underbar"/&gt;</code> (Unicode U+0332).</p>
+      </editorialDecl>
+    </encodingDesc>
+
+    <profileDesc>
+      <langUsage>
+        <language ident="ru">Russian</language>
+      </langUsage>
+      <textClass>
+        <catRef target="#phonetic"/>
+        <keywords scheme="local">
+          <term>genre: SKAZKA</term>
+        </keywords>
+      </textClass>
+    </profileDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+      
+      <div type="magic_tale" xml:id="tru_vkk_18_12_1" n="1">
+        <add place="top-right" hand="#hand-collectors">
+          <signed>
+            <persName xml:lang="ru" role="narrator" type="pseudonym" key="nar008">
+              nar008
+            </persName>
+          </signed>
+         <lb n="a1"/>80 лет.
+        </add>
+    
+      <!-- PAGE 1 -->
+        <pb n="12"/>
+        <p rendition="#indent">
+        <lb n="01"/>паш<hi rendition="#pal">л</hi><hi rendition="#accent">и</hi> <hi rendition="#pal">д</hi><hi rendition="#accent">е</hi>уш<hi rendition="#pal">к</hi>ь куп<hi rendition="#accent">а</hi><hi rendition="#long">ц</hi>а <pause rendition="#pause2"/>
+        <lb n="02"/>куп<hi rendition="#accent">а</hi><hi rendition="#pal">л</hi>и<hi rendition="#pal">с</hi>ь <pause rendition="#pause1"/> а<g ref="#underparenChar" place="below"/>к<g ref="#underparenChar" place="below"/>одн<hi rendition="#accent">о</hi>j <hi rendition="#pal">д</hi><hi rendition="#accent">е</hi>ушкь к<g ref="#underparenChar" place="below"/>ад<hi rendition="#accent">е</hi>жь
+        <lb n="03"/>п<hi rendition="#pal">р</hi>иш<hi rendition="#accent">о</hi>л уж<hi rendition="#accent">а</hi>к с<g ref="#underparenChar" place="below"/>въ<hi rendition="#pal">д</hi>ан<hi rendition="#accent">о</hi>въ ц<hi rendition="#accent">а</hi>рствъ <pause rendition="#pause2"/>
+        <lb n="04"/><hi rendition="#pal">Л</hi><hi rendition="#accent">о</hi>к на <hi rendition="#pal">д</hi><hi rendition="#accent">е</hi>ушкину руб<hi rendition="#accent">а</hi>шку и <hi rendition="#pal">н</hi><hi rendition="#accent">е</hi>
+        <lb n="05"/>а<hi rendition="#long">д</hi>аj<hi rendition="#accent">о</hi>т <pause rendition="#pause1"/> в<hi rendition="#accent">ы</hi>й<hi rendition="#pal">д</hi>еш зъ<g ref="#underparenChar" place="below"/><hi rendition="#pal">м</hi>а<hi rendition="#pal">н</hi><hi rendition="#accent">а</hi> з<hi rendition="#accent">а</hi>муж <pause rendition="#pause1"/>
+        <lb n="06"/>тагд<hi rendition="#accent">а</hi> а<hi rendition="#long">д</hi><hi rendition="#accent">а</hi>м руб<hi rendition="#accent">а</hi>шку <pause rendition="#pause1"/> а<g ref="#underparenChar" place="below"/><hi rendition="#pal">н</hi>ь<g ref="#underparenChar" place="below"/>в<hi rendition="#accent">ы</hi>и<hi rendition="#pal">д</hi>ьш <pause rendition="#pause1"/>
+        <lb n="07"/><hi rendition="#pal">н</hi>ь<g ref="#underparenChar" place="below"/>ад<hi rendition="#accent">а</hi>м <pause rendition="#pause2"/> а<g ref="#underparenChar" place="below"/>адн<hi rendition="#accent">а</hi> дачк<hi rendition="#accent">а</hi> б<hi rendition="#accent">ы</hi>ла у
+        <lb n="08"/>п<hi rendition="#accent">а</hi>пы-м<hi rendition="#accent">а</hi>мы <pause rendition="#pause2"/> как ан<hi rendition="#accent">а</hi> а<hi rendition="#pal">д</hi><hi rendition="#accent">е</hi>лъ<hi rendition="#pal">с</hi>ь <pause rendition="#pause1"/> уж<hi rendition="#accent">а</hi>к 
+        <lb n="09"/>захва<hi rendition="#pal">т</hi><hi rendition="#accent">и</hi>л и ута<hi rendition="#pal">щ</hi><hi rendition="#accent">и</hi>л в<g ref="#underparenChar" place="below"/>вад<hi rendition="#accent">у</hi> <pause rendition="#pause2"/>
+        </p>
+
+        <p rendition="#indent">
+        <lb n="10"/>пр<hi rendition="#accent">о</hi>жи<hi rendition="#pal">л</hi>и т<hi rendition="#pal">р</hi>и г<hi rendition="#accent">о</hi>дъ а<hi rendition="#pal">н</hi><hi rendition="#accent">е</hi> т<hi rendition="#accent">а</hi>м <pause rendition="#pause2"/>
+        <lb n="11"/>б<hi rendition="#accent">ы</hi>л м<hi rendition="#accent">а</hi><hi rendition="#pal">л</hi>ч'ик и <hi rendition="#pal">д</hi><hi rendition="#accent">е</hi>въ<hi rendition="#pal">ч</hi>къ <pause rendition="#pause2"/> п<hi rendition="#pal">р</hi>ишл<hi rendition="#accent">а</hi>
+        <lb n="12"/>дам<hi rendition="#accent">о</hi>й к<g ref="#underparenChar" place="below"/>атц<hi rendition="#accent">у</hi> <pause rendition="#pause1"/> к м<hi rendition="#accent">а</hi><hi rendition="#pal">т</hi>о<hi rendition="#pal">р</hi>и <pause rendition="#pause1"/> к<g ref="#underparenChar" place="below"/>
+        <lb n="13"/><g ref="#underparenChar" place="below"/>п<hi rendition="#accent">а</hi>пы-м<hi rendition="#accent">а</hi>мы <pause rendition="#pause2"/> А<hi rendition="#pal">т</hi><hi rendition="#accent">е</hi>ц-тъ радн<hi rendition="#accent">о</hi>й
+        <lb n="14"/>спр<hi rendition="#accent">а</hi>шивъjьт <pause rendition="#pause1"/> А<g ref="#underparenChar" place="below"/>д<hi rendition="#accent">о</hi><hi rendition="#pal">ч</hi>ь<hi rendition="#pal">н</hi>къ <pause rendition="#pause1"/> к<hi rendition="#accent">а</hi>к дам<hi rendition="#accent">о</hi>й
+        <lb n="15"/>папа<hi rendition="#pal">д</hi><hi rendition="#accent">о</hi>ш <pause rendition="#pause1"/> кагд<hi rendition="#accent">а</hi> зах<hi rendition="#accent">о</hi><hi rendition="#pal">ч</hi>ьш jит<hi rendition="#accent">и</hi><hi rendition="#pal">т</hi> <pause rendition="#pause2"/>
+        <lb n="16"/>в<hi rendition="#accent">ы</hi>йду на<g ref="#underparenChar" place="below"/><hi rendition="#pal">б</hi><hi rendition="#accent">е</hi>рьк <pause rendition="#pause1"/> скаж<hi rendition="#accent">у</hi> <pause rendition="#pause1"/> уж<hi rendition="#accent">а</hi>к <pause rendition="#pause1"/> уж<hi rendition="#accent">а</hi>к <pause rendition="#pause1"/>
+        <lb n="17"/>в<hi rendition="#accent">ы</hi>й<hi rendition="#pal">д</hi>и <pause rendition="#pause1"/> ва<hi rendition="#pal">з</hi><hi rendition="#pal">м</hi><hi rendition="#accent">и</hi> <hi rendition="#pal">м</hi>а<hi rendition="#pal">н</hi><hi rendition="#accent">а</hi> дам<hi rendition="#accent">о</hi>й <pause rendition="#pause1"/> <hi rendition="#accent">о</hi>н и
+        <lb n="18"/>в<hi rendition="#accent">ы</hi>й<hi rendition="#pal">д</hi>ьт <pause rendition="#pause2"/>
+        </p>
+
+        <p rendition="#indent">
+        <lb n="19"/>а<hi rendition="#pal">т</hi><hi rendition="#accent">е</hi>ц в<hi rendition="#accent">ы</hi><hi rendition="#pal">ш</hi>л н<hi rendition="#accent">а</hi><g ref="#underparenChar" place="below"/>бь<hi rendition="#pal">р</hi>ьк и гъва<hi rendition="#pal">р</hi><hi rendition="#accent">и</hi>т <pause rendition="#pause1"/>
+        <lb n="20"/>уж<hi rendition="#accent">а</hi>к <pause rendition="#pause1"/> уж<hi rendition="#accent">а</hi>к <pause rendition="#pause1"/> в<hi rendition="#accent">ы</hi>й<hi rendition="#pal">д</hi><hi rendition="#accent">и</hi> <pause rendition="#pause1"/> ва<hi rendition="#pal">з</hi><hi rendition="#pal">м</hi>и <del type="pause" rendition="#overstrike"><pause rendition="#pause1"/></del> <hi rendition="#pal">м</hi>а<hi rendition="#pal">н</hi><hi rendition="#accent">а</hi> дам<hi rendition="#accent">о</hi>й <pause rendition="#pause2"/>
+        <lb n="21"/><hi rendition="#accent">О</hi>н и в<hi rendition="#accent">ы</hi>шьл <pause rendition="#pause2"/> к<hi rendition="#accent">а</hi>к т<hi rendition="#accent">о</hi><hi rendition="#pal">л</hi>къ <hi rendition="#accent">о</hi>н в<hi rendition="#accent">ы</hi>шьл <pause rendition="#pause1"/>
+        <lb n="22"/>а<hi rendition="#pal">т</hi><hi rendition="#accent">е</hi>ц jам<hi rendition="#accent">у</hi> гълав<hi rendition="#accent">у</hi> тъпар<hi rendition="#accent">о</hi>м и атруб<hi rendition="#accent">и</hi>л <pause rendition="#pause2"/>
+        </p>
+
+        <p rendition="#indent">
+        <lb n="23"/>да<hi rendition="#pal">ч</hi>к<hi rendition="#accent">а</hi> в<hi rendition="#accent">ы</hi>шла <pause rendition="#pause1"/> ужак<hi rendition="#accent">а</hi> б<hi rendition="#accent">о</hi><hi rendition="#pal">л</hi>шь <hi rendition="#pal">н</hi><hi rendition="#accent">е</hi>ту <pause rendition="#pause1"/>
+        <lb n="24"/>гълав<hi rendition="#accent">а</hi> атруб<hi rendition="#pal">л</hi>ьнъ <pause rendition="#pause1"/> <hi rendition="#pal">в</hi><hi rendition="#accent">и</hi><hi rendition="#pal">д</hi>а <pause rendition="#pause2"/>
+        </p>
+
+        <p rendition="#indent">
+        <lb n="25"/>м<hi rendition="#accent">а</hi>мъ и гъвар<hi rendition="#accent">и</hi>т с<hi rendition="#accent">ы</hi>ну <pause rendition="#pause2"/> сын<hi rendition="#accent">о</hi><hi rendition="#pal">ч</hi>ьк <pause rendition="#pause1"/>
+
+        <!-- PAGE 2 -->
+        <pb n="13"/>
+        <lb n="01"/>бы<hi rendition="#pal">т</hi> съла<hi rendition="#pal">в</hi><hi rendition="#accent">е</hi>jушкъj <pause rendition="#pause1"/> <hi rendition="#pal">л</hi>ат<hi rendition="#accent">а</hi>j нъд<g ref="#underparenChar" place="below"/>вад<hi rendition="#accent">о</hi>j и
+        <lb n="02"/>нъпъ<hi rendition="#pal">м</hi>ин<hi rendition="#accent">а</hi>j св<hi rendition="#accent">о</hi>въ п<hi rendition="#accent">а</hi>пу <pause rendition="#pause2"/>
+        </p>
+
+        <p rendition="#indent">
+        <lb n="03"/>а<g ref="#underparenChar" place="below"/>т<hi rendition="#accent">ы</hi> д<hi rendition="#accent">о</hi><hi rendition="#pal">ч</hi>ь<hi rendition="#pal">н</hi>къ <pause rendition="#pause1"/> быт л<hi rendition="#accent">а</hi>стъ<hi rendition="#pal">ч</hi>къj <pause rendition="#pause1"/>
+        <lb n="04"/>т<hi rendition="#accent">о</hi>жь <hi rendition="#pal">л</hi>ат<hi rendition="#accent">а</hi>j нъд<g ref="#underparenChar" place="below"/>вад<hi rendition="#accent">о</hi>j <pause rendition="#pause1"/> а я б<hi rendition="#accent">у</hi>ду
+        <lb n="05"/>кук<hi rendition="#accent">у</hi>шь<hi rendition="#pal">ч</hi>къ<del type="accent" rendition="#overstrike"><g ref="#accentChar" place="above"/></del>j <pause rendition="#pause1"/> кук<hi rendition="#accent">у</hi>шкъj б<hi rendition="#accent">у</hi>ду кукав<hi rendition="#accent">а</hi><hi rendition="#pal">т</hi> <pause rendition="#pause1"/>
+        <lb n="07"/>па<g ref="#underparenChar" place="below"/>св<hi rendition="#accent">о</hi>му м<hi rendition="#accent">у</hi>жу фспа<hi rendition="#pal">м</hi>ин<hi rendition="#accent">а</hi><hi rendition="#pal">т</hi> <pause rendition="#pause2"/>
+        </p>
+
+        <p rendition="#indent">
+        <lb n="08"/>И ръз<hi rendition="#pal">л</hi>и<hi rendition="#sup" xml:lang="ru">е</hi>т<hi rendition="#accent">е</hi><hi rendition="#pal">л</hi>ис па<g ref="#underparenChar" place="below"/><hi rendition="#pal">б</hi><hi rendition="#accent">е</hi>лу <hi rendition="#pal">н</hi><hi rendition="#accent">е</hi>бу <pause rendition="#pause2"/>
+        </p>
+      </div>
+    </body>
+  </text>
+</TEI>

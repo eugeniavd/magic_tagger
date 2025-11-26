@@ -1,0 +1,77 @@
+@prefix rft:     <https://github.com/eugeniavd/magic_tagger/rdf/ontology/#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos:    <https://www.w3.org/2009/08/skos-reference/skos.html> .
+@prefix crm:     <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+# Tale
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_1_309_38>
+    a                      rft:Tale ;
+    dcterms:identifier     "era_vene_1_309_38" ;
+    dcterms:description    "Девушка без рук, которой возвращают руки."@ru ;
+    dcterms:isPartOf       <https://github.com/eugeniavd/magic_tagger/rdf/collection/era_vene> ,
+                           <https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_1> ;
+    dcterms:created        "1930-05-24"^^xsd:date ;
+    rft:narrator           <https://github.com/eugeniavd/magic_tagger/rdf/person/maria_ivanna> ;
+    rft:collector          <https://github.com/eugeniavd/magic_tagger/rdf/person/paul_ariste> ;
+    rft:hasGenre           <https://github.com/eugeniavd/magic_tagger/rdf/genre/imemuinasjutt> ;
+    rft:hasTaleType        <https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/706> ;
+    rft:recordingPlace     <https://github.com/eugeniavd/magic_tagger/rdf/place/tartu_maarja> ;
+    prov:wasGeneratedBy    <https://github.com/eugeniavd/magic_tagger/rdf/recordingEvent/era_vene_1_309_38> .
+
+# Collection
+
+<https://github.com/eugeniavd/magic_tagger/rdf/collection/era_vene>
+    a           dcterms:Collection ;
+    rdfs:label  "ERA, Vene"@et .
+
+# Volume
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_1>
+    a                  dcterms:BibliographicResource ;
+    dcterms:identifier "1" ;
+    dcterms:isPartOf   <https://github.com/eugeniavd/magic_tagger/rdf/collection/era_vene> .
+
+# Persons
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/maria_ivanna>
+    a           rft:Narrator , crm:E21_Person , prov:Agent ;
+    rdfs:label  "Maria Ivanna"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/paul_ariste>
+    a           rft:Collector , crm:E21_Person , prov:Agent ;
+    rdfs:label  "Paul Ariste"@et .
+
+# Place
+
+<https://github.com/eugeniavd/magic_tagger/rdf/place/tartu_maarja>
+    a           crm:E53_Place ;
+    rdfs:label  "Tartu-Maarja"@et .
+
+# Genre concept
+
+<https://github.com/eugeniavd/magic_tagger/rdf/genre/imemuinasjutt>
+    a              rft:Genre , skos:Concept ;
+    skos:prefLabel "imemuinasjutt"@et ;
+    skos:inScheme  rft:GenreScheme .
+
+# Tale type concept (ATU 706)
+
+<https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/706>
+    a              rft:TaleType , skos:Concept ;
+    skos:notation  "706" ;
+    skos:prefLabel "The Maiden Without Hands"@en ;
+    skos:inScheme  rft:ATU_Scheme .
+
+# Recording event
+
+<https://github.com/eugeniavd/magic_tagger/rdf/recordingEvent/era_vene_1_309_38>
+    a                    rft:RecordingEvent , prov:Activity , crm:E7_Activity ;
+    prov:startedAtTime   "1930-05-24"^^xsd:date ;
+    prov:wasAssociatedWith
+                         <https://github.com/eugeniavd/magic_tagger/rdf/person/paul_ariste> ,
+                         <https://github.com/eugeniavd/magic_tagger/rdf/person/maria_ivanna> ;
+    crm:P7_took_place_at <https://github.com/eugeniavd/magic_tagger/rdf/place/tartu_maarja> .

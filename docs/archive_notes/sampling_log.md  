@@ -1,0 +1,170 @@
+# Sampling_log.md  
+Unlocking Russian Folklore — Corpus Creation (117 texts)
+
+
+## 1. Purpose and scope
+
+This document describes how we constructed the corpus for the project *“Unlocking Russian Folklore”*. It records:
+
+- which archival collections were used and why,
+- how “magic tales” were operationally defined,
+- which inclusion / exclusion criteria were applied,
+- how the resulting corpus is distributed across decades and archival series.
+
+The goal is to ensure that corpus construction is transparent and reproducible.
+
+
+## 2. Source collections
+
+The corpus is based on Russian-language folktales preserved in the Estonian Folklore Archives (Estonian Literary Museum). The tales were recorded in rural communities along the present-day Russian–Estonian border (then within the Soviet Union). The following archival series were used:
+
+- **ERA, Vene** — Russian-language collection of the Estonian Folklore Archives (17 volumes, ca. 10 656 pages; recorded roughly between 1927–1942).  
+- **RKM, Vene** — Russian-language collection of the Estonian Folklore Archives (4 volumes, ca. 2 445 pages; recorded roughly between 1948–1973).  
+- **TRÜ, VKK** — student folklore expeditions of the University of Tartu, Russian-language subset, (62 volumes; recorded roughly in 1960s).
+
+The magic-tale subcorpus used in this project comprises 117 texts drawn from these three series. In terms of volumes, the selected tales are distributed across:
+
+- **ERA, Vene:** volumes **v1–v8, v12–v16**  
+- **RKM, Vene:** volumes **v1 and v3**  
+- **TRÜ, VKK:** volumes **v1, v5, v9, v12, v13, v18, v25, v29, v32, v38, v41, v43, v48, v52, v62**
+
+> **Note.** The exact list of collections and volumes used is documented in `corpus_a_index.xlsx` (columns `collection`, `volume`, `source_ref`).
+
+**corpus_by_collection.png** (`notebooks/figures/corpus_by_collection.png`) aggregates the same information at collection level and shows how the 117 tales are distributed across "ERA, Vene", "RKM, Vene" and "TRÜ, VKK". 
+
+**corpus_by_collection_volume_facets.png** (`notebooks/figures/corpus_by_collection_volume_facets.png`) visualises how many unique tales were selected from each volume: each panel corresponds to a collection (ERA, Vene; RKM, Vene; TRÜ, VKK), the x-axis shows the volume number, and the labels above the bars indicate the number of unique tale IDs per volume.
+
+Together, these plots make the sampling across collections and volumes transparent.
+
+
+## 3. Why focus on magic tales
+
+Within the Russian-language holdings of the Estonian Folklore Archives, magic tales form one of the numerically largest and best-documented genre groups, which makes them a robust starting point for corpus-building and modelling.
+
+In addition, magic tales are the genre for which Vladimir Propp’s structural analysis is most fully developed, most famously in his *Morphology of the Folktale* (Пропп 1928). By concentrating on this genre, we create optimal conditions for later stages of the project, where Propp-inspired functional annotation and models will be used to refine and evaluate the tale-typing tool we are building.
+
+
+## 4. Operational definition of “magic tale”
+
+For the purposes of this project, tales of magic are defined as follows:
+
+1. **Magic tales in archival classification**  
+   - From this Russian subset we selected all records classified in the archive catalogue as magic tales (e.g. *muinasjutt* with a magic-tale note, or an equivalent internal tag).  
+   - For these items we manually verified that they contain a coherent sequence of plot episodes compatible with standard magic-tale structures (i.e. suitable for assignment to one or more ATU types). In classical tale-type catalogues, magic tales broadly correspond to **ATU 300–749**.  
+
+2. **Magic-tales emerging from “generic” tales**  
+   - We also examined records labelled only as general tales (without a specific subtype or tale-type group).  
+   - When such texts clearly exhibited magic-tale plots and episode structure, they were reinterpreted in the working index as magic tales and included in the corpus.
+
+
+## 5. Selection criteria
+
+Figure **sampling pipline.jpg** provides an overview of the workflow from archival catalogues to the final magic-tale corpus.
+
+### 5.1 Inclusion criteria
+
+A record was included in the corpus if it met the following conditions in `corpus_index`:
+
+1. **Language filter (primary step)**  
+   - `language == "ru"` (Russian).  
+
+2. **Archival / working genre label and narrative structure**  
+   - Within the Russian subset, we selected all records classified in the archive catalogue as magic tales, e.g.  
+     `genre == "tale_of_magic"` (or the equivalent working label used for this corpus).  
+   - For these items, we checked that they contain a coherent sequence of plot episodes compatible with standard magic-tale structures (i.e. suitable for assignment to one or more ATU types).
+
+3. **Additional harvesting from “generic” tale records**  
+   - We then reviewed records labelled only as general tales (without a specific subtype or tale-type group).  
+   - Where such texts clearly exhibited a magic-tale plot and episode structure, they were reclassified in the working index as `genre == "tale_of_magic"` and added to the corpus.
+
+No additional sampling by year or decade was applied. The total number of magic tales in the target collections is relatively small (N = 117), so instead of drawing a stratified sample (e.g. by decade or region), we opted for a near-census of the genre within these series.
+
+In other words, the corpus includes all available Russian-language magic tales that satisfy the inclusion criteria above; it is not a down-sampled subset.
+
+### 5.2 Exclusion criteria
+
+The following records were excluded:
+
+- Items with completely illegible pages.  
+- Items where the genre classification was clearly non fairytales, even if they contained occasional magic motifs (e.g. legend, joke, personal narrative).  
+- Fairy tales which do not contain "magic episodes" to reference them to 300–749 ATU types.  
+
+
+## 6. Corpus summary
+
+After applying the inclusion and exclusion criteria, the resulting corpus contains:
+
+- **Total number of tales:** 117  
+- **Number of collections:** 3 (`ERA, Vene`; `RKM, Vene`; `TRÜ, VKK`)  
+- **Recording period:** from the late 1920s to the late 1960s  
+  (based on the earliest `recorded_date_start` and latest `recorded_date_end` values in `corpus_a_index`)
+
+These figures describe a near-census of Russian-language magic tales identified in the selected archival series.
+
+### 6.1 Distribution by decade
+
+Using the date fields in `corpus_a_index`, each tale is assigned to a decade based on the start date of recording:
+
+- We extract the **year** from `recorded_date_start` (e.g. `1929-07-27` → 1929).  
+- Years are then grouped into decades (1920s, 1930s, 1940s, 1960s).  
+- If `recorded_date_start` is missing for a record, `recorded_date_end` is used as a fallback.  
+- If both `recorded_date_start` and `recorded_date_end` are missing, the tale is treated as **“undated”** and not assigned to any decade; such cases are reported separately in the corpus summary.
+
+**corpus_by_decades.png** (`notebooks/figures/sampling_by_decade.png`) visualises this distribution as a pie chart.  
+It shows that the majority of dated magic tales were recorded in the **1930s (67 tales)**, with smaller but still substantial groups in the **1940s (17 tales)** and **1960s (25 tales)**, and a relatively small share from the **1920s (8 tales)**.  
+The figure is descriptive: it illustrates how the near-census corpus of magic tales is spread over time, but no decade-based filtering was applied during sampling.
+
+
+### 6.2 Distribution by archival collections
+
+Using the `collection` column in `corpus_index`, all tales were grouped by archival collections.
+
+- **`corpus_by_collection.png`** (`notebooks/figures/corpus_by_collection.png`) shows how the 117 magic tales are distributed across the three main archival series (`ERA, Vene`; `RKM, Vene`; `TRÜ, VKK`).  
+  The plot demonstrates that the corpus is dominated by ERA, Vene (87 tales), which contributes roughly three quarters of all texts.  
+  TRÜ, VKK adds 25 tales, forming the second largest block, while RKM, Vene is represented by only 5 tales and thus plays a relatively minor role in the present magic-tale corpus.
+
+- **`corpus_by_collection_volume_facets.png`** (`notebooks/figures/corpus_by_collection_volume_facets.png`) provides a more detailed view by showing how many unique tales were selected from each volume within a collection.  
+  In **ERA, Vene**, magic tales are spread over multiple volumes, with noticeable peaks in **volumes 6, 12 and 13** (volume 13 containing 23 tales).  
+  In **RKM, Vene**, only **volumes 1 and 3** contribute magic tales (3 and 2 texts respectively).  
+  In **TRÜ, VKK**, magic tales are more thinly distributed across many volumes; small clusters appear in **volumes 13 and 32** (5 and 4 tales), while the remaining volumes usually contain one or two tales each.
+
+Together, these figures show that the “near-census” corpus of Russian-language magic tales is structurally anchored in `"ERA, Vene"`, supplemented by a smaller but important contribution from `"TRÜ, VKK"`, with `"RKM, Vene"` providing only a handful of additional examples.
+
+
+### 6.3 Geographic distribution: countries and regions
+
+The geographic distribution of the magic-tale corpus was explored at two levels: **country** (Russia / Estonia) and **region** (oblast / county), with additional breakdowns by archival collection.
+
+For all geographic visualizations, place names were sourced from the online database of the Institute of the Estonian Language (arhiiv.eki.ee), where original toponyms are provided in both Estonian and Russian. These names were harmonised into English from the database and then used to assign each record to a modern country and region before aggregating counts for the plots.
+
+- **corpus_by_countries.png**  
+  This bar chart shows that the corpus is clearly dominated by recordings from **Russia (78 tales)**, while **Estonia contributes 39 tales**. In other words, roughly two thirds of the texts come from Russian territory and one third from Estonian territory (Russian-speaking villages).
+
+- **corpus_by_regions_stacked_by_country.png**  
+  Here the tales are grouped by **region of recording**. The plot makes it clear that Pskov Oblast is the most important region, accounting for 76 tales on its own. On the Estonian side, the corpus covers several border and near-border counties: Tartu County (12 tales), Jõgeva County (10), Harju County (7), Ida-Viru County (7) and Võru County (3). A small number of tales (2 texts) comes from Leningrad Oblast. Together, these regions outline a compact zone along the present-day Russian–Estonian border.
+
+- **country_region_collection.png**  
+  The sunburst diagram provides a hierarchical view of the corpus: the innermost ring separates Russia and Estonia, the next ring shows individual regions, and the outer ring distinguishes archival collections within each region (`ERA, Vene`; `RKM, Vene`; `TRÜ, VKK`). The graphic highlights the strong **Russia → Pskov Oblast → ERA, Vene** branch, as well as the smaller but diverse Estonian branches where several counties are connected primarily to `ERA, Vene` with occasional contributions from `RKM, Vene` and `TRÜ, VKK`.
+
+- **corpus_collections_by_region.png**  
+  This stacked bar chart combines the previous perspectives by showing, for each region, how many tales come from each archival collection.  
+  - In Pskov Oblast, the corpus draws mainly on `ERA, Vene` (earlier expedition material) with a substantial additional block from `TRÜ, VKK` (later student expeditions), together forming 76 tales.  
+  - In the Estonian counties (Tartu, Jõgeva, Harju, Ida-Viru, Võru), the majority of tales come from `ERA, Vene`, with smaller contributions from `RKM, Vene` and `TRÜ, VKK` in some regions.  
+  - Leningrad Oblast is represented only by a small number of `ERA, Vene` texts.
+
+Taken together, these visualisations show that the “near-census” corpus of Russian-language magic tales is geographically concentrated in Pskov Oblast and neighbouring Estonian counties, and archivally anchored in `ERA, Vene`, with additional, region-specific contributions from `RKM, Vene` and `TRÜ, VKK`.
+
+
+## 7. Deviation from initial plan
+
+In the initial project brief, we considered constructing a balanced sample of approximately 200 tales, stratified by decade, region and tale type.
+
+After discussing the archival holdings and research needs with archivists and folklorists, the plan was revised.
+
+- Archivists emphasised that the distribution of recordings is structurally uneven: different expeditions visited different regions in different decades, so the surviving material is already clustered by place and time. Under these conditions, a fully balanced corpus across periods and regions would be impossible to achieve.
+
+- Folklorists stressed that, for their own research and for the planned tool, it would be more useful to concentrate on one tale genre and study it in depth, rather than dilute efforts across multiple, sparsely represented genres.
+
+Taking both points into account, we decided to focus on tales of magic, which constitute one of the largest and best-represented genre groups in the Russian-language holdings of the Estonian Folklore Archives. Within this genre, we did not attempt to balance the corpus by period or region. Instead, we constructed a **near-census corpus** by including all available Russian-language tales of magic (N = 117) in the target collections that satisfy our inclusion criteria.
+
+This change from a stratified multi-genre sample to an intensive, genre-focused near-census is documented here to keep the project’s methodological record transparent.

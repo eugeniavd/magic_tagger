@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title type="supplied" xml:lang="en">Untitled tale</title>
+        <title type="supplied" xml:lang="ru">Сказка</title>
+        <respStmt>
+          <resp>Transcription</resp>
+          <name>Evgeniia Vdovichenko</name>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>For research use; rights depend on the holding archive.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <!-- Collection identifiers -->
+            <repository>Estonian Folklore Archives (ERA)</repository>
+            <collection xml:lang="et">TRÜ, VKK (Tartu Riiklik Ülikool, Vene keele kateeder)</collection>
+            <collection xml:lang="ru">Тартуский университет, кафедра русского языка</collection>
+            <collection xml:lang="en">University of Tartu, Department of Russian Language</collection>
+            <idno>32</idno>
+          </msIdentifier>
+          <physDesc>
+            <handDesc>
+              <handNote xml:id="hand-col015" medium="ink">
+              <persName xml:lang="ru" role="collector" type="pseudonym" key="col015">col015</persName>
+            </handNote>
+              <handNote xml:id="hand-collectors" medium="ink">
+                <desc>Collector’s hand: <ref target="#hand-col015">col015</ref>.</desc>
+              </handNote>
+            </handDesc>
+            <p>Manuscript; page and line references follow the original.</p>
+          </physDesc>
+          <history>
+            <origin>
+              <origDate when="1968">1968</origDate>
+              <origPlace>
+                <placeName xml:lang="et" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=mm&amp;lang=en&amp;kohanimi=96088051&amp;f2v=Y&amp;f3v=Y&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;f14v=Y&amp;of=tb">
+                Venemaa, Pihkva obl., Pihkva raj., Zalita nim. saar
+                </placeName>
+                <placeName xml:lang="ru" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=mm&amp;lang=en&amp;kohanimi=96088051&amp;f2v=Y&amp;f3v=Y&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;f14v=Y&amp;of=tb">
+                Россия, Псковская область, Псковский район, остров имени Залита
+                </placeName>
+                <placeName xml:lang="en" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=mm&amp;lang=en&amp;kohanimi=96088051&amp;f2v=Y&amp;f3v=Y&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;f14v=Y&amp;of=tb">
+                Russia, Pskovskaja oblast’, Pskovskiy rayon, ostrov imeni Zalita
+                </placeName>
+              </origPlace>
+            </origin>
+          </history>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <transcriptionDesc>
+        <p>This file’s primary layer is a phonetic transcription as recorded by the collector; it preserves original diacritics and signs (see #accent, 
+          #long, #pal, #underbar, #underparen, #pause1/#pause2). No orthographic normalization layer is provided in this file.
+        </p>
+      </transcriptionDesc>
+
+      <projectDesc>
+        <p>Encoded with TEI; page breaks via &lt;pb n=""/&gt;, line breaks via &lt;lb n=""/&gt;.</p>
+      </projectDesc>
+
+      <tagsDecl>
+        <rendition xml:id="indent">paragraph indent</rendition>
+        <rendition xml:id="pause1">short pause (|)</rendition>
+        <rendition xml:id="pause2">long pause (||)</rendition>
+        <rendition xml:id="pal">palatalization mark</rendition>
+        <rendition xml:id="accent">stress mark</rendition>
+        <rendition xml:id="long">long sound (vowel, consonant or hard articulation)</rendition>
+        <rendition xml:id="underbar">underbar on letter (syllabic/reduced articulation)</rendition>
+        <rendition xml:id="underparen">under-arc between words (single)</rendition>
+        <rendition xml:id="overstrike">overstrike (struck/erased mark)</rendition>
+        <rendition xml:id="sup">superscript letter (above)</rendition>
+        <rendition xml:id="overwrite">overwritten (overpainted) correction</rendition>
+        <rendition xml:id="underline">single underline</rendition>
+      </tagsDecl>
+
+      <charDecl>
+        <char xml:id="accentChar">
+          <charName>COMBINING ACUTE ACCENT</charName>
+          <mapping type="unicode">U+0301</mapping>
+          <!-- ́ -->
+          <desc>Stress mark; combining diacritic applied to preceding base character.</desc>
+        </char>
+
+        <char xml:id="longChar">
+          <charName>COMBINING MACRON</charName>
+          <mapping type="unicode">U+0304</mapping>
+          <!-- ̄ -->
+          <desc>Length mark over vowels or consonants.</desc>
+        </char>
+
+        <char xml:id="palChar">
+          <charName>MODIFIER LETTER PRIME</charName>
+          <mapping type="unicode">U+02B9</mapping>
+          <!-- ʹ -->
+          <desc>Palatalization mark after consonant.</desc>
+        </char>
+
+        <char xml:id="underparenChar">
+          <charName>UNDERTIE</charName>
+          <mapping type="unicode">U+203F</mapping>
+          <!-- ‿ -->
+          <desc>Under-arc joining words (sandhi tie).</desc>
+        </char>
+
+        <char xml:id="pause1Char">
+          <charName>VERTICAL LINE</charName>
+          <mapping type="unicode">U+007C</mapping>
+          <!-- | -->
+          <desc>Short pause.</desc>
+        </char>
+
+        <char xml:id="pause2Char">
+          <charName>DOUBLE VERTICAL LINE</charName>
+          <mapping type="unicode">U+2016</mapping>
+          <!-- ‖ -->
+          <desc>Long pause.</desc>
+        </char>
+
+        <char xml:id="underbarChar">
+          <charName>COMBINING LOW LINE</charName>
+          <mapping type="unicode">U+0332</mapping>
+          <!-- ̲ -->
+         <desc>Underbar diacritic; may mark syllabic consonant or reduced vowel context.</desc>
+        </char>
+      </charDecl>
+      
+      <classDecl>
+        <taxonomy xml:id="grapheme">
+          <category xml:id="pal">
+            <catDesc>Soft (palatalized) consonant</catDesc>
+          </category>
+          <category xml:id="length">
+           <catDesc>Long vowel or consonant (duration mark)</catDesc>
+          </category>
+          <category xml:id="pause">
+            <catDesc>Pause marks in performance transcription</catDesc>
+          </category>
+          <category xml:id="stress">
+            <catDesc>Stressed vowel</catDesc>
+          </category>
+        </taxonomy>
+        <taxonomy xml:id="transcrType">
+          <category xml:id="phonetic">
+            <catDesc>Phonetic transcription</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+      
+      <editorialDecl>
+        <p>Transcription type: phonetic (collector’s notation preserved).</p>
+
+        <p><b>Stress (</b><code>#accent</code><b>):</b> retained in <code>orig</code> as <code>&lt;hi rendition="#accent"/&gt;</code>; 
+              omitted in normalized exports.
+        </p>
+        <p><b>Length (</b><code>#long</code><b>):</b> retained in <code>orig</code> as <code>&lt;hi rendition="#long"/&gt;</code>; 
+              normalization may resolve to doubling or vowel length per legend/context (documented elsewhere).
+        </p>
+        <p><b>Palatalization (</b><code>#pal</code><b>):</b> retained after the base consonant as <code>&lt;hi rendition="#pal"/&gt;</code>; 
+              normalization may map to ь.
+        </p>
+        <p><b>Under-arc joins (</b><code>#underparen</code><b>):</b> retained as <code>&lt;g ref="#underparenChar" place="below"/&gt;</code>; 
+              not interpreted as morphological joining in this edition; optional conversion to <code>&lt;join type="word-merge"/&gt;</code> may 
+              be added later via script.
+        </p>
+        <p><b>Pauses (</b><code>#pause1/#pause2</code><b>):</b> retained as <code>&lt;pause rendition="#pause1"/&gt;</code> / <code>&lt;pause rendition="#pause2"/&gt;</code>
+              in <code>orig</code>; dropped from orthographic NLP export; may be rendered as “|”/“‖” in phonetic export.
+        </p>
+        <p><b>Struck marks:</b> crossed out signs encoded as <code>&lt;del rendition="#overstrike"&gt;…&lt;/del&gt;</code>.
+        </p>
+        <p>Syllabic consonants or reduced vowels are marked as <code>&lt;hi rendition="#underbar"/&gt;</code> (Unicode U+0332).</p>
+      </editorialDecl>
+    </encodingDesc>
+
+    <profileDesc>
+      <langUsage>
+        <language ident="ru">Russian</language>
+      </langUsage>
+      <textClass>
+        <catRef target="#phonetic"/>
+        <keywords scheme="local">
+          <term>genre: SKAZKA</term>
+        </keywords>
+      </textClass>
+    </profileDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+      
+      <div type="magic_tale" xml:id="tru_vkk_32_17_3" n="3">
+        <!-- Optional: store collection/volume as attributes for quick access -->
+
+        <!-- PAGE 1 -->
+        <pb n="17"/>
+        <add place="top-right" hand="#hand-collectors">
+          <signed xml:lang="ru">
+            Записано от
+            <persName xml:lang="ru" role="narrator" type="pseudonym" key="nar004">nar004</persName> (12 лет). 
+            Сказка, услышанная от бабушки (<persName>nar003</persName>).
+          </signed>
+        </add>
+          <lb n="01"/>Ж<hi rendition="#accent">и</hi>ла-б<hi rendition="#accent">ы</hi>ла тётенька. У ней был муж. 
+          <lb n="02"/>Она заболела и померла. У ней была дочка, 
+          <lb n="03"/>ее звали Лена. И отец женился на другой, 
+          <lb n="04"/>на мачехе. Она Лену не любила - она застав-
+          <lb n="05"/>ляла ее всё делать: стирать, мыть, 
+          <lb n="06"/>прибирать. У мачехи было две дочки. 
+          <lb n="07"/>Они были очень ленивые, ничего не делали. 
+          <lb n="08"/>Она на них все шила, а мачеха яну брани-
+          <lb n="09"/>ла и одевала в лохмотиях. Отец яну
+          <lb n="10"/>любил, но мачеха все яго заставляла 
+          <lb n="11"/>яну куда-нибудь деть, но муж не соглашался.
+          <lb n="12"/>У девочки была только одная родная тётя. 
+          <lb n="13"/>Она ее кормила, ну и сколько есть одявала.
+          <lb n="14"/>Тогда мачеха Лены и говорит:
+          <lb n="15"/>- Иди к моей ронной матери, 
+          <lb n="16"/>она тебе даст ниточку с иголочкой, 
+          <lb n="17"/>и я тебе сошью рубашку. 
+          <lb n="18"/>Мачеха послала ан<hi rendition="#accent">у</hi> и рассказала ей
+          <lb n="19"/>дорогу. Она дорогой увидела, что эта 
+          <lb n="20"/>дорога идет мимо тетиного дома. 
+          <lb n="21"/>И зашла к тете. Она ей рассказала, 
+          <lb n="22"/>куда послала её мачеха. Тетя говорит,
+          <lb n="23"/>что она тебя послала на смерть:
+        
+
+        <!-- PAGE 2 -->
+        <pb n="18"/>
+          <lb n="01"/>к Бабе-Яге. 
+          <lb n="02"/>И говорит: 
+          <lb n="03"/>- На, тебе полотенце и гребень, когда
+          <lb n="04"/>Баба-Яга погониться, ты сперва кинь
+          <lb n="05"/>полотенце, а потом гребень. - 
+          <lb n="06"/>Потом д<hi rendition="#accent">а</hi>ла 2 куска хлеба, ленточку, 
+          <lb n="07"/>платочек масла и сала кусок. 
+          <lb n="08"/>И говорит: 
+          <lb n="09"/>- Кога пойдешь, тебе будут бярёзой
+          <lb n="10"/>стябать глаза. Ты повяжи ленточкой. 
+          <lb n="11"/>Когда ты будешь подходить к дому, 
+          <lb n="12"/>собаки будут лаять и могут разорвать,
+          <lb n="13"/>а ты дай каждой собаке по куску хлеба
+          <lb n="14"/>и они тябя ня тронут и пустют
+          <lb n="15"/>к дверям. Подойдешь к дверям - они не 
+          <lb n="16"/>откроются. Ты подлей масла - они и 
+          <lb n="17"/>откроются. 
+          <lb n="18"/>Во дворе будет работница, которой
+          <lb n="19"/>баба-Яга прикажет растопить печь
+          <lb n="20"/>и изжарить тебя. Ты ей подари 
+          <lb n="21"/>платочек Войдешь в дом, там 
+          <lb n="22"/>будет большой страшный кот,
+          <lb n="23"/>он тебе могит выцарапать глаза - 
+          <lb n="24"/>ты ему дай кусок сала - он тебя не 
+          <lb n="25"/>тронет - 
+          <lb n="26"/>А теперь пошла Лена. Идет-идет,
+          <lb n="27"/>идет и бкреза ей стябает глаза,
+
+          <!-- PAGE 3 -->
+        <pb n="19"/>
+          <lb n="01"/>она их подвязала ленточкой. Пошла она
+          <lb n="02"/>дальше, там много собак лаяло, и ня
+          <lb n="03"/>впускают он<hi rendition="#accent">у</hi> к дверям. Она им 
+          <lb n="04"/>кинула по куску хлеба с салом и они 
+          <lb n="05"/>н]я стали лаять. Она подошла к дверям
+          <lb n="06"/>и подлила масла, и двери открылись. 
+          <lb n="07"/>Она вошла во двор. Баба-Яга и говорит:
+          <lb n="08"/>- Русским духом пахнет. - 
+          <lb n="09"/>А девочка и говорит:
+          <lb n="10"/>- Меня послала мачеха за ниточкой
+          <lb n="11"/>и иголочкой. - 
+          <lb n="12"/>Она и говорит: 
+          <lb n="13"/>- Никаких я мачех не знаю, ничего
+          <lb n="14"/>у меня нет. - 
+          <lb n="15"/>И говорит работнице: 
+          <lb n="16"/>- Затопи баню и зажарь эту бездельницу. 
+          <lb n="17"/>А девочка говорит:<del type="punct" rendition="#overstrike">-</del> 
+          <lb n="18"/>- Ня надо топить, я вам потом что-нибудь
+          <lb n="19"/>дам. - 
+          <lb n="20"/>А баба и говорит: 
+          <lb n="21"/>- Если я теб<subst><del type="punct" rendition="#overstrike">е</del><add place="inline">и</add></subst>приказала, топи! - 
+          <lb n="22"/>И она ушла в лес за другой добычей. 
+          <lb n="23"/>Лена вошла в дом, а работница и 
+          <lb n="24"/>говорит: 
+          <lb n="25"/>- Баба-Яга тебе приказала прясть
+          <lb n="26"/>пряжу. - 
+      
+
+          <!-- PAGE 4 -->
+        <pb n="20"/>
+          <lb n="01"/>Из печки выходит большой серый кот. 
+          <lb n="02"/>Она яму дала кусок сала. Обернулася
+          <lb n="03"/>к работнице и говорит: 
+          <lb n="04"/>- На тебе платочек, только не топи печь. - 
+          <lb n="05"/>Кот, когда съел сало и говорит:
+          <lb n="06"/>- Я буду прясть пряжу, а ты бяги отсюдова
+          <lb n="07"/>вон, а то Баба-Яга тя]бя съест. - 
+          <lb n="08"/>И она побяжала. Пришла Баба-Яга
+          <lb n="09"/>и говорит работнице:
+          <lb n="10"/>- Подай мне на стол тую бездельницу,
+          <lb n="11"/>которую ты зажарила. - 
+          <lb n="12"/>Работница говорит: 
+          <lb n="13"/>- Она убяжала. - 
+          <lb n="14"/>Тогда Баба-Яга говорит:
+          <lb n="15"/>- Почему ты он<hi rendition="#accent">у</hi> не зажарила? - 
+          <lb n="16"/>Работница говорит: 
+          <lb n="17"/>- Ты мне никогда не дарила платочков, 
+          <lb n="18"/>а она подарила. - 
+          <lb n="19"/>Баба-Яга бросилась к коту и говорит:
+          <lb n="20"/>- Почему ты не выцарапал ей глаза? 
+          <lb n="21"/>Кот говорит:<del type="punct" rendition="#overstrike">-</del> 
+          <lb n="22"/>- Ты мне не давала такого вкусного
+          <lb n="23"/>сала, а Лена д<hi rendition="#accent">а</hi>ла. 
+          <lb n="24"/>Тогда она побяжала к собакам и 
+          <lb n="25"/>говорит: 
+          <lb n="26"/>-Почему вы яну не разорвали на куски? - 
+          <lb n="27"/>а собаки говорят:
+
+
+          <!-- PAGE 5 -->
+        <pb n="21"/>
+          <lb n="01"/>Ты нам никогда не кидала хлеба, 
+          <lb n="02"/>а она д<hi rendition="#accent">а</hi>ла. - 
+          <lb n="03"/>Побяжала Баба-Яга к бярезе. 
+          <lb n="04"/>А тогда бросилась сзади Лены. Лена 
+          <lb n="05"/>услышала топот, наклонилась к земле
+          <lb n="06"/>и услышала: бяжит Баба-Яга. Она размах-
+          <lb n="07"/>нулась и бросила полотенце, и перед 
+          <lb n="08"/>Леной раскинулась большая-пребольшая,
+          <lb n="09"/>широкая река. И опять Лена побежала. 
+          <lb n="10"/>Баба-Яга прибяжала к реке и видит:
+          <lb n="11"/>нет моста какей переправиться. 
+          <lb n="12"/>Она побяжала искать волов. Прибяжала,
+          <lb n="13"/>взяла 2 вола, пришла к речке и переплыла
+          <lb n="14"/>и побяжала дальше. Лена опять
+          <lb n="15"/>прислушалась и слышит топот. 
+          <lb n="16"/>Она размахнулась и кинула гребень - 
+          <lb n="17"/>позад раскинулся большой, густой-густой лес. 
+          <lb n="18"/>Как же ей переправиться, чтобы сучья
+          <lb n="19"/>не били в глаза? Она побяжала и сучья
+          <lb n="20"/>ей так и стябали глаза. Она завалилась 
+          <lb n="21"/>и разбилась. А Лена прибяжала домой, 
+          <lb n="22"/>рассказала все отцу. Отец выгнал злую
+          <lb n="23"/>мачеху и с её детьми. Стал жить-поживать
+          <lb n="24"/>и добра наживать. 
+          <lb n="25"/>Вот и сказке конец, тот кто слушал
+          <lb n="26"/>молодец. 
+        <add place="bottom-right" hand="#hand-collectors">
+          <signed xml:lang="ru">
+            Обработано
+            <persName xml:lang="ru" role="collector" type="pseudonym" key="col015">col015</persName>.
+          </signed>
+        </add>
+      </div>
+    </body>
+  </text>
+</TEI> 

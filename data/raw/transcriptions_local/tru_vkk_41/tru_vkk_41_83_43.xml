@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title type="supplied" xml:lang="en">Pokati the Little Pea</title>
+        <title type="supplied" xml:lang="ru">Покати-горошинка</title>
+        <respStmt>
+          <resp>Transcription</resp>
+          <name>Evgeniia Vdovichenko</name>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>For research use; rights depend on the holding archive.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <!-- Collection identifiers -->
+            <repository>Estonian Folklore Archives (ERA)</repository>
+            <collection xml:lang="et">TRÜ, VKK (Tartu Riiklik Ülikool, Vene keele kateeder)</collection>
+            <collection xml:lang="ru">Тартуский университет, кафедра русского языка</collection>
+            <collection xml:lang="en">University of Tartu, Department of Russian Language</collection>
+            <idno>41</idno>
+          </msIdentifier>
+          <physDesc>
+          <handDesc>
+            <handNote xml:id="hand-col005" medium="ink">
+              <persName xml:lang="ru" role="collector" type="pseudonym" key="col005">col005</persName>
+            </handNote>
+            <handNote xml:id="hand-col006" medium="ink">
+              <persName xml:lang="ru" role="collector" type="pseudonym" key="col006">col006</persName>
+            </handNote> 
+            <handNote xml:id="hand-col012" medium="ink">
+              <persName xml:lang="ru" role="collector" type="pseudonym" key="col012">col012</persName>
+            </handNote>
+            <handNote xml:id="hand-col002" medium="ink">
+              <persName xml:lang="ru" role="collector" type="pseudonym" key="col002">col002</persName>
+            </handNote> 
+            <!-- Collector’s hand uncertain; one of:  -->
+              <handNote xml:id="hand-collectors" medium="ink">
+                <desc>Unknown collector’s hand; one of:
+                  <ref target="#hand-col005">col005</ref>,
+                  <ref target="#hand-col006">col006</ref>,
+                  <ref target="#hand-col012">col012</ref>,
+                  <ref target="#hand-col002">col002</ref>
+                </desc>
+              </handNote> 
+            </handDesc>
+            <p>Manuscript; page and line references follow the original.</p>
+          </physDesc>
+          <history>
+            <origin>
+              <origDate when="1967">1967</origDate>
+              <origPlace>
+                <placeName xml:lang="et" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=mm&amp;lang=en&amp;kohanimi=96014182&amp;f2v=Y&amp;f3v=Y&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;f14v=Y&amp;of=tb">
+                Venemaa, Pihkva obl., Petseri raj., Saalesja k
+                </placeName>
+                <placeName xml:lang="ru" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=mm&amp;lang=en&amp;kohanimi=96014182&amp;f2v=Y&amp;f3v=Y&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;f14v=Y&amp;of=tb">
+                Россия, Псковская область, Печорский район, Залесье
+                </placeName>
+                <placeName xml:lang="en" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=mm&amp;lang=en&amp;kohanimi=96014182&amp;f2v=Y&amp;f3v=Y&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;f14v=Y&amp;of=tb">
+                Russia, Pskovskaja oblast’, Pechorskiy rayon,  Zales’ye
+                </placeName>
+              </origPlace>
+            </origin>
+          </history>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <transcriptionDesc>
+        <p>This file’s primary layer is a phonetic transcription as recorded by the collector; it preserves original diacritics and signs (see #accent, 
+          #long, #pal, #underbar, #underparen, #pause1/#pause2). No orthographic normalization layer is provided in this file.
+        </p>
+      </transcriptionDesc>
+
+      <projectDesc>
+        <p>Encoded with TEI; page breaks via &lt;pb n=""/&gt;, line breaks via &lt;lb n=""/&gt;.</p>
+      </projectDesc>
+
+      <tagsDecl>
+        <rendition xml:id="indent">paragraph indent</rendition>
+        <rendition xml:id="pause1">short pause (|)</rendition>
+        <rendition xml:id="pause2">long pause (||)</rendition>
+        <rendition xml:id="pal">palatalization mark</rendition>
+        <rendition xml:id="accent">stress mark</rendition>
+        <rendition xml:id="long">long sound (vowel, consonant or hard articulation)</rendition>
+        <rendition xml:id="underbar">underbar on letter (syllabic/reduced articulation)</rendition>
+        <rendition xml:id="underparen">under-arc between words (single)</rendition>
+        <rendition xml:id="overstrike">overstrike (struck/erased mark)</rendition>
+        <rendition xml:id="sup">superscript letter (above)</rendition>
+        <rendition xml:id="overwrite">overwritten (overpainted) correction</rendition>
+        <rendition xml:id="underline">single underline</rendition>
+      </tagsDecl>
+
+      <charDecl>
+        <char xml:id="accentChar">
+          <charName>COMBINING ACUTE ACCENT</charName>
+          <mapping type="unicode">U+0301</mapping>
+          <!-- ́ -->
+          <desc>Stress mark; combining diacritic applied to preceding base character.</desc>
+        </char>
+
+        <char xml:id="longChar">
+          <charName>COMBINING MACRON</charName>
+          <mapping type="unicode">U+0304</mapping>
+          <!-- ̄ -->
+          <desc>Length mark over vowels or consonants.</desc>
+        </char>
+
+        <char xml:id="palChar">
+          <charName>MODIFIER LETTER PRIME</charName>
+          <mapping type="unicode">U+02B9</mapping>
+          <!-- ʹ -->
+          <desc>Palatalization mark after consonant.</desc>
+        </char>
+
+        <char xml:id="underparenChar">
+          <charName>UNDERTIE</charName>
+          <mapping type="unicode">U+203F</mapping>
+          <!-- ‿ -->
+          <desc>Under-arc joining words (sandhi tie).</desc>
+        </char>
+
+        <char xml:id="pause1Char">
+          <charName>VERTICAL LINE</charName>
+          <mapping type="unicode">U+007C</mapping>
+          <!-- | -->
+          <desc>Short pause.</desc>
+        </char>
+
+        <char xml:id="pause2Char">
+          <charName>DOUBLE VERTICAL LINE</charName>
+          <mapping type="unicode">U+2016</mapping>
+          <!-- ‖ -->
+          <desc>Long pause.</desc>
+        </char>
+
+        <char xml:id="underbarChar">
+          <charName>COMBINING LOW LINE</charName>
+          <mapping type="unicode">U+0332</mapping>
+          <!-- ̲ -->
+         <desc>Underbar diacritic; may mark syllabic consonant or reduced vowel context.</desc>
+        </char>
+      </charDecl>
+      
+      <classDecl>
+        <taxonomy xml:id="grapheme">
+          <category xml:id="pal">
+            <catDesc>Soft (palatalized) consonant</catDesc>
+          </category>
+          <category xml:id="length">
+           <catDesc>Long vowel or consonant (duration mark)</catDesc>
+          </category>
+          <category xml:id="pause">
+            <catDesc>Pause marks in performance transcription</catDesc>
+          </category>
+          <category xml:id="stress">
+            <catDesc>Stressed vowel</catDesc>
+          </category>
+        </taxonomy>
+        <taxonomy xml:id="transcrType">
+          <category xml:id="phonetic">
+            <catDesc>Phonetic transcription</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+      
+      <editorialDecl>
+        <p>Transcription type: phonetic (collector’s notation preserved).</p>
+
+        <p><b>Stress (</b><code>#accent</code><b>):</b> retained in <code>orig</code> as <code>&lt;hi rendition="#accent"/&gt;</code>; 
+              omitted in normalized exports.
+        </p>
+        <p><b>Length (</b><code>#long</code><b>):</b> retained in <code>orig</code> as <code>&lt;hi rendition="#long"/&gt;</code>; 
+              normalization may resolve to doubling or vowel length per legend/context (documented elsewhere).
+        </p>
+        <p><b>Palatalization (</b><code>#pal</code><b>):</b> retained after the base consonant as <code>&lt;hi rendition="#pal"/&gt;</code>; 
+              normalization may map to ь.
+        </p>
+        <p><b>Under-arc joins (</b><code>#underparen</code><b>):</b> retained as <code>&lt;g ref="#underparenChar" place="below"/&gt;</code>; 
+              not interpreted as morphological joining in this edition; optional conversion to <code>&lt;join type="word-merge"/&gt;</code> may 
+              be added later via script.
+        </p>
+        <p><b>Pauses (</b><code>#pause1/#pause2</code><b>):</b> retained as <code>&lt;pause rendition="#pause1"/&gt;</code> / <code>&lt;pause rendition="#pause2"/&gt;</code>
+              in <code>orig</code>; dropped from orthographic NLP export; may be rendered as “|”/“‖” in phonetic export.
+        </p>
+        <p><b>Struck marks:</b> crossed out signs encoded as <code>&lt;del rendition="#overstrike"&gt;…&lt;/del&gt;</code>.
+        </p>
+        <p>Syllabic consonants or reduced vowels are marked as <code>&lt;hi rendition="#underbar"/&gt;</code> (Unicode U+0332).</p>
+      </editorialDecl>
+    </encodingDesc>
+
+    <profileDesc>
+      <langUsage>
+        <language ident="ru">Russian</language>
+      </langUsage>
+      <textClass>
+        <catRef target="#phonetic"/>
+        <keywords scheme="local">
+          <term>genre: SKAZKA</term>
+        </keywords>
+      </textClass>
+    </profileDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+      
+      <div type="magic_tale" xml:id="tru_vkk_41_83_43" n="43">
+        <!-- Optional: store collection/volume as attributes for quick access -->
+
+        <!-- PAGE 1 -->
+        <pb n="83"/>
+          <lb n="01"/>Жили в деревне старик с старухой 
+          <lb n="02"/>и было у них семь сыновей. 
+          <lb n="03"/>А в другой деревне жили другие 
+          <lb n="04"/>старик со старухой и было
+          <lb n="05"/>в них семь дочарей. Семь до-
+          <lb n="06"/>чарей послали своёва отца, чтобы он нашел им семь 
+          <lb n="07"/>братьев в мужья. А сыновья
+          <lb n="08"/>послали своёва отца, чтобы 
+          <lb n="09"/>он нашел семь сестер в жены. 
+
+        <p rendition="#indent">  
+          <lb n="10"/>Вот идут старики и 
+          <lb n="11"/>встретились яны. Отец до-
+          <lb n="12"/>чарей рассказал, зачем его 
+          <lb n="13"/>послали, а отец сыновей рас-
+          <lb n="14"/>сказал про свое дело. Тогда
+          <lb n="15"/>они и говорят: "Нечаво и жа-
+          <lb n="16"/>лать лучшава. Пусть будет 
+          <lb n="17"/>свадьба". Поженились их дети.
+        </p> 
+
+        <p rendition="#indent">  
+          <lb n="18"/>Вот братья пошли на 
+          <lb n="19"/>работу и говорят: "Пусь там 
+          <lb n="20"/>старшая сестра принясет
+
+      
+          <!-- PAGE 2 -->
+        <pb n="84"/>
+        <p rendition="#indent">
+          <lb n="01"/>поесть". "Ланно - сказала старшая 
+          <lb n="02"/>сестра, - А как я к вам найду 
+          <lb n="03"/>дорогу?" А братья сказали:
+          <lb n="04"/>"Мы будем тябе камяшками
+          <lb n="05"/>дорогу выкладывать".
+        </p> 
+        <p rendition="#indent">
+          <lb n="06"/>Ну и вот. 
+        </p>
+
+        <p rendition="#indent">
+          <lb n="07"/>А Змей разузнал все это и 
+          <lb n="08"/>перяклал камяшки к свааму 
+          <lb n="09"/>царству. Идет старшая сестра 
+          <lb n="10"/>и приходит к его дворцу и 
+          <lb n="11"/>говорит: "Нячаво! В каком 
+          <lb n="12"/>царстве раюотают наши мужья".
+          <lb n="13"/>Тока взошла яна в это царство, 
+          <lb n="14"/>сразу провалилась под землю. 
+        </p>
+
+        <p rendition="#indent">
+          <lb n="15"/>"Ой!" - скаала яна, потому
+          <lb n="16"/>что она уколола обо что-то
+          <lb n="17"/>палец. И тока она это 
+          <lb n="18"/>сказала, как появился змей. 
+          <lb n="19"/>Он завсягда появлялси, кода 
+          <lb n="20"/>кто-нибудь говорил "Ой!"
+        </p>
+
+        <p rendition="#indent">
+          <lb n="21"/>И стала старшая сестра 
+          <lb n="22"/>на него работать.
+        </p>
+
+        <p rendition="#indent">
+          <lb n="23"/>Пряходят мужья домой
+          <lb n="24"/>и спрашивают: "Почему нам
+
+          <!-- PAGE 3 -->
+        <pb n="85"/>
+          <lb n="01"/>старшая сестра поесть ня
+          <lb n="02"/>принясла?" - "А яна поняс-
+          <lb n="03"/>ла вам и до сих пор ня
+          <lb n="04"/>вярнулась". - говорят сестры.
+          <lb n="05"/>Удивились они, но ня пош-
+          <lb n="06"/>ли искать сястру.
+        </p>
+
+        <p rendition="#indent">
+          <lb n="07"/>На другой день вторая 
+          <lb n="08"/>сястра понясла яду мужь-
+          <lb n="09"/>ям. А Змей опять пере-
+          <lb n="10"/>ложил камяшки. Так про-
+          <lb n="11"/>пали все сестры. Опячали-
+          <lb n="12"/>лись мужья и пошли их
+          <lb n="13"/>искать.
+        </p>
+
+        <p rendition="#indent">
+          <lb n="14"/>Идут яны, идут и 
+          <lb n="15"/>встрячают стадо быков.
+          <lb n="16"/>И говорит им пастух:
+          <lb n="17"/>"Если вы съядите самова 
+          <lb n="18"/>большого быка, то побяди-
+          <lb n="19"/>те Змея." Ели они, ели и 
+          <lb n="20"/>ня смогли справиться с бы-
+          <lb n="21"/>ком и пошли дальше.
+        </p>
+
+        <p rendition="#indent">
+          <lb n="22"/>Встрячают стадо волов. 
+          <lb n="23"/>Говорит им пастух: "Если
+          <lb n="24"/>съядите самава большого
+
+          <!-- PAGE 4 -->
+        <pb n="86"/>
+          <lb n="01"/>вола, победите Змея". Ня
+          <lb n="02"/>справились яны и с волом
+          <lb n="03"/>и пошли дальше. Подходят 
+          <lb n="04"/>они ко дворцу Змея. Зашли 
+          <lb n="05"/>и тоже, как и сёстры, 
+          <lb n="06"/>провалилися под земль<hi rendition="#accent">о</hi>. 
+          <lb n="07"/>Укололись там и все вмес-
+          <lb n="08"/>те сказали: "Ой!" Появился 
+          <lb n="09"/>Змей. Обрадовался он и ве-
+          <lb n="10"/>лел принясти орехов. Пря-
+          <lb n="11"/>нясли сестры орехи, и ве-
+          <lb n="12"/>лел Змей, чтобы братья
+          <lb n="13"/>разгрызли их. Грызли, грыз-
+          <lb n="14"/>ли братья - никак орехи ня
+          <lb n="15"/>разгрыза<hi rendition="#accent">ю</hi>тся. И стали они 
+          <lb n="16"/>тоже работать на змея. 
+        </p> 
+
+        <p rendition="#indent">
+          <lb n="17"/>А тем времянем мать 
+          <lb n="18"/>дочарей очень горявала и 
+          <lb n="19"/>искала их. Идё она раз</p>
+          <lb n="20"/>вдоль речки и виде, катит-
+          <lb n="21"/>ся горошинка. Подняла яна 
+          <lb n="22"/>яю и съела. Скоро родился 
+          <lb n="23"/>у яе сынок (забрюхатела
+          <lb n="24"/>яна с горошинки-то), и
+
+          <!-- PAGE 5 -->
+        <pb n="87"/>
+          <lb n="01"/>назвали яво Покати-горошин-
+          <lb n="02"/>ка.
+        </p>
+
+        <p rendition="#indent">
+          <lb n="03"/>Рос он не па дням, а па 
+          <lb n="04"/>часам. Рассказая яму мать
+          <lb n="05"/>про яво сястер и ихних 
+          <lb n="06"/>мушьев и ряшил он освобо-
+          <lb n="07"/>дить их. Рос он сильнай, 
+          <lb n="08"/>смелай да умнай. Нашел 
+          <lb n="09"/>он как-то булавку, отнес 
+          <lb n="10"/>яго к кузнецам и говорит:
+          <lb n="11"/>"Скуйте мне, кузняцы, из
+          <lb n="12"/>этай булавки булаву. Тока 
+          <lb n="13"/>из яё, а не из чаво другова". 
+          <lb n="14"/>Ня знали кузняцы, как 
+          <lb n="15"/>из такой булавки булаву 
+          <lb n="16"/>сделать. И сдялали яго из
+          <lb n="17"/>другова. Забрал Горошинка 
+          <lb n="18"/>булаву, пряшел домой и гово-
+          <lb n="19"/>рит отцу: "Я сейчас вскину 
+          <lb n="20"/>булаву в небо и лягу спать, а
+          <lb n="21"/>черяз няделю, када она 
+          <lb n="22"/>будит спускаться, ты раз-
+          <lb n="23"/>буди меня". Вскинул он 
+          <lb n="24"/>булаву и лег спать.
+        </p>
+
+          <!-- PAGE 6 -->
+        <pb n="88"/>
+        <p rendition="#indent">
+          <lb n="01"/>Слышит через няделю отец,
+          <lb n="02"/>что спускается булава. Разбудил
+          <lb n="03"/>он сына. Подставил Горошинка 
+          <lb n="04"/>руку, булава ударилась об яё
+          <lb n="05"/>и разбилась. Рассярдился 
+          <lb n="06"/>Горошинка на кузняцов. 
+          <lb n="07"/>"Ня из моёй булавки сдела-
+          <lb n="08"/>ли вы булаву," - говорит. Ста-
+          <lb n="09"/>ли они яще булаву выковывать
+          <lb n="10"/>и опять омманули Покати-
+          <lb n="11"/>Горошинку. Опять через няделю
+          <lb n="12"/>подставил он руку и разбилася 
+          <lb n="13"/>булава. 
+        </p>   
+        <p rendition="#indent">
+          <lb n="14"/>Тут уже совсем Горошинка 
+          <lb n="15"/>рассердился, чуть всюю кузницу
+          <lb n="16"/>ня разнес по камяшкам.
+        </p>  
+        <p rendition="#indent">
+          <lb n="17"/>Наконец выковали яму куз-
+          <lb n="18"/>няцы булаву из яво булавки. 
+          <lb n="19"/>Упала она с неба и ня разби-
+          <lb n="20"/>ласа. Взял Покати-Горошин-
+          <lb n="21"/>ка булаву, попрашшался с 
+          <lb n="22"/>отцом, с матушкой и па-
+          <lb n="23"/>шел искать сваих сястер. 
+        </p>  
+        <p rendition="#indent">
+          <lb n="24"/>Идё он по лясу и виде
+
+          <!-- PAGE 7 -->
+        <pb n="89"/>
+          <lb n="01"/>стадо быков. Говорит яму 
+          <lb n="02"/>старик-пастух: "Побядишь
+          <lb n="03"/>ты Змея, если съешь один 
+          <lb n="04"/>самава боольшова быка." Съел
+          <lb n="05"/>Покати-Горошинка самава 
+          <lb n="06"/>большова быка, запил студя-
+          <lb n="07"/>ной водичкой , поговорил с пас-
+          <lb n="08"/>тухом и пошел дальше. Встря-
+          <lb n="09"/>чает стадо волов. Съял он и 
+          <lb n="10"/>самова большова вола.
+        </p>
+        <p rendition="#indent">
+          <lb n="11"/>Вот и подходит к Змеяву 
+          <lb n="12"/>дворцу. Зашел ва дворец, про-
+          <lb n="13"/>валился под землю. Опять, 
+          <lb n="14"/>как и сестры, уколол палец  и
+          <lb n="15"/>сказал: "Ой!" Появился Змей:
+          <lb n="16"/>"Кто меня звал? Зачем сю-
+          <lb n="17"/>да пожаловал?" Испугался, 
+          <lb n="18"/>рассердился он, увидевши Го-
+          <lb n="19"/>рошинку. А Покати-Горошин-
+          <lb n="20"/>ка и говорит: "Я Покати-
+          <lb n="21"/>Горошинка. Пришовши выручать 
+          <lb n="22"/>своих сястер и ихних мужьев".
+        </p>
+        <p rendition="#indent">
+          <lb n="23"/>Вялел Змей окаянная пряняс-
+          <lb n="24"/>ти орехи и яму. Прянясли
+
+          <!-- PAGE 8 -->
+        <pb n="90"/>
+          <lb n="01"/>сестры орехи, узнали братца
+          <lb n="02"/>и говорят яму тихошенечко:
+          <lb n="03"/>"Там в подвале стоят два вядра
+          <lb n="04"/>Праваё с сильной водой, левоё - 
+          <lb n="05"/>со слабой. Напейся из сильна-
+          <lb n="06"/>ва вядерца". - "Ня хочу, - гово-
+          <lb n="07"/>рит Горошинка, - я и так 
+          <lb n="08"/>сильнай" - "Тогда помяняй 
+          <lb n="09"/>ведра мястами". - говорят сес-
+          <lb n="10"/>тры.
+        </p>
+        <p rendition="#indent">
+          <lb n="11"/>Разгрыз Горошинка орехи. 
+          <lb n="12"/>Испугался Змей и говорит:
+          <lb n="13"/>"Давай сдвигать этот колодец 
+          <lb n="14"/>будем." Сбегал Горошинка быстрё-
+          <lb n="15"/>хонько в подвал, помянял
+          <lb n="16"/>ведра мястами, а Змей па
+          <lb n="17"/>пивши из слабова вядра , силится, 
+          <lb n="18"/>силится, а колодец сдвинуть
+          <lb n="19"/>ня могёт. А Покати-Горошин-
+          <lb n="20"/>ка легонько дотронулся и 
+          <lb n="21"/>сдвинул яво с мяста. 
+        </p>
+        <p rendition="#indent">
+          <lb n="22"/>Еще больш разозлился Змей 
+          <lb n="23"/>окаяннай. Сбегавши яще па-
+          <lb n="24"/>пивши и опять слабой воды. 
+
+          <!-- PAGE 9 -->
+        <pb n="91"/>
+          <lb n="01"/>"Давай тяперь яблоки 
+          <lb n="02"/>срывать с этива дерява," - 
+          <lb n="03"/>крячит Горошинке. Силит-
+          <lb n="04"/>ся, силится, а някак ня 
+          <lb n="05"/>может сорвать ни яблочка. 
+          <lb n="06"/>А Горошинка анной ручень-
+          <lb n="07"/>кой рвавши, нарвал яблочек. 
+          <lb n="08"/>Совсем испугался Змей. Еще 
+          <lb n="09"/>раз сбегал в подвал выпить 
+          <lb n="10"/>сильной воды и опять сла-
+          <lb n="11"/>бой выпивши. Вызывает 
+          <lb n="12"/>Горошинку драться. Взял 
+          <lb n="13"/>Горошинка сваю булаву и 
+          <lb n="14"/>снёс Змею всюю яво голову. 
+          <lb n="15"/>Змей и издох. 
+        </p>
+        <p rendition="#indent">
+          <lb n="16"/>Освободил Покати-Горошин-
+          <lb n="17"/>ка сястер своих и ихних мужьев, 
+          <lb n="18"/>осводил яще много людей, ко-
+          <lb n="19"/>торые работавши на Змея 
+          <lb n="20"/>были. И стали они жить 
+          <lb n="21"/>счастлива, поживать да и дабра 
+          <lb n="22"/>наживать. 
+        </p>
+      </div>
+    </body>
+  </text>
+</TEI> 

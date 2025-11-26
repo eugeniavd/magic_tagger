@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title type="supplied" xml:lang="en">Untitled tale</title>
+        <title type="supplied" xml:lang="ru">Сказка без названия</title>
+        <respStmt>
+          <resp>Transcription</resp>
+          <name>Evgeniia Vdovichenko</name>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <p>For research use; rights depend on the holding archive.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <msDesc>
+          <msIdentifier>
+            <!-- Collection identifiers -->
+            <repository>Estonian Folklore Archives (ERA)</repository>
+            <collection xml:lang="et">TRÜ, VKK (Tartu Riiklik Ülikool, Vene keele kateeder)</collection>
+            <collection xml:lang="ru">Тартуский университет, кафедра русского языка</collection>
+            <collection xml:lang="en">University of Tartu, Department of Russian Language</collection>
+            <idno>32</idno>
+          </msIdentifier>
+          <physDesc>
+            <handDesc>
+              <handNote xml:id="hand-col015" medium="ink">
+              <persName xml:lang="ru" role="collector" type="pseudonym" key="col015">col015</persName>
+            </handNote>
+              <handNote xml:id="hand-collectors" medium="ink">
+                <desc>Collector’s hand: <ref target="#hand-col015">col015</ref>.</desc>
+              </handNote>
+            </handDesc>
+            <p>Manuscript; page and line references follow the original.</p>
+          </physDesc>
+          <history>
+            <origin>
+              <origDate when="1968">1968</origDate>
+              <origPlace>
+                <placeName xml:lang="et" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=mm&amp;lang=en&amp;kohanimi=96088051&amp;f2v=Y&amp;f3v=Y&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;f14v=Y&amp;of=tb">
+                Venemaa, Pihkva obl., Pihkva raj., Zalita nim. saar
+                </placeName>
+                <placeName xml:lang="ru" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=mm&amp;lang=en&amp;kohanimi=96088051&amp;f2v=Y&amp;f3v=Y&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;f14v=Y&amp;of=tb">
+                Россия, Псковская область, Псковский район, остров имени Залита
+                </placeName>
+                <placeName xml:lang="en" ref="https://arhiiv.eki.ee/cgi-bin/mkn8.cgi?form=mm&amp;lang=en&amp;kohanimi=96088051&amp;f2v=Y&amp;f3v=Y&amp;nimeliik=&amp;maakond=&amp;vald=&amp;kihelkond=&amp;asum=&amp;f10v=Y&amp;f14v=Y&amp;of=tb">
+                Russia, Pskovskaja oblast’, Pskovskiy rayon, ostrov imeni Zalita
+                </placeName>
+              </origPlace>
+            </origin>
+          </history>
+        </msDesc>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <transcriptionDesc>
+        <p>This file’s primary layer is a phonetic transcription as recorded by the collector; it preserves original diacritics and signs (see #accent, 
+          #long, #pal, #underbar, #underparen, #pause1/#pause2). No orthographic normalization layer is provided in this file.
+        </p>
+      </transcriptionDesc>
+
+      <projectDesc>
+        <p>Encoded with TEI; page breaks via &lt;pb n=""/&gt;, line breaks via &lt;lb n=""/&gt;.</p>
+      </projectDesc>
+
+      <tagsDecl>
+        <rendition xml:id="indent">paragraph indent</rendition>
+        <rendition xml:id="pause1">short pause (|)</rendition>
+        <rendition xml:id="pause2">long pause (||)</rendition>
+        <rendition xml:id="pal">palatalization mark</rendition>
+        <rendition xml:id="accent">stress mark</rendition>
+        <rendition xml:id="long">long sound (vowel, consonant or hard articulation)</rendition>
+        <rendition xml:id="underbar">underbar on letter (syllabic/reduced articulation)</rendition>
+        <rendition xml:id="underparen">under-arc between words (single)</rendition>
+        <rendition xml:id="overstrike">overstrike (struck/erased mark)</rendition>
+        <rendition xml:id="sup">superscript letter (above)</rendition>
+        <rendition xml:id="overwrite">overwritten (overpainted) correction</rendition>
+        <rendition xml:id="underline">single underline</rendition>
+      </tagsDecl>
+
+      <charDecl>
+        <char xml:id="accentChar">
+          <charName>COMBINING ACUTE ACCENT</charName>
+          <mapping type="unicode">U+0301</mapping>
+          <!-- ́ -->
+          <desc>Stress mark; combining diacritic applied to preceding base character.</desc>
+        </char>
+
+        <char xml:id="longChar">
+          <charName>COMBINING MACRON</charName>
+          <mapping type="unicode">U+0304</mapping>
+          <!-- ̄ -->
+          <desc>Length mark over vowels or consonants.</desc>
+        </char>
+
+        <char xml:id="palChar">
+          <charName>MODIFIER LETTER PRIME</charName>
+          <mapping type="unicode">U+02B9</mapping>
+          <!-- ʹ -->
+          <desc>Palatalization mark after consonant.</desc>
+        </char>
+
+        <char xml:id="underparenChar">
+          <charName>UNDERTIE</charName>
+          <mapping type="unicode">U+203F</mapping>
+          <!-- ‿ -->
+          <desc>Under-arc joining words (sandhi tie).</desc>
+        </char>
+
+        <char xml:id="pause1Char">
+          <charName>VERTICAL LINE</charName>
+          <mapping type="unicode">U+007C</mapping>
+          <!-- | -->
+          <desc>Short pause.</desc>
+        </char>
+
+        <char xml:id="pause2Char">
+          <charName>DOUBLE VERTICAL LINE</charName>
+          <mapping type="unicode">U+2016</mapping>
+          <!-- ‖ -->
+          <desc>Long pause.</desc>
+        </char>
+
+        <char xml:id="underbarChar">
+          <charName>COMBINING LOW LINE</charName>
+          <mapping type="unicode">U+0332</mapping>
+          <!-- ̲ -->
+         <desc>Underbar diacritic; may mark syllabic consonant or reduced vowel context.</desc>
+        </char>
+      </charDecl>
+      
+      <classDecl>
+        <taxonomy xml:id="grapheme">
+          <category xml:id="pal">
+            <catDesc>Soft (palatalized) consonant</catDesc>
+          </category>
+          <category xml:id="length">
+           <catDesc>Long vowel or consonant (duration mark)</catDesc>
+          </category>
+          <category xml:id="pause">
+            <catDesc>Pause marks in performance transcription</catDesc>
+          </category>
+          <category xml:id="stress">
+            <catDesc>Stressed vowel</catDesc>
+          </category>
+        </taxonomy>
+        <taxonomy xml:id="transcrType">
+          <category xml:id="phonetic">
+            <catDesc>Phonetic transcription</catDesc>
+          </category>
+        </taxonomy>
+      </classDecl>
+      
+      <editorialDecl>
+        <p>Transcription type: phonetic (collector’s notation preserved).</p>
+
+        <p><b>Stress (</b><code>#accent</code><b>):</b> retained in <code>orig</code> as <code>&lt;hi rendition="#accent"/&gt;</code>; 
+              omitted in normalized exports.
+        </p>
+        <p><b>Length (</b><code>#long</code><b>):</b> retained in <code>orig</code> as <code>&lt;hi rendition="#long"/&gt;</code>; 
+              normalization may resolve to doubling or vowel length per legend/context (documented elsewhere).
+        </p>
+        <p><b>Palatalization (</b><code>#pal</code><b>):</b> retained after the base consonant as <code>&lt;hi rendition="#pal"/&gt;</code>; 
+              normalization may map to ь.
+        </p>
+        <p><b>Under-arc joins (</b><code>#underparen</code><b>):</b> retained as <code>&lt;g ref="#underparenChar" place="below"/&gt;</code>; 
+              not interpreted as morphological joining in this edition; optional conversion to <code>&lt;join type="word-merge"/&gt;</code> may 
+              be added later via script.
+        </p>
+        <p><b>Pauses (</b><code>#pause1/#pause2</code><b>):</b> retained as <code>&lt;pause rendition="#pause1"/&gt;</code> / <code>&lt;pause rendition="#pause2"/&gt;</code>
+              in <code>orig</code>; dropped from orthographic NLP export; may be rendered as “|”/“‖” in phonetic export.
+        </p>
+        <p><b>Struck marks:</b> crossed out signs encoded as <code>&lt;del rendition="#overstrike"&gt;…&lt;/del&gt;</code>.
+        </p>
+        <p>Syllabic consonants or reduced vowels are marked as <code>&lt;hi rendition="#underbar"/&gt;</code> (Unicode U+0332).</p>
+      </editorialDecl>
+    </encodingDesc>
+
+    <profileDesc>
+      <langUsage>
+        <language ident="ru">Russian</language>
+      </langUsage>
+      <textClass>
+        <catRef target="#phonetic"/>
+        <keywords scheme="local">
+          <term>genre: SKAZKA</term>
+        </keywords>
+      </textClass>
+    </profileDesc>
+  </teiHeader>
+
+  <text>
+    <body>
+      
+      <div type="magic_tale" xml:id="tru_vkk_32_14_2" n="2">
+        <!-- Optional: store collection/volume as attributes for quick access -->
+
+        <!-- PAGE 1 -->
+        <pb n="14"/>
+        <add place="top-right" hand="#hand-collectors">
+          <signed xml:lang="ru">
+            Записано от
+            <persName xml:lang="ru" role="narrator" type="pseudonym" key="nar003">nar003</persName>.
+          </signed>
+        </add>
+          <lb n="01"/>Жил старик со старухой. У него было
+          <lb n="02"/>три дочки. У старухи было много курят. 
+          <lb n="03"/>Старуха говорит старику:
+          <lb n="04"/>- Хозяин, надо в город идти за овсом. 
+          <lb n="05"/>Хозяин и пошел в город. Пришел в город, 
+          <lb n="06"/>купил овса. Идё домой, припоздал
+          <lb n="07"/>маненько, а дело зимой было. Хотел
+          <lb n="08"/>отдохнуть, мяшок сбросил с плеч и 
+          <lb n="09"/>маненько порвал, а овес рассылпался. 
+          <lb n="10"/>Стал старик овес собирать, а тёмно, 
+          <lb n="11"/>ничаво не видно, рукам холонно. 
+          <lb n="12"/>Вот он сидит на дороге и говорит:
+          <lb n="13"/>- Кто помог бы, посвятил - дочку
+          <lb n="14"/>замуж бы отдал. - 
+          <lb n="15"/>И откуль ни возьмись добрый молодец
+          <lb n="16"/>к яму подходит. А ето Месяц.
+          <lb n="17"/>Посвятил яму, пособил овес собрать. 
+          <lb n="18"/>Дедушка и пошел домой. 
+          <lb n="19"/>И вот опять вторично старуха
+          <lb n="20"/>в город посылает: овёс поскормился. 
+          <lb n="21"/>Дед опять опоздал, опять сидит
+          <lb n="22"/>и думае: кто б меня обогрел - 
+          <lb n="23"/>дочку замуж бы отдал.
+          <lb n="24"/>Глядь, Солнце-молодец появился
+          <lb n="25"/><p rendition="#indent">и грее.</p>
+        
+
+        <!-- PAGE 2 -->
+        <pb n="15"/>
+          <lb n="01"/>Старик и говорит - я тебе дочку замуж
+          <lb n="02"/>отдам. 
+          <lb n="03"/>Вот много ли мало пожили - во Псков 
+          <lb n="04"/>дедушка пошел. Вот опять идет jон, 
+          <lb n="05"/>разорвал мяшок. Сидит и плача, 
+          <lb n="06"/>тёмно яму и холонно. Прилетел орел. 
+          <lb n="07"/>Вот он дедушке помог зерна обобрать и 
+          <lb n="08"/>до дому проводил:
+          <lb n="09"/>вот малую дочку замуж отдал.  
+          <lb n="10"/>Оны жавут много ли время мало, 
+          <lb n="11"/>пришел Месяц:
+          <lb n="12"/>- Старичок, я за вашей дочкой пришел. - 
+          <lb n="13"/>- Танюшка, тебя добрый молодец клича. - 
+          <lb n="14"/>Яна и пошла. 
+          <lb n="15"/>И вторично так жа. 
+          <lb n="16"/>И в третьий раз.
+          <lb n="17"/>Вот жили много ли мало. Баба и говорит:
+          <lb n="18"/>- Дедка, сходил бы к дочкам в гости. 
+          <lb n="19"/>Ты и ня знаешь, как они жавут. 
+          <lb n="20"/>Ну дедка и пошел. Ишел-ишел
+          <lb n="21"/>и горам и лясам и виде: на горе
+          <lb n="22"/>дом большой стоит, и напал на дочку
+          <lb n="23"/>старшую, что за Сонцем замужем. 
+          <lb n="24"/>Стали блины печь. У Солнца на головы
+          <lb n="25"/>стала печь. И к Месяцу попал в гости. 
+          <lb n="26"/>Дочешка, истопила бы баенку. - 
+          <lb n="27"/>Истопила дочь байню. 
+          <lb n="28"/>Дай керасинчику -  
+
+          <!-- PAGE 3 -->
+        <pb n="16"/>
+          <lb n="01"/>- Иди, у нас и так святло. 
+          <lb n="02"/>И у орла был тоже в гостях. 
+          <lb n="03"/>Его посадили за стол ужинать, а зять 
+          <lb n="04"/>говорит:
+          <lb n="05"/>Идем Дед уснул и свалился. 
+          <lb n="07"/>Дочка надавала гостинцев, и пришел 
+          <lb n="08"/>дед домой. 
+          <lb n="09"/>Говорит бабе:
+          <lb n="10"/>- Баба, давай блины печь. - 
+          <lb n="11"/>Старуха хотела сковороду поставить
+          <lb n="12"/>на печь, а дед говорит:
+          <lb n="13"/>- Ня надо. Лей тесто мне на голову, 
+          <lb n="14"/>блины и так спекуться. - 
+          <lb n="15"/>Баба льё тесто, дед уже весь в тесте
+          <lb n="16"/>перемазался. Баба <del rendition="#overstrike">заз</del> разозлилась и
+          <lb n="17"/>избила яво. 
+          <lb n="18"/>Бабка стопила байню, хотела фонарь
+          <lb n="19"/>искать, а дед говорит:
+          <lb n="20"/>- Иди, ня бяри фонарь: и так святло. - 
+          <lb n="21"/>Баба в байне ждет-ждет, когда святло
+          <lb n="22"/>будет, а все тёмно. Разозлилась яна
+          <lb n="23"/>и избила деда. 
+          <lb n="24"/>Настал вечер. Дед говорит бабе:
+          <lb n="25"/>- Пойду к курам нашест спать. - 
+          <lb n="26"/>Пошел, залез и свалился. Баба яво избила. 
+        <add place="bottom-right" hand="#hand-collectors">
+          <signed xml:lang="ru">
+            Обработано
+            <persName xml:lang="ru" role="collector" type="pseudonym" key="col015">col015</persName>.
+          </signed>
+        </add>
+      </div>
+    </body>
+  </text>
+</TEI> 
