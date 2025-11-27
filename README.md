@@ -52,6 +52,7 @@ For a more detailed policy see `docs/permissions&licensing.md`.
 
 ## 4. Repository Structure (top level)
 
+```text
 magic_tagger/
 ├─ README.md                 # this file: project overview
 ├─ LICENSE                   # AGPL-3.0-only for the code
@@ -92,6 +93,7 @@ magic_tagger/
 │  │  ├─ __init__.py
 │  │  └─ config.py               # central config (paths to data, settings)
 │  └─ requirements.txt           # dependencies for the app layer
+```
 
 ---
 
