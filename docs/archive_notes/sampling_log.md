@@ -2,12 +2,9 @@
 
 Unlocking Russian Folklore — Corpus Creation (117 texts)
 
-
-
 ## 1. Purpose and scope
 
 This document describes how we constructed the corpus for the project *“Unlocking Russian Folklore”*. It records:
-
 
 - which archival collections were used and why,
 - how “magic tales” were operationally defined,
