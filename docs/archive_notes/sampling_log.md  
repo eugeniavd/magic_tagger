@@ -1,10 +1,13 @@
-# Sampling_log.md  
+# Sampling_log.md
+
 Unlocking Russian Folklore — Corpus Creation (117 texts)
+
 
 
 ## 1. Purpose and scope
 
 This document describes how we constructed the corpus for the project *“Unlocking Russian Folklore”*. It records:
+
 
 - which archival collections were used and why,
 - how “magic tales” were operationally defined,
@@ -13,6 +16,7 @@ This document describes how we constructed the corpus for the project *“Unlock
 
 The goal is to ensure that corpus construction is transparent and reproducible.
 
+---
 
 ## 2. Source collections
 
@@ -36,6 +40,7 @@ The magic-tale subcorpus used in this project comprises 117 texts drawn from the
 
 Together, these plots make the sampling across collections and volumes transparent.
 
+---
 
 ## 3. Why focus on magic tales
 
@@ -43,6 +48,7 @@ Within the Russian-language holdings of the Estonian Folklore Archives, magic ta
 
 In addition, magic tales are the genre for which Vladimir Propp’s structural analysis is most fully developed, most famously in his *Morphology of the Folktale* (Пропп 1928). By concentrating on this genre, we create optimal conditions for later stages of the project, where Propp-inspired functional annotation and models will be used to refine and evaluate the tale-typing tool we are building.
 
+---
 
 ## 4. Operational definition of “magic tale”
 
@@ -56,6 +62,7 @@ For the purposes of this project, tales of magic are defined as follows:
    - We also examined records labelled only as general tales (without a specific subtype or tale-type group).  
    - When such texts clearly exhibited magic-tale plots and episode structure, they were reinterpreted in the working index as magic tales and included in the corpus.
 
+---
 
 ## 5. Selection criteria
 
@@ -89,6 +96,7 @@ The following records were excluded:
 - Items where the genre classification was clearly non fairytales, even if they contained occasional magic motifs (e.g. legend, joke, personal narrative).  
 - Fairy tales which do not contain "magic episodes" to reference them to 300–749 ATU types.  
 
+---
 
 ## 6. Corpus summary
 
@@ -154,6 +162,7 @@ For all geographic visualizations, place names were sourced from the online data
 
 Taken together, these visualisations show that the “near-census” corpus of Russian-language magic tales is geographically concentrated in Pskov Oblast and neighbouring Estonian counties, and archivally anchored in `ERA, Vene`, with additional, region-specific contributions from `RKM, Vene` and `TRÜ, VKK`.
 
+---
 
 ## 7. Deviation from initial plan
 
