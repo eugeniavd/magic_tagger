@@ -1,7 +1,6 @@
 # Permissions & Licensing (v1.0 (pseudonymised))
 
 ## 0. Scope & Status
-- Host clearance:  — publication approved (date, contact).
 - Corpus A (Local Gold): Estonian Folklore Archive subset (mounted locally).
 - Corpus B (External, optional): FEB — Afanasyev mirror (context-only retrieval).
 
