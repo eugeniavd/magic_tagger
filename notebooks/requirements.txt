@@ -5,6 +5,9 @@ seaborn>=0.13
 plotly>=5.20
 
 transformers==4.46.3
+torch==2.9.0 
+torchvision==0.24.0 
+torchaudio==2.9.0
 
 Pillow==10.4.0
 opencv-python==4.10.0.84
@@ -15,3 +18,4 @@ rapidfuzz==3.10.1
 tqdm>=4.67
 
 pymupdf==1.24.14
+
