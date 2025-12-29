@@ -199,14 +199,10 @@ This allowed us to identify:
 
 ---
 
-## 2. Transformer model baseline evaluation
+## 3. Transformer model baseline evaluation
 
-### Ground truth definition
-- GT is the manually corrected transcription exported after revision in Transkribus.
-- GT includes punctuation and capitalization, because these were also manually corrected during GT preparation and were part of the Transkribus evaluation.
-
-### Normalization rules (applied identically to GT and prediction)
-To ensure comparability and to avoid counting purely typographic artifacts as OCR/HTR errors, we apply a minimal, explicit normalization:
+### Normalization rules 
+To ensure comparability and to avoid counting purely typographic artifacts as HTR errors, we apply a minimal, explicit normalization:
 1. `strip()` leading/trailing whitespace.
 2. Convert any internal whitespace runs to a single space: `\s+ → " "`.
 3. Preserve all other symbols as-is, including:
@@ -228,3 +224,20 @@ We compute:
   - **mean CER/WER** across spreads,
   - **median CER/WER** across spreads,
   - per-handwriting summaries (mean/median, plus share of “good” vs. “bad” pages if used in the project dashboard).
+
+
+## Transformer HTR Baseline Evaluation ("trocr-base-handwritten-ru")
+
+We evaluated a **TrOCR** on the same held-out batch used for the Transkribus baseline and computed the same page-level and handwriting-level metrics (CER/WER) to enable a direct comparison.
+
+### Results summary
+TrOCR achieves a **mean CER only moderately worse** than Transkribus, but it is **not competitive at word level**: at the handwriting level, TrOCR remains in a systematic failure regime with **≈70–95% WER** across hands, indicating that the current configuration does not produce usable word sequences without additional adaptation (most plausibly due to spacing/tokenization errors). In contrast, **Transkribus is the stronger baseline overall**, with better mean CER and **overwhelmingly better WER**, and it **wins on more pages** in the per-page delta analysis. TrOCR nevertheless appears **useful as a fallback** for a subset of difficult pages where Transkribus degrades severely, delivering **large CER improvements** in those cases.
+
+### Method selection for the corpus
+For corpus-scale HTR we choose the approach that minimizes total downstream cost:
+
+\[
+\textbf{Score} = \textbf{CER} + \lambda\cdot\Big(\frac{\text{minutes\_to\_correct}}{100\ \text{lines}}\Big) + \mu\cdot \textbf{failure\_rate} + \nu\cdot \textbf{pipeline\_overhead}.
+\]
+
+Under this criterion, **Transkribus is selected as the primary HTR engine**, because its much lower WER implies substantially lower correction time and a lower effective failure rate. **TrOCR is retained as an auxiliary fallback** for pages/hands where Transkribus exhibits high CER, since in those edge cases it can reduce character-level error enough to justify the extra pipeline overhead.
