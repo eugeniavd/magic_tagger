@@ -32,3 +32,4 @@ venv/
 # ==== Logs / temp files ====
 *.log
 *.tmp
+data/raw/scans/
