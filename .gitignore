@@ -33,3 +33,7 @@ venv/
 *.log
 *.tmp
 data/raw/scans/
+
+# local-only scans
+data/raw/scans/
+.DS_Store
