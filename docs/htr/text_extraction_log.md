@@ -241,3 +241,108 @@ For corpus-scale HTR we choose the approach that minimizes total downstream cost
 \]
 
 Under this criterion, **Transkribus is selected as the primary HTR engine**, because its much lower WER implies substantially lower correction time and a lower effective failure rate. **TrOCR is retained as an auxiliary fallback** for pages/hands where Transkribus exhibits high CER, since in those edge cases it can reduce character-level error enough to justify the extra pipeline overhead.
+
+
+## 4. HTR/OCR Quality Assessment and Data Readiness Protocol
+
+This section documents how we assessed HTR quality in Transkribus, identified systematic failure modes, and defined a pragmatic data-readiness policy for downstream NLP (ATU classification, statistics, and evidence snippets).
+
+---
+
+### 1. Reference evaluation subset (Ground Truth) and quantitative metrics
+
+#### 1.1 Purpose
+Because training a dedicated HTR model was out of scope for the current time window, we first evaluated the baseline Transkribus recognition output on a small reference subset to:
+
+- quantify the recognition quality (CER/WER),
+- detect systematic error patterns,
+- decide whether the corpus is ready for downstream NLP tasks without additional HTR training.
+
+#### 1.2 Ground Truth creation and evaluation setup
+We selected **14 pages** as a validation/reference subset and produced **Ground Truth (GT)** transcriptions for them. The pages were chosen to represent both typical and challenging cases, including pages flagged by Transkribus layout recognition as **hard**.
+
+For each GT page, we computed:
+- **CER (Character Error Rate)**
+- **WER (Word Error Rate)**
+
+**Overall (N=14):**
+- CER: **mean 18.70**, median 10.69
+- WER: **mean 0.366**, median 0.316
+
+**By layout stratum:**
+- `layout_recognition = good` (N=9):
+  - CER: **mean 7.70**, median 8.43
+  - WER: **mean 0.221**, median 0.279
+- `layout_recognition = hard` (N=5):
+  - CER: **mean 38.67**, median 20.89
+  - WER: **mean 0.720**, median 0.859
+
+These metrics provide an objective estimate of text recognition quality on the reference subset.
+
+#### 1.3 Observed metrics (reference subset)
+On the evaluated pages, recognition quality varied substantially. Pages with `layout_recognition = good` tended to have usable CER/WER, whereas pages with `layout_recognition = hard` showed markedly worse performance and, in several cases, a failure regime.
+
+**Key observation:** the strongest degradation in CER/WER aligned with **hard layout cases**.
+
+#### 1.4 Interpretation: layout-driven failure mode
+The reference evaluation showed that when a page has a **complex layout** (e.g., challenging spreads, ambiguous separation, visually dense writing), the baseline HTR model may fail even after manual corrections of:
+- text regions,
+- line segmentation (baselines),
+- removal of non-relevant areas.
+
+In other words, for a subset of hard pages, the limiting factor is not only segmentation but the mismatch between the page/handwriting characteristics and the generic model capacity.
+
+---
+
+### 2. Decision and scope: how we handle hard pages
+
+#### 2.1 Immediate implication
+Based on the reference evaluation, pages with **hard layout** are currently **not reliable** for downstream NLP tasks (ATU classification, evidence extraction, frequency statistics) when processed with the baseline model.
+
+Such pages would require one of the following interventions:
+- **manual text correction**, or
+- **HTR model training / fine-tuning** and re-recognition.
+
+#### 2.2 Project decision
+Given the project time constraints, we **defer** manual correction and/or model training for these pages to later stages.
+
+For the current iteration, we mark pages with hard layout as **not yet suitable for analysis** and exclude them from downstream experiments by default.
+
+This is recorded via a page-level readiness flag (conceptually: `htr_usable = FALSE` and/or `exclude_reason = low_text_quality`).
+
+---
+
+### 3. Corpus-wide visual audit (510 pages) and readiness labeling
+
+#### 3.1 Motivation
+A GT-based evaluation provides precise metrics but is necessarily limited in size. To ensure robust downstream processing under time constraints, we performed a **corpus-wide visual audit**.
+
+#### 3.2 Procedure
+We visually inspected **all 510 pages** in Transkribus and assigned a readiness label based on whether the recognized text is usable for computational analysis.
+
+For each page we recorded a binary usability assessment of `htr_usable`:
+- **True**: text is sufficiently readable and structurally coherent for downstream NLP,
+- **False**: text is visually too noisy or structurally unreliable for downstream NLP.
+
+This labeling complements the GT evaluation by capturing practical usability across the entire corpus.
+
+- Total pages audited: **510**
+- Pages flagged as *not usable for downstream NLP at the current stage* (`htr_usable = FALSE`): **137** (**26.9%**)
+- Pages considered usable (`htr_usable = TRUE`): **372** (**73.1%**)
+
+Most excluded pages belong to the **hard-layout** stratum and were marked with `exclude_reason = low_text_quality`. These pages are retained in the corpus but excluded from ATU classification, evidence extraction (anchors), and text-derived corpus statistics until a future HTR improvement step (manual correction and/or model training) is completed.
+
+
+#### 3.3 Operational policy
+For the current pipeline iteration, we proceed with downstream tasks **only on pages marked as "True"**.
+
+Pages marked as not usable are retained in the corpus but excluded from:
+- ATU classifier training and evaluation,
+- evidence snippet extraction (anchors),
+- corpus statistics that rely on textual content.
+
+They remain eligible for future processing once an improved HTR strategy is implemented.
+
+
+---
+
