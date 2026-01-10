@@ -109,7 +109,49 @@ The corpus is heterogeneous in length (most tales are short-to-medium, with a lo
 
 ---
 
-## 5. Notes and Limitations
+## 5. Text Normalization
+
+To reduce the impact of heterogeneous transcription sources (HTR exports and TEI/XML-derived transcriptions) and to make the feature extraction step reproducible, we applied a lightweight, corpus-wide **rule-based normalization** to both the full tale texts (`text_raw → text_norm`) and the short catalog summaries (`content_description → summary_norm`). The normalization is intentionally conservative: it does not attempt spelling correction or linguistic lemmatization, but removes systematic technical artifacts and enforces consistent surface forms, which is particularly important for TF–IDF n-gram models.
+
+### Normalization steps
+
+1. **Unicode canonicalization (NFKC).**  
+   All strings are normalized using Unicode NFKC to collapse visually similar codepoints into a consistent representation and to reduce variance introduced by different export pipelines.
+
+2. **Line ending normalization.**  
+   Windows and legacy line endings are converted to Unix newlines to ensure consistent downstream processing.
+
+3. **Removal of systematic “noise lines”.**  
+   Lines that match typical page markers or standalone line numbers are removed (e.g., `Page 12`, `стр. 12`, bare `01`, `12.`). These tokens are not part of the narrative content and may otherwise become high-frequency artifacts in n-gram features.
+
+4. **Removal of recurrent garbage characters.**  
+   A small, explicit blacklist removes symbols observed as systematic OCR/HTR artifacts (e.g., `|`, `¬`, and similar non-linguistic markers). This reduces spurious n-grams and improves model robustness.
+
+5. **De-hyphenation across line breaks.**  
+   Hyphenation artifacts are resolved with a single rule applied across the entire corpus: `-\n → ""` (including dash variants). This reconstructs split words (e.g., `сказ-\nка → сказка`) and prevents fragmentation of character n-grams.
+
+6. **Newline collapse.**  
+   Remaining newlines (mostly layout-driven rather than content-driven) are converted to spaces, producing a single continuous text per tale suitable for document-level vectorization.
+
+7. **Lowercasing and `ё → е` unification.**  
+   Text is lowercased and the Cyrillic letter `ё` is systematically mapped to `е`. This reduces sparsity and avoids treating orthographic variants as distinct tokens.
+
+8. **Dash normalization.**  
+   All dash variants are unified to a single long dash (`—`), and dashes between alphanumeric characters are interpreted as intra-word hyphens and mapped to `-`. This provides consistent segmentation while preserving compound forms when relevant.
+
+9. **Whitespace and punctuation spacing.**  
+   Multiple spaces are collapsed, spaces before punctuation are removed, and a single space after punctuation is enforced when followed by a non-space character. This improves token boundary stability without heavy linguistic preprocessing.
+
+10. **Bracket character removal (square brackets).**  
+   Square brackets are removed while keeping their content (e.g., `[царевна-лягушка] → царевна-лягушка`). This handles catalog/editorial conventions without discarding potentially informative lexical material.
+
+### Rationale for this approach
+
+This normalization strategy targets **systematic, non-linguistic variance** introduced by digitization and transcription workflows (layout, line numbering, encoding differences, hyphenation). For small datasets, TF–IDF models are particularly sensitive to such artifacts because they can inflate feature weights and distort similarity. By applying a uniform, documented set of rules, we improve **reproducibility, comparability across sources**, and **robustness to HTR noise**, while preserving the original lexical signal needed for ATU type prediction.
+
+---
+
+## 6. Notes and Limitations
 
 - The corpus includes **noisy HTR/OCR text**; no full manual correction was performed due to time constraints.
 - Multi-label ATU cases are preserved in the label representation to reflect real cataloguing practice.
