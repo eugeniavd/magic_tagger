@@ -1,0 +1,10 @@
+{
+  "task": "ATU multilabel classification (Top-3) + parent match",
+  "k": 3,
+  "text_cols": [
+    "summary_norm",
+    "text_norm"
+  ],
+  "model_name": "A_char + word_summary (balanced)",
+  "note": "predict_proba columns correspond to labels.json order"
+}
