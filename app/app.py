@@ -1,21 +1,25 @@
 # streamlit_app.py
 from __future__ import annotations
+import os
+import sys
+
 
 import html
-import io
 import json
 from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import streamlit as st
-import os
-import sys
+
+from src.service import classify
+from src.utils import atu_parent
+
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 SRC = os.path.join(ROOT, "src")
 if SRC not in sys.path:
     sys.path.insert(0, SRC)
 
-from service import classify
+from src.service import classify
 
 APP_TITLE = "Magic Tagger — ATU Classifier"
 APP_SUBTITLE = "Prototype UI (no model): Top-3 ATU + Anchors"
@@ -332,7 +336,10 @@ def page_classify() -> None:
                 with_anchors=with_anchors,
                 anchor_k=anchor_k,
             )
+
         st.session_state["last_result"] = result
+        st.caption(f"Model version: {result['run']['model_version']}")
+
 
         # default selected ATU
         suggestions = result.get("suggestions", [])

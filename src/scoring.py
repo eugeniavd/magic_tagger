@@ -22,7 +22,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Iterable, List, Optional, Sequence, Tuple
 
-from config import (
+from src.config import (
     TaleStatus,
     STATUS_RULES,
     DEFAULT_STATUS,

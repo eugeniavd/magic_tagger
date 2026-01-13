@@ -1,19 +1,34 @@
 # src/service.py
 from __future__ import annotations
+import numpy as np
+import pandas as pd
+
 
 import hashlib
 import re
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Tuple
 
-from anchors import AnchorEngine, normalize_atu_code
-from config import DEFAULT_TOP_K, DEFAULT_ANCHOR_K, clip01
-from scoring import Candidate, make_decision
+
+from src.utils import atu_parent
+from src.anchors import AnchorEngine, normalize_atu_code
+from src.config import DEFAULT_TOP_K, DEFAULT_ANCHOR_K, clip01
+from src.scoring import Candidate, make_decision
+from src.model_store import predict_topk as _predict_topk, load_artifacts
+
 
 # Load once (fast for Streamlit reruns)
 ANCHOR_ENGINE = AnchorEngine()
 
-MODEL_VERSION = "atu-model-stub+anchors-v0.1.0"
+def _model_version() -> str:
+    try:
+        arts = load_artifacts()
+        name = arts.meta.get("model_name", "baseline")
+        return f"{name}+anchors-v0.1.0"
+    except Exception:
+        return "baseline-unknown+anchors-v0.1.0"
+
+MODEL_VERSION = _model_version()
 
 ATU_LABELS: Dict[str, str] = {
     "ATU-510A": "Cinderella",
@@ -56,15 +71,54 @@ def _confidence_band(score: float) -> str:
 
 
 # -----------------------------
-# Model stub (replace later)
+# Real model inference (Top-K)
 # -----------------------------
-def model_predict_topk(text_ru: str, top_k: int = 3) -> List[Tuple[str, float]]:
+def model_predict_topk(
+    text_ru: str,
+    top_k: int = 3,
+    *,
+    summary_ru: str = "",
+) -> List[Tuple[str, float]]:
     """
-    Replace with your trained model inference.
-    Must return list of (atu_code, score) where score in [0,1].
+    Uses saved sklearn Pipeline from models/model.joblib.
+    Returns list of (atu_code, score) with score in [0, 1].
     """
-    base = [("ATU-510A", 0.62), ("ATU-480", 0.21), ("ATU-327A", 0.12)]
-    return base[:top_k]
+    arts = load_artifacts()  # cached via lru_cache(maxsize=1) inside model_store.py
+    model = arts.model
+    classes = arts.classes  # order must match predict_proba columns
+
+    # ColumnTransformer in your pipeline expects specific column names.
+    # In training you used ("summary_norm", "text_norm").
+    X = pd.DataFrame([{
+        "text_norm": (text_ru or ""),
+        "summary_norm": (summary_ru or ""),
+    }])
+
+    proba = model.predict_proba(X)
+
+    # Defensive: OvR may return list-of-arrays; normalize to 2D
+    if isinstance(proba, list):
+        cols = []
+        for p in proba:
+            p = np.asarray(p)
+            if p.ndim == 2 and p.shape[1] == 2:
+                cols.append(p[:, 1])
+            elif p.ndim == 2 and p.shape[1] == 1:
+                cols.append(p[:, 0])
+            else:
+                cols.append(p.reshape(-1))
+        proba = np.column_stack(cols)
+    else:
+        proba = np.asarray(proba)
+
+    p = proba[0]  # (n_classes,)
+    top_idx = np.argsort(-p)[:top_k]
+
+    out: List[Tuple[str, float]] = []
+    for i in top_idx:
+        out.append((str(classes[i]), float(p[i])))
+
+    return out
 
 
 # -----------------------------
@@ -124,6 +178,7 @@ def classify(
                 "atu_code": cand.atu_code,
                 "label": ATU_LABELS.get(cand.atu_code, "Unknown ATU type"),
                 "score": float(cand.score),
+                "atu_parent": atu_parent(cand.atu_code),
                 "confidence_band": _confidence_band(cand.score),
                 "rationale_short": "Model SCORE with rule-based motif anchors as evidence.",
                 "anchors_summary": {

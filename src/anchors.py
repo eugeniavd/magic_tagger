@@ -8,7 +8,7 @@ import re
 from dataclasses import dataclass
 from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 
-from config import (
+from src.config import (
     ANCHORS_JSON_PATH,
     ANCHOR_ALPHA,
     ANCHOR_CASEFOLD,
