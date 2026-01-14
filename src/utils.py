@@ -1,7 +1,6 @@
 
 import re
 
-
 RE_ATU_PARENT = re.compile(r"^\s*(?:ATU[_\s-]*)?(\d{1,4})")
 
 def atu_parent(label: str) -> str:

@@ -2,16 +2,18 @@
 from __future__ import annotations
 import os
 import sys
-
+from datetime import datetime, timezone
 
 import html
 import json
 from typing import Any, Dict, List, Optional, Sequence, Tuple
-
+from pathlib import Path
 import streamlit as st
 
 from src.service import classify
 from src.utils import atu_parent
+from src.export_jsonld import to_jsonld
+from src.model_store import build_export_result
 
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -20,6 +22,31 @@ if SRC not in sys.path:
     sys.path.insert(0, SRC)
 
 from src.service import classify
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+MODELS_DIR = REPO_ROOT / "models"
+
+MODEL_PATH = MODELS_DIR / "model.joblib"
+LABELS_PATH = MODELS_DIR / "labels.json"
+META_PATH = MODELS_DIR / "meta.json"
+
+@st.cache_data(show_spinner=False)
+def load_training_meta() -> dict:
+    with META_PATH.open("r", encoding="utf-8") as f:
+        return json.load(f)
+
+def attach_training_meta(result: dict, training_meta: dict) -> dict:
+    result.setdefault("meta", {})
+    # не затираем k/n_classes и прочее, что уже в result.meta
+    for key in ["task", "text_cols", "model_name", "model_version", "note", "generated_at"]:
+        if key not in result["meta"] and key in training_meta:
+            result["meta"][key] = training_meta[key]
+    return result
+
+def add_inference_time(result: dict) -> dict:
+    result.setdefault("meta", {})
+    result["meta"]["inferred_at"] = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    return result
 
 APP_TITLE = "Magic Tagger — ATU Classifier"
 APP_SUBTITLE = "Prototype UI (no model): Top-3 ATU + Anchors"
@@ -50,6 +77,57 @@ def _safe_get(d: Dict[str, Any], path: Sequence[str], default=None):
         cur = cur[p]
     return cur
 
+def adapt_classify_result_for_jsonld(raw: dict, tale_id: str, k: int = 3) -> dict:
+    run = raw.get("run", {}) or {}
+    suggestions = raw.get("suggestions", []) or []
+    anchors_map = raw.get("anchors", {}) or {}
+
+    candidates = []
+    for s in suggestions[:k]:
+        if not isinstance(s, dict):
+            continue
+        atu = str(s.get("atu_code", "")).strip()
+        score = s.get("score", None)
+
+        anchors = []
+        snippets = []
+        if isinstance(anchors_map, dict) and atu and atu in anchors_map:
+            for a in anchors_map.get(atu, []) or []:
+                if not isinstance(a, dict):
+                    continue
+                # snippet list
+                sn = a.get("snippet")
+                if sn:
+                    snippets.append(sn)
+
+                anchors.append({
+                    "anchor_id": a.get("anchor_id"),
+                    "score": a.get("score"),
+                    "rationale": a.get("rationale"),
+                    "span": a.get("span"),  # {start_char, end_char} если есть
+                })
+
+        candidates.append({
+            "atu": atu,
+            "score": float(score) if score is not None else None,
+            "evidence": {
+                "snippets": snippets,
+                "anchors": anchors,
+            }
+        })
+
+    export_result = {
+        "id": tale_id,
+        "meta": {
+            "k": k,
+            "model_name": run.get("model_name", "MagicTagger ATU classifier"),
+            "model_version": run.get("model_version", "unknown"),
+            # время инференса (лучше для prov:generatedAtTime)
+            "inferred_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+        },
+        "candidates": candidates,
+    }
+    return export_result
 
 def highlight_text_with_spans(text: str, spans: Sequence[Tuple[int, int]]) -> str:
     """
@@ -291,6 +369,9 @@ def page_explore_names_roles() -> None:
 
     st.info("Add: entity list, role facets, and relationship edges (collector↔narrator↔place).")
 
+# -----------------------------
+# Classify
+# -----------------------------
 
 def page_classify() -> None:
     st.header("Classify")
@@ -301,8 +382,13 @@ def page_classify() -> None:
 
     with st.form("classify_form", clear_on_submit=False):
         c1, c2 = st.columns([2, 1])
+
         with c1:
-            tale_id = st.text_input("External tale ID", value=st.session_state.get("last_tale_id", "external_001"))
+            tale_id = st.text_input(
+                "External tale ID",
+                value=st.session_state.get("last_tale_id", "external_001"),
+            )
+
         with c2:
             with_anchors = st.checkbox("With anchors", value=True)
 
@@ -321,15 +407,15 @@ def page_classify() -> None:
             )
 
         anchor_k = st.slider("Anchors per candidate", min_value=3, max_value=12, value=8, step=1)
-
         submitted = st.form_submit_button("Suggest ATU (Top-3)")
 
+    # Run once on submit -> build canonical export_result -> store in session_state
     if submitted:
         st.session_state["last_tale_id"] = tale_id
         st.session_state["last_text"] = text_ru
 
-        with st.spinner("Classifying (stub)…"):
-            result = classify(
+        with st.spinner("Classifying…"):
+            raw = classify(
                 tale_id=tale_id,
                 text_ru=text_ru,
                 top_k=3,
@@ -337,56 +423,72 @@ def page_classify() -> None:
                 anchor_k=anchor_k,
             )
 
-        st.session_state["last_result"] = result
-        st.caption(f"Model version: {result['run']['model_version']}")
-
+        export_result = build_export_result(raw, tale_id=tale_id, text_ru=text_ru, k=3)
+        st.session_state["last_export_result"] = export_result
 
         # default selected ATU
-        suggestions = result.get("suggestions", [])
-        if suggestions and isinstance(suggestions, list) and isinstance(suggestions[0], dict):
-            st.session_state["selected_atu"] = suggestions[0].get("atu_code")
+        cands = export_result.get("candidates", []) or []
+        if cands:
+            st.session_state["selected_atu"] = cands[0].get("atu")
 
-    result = st.session_state.get("last_result")
+    # Use canonical result as the single source of truth
+    result = st.session_state.get("last_export_result")
     if not result:
         st.info("Run classification to see Top-3 suggestions and anchors.")
         return
 
-    # Summary
-    run = result.get("run", {})
-    st.subheader("Decision summary")
+    meta = result.get("meta", {}) or {}
+    tale_id = result.get("id") or st.session_state.get("last_tale_id", "tale")
+    st.caption(f"Model version: {meta.get('model_version', '—')}")
 
+    # --- Download JSON-LD (same object used by UI)
+    jsonld_obj = to_jsonld(result)
+    payload = json.dumps(jsonld_obj, ensure_ascii=False, indent=2).encode("utf-8")
+
+    st.download_button(
+        "Download JSON-LD",
+        data=payload,
+        file_name=f"{tale_id}.jsonld",
+        mime="application/ld+json",
+    )
+
+    # --- Summary
+    st.subheader("Decision summary")
     s1, s2, s3, s4 = st.columns(4)
-    s1.metric("Status", str(run.get("tale_status", "—")))
-    s2.metric("Primary", str(run.get("primary_atu", "—")))
-    s3.metric("Co-types", ", ".join(run.get("co_types", []) or []) or "—")
-    s4.metric("Δ (top1-top2)", f"{run.get('delta_top12', 0.0):.2f}")
+    s1.metric("Status", str(meta.get("tale_status", "—")))
+    s2.metric("Primary", str(meta.get("primary_atu", "—")))
+    s3.metric("Co-types", ", ".join(meta.get("co_types", []) or []) or "—")
+    s4.metric("Δ (top1-top2)", f"{float(meta.get('delta_top12', 0.0) or 0.0):.2f}")
 
     with st.expander("Run metadata"):
-        st.json(run)
+        st.json(meta)
 
-    # Top-3 cards
+    # --- Top-3 cards
     st.subheader("Top-3 ATU candidates")
-    suggestions = result.get("suggestions", [])
-    if not isinstance(suggestions, list) or not suggestions:
-        st.warning("No suggestions returned.")
+    candidates = result.get("candidates", []) or []
+    if not candidates:
+        st.warning("No candidates returned.")
         return
 
     cols = st.columns(3)
-    for i, s in enumerate(suggestions[:3]):
-        if not isinstance(s, dict):
-            continue
+    for i, c in enumerate(candidates[:3]):
         with cols[i]:
-            st.markdown(f"**#{s.get('rank', i+1)} — {s.get('atu_code','')}**")
-            st.caption(s.get("label", ""))
-            st.metric("SCORE", f"{float(s.get('score', 0.0)):.2f}")
-            st.write(f"Confidence: `{s.get('confidence_band','—')}`")
-            st.write(s.get("rationale_short", ""))
+            st.markdown(f"**#{c.get('rank', i+1)} — {c.get('atu','')}**")
+            st.caption(c.get("label", "") or "")
+            st.metric("SCORE", f"{float(c.get('score', 0.0) or 0.0):.2f}")
+            st.write(f"Confidence: `{c.get('confidence_band','—')}`")
+            st.write(c.get("rationale_short", "") or "")
             if st.button("View anchors", key=f"view_anchors_{i}", use_container_width=True):
-                st.session_state["selected_atu"] = s.get("atu_code")
+                st.session_state["selected_atu"] = c.get("atu")
 
-    # Anchors panel
+    # --- Anchors panel
     st.subheader("Anchors / Evidence")
-    atu_options = [s.get("atu_code") for s in suggestions if isinstance(s, dict) and s.get("atu_code")]
+
+    atu_options = [c.get("atu") for c in candidates if c.get("atu")]
+    if not atu_options:
+        st.info("No candidates available for anchor inspection.")
+        return
+
     selected_atu = st.selectbox(
         "Candidate",
         options=atu_options,
@@ -394,14 +496,14 @@ def page_classify() -> None:
     )
     st.session_state["selected_atu"] = selected_atu
 
-    anchors_map = result.get("anchors", {}) or {}
-    anchors = anchors_map.get(selected_atu, []) if isinstance(anchors_map, dict) else []
+    cand = next((c for c in candidates if c.get("atu") == selected_atu), None)
+    anchors = (cand or {}).get("evidence", {}).get("anchors", []) or []
 
     if not anchors:
         st.info("No anchors available for this candidate.")
         return
 
-    # Show anchor list + compute spans for highlight
+    # Compute spans for highlight
     spans: List[Tuple[int, int]] = []
     for a in anchors:
         if not isinstance(a, dict):
@@ -417,7 +519,7 @@ def page_classify() -> None:
         for a in anchors:
             if not isinstance(a, dict):
                 continue
-            st.markdown(f"- **{a.get('anchor_id','')}** (score: {float(a.get('score',0.0)):.2f})")
+            st.markdown(f"- **{a.get('anchor_id','')}** (score: {float(a.get('score',0.0) or 0.0):.2f})")
             st.caption(a.get("rationale", ""))
             st.write(a.get("snippet", "…"))
 
@@ -430,8 +532,8 @@ def page_classify() -> None:
         html_block = highlight_text_with_spans(full_text, spans)
         st.markdown(html_block, unsafe_allow_html=True)
 
-    # Raw JSON
-    with st.expander("Raw response JSON"):
+    # Raw JSON (canonical)
+    with st.expander("Raw export result (source of truth)"):
         st.json(result)
 
 
