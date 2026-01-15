@@ -3,17 +3,20 @@ from __future__ import annotations
 import os
 import sys
 from datetime import datetime, timezone
+import copy
 
 import html
 import json
 from typing import Any, Dict, List, Optional, Sequence, Tuple
 from pathlib import Path
 import streamlit as st
+from functools import lru_cache
 
 from src.service import classify
 from src.utils import atu_parent
 from src.export_jsonld import to_jsonld
 from src.model_store import build_export_result
+
 
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -29,6 +32,8 @@ MODELS_DIR = REPO_ROOT / "models"
 MODEL_PATH = MODELS_DIR / "model.joblib"
 LABELS_PATH = MODELS_DIR / "labels.json"
 META_PATH = MODELS_DIR / "meta.json"
+ATU_LABELS_PATH = REPO_ROOT / "data" / "processed" / "atu_labels.json"
+
 
 @st.cache_data(show_spinner=False)
 def load_training_meta() -> dict:
@@ -37,7 +42,7 @@ def load_training_meta() -> dict:
 
 def attach_training_meta(result: dict, training_meta: dict) -> dict:
     result.setdefault("meta", {})
-    # не затираем k/n_classes и прочее, что уже в result.meta
+    
     for key in ["task", "text_cols", "model_name", "model_version", "note", "generated_at"]:
         if key not in result["meta"] and key in training_meta:
             result["meta"][key] = training_meta[key]
@@ -47,6 +52,36 @@ def add_inference_time(result: dict) -> dict:
     result.setdefault("meta", {})
     result["meta"]["inferred_at"] = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     return result
+
+@lru_cache(maxsize=1)
+def load_atu_labels() -> dict:
+    """
+    Returns mapping { "707": "The ...", "552": "...", ... } or richer dict if you want.
+    """
+    if not ATU_LABELS_PATH.exists():
+        return {}
+    try:
+        return json.loads(ATU_LABELS_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+def get_atu_title(code: str) -> str:
+    m = load_atu_labels() or {}
+    if not code:
+        return "Unknown ATU type"
+
+    v = m.get(code)
+
+    if isinstance(v, str) and v.strip():
+        return v.strip()
+
+    if isinstance(v, dict):
+        for kk in ("en", "ru", "label", "title"):
+            vv = v.get(kk)
+            if vv and str(vv).strip():
+                return str(vv).strip()
+
+    return "Unknown ATU type"
 
 APP_TITLE = "Magic Tagger — ATU Classifier"
 APP_SUBTITLE = "Prototype UI (no model): Top-3 ATU + Anchors"
@@ -229,7 +264,7 @@ def make_quick_exports(result: Optional[Dict[str, Any]]) -> Dict[str, bytes]:
         rank = s.get("rank", "")
         atu = s.get("atu_code", "")
         label = str(s.get("label", ""))
-        label_csv = '"' + label.replace('"', '""') + '"'  # CSV escaping
+        label_csv = '"' + label.replace('"', '""') + '"'  
         score = s.get("score", "")
         band = s.get("confidence_band", "")
 
@@ -239,6 +274,32 @@ def make_quick_exports(result: Optional[Dict[str, Any]]) -> Dict[str, bytes]:
 
     return exports
 
+def apply_expert_override(result: dict, expert_state: dict) -> dict:
+    """Return a copy of result with meta updated for export (model vs expert)."""
+    effective = copy.deepcopy(result)
+    meta = (effective.get("meta", {}) or {}).copy()
+
+    model_primary = meta.get("primary_atu")
+    meta["model_primary_atu"] = model_primary
+
+    expert_atu = str((expert_state or {}).get("atu") or "").strip()
+    if expert_atu:
+        meta["tale_status"] = "expert_override"
+        meta["final_decision_source"] = "expert"
+        meta["final_atu"] = expert_atu
+        meta["final_expert_note"] = str((expert_state or {}).get("note") or "").strip()
+        meta["final_saved_at"] = str((expert_state or {}).get("saved_at") or "").strip()
+
+       
+        meta["primary_atu"] = expert_atu
+    else:
+        meta["final_decision_source"] = "model"
+        meta["final_atu"] = str(model_primary or "")
+        meta["final_expert_note"] = ""
+        meta["final_saved_at"] = ""
+
+    effective["meta"] = meta
+    return effective
 
 # -----------------------------
 # Top bar
@@ -375,9 +436,19 @@ def page_explore_names_roles() -> None:
 
 def page_classify() -> None:
     st.header("Classify")
+
+    # --- Disclaimer (EN)
+    st.info(
+        "Work in progress. This classifier was trained on a limited subset of tales available in the "
+        "corpus snapshot."
+    )
+
+    # --- Intro text + source link for ATU
     st.write(
-        "Paste or upload a text to check its type (Top-3 ATU suggestions), inspect evidence anchors, "
-        "and later link to same-type texts and plot variations."
+        "Paste or upload a text to check its type according to the "
+        "[Aarne–Thompson–Uther Index](https://edition.fi/kalevalaseura/catalog/view/763/715/2750-1). "
+        "Classification is currently available only for Russian-language texts. "
+        "Predictions should be treated as suggestions rather than authoritative ATU assignments."
     )
 
     with st.form("classify_form", clear_on_submit=False):
@@ -431,18 +502,109 @@ def page_classify() -> None:
         if cands:
             st.session_state["selected_atu"] = cands[0].get("atu")
 
-    # Use canonical result as the single source of truth
+    # -----------------------------
+    # Source of truth: canonical model result
+    # -----------------------------
     result = st.session_state.get("last_export_result")
     if not result:
         st.info("Run classification to see Top-3 suggestions and anchors.")
         return
 
-    meta = result.get("meta", {}) or {}
-    tale_id = result.get("id") or st.session_state.get("last_tale_id", "tale")
+    # -----------------------------
+    # Human-in-the-loop: Final decision (expert)
+    # (UI state only; export will be built from this state every rerun)
+    # -----------------------------
+    candidates = result.get("candidates", []) or []
+    expert_state = st.session_state.get("expert_decision", {}) or {}
+
+    st.subheader("Final decision (expert)")
+
+    atu_options = [c.get("atu") for c in candidates if c.get("atu")]
+    atu_options = [x for x in atu_options if x]
+
+    expert_mode_default = "Expert override" if expert_state.get("atu") else "Use model suggestion"
+    mode = st.radio(
+        "Decision mode",
+        options=["Use model suggestion", "Expert override"],
+        index=0 if expert_mode_default == "Use model suggestion" else 1,
+        horizontal=True,
+    )
+
+    expert_atu = ""
+    expert_note = ""
+
+    if mode == "Expert override":
+        picked = st.selectbox(
+            "Final decision (expert): select ATU",
+            options=(atu_options + ["Other / custom"]),
+            index=0 if (expert_state.get("atu") in atu_options) else (len(atu_options)),
+        )
+
+        if picked == "Other / custom":
+            expert_atu = st.text_input(
+                "Enter ATU code manually (e.g., 707, 510A, 425C)",
+                value=str(expert_state.get("atu", "") or ""),
+                placeholder="ATU code…",
+            ).strip()
+        else:
+            expert_atu = picked
+
+        expert_note = st.text_area(
+            "Expert note (optional)",
+            value=str(expert_state.get("note", "") or ""),
+            height=80,
+            placeholder="Why you override the model (variant, motif cue, catalogue note, etc.)…",
+        )
+
+        b1, b2 = st.columns([1, 1])
+        with b1:
+            if st.button("Save expert decision", use_container_width=True):
+                st.session_state["expert_decision"] = {
+                    "atu": expert_atu,
+                    "note": expert_note,
+                    "saved_at": datetime.now(timezone.utc).isoformat(),
+                }
+                expert_state = st.session_state["expert_decision"]  # keep local in sync
+        with b2:
+            if st.button("Clear expert decision", use_container_width=True):
+                st.session_state["expert_decision"] = {}
+                expert_state = {}
+    else:
+        st.caption("Using the model output as the final decision for export.")
+
+    # -----------------------------
+    # Effective result for export (model vs expert) — computed on EVERY rerun
+    # -----------------------------
+    use_expert = bool((expert_state or {}).get("atu"))
+
+    effective_result = copy.deepcopy(result)
+    effective_meta = (effective_result.get("meta", {}) or {}).copy()
+
+    model_primary = effective_meta.get("primary_atu")
+    effective_meta["model_primary_atu"] = model_primary
+
+    if use_expert:
+        final_atu = str(expert_state.get("atu") or "").strip()
+        effective_meta["final_decision_source"] = "expert"
+        effective_meta["final_atu"] = final_atu
+        effective_meta["final_expert_note"] = str(expert_state.get("note", "") or "").strip()
+        effective_meta["final_saved_at"] = str(expert_state.get("saved_at", "") or "").strip()
+        effective_meta["primary_atu"] = final_atu
+        effective_meta["tale_status"] = "expert_override"
+    else:
+        effective_meta["final_decision_source"] = "model"
+        effective_meta["final_atu"] = str(model_primary or "")
+        effective_meta["final_expert_note"] = ""
+        effective_meta["final_saved_at"] = ""
+
+    effective_result["meta"] = effective_meta
+
+    meta = effective_meta
+    tale_id = effective_result.get("id") or st.session_state.get("last_tale_id", "tale")
     st.caption(f"Model version: {meta.get('model_version', '—')}")
 
-    # --- Download JSON-LD (same object used by UI)
-    jsonld_obj = to_jsonld(result)
+    # --- Download JSON-LD (export uses EFFECTIVE result)
+    jsonld_obj = to_jsonld(effective_result)
     payload = json.dumps(jsonld_obj, ensure_ascii=False, indent=2).encode("utf-8")
 
     st.download_button(
@@ -456,8 +618,8 @@ def page_classify() -> None:
     st.subheader("Decision summary")
     s1, s2, s3, s4 = st.columns(4)
     s1.metric("Status", str(meta.get("tale_status", "—")))
-    s2.metric("Primary", str(meta.get("primary_atu", "—")))
-    s3.metric("Co-types", ", ".join(meta.get("co_types", []) or []) or "—")
+    s2.metric("Final", str(meta.get("primary_atu", "—")))
+    s3.metric("Model primary", str(meta.get("model_primary_atu", "—")))
     s4.metric("Δ (top1-top2)", f"{float(meta.get('delta_top12', 0.0) or 0.0):.2f}")
 
     with st.expander("Run metadata"):
@@ -465,7 +627,6 @@ def page_classify() -> None:
 
     # --- Top-3 cards
     st.subheader("Top-3 ATU candidates")
-    candidates = result.get("candidates", []) or []
     if not candidates:
         st.warning("No candidates returned.")
         return
@@ -474,7 +635,16 @@ def page_classify() -> None:
     for i, c in enumerate(candidates[:3]):
         with cols[i]:
             st.markdown(f"**#{c.get('rank', i+1)} — {c.get('atu','')}**")
-            st.caption(c.get("label", "") or "")
+            atu_code = c.get("atu", "")
+            raw_label = str(c.get("label") or "").strip()
+
+            file_label = get_atu_title(atu_code)
+            if (not raw_label) or (raw_label.lower().startswith("unknown")):
+                title = file_label
+            else:
+                title = raw_label
+
+            st.caption(title or "Unknown ATU type")
             st.metric("SCORE", f"{float(c.get('score', 0.0) or 0.0):.2f}")
             st.write(f"Confidence: `{c.get('confidence_band','—')}`")
             st.write(c.get("rationale_short", "") or "")
@@ -484,7 +654,6 @@ def page_classify() -> None:
     # --- Anchors panel
     st.subheader("Anchors / Evidence")
 
-    atu_options = [c.get("atu") for c in candidates if c.get("atu")]
     if not atu_options:
         st.info("No candidates available for anchor inspection.")
         return
@@ -492,7 +661,9 @@ def page_classify() -> None:
     selected_atu = st.selectbox(
         "Candidate",
         options=atu_options,
-        index=0 if st.session_state.get("selected_atu") not in atu_options else atu_options.index(st.session_state["selected_atu"]),
+        index=0
+        if st.session_state.get("selected_atu") not in atu_options
+        else atu_options.index(st.session_state["selected_atu"]),
     )
     st.session_state["selected_atu"] = selected_atu
 
@@ -519,7 +690,9 @@ def page_classify() -> None:
         for a in anchors:
             if not isinstance(a, dict):
                 continue
-            st.markdown(f"- **{a.get('anchor_id','')}** (score: {float(a.get('score',0.0) or 0.0):.2f})")
+            st.markdown(
+                f"- **{a.get('anchor_id','')}** (score: {float(a.get('score',0.0) or 0.0):.2f})"
+            )
             st.caption(a.get("rationale", ""))
             st.write(a.get("snippet", "…"))
 
@@ -535,6 +708,7 @@ def page_classify() -> None:
     # Raw JSON (canonical)
     with st.expander("Raw export result (source of truth)"):
         st.json(result)
+
 
 
 def render_page() -> None:

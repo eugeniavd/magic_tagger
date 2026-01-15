@@ -168,6 +168,36 @@ def build_export_result(raw: dict, tale_id: str, text_ru: str, k: int = 3) -> di
         "primary_atu": run.get("primary_atu"),
         "co_types": run.get("co_types", []) or [],
         "delta_top12": run.get("delta_top12"),
+
+        "typing_source": run.get("typing_source") or {"id": "ffc_284-286_2011_uther",
+
+        "label": "FFC 284–286 (2011): Animal Tales, Tales of Magic, Religious Tales, Realistic Tales; etc.",
+
+    "citation": (
+        "Folklore Fellows’ Communications (FFC) 284–286. "
+        "Sastamala: Vammalan Kirjapaino Oy, 2011. "
+        "First published in 2004."
+    ),
+
+    "uri": "https://edition.fi/kalevalaseura/catalog/view/763/715/2750-1",
+
+    "identifiers": {
+        "issn": "0014-5815",
+        "issn_l": "0014-5815",
+        "ffc": ["284", "285", "286"],
+        "isbn": [
+            "978-951-41-1054-2",
+            "978-951-41-1055-9",
+            "978-951-41-1067-2",
+        ],
+    },
+
+    "publisher": "Vammalan Kirjapaino Oy",
+    "place": "Sastamala",
+    "year": "2011",
+    "note": "First published in 2004.",
+}
+
     }
 
     # --- CANDIDATES: single source of truth for Top-3 + anchors
@@ -189,29 +219,33 @@ def build_export_result(raw: dict, tale_id: str, text_ru: str, k: int = 3) -> di
                 if sn:
                     snippets.append(sn)
 
-                raw_anchors.append({
-                    "anchor_id": a.get("anchor_id"),
-                    "score": a.get("score"),
-                    "rationale": a.get("rationale"),
-                    "snippet": a.get("snippet"),
-                    "span": a.get("span"),  # expects {start_char, end_char}
-                })
+                raw_anchors.append(
+                    {
+                        "anchor_id": a.get("anchor_id"),
+                        "score": a.get("score"),
+                        "rationale": a.get("rationale"),
+                        "snippet": a.get("snippet"),
+                        "span": a.get("span"),  # expects {start_char, end_char}
+                    }
+                )
 
-        candidates.append({
-            "rank": rank,
-            "atu": atu,
-            "score": float(score) if score is not None else None,
+        candidates.append(
+            {
+                "rank": rank,
+                "atu": atu,
+                "score": float(score) if score is not None else None,
 
-            # optional UX fields (if you want them in UI)
-            "label": s.get("label"),
-            "confidence_band": s.get("confidence_band"),
-            "rationale_short": s.get("rationale_short"),
+                # optional UX fields (if you want them in UI)
+                "label": s.get("label"),
+                "confidence_band": s.get("confidence_band"),
+                "rationale_short": s.get("rationale_short"),
 
-            "evidence": {
-                "snippets": snippets,
-                "anchors": raw_anchors,
-            },
-        })
+                "evidence": {
+                    "snippets": snippets,
+                    "anchors": raw_anchors,
+                },
+            }
+        )
 
     export_result = {
         "id": tale_id,
