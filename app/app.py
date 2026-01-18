@@ -83,8 +83,8 @@ def get_atu_title(code: str) -> str:
 
     return "Unknown ATU type"
 
-APP_TITLE = "Magic Tagger — ATU Classifier"
-APP_SUBTITLE = "Prototype UI (no model): Top-3 ATU + Anchors"
+APP_TITLE = "MagicTagger — Tale Classifier"
+APP_SUBTITLE = "Prototype UI: Top-3 ATU + Anchors"
 
 
 # -----------------------------
@@ -301,54 +301,9 @@ def apply_expert_override(result: dict, expert_state: dict) -> dict:
     effective["meta"] = meta
     return effective
 
-# -----------------------------
-# Top bar
-# -----------------------------
-def render_top_bar() -> None:
-    col1, col2, col3 = st.columns([6, 3, 2], vertical_alignment="center")
-
-    with col1:
-        if st.button(APP_TITLE, use_container_width=True):
-            _set_home()
-        st.caption(APP_SUBTITLE)
-
-    with col2:
-        st.markdown("**Quick Export**")
-        exports = make_quick_exports(st.session_state.get("last_result"))
-        fmt = st.selectbox("Format", ["JSON-LD", "Turtle", "CSV"], label_visibility="collapsed")
-        filename_map = {"JSON-LD": "export.jsonld", "Turtle": "export.ttl", "CSV": "export.csv"}
-        st.download_button(
-            label=f"Download {fmt}",
-            data=exports[fmt],
-            file_name=filename_map[fmt],
-            mime="application/octet-stream",
-            use_container_width=True,
-            disabled=(st.session_state.get("last_result") is None),
-        )
-
-    with col3:
-        st.markdown("**Help**")
-        if st.button("Open help", use_container_width=True):
-            st.session_state["help_open"] = not st.session_state.get("help_open", False)
-
-    if st.session_state.get("help_open", False):
-        with st.expander("Onboarding / Documentation", expanded=True):
-            st.markdown(
-                """
-                **What you can do in this prototype**
-                - Navigate Explore pages (placeholders for now).
-                - Paste or upload a Russian tale text in **Classify**.
-                - Get Top-3 ATU suggestions with anchors (evidence spans) and a status label.
-
-                **Methodology / Licenses**
-                - Add links to your methodology, dataset statement, and licenses here.
-                - Add a short note on limitations (no model, stub evidence).
-                """
-            )
-
 
 # -----------------------------
-# Left navigation rail
+# Navigation
 # -----------------------------
 def render_left_nav() -> None:
     st.sidebar.markdown("### Navigation")
@@ -374,29 +329,108 @@ def render_left_nav() -> None:
 
 
 # -----------------------------
-# Pages
+# Homepage
 # -----------------------------
 def page_home() -> None:
-    st.header("Home")
-    st.write(
-        "Project overview and entry points to core workflows."
+    """
+    One-screen Home:
+    - clear value proposition for folklore researchers
+    - two primary workflows (Explore / Classify)
+    - short trust/provenance + methodology/export hints
+    """
+
+    # Optional: tighten vertical space a bit (safe defaults)
+    st.markdown(
+        """
+        <style>
+          .block-container { padding-top: 1.2rem; padding-bottom: 1.2rem; max-width: 1100px; }
+          h1 { margin-bottom: 0.25rem; }
+          .lead { font-size: 1.05rem; line-height: 1.55; color: rgba(49,51,63,0.85); }
+          .meta { font-size: 0.9rem; color: rgba(49,51,63,0.70); }
+          .card { padding: 1rem 1.1rem; border: 1px solid rgba(49,51,63,0.15); border-radius: 14px; }
+        </style>
+        """,
+        unsafe_allow_html=True,
     )
 
-    c1, c2 = st.columns(2)
+    # -----------------------------
+    # HERO (title + lead)
+    # -----------------------------
+    st.markdown(f"# {APP_TITLE}")
+    st.markdown(
+        f"""
+        <div class="lead">
+          Explore and annotate Russian magic tales from the Estonian Folklore Archives.
+          Filter the corpus by provenance metadata and get ATU Top-3 suggestions with evidence anchors for new texts.
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    # Trust / provenance line (compact, researcher-relevant)
+    st.markdown(
+        """
+        <div class="meta">
+          Data source: Estonian Folklore Archives (ERA), Russian-language collections (e.g., ERA, Vene; RKM, Vene).
+          Exports support FAIR/LOD workflows (CSV / JSON-LD / Turtle).
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.write("")  # small breathing space
+
+    # -----------------------------
+    # Two main CTAs
+    # -----------------------------
+    c1, c2 = st.columns(2, vertical_alignment="top")
+
     with c1:
-        if st.button("Start exploring", use_container_width=True):
+        st.markdown('<div class="card">', unsafe_allow_html=True)
+        st.markdown("### Explore corpus")
+        st.caption("Browse tales, provenance metadata, and corpus structure.")
+        if st.button("Explore corpus", use_container_width=True, type="primary"):
             st.session_state["nav_main"] = "Explore"
-            st.session_state["nav_explore"] = "Overview"
-    with c2:
-        if st.button("Try classification", use_container_width=True):
-            st.session_state["nav_main"] = "Classify"
+            st.session_state["nav_explore"] = "Overview"  # or your default explore subpage
+        st.markdown(
+            """
+            **What you can do**
+            - Find tales by **place / decade / collector / ATU**
+            - Open a record and inspect **text + provenance + annotations**
+            - Export filtered results for analysis
+            """
+        )
+        st.markdown("</div>", unsafe_allow_html=True)
 
-    st.markdown("---")
-    st.subheader("Project overview")
-    st.info(
-        "Replace this block with: corpus scope, data sources, rights statement, and methodology summary."
+    with c2:
+        st.markdown('<div class="card">', unsafe_allow_html=True)
+        st.markdown("### Classify a tale")
+        st.caption("Paste text → get Top-3 ATU suggestions with evidence anchors.")
+        if st.button("Classify a text", use_container_width=True):
+            st.session_state["nav_main"] = "Classify"
+        st.markdown(
+            """
+            **What you get**
+            - **Top-3 ATU** candidates (+ confidence scores, if available)
+            - **Anchors** (evidence spans) to support interpretability
+            - Exportable output for reporting / LOD
+            """
+        )
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    # -----------------------------
+    # Minimal “status/limitations” line (no self-sabotage)
+    # -----------------------------
+    st.write("")
+    st.caption(
+        "Note: In this build, some pages or model outputs may be unavailable depending on the demo mode. "
+        "The interface and export contract remain stable."
     )
 
+
+# -----------------------------
+# Explore
+# -----------------------------
 
 def page_explore_overview() -> None:
     st.header("Explore — Overview")
@@ -739,9 +773,6 @@ def render_page() -> None:
 def main() -> None:
     st.set_page_config(page_title=APP_TITLE, layout="wide")
     _init_state()
-
-    render_top_bar()
-    st.divider()
 
     render_left_nav()
     render_page()

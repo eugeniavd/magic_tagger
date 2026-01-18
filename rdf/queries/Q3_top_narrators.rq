@@ -1,0 +1,15 @@
+# File: kg/queries/Q3_top_narrators.rq
+# Purpose: Q3 — Top narrators by number of tales
+# Assumes narrator attribution on Tale via dcterms:contributor.
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?narrator (SAMPLE(?narrLabel) AS ?narratorLabel) (COUNT(DISTINCT ?tale) AS ?taleCount)
+WHERE {
+  ?tale dcterms:contributor ?narrator .
+  OPTIONAL { ?narrator rdfs:label ?narrLabel . }
+}
+GROUP BY ?narrator
+ORDER BY DESC(?taleCount) ?narrator
+LIMIT 20

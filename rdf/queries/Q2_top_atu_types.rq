@@ -1,0 +1,16 @@
+# File: kg/queries/Q2_top_atu_types.rq
+# Purpose: Q2 — Distribution of ATU types 
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX rft:     <https://github.com/eugeniavd/magic_tagger/rdf/ontology/#>
+
+SELECT ?atuConcept ?atuCode (COUNT(DISTINCT ?tale) AS ?taleCount)
+WHERE {
+  ?tale dcterms:subject ?atuConcept .
+  ?atuConcept skos:inScheme rft:ATU_Scheme ;
+              skos:notation ?atuCode .
+}
+GROUP BY ?atuConcept ?atuCode
+ORDER BY DESC(?taleCount) ?atuCode
+LIMIT 20

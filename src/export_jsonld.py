@@ -289,7 +289,7 @@ def to_jsonld(result: Dict[str, Any], tale_id: Optional[str] = None) -> Dict[str
         {
             "@id": model_iri,
             "@type": ["rft:Model", "prov:Entity"],
-            "dcterms:identifier": model_key,  # sha if present else tag
+            "dcterms:identifier": model_key, 
             "rdfs:label": model_name,
             "rft:modelSha": model_sha or None,
             "rft:modelTag": model_version_tag,

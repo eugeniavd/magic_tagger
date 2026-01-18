@@ -1,0 +1,32 @@
+# File: kg/queries/Q4_top_collectors_time_coverage.rq
+# Purpose: Q4 — Top collectors (via volume) + time coverage (min/max volume date)
+# Assumes:
+#   Tale dcterms:isPartOf Volume
+#   Volume dcterms:creator CollectorAgent
+#   Volume dcterms:created xsd:date
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
+
+SELECT
+  ?collector
+  (SAMPLE(?collectorLabel) AS ?collectorLabel)
+  (COUNT(DISTINCT ?tale) AS ?taleCount)
+  (MIN(?vDate) AS ?minDate)
+  (MAX(?vDate) AS ?maxDate)
+WHERE {
+  ?tale dcterms:isPartOf ?volume .
+  ?volume dcterms:creator ?collector .
+
+  OPTIONAL { ?collector rdfs:label ?collectorLabel . }
+
+  # Date is optional. Keep OPTIONAL to still count tales even if some volumes are undated.
+  OPTIONAL {
+    ?volume dcterms:created ?vDate .
+    FILTER(datatype(?vDate) = xsd:date)
+  }
+}
+GROUP BY ?collector
+ORDER BY DESC(?taleCount) ?collector
+LIMIT 20
