@@ -1,0 +1,222 @@
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_1> a dcterms:BibliographicResource ;
+    rdfs:label "ERA, Vene 1" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/sergei-egorovich-domashkin> ;
+    dcterms:identifier "era_vene_1" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_12> a dcterms:BibliographicResource ;
+    rdfs:label "ERA, Vene 12" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/ol-ga-gromova> ;
+    dcterms:identifier "era_vene_12" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13> a dcterms:BibliographicResource ;
+    rdfs:label "ERA, Vene 13" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/zoia-zhemchuzhina> ;
+    dcterms:identifier "era_vene_13" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_14> a dcterms:BibliographicResource ;
+    rdfs:label "ERA, Vene 14" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/olga-brandt> ;
+    dcterms:identifier "era_vene_14" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_15> a dcterms:BibliographicResource ;
+    rdfs:label "ERA, Vene 15" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/o-brandt> ;
+    dcterms:identifier "era_vene_15" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_16> a dcterms:BibliographicResource ;
+    rdfs:label "ERA, Vene 16" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/olga-brandt> ;
+    dcterms:identifier "era_vene_16" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_2> a dcterms:BibliographicResource ;
+    rdfs:label "ERA, Vene 2" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/fedor-koniaev> ;
+    dcterms:identifier "era_vene_2" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_3> a dcterms:BibliographicResource ;
+    rdfs:label "ERA, Vene 3" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/evgenii-mosharov> ;
+    dcterms:identifier "era_vene_3" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_4> a dcterms:BibliographicResource ;
+    rdfs:label "ERA, Vene 4" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/zoia-dondukova> ;
+    dcterms:identifier "era_vene_4" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_5> a dcterms:BibliographicResource ;
+    rdfs:label "ERA, Vene 5" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/nina-valkevits> ;
+    dcterms:identifier "era_vene_5" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_6> a dcterms:BibliographicResource ;
+    rdfs:label "ERA, Vene 6" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/m-sokolov> ;
+    dcterms:identifier "era_vene_6" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_7> a dcterms:BibliographicResource ;
+    rdfs:label "ERA, Vene 7" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/aleksandr-kelner> ;
+    dcterms:identifier "era_vene_7" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_8> a dcterms:BibliographicResource ;
+    rdfs:label "ERA, Vene 8" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/egorov-v> ;
+    dcterms:identifier "era_vene_8" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/rkm_vene_1> a dcterms:BibliographicResource ;
+    rdfs:label "RKM, Vene 1" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/vera-voogla> ;
+    dcterms:identifier "rkm_vene_1" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/rkm-vene> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/rkm_vene_3> a dcterms:BibliographicResource ;
+    rdfs:label "RKM, Vene 3" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/olga-gildebrandt> ;
+    dcterms:identifier "rkm_vene_3" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/rkm-vene> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/trü_vkk_1> a dcterms:BibliographicResource ;
+    rdfs:label "TRÜ, VKK 1" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/col028>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col032> ;
+    dcterms:identifier "trü_vkk_1" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/tr-vkk> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/trü_vkk_12> a dcterms:BibliographicResource ;
+    rdfs:label "TRÜ, VKK 12" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/col026>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col030>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col038>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col042> ;
+    dcterms:identifier "trü_vkk_12" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/tr-vkk> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/trü_vkk_13> a dcterms:BibliographicResource ;
+    rdfs:label "TRÜ, VKK 13" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/col025>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col029>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col031>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col033>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col041> ;
+    dcterms:identifier "trü_vkk_13" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/tr-vkk> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/trü_vkk_18> a dcterms:BibliographicResource ;
+    rdfs:label "TRÜ, VKK 18" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/col014>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col016>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col018> ;
+    dcterms:identifier "trü_vkk_18" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/tr-vkk> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/trü_vkk_25> a dcterms:BibliographicResource ;
+    rdfs:label "TRÜ, VKK 25" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/col003>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col004>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col007>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col011> ;
+    dcterms:identifier "trü_vkk_25" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/tr-vkk> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/trü_vkk_29> a dcterms:BibliographicResource ;
+    rdfs:label "TRÜ, VKK 29" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/col009>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col017>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col020> ;
+    dcterms:identifier "trü_vkk_29" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/tr-vkk> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/trü_vkk_32> a dcterms:BibliographicResource ;
+    rdfs:label "TRÜ, VKK 32" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/col015> ;
+    dcterms:identifier "trü_vkk_32" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/tr-vkk> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/trü_vkk_38> a dcterms:BibliographicResource ;
+    rdfs:label "TRÜ, VKK 38" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/col001>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col010> ;
+    dcterms:identifier "trü_vkk_38" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/tr-vkk> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/trü_vkk_41> a dcterms:BibliographicResource ;
+    rdfs:label "TRÜ, VKK 41" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/col002>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col005>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col006>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col012> ;
+    dcterms:identifier "trü_vkk_41" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/tr-vkk> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/trü_vkk_43> a dcterms:BibliographicResource ;
+    rdfs:label "TRÜ, VKK 43" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/col013>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col021>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col022>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col023> ;
+    dcterms:identifier "trü_vkk_43" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/tr-vkk> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/trü_vkk_48> a dcterms:BibliographicResource ;
+    rdfs:label "TRÜ, VKK 48" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/col008>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col019> ;
+    dcterms:identifier "trü_vkk_48" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/tr-vkk> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/trü_vkk_5> a dcterms:BibliographicResource ;
+    rdfs:label "TRÜ, VKK 5" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/col034>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col044> ;
+    dcterms:identifier "trü_vkk_5" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/tr-vkk> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/trü_vkk_52> a dcterms:BibliographicResource ;
+    rdfs:label "TRÜ, VKK 52" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/col036>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col039> ;
+    dcterms:identifier "trü_vkk_52" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/tr-vkk> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/trü_vkk_62> a dcterms:BibliographicResource ;
+    rdfs:label "TRÜ, VKK 62" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/col024>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col027>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col035>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col043> ;
+    dcterms:identifier "trü_vkk_62" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/tr-vkk> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/volume/trü_vkk_9> a dcterms:BibliographicResource ;
+    rdfs:label "TRÜ, VKK 9" ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/col037>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/person/col040> ;
+    dcterms:identifier "trü_vkk_9" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/tr-vkk> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/collection/rkm-vene> a dcmitype:Collection ;
+    rdfs:label "rkm_vene" .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene> a dcmitype:Collection ;
+    rdfs:label "era_vene" .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/collection/tr-vkk> a dcmitype:Collection ;
+    rdfs:label "trü_vkk" .
+

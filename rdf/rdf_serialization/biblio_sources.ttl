@@ -1,0 +1,37 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_284_2011> a dcterms:BibliographicResource,
+        prov:Entity ;
+    rdfs:label "FFC 284 (2011): Animal Tales, Tales of Magic, Religious Tales, and Realistic Tales"@en ;
+    dcterms:identifier "OCLC:974404961" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_284-286_2011_uther> ;
+    rdfs:seeAlso <https://edition.fi/kalevalaseura/catalog/book/763>,
+        <https://search.worldcat.org/it/title/974404961> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_285_2011> a dcterms:BibliographicResource,
+        prov:Entity ;
+    rdfs:label "FFC 285 (2011): Tales of the Stupid Ogre, Anecdotes and Jokes, and Formula Tales"@en ;
+    dcterms:identifier "OCLC:974406311" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_284-286_2011_uther> ;
+    rdfs:seeAlso <https://edition.fi/kalevalaseura/catalog/book/765>,
+        <https://search.worldcat.org/it/title/974406311> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_286_2011> a dcterms:BibliographicResource,
+        prov:Entity ;
+    rdfs:label "FFC 286 (2011): Appendices"@en ;
+    dcterms:identifier "OCLC:974415887" ;
+    dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_284-286_2011_uther> ;
+    rdfs:seeAlso <https://edition.fi/kalevalaseura/catalog/book/769>,
+        <https://search.worldcat.org/it/title/974415887> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_284-286_2011_uther> a dcterms:BibliographicResource,
+        prov:Entity ;
+    rdfs:label "FFC 284–286 (2011): The Types of International Folktales – A Classification and Bibliography"@en ;
+    dcterms:bibliographicCitation "Folklore Fellows’ Communications (FFC) 284–286. Sastamala: Vammalan Kirjapaino Oy, 2011. First published in 2004."@en ;
+    dcterms:hasPart <https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_284_2011>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_285_2011>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_286_2011> ;
+    rdfs:seeAlso <https://edition.fi/kalevalaseura/catalog/view/763/715/2750-1> .
+
