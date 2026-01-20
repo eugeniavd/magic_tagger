@@ -30,7 +30,7 @@ SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 PROV = Namespace("http://www.w3.org/ns/prov#")
 
 # ---------------------------------------------------------------------
-# Bibliographic sources (already defined in biblio_sources.ttl)
+# Bibliographic sources
 # ---------------------------------------------------------------------
 BIBLIO_SET_IRI = f"{BASE}biblio/ffc_284-286_2011_uther"
 BIBLIO_VOL1_IRI = f"{BASE}biblio/ffc_284_2011"  # < 1000

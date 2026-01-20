@@ -1,0 +1,2339 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@base": "https://github.com/eugeniavd/magic_tagger/rdf/",
+    "id": "@id",
+    "type": "@type",
+    "rft": "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#",
+    "dct": "http://purl.org/dc/terms/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcmitype": "http://purl.org/dc/dcmitype/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "label": {
+      "@id": "rdfs:label"
+    },
+    "comment": {
+      "@id": "rdfs:comment"
+    },
+    "seeAlso": {
+      "@id": "rdfs:seeAlso",
+      "@type": "@id"
+    },
+    "identifier": {
+      "@id": "dct:identifier"
+    },
+    "title": {
+      "@id": "dct:title"
+    },
+    "description": {
+      "@id": "dct:description"
+    },
+    "creator": {
+      "@id": "dct:creator",
+      "@type": "@id"
+    },
+    "contributor": {
+      "@id": "dct:contributor",
+      "@type": "@id"
+    },
+    "publisher": {
+      "@id": "dct:publisher"
+    },
+    "isPartOf": {
+      "@id": "dct:isPartOf",
+      "@type": "@id"
+    },
+    "source": {
+      "@id": "dct:source",
+      "@type": "@id"
+    },
+    "subject": {
+      "@id": "dct:subject",
+      "@type": "@id"
+    },
+    "spatial": {
+      "@id": "dct:spatial"
+    },
+    "rights": {
+      "@id": "dct:rights"
+    },
+    "accessRights": {
+      "@id": "dct:accessRights"
+    },
+    "license": {
+      "@id": "dct:license",
+      "@type": "@id"
+    },
+    "language": {
+      "@id": "dct:language"
+    },
+    "format": {
+      "@id": "dct:format"
+    },
+    "created": {
+      "@id": "dct:created",
+      "@type": "xsd:date"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "distribution": {
+      "@id": "dcat:distribution",
+      "@type": "@id"
+    },
+    "downloadURL": {
+      "@id": "dcat:downloadURL",
+      "@type": "@id"
+    },
+    "accessURL": {
+      "@id": "dcat:accessURL",
+      "@type": "@id"
+    },
+    "mediaType": {
+      "@id": "dcat:mediaType"
+    },
+    "issued": {
+      "@id": "dcat:issued",
+      "@type": "xsd:gYear"
+    },
+    "keyword": {
+      "@id": "dcat:keyword"
+    },
+    "theme": {
+      "@id": "dcat:theme",
+      "@type": "@id"
+    },
+    "age": {
+      "@id": "rft:age",
+      "@type": "xsd:integer"
+    },
+    "birthYear": {
+      "@id": "rft:birthYear",
+      "@type": "xsd:gYear"
+    },
+    "uri": {
+      "@id": "rft:uri",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/starukha-guseva",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:comment": {
+        "@language": "ru",
+        "@value": "слышала в детстве"
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "starukha Guseva"
+        },
+        {
+          "@language": "ru",
+          "@value": "старуха Guseva"
+        }
+      ],
+      "rft:age": 92
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/a-billio",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "A. Billio"
+        },
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'a-billio', 'label_en': 'a billio', 'raw': 'А. Биллио', 'name_raw': 'А. Биллио'}"
+        },
+        {
+          "@language": "ru",
+          "@value": "А. Биллио"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar002",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "nar002"
+        },
+        {
+          "@language": "et",
+          "@value": "nar002"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anatolii-semenov",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:comment": {
+        "@language": "ru",
+        "@value": "православный"
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Anatolii Semenov"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анатолий Семенов"
+        }
+      ],
+      "rft:age": 56
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/avdot-ia-ershova",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:comment": {
+        "@language": "ru",
+        "@value": "неграмотная"
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Avdot'ia Ershova"
+        },
+        {
+          "@language": "ru",
+          "@value": "Авдотья Ершова"
+        }
+      ],
+      "rft:age": 76
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col029",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col029', 'label_en': 'col029', 'raw': 'col029'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/avdot-ia-suvorova",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Avdot'ia Suvorova"
+        },
+        {
+          "@language": "ru",
+          "@value": "Авдотья Суворова"
+        }
+      ],
+      "rft:age": 60
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anna-mukhina",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Anna Mukhina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анна Мухина"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/kira-trubenkova",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Kira Trubenkova"
+        },
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'kira-trubenkova', 'label_en': 'kira trubenkova', 'raw': 'Кира Трубенкова', 'name_raw': 'Кира Трубенкова'}"
+        },
+        {
+          "@language": "ru",
+          "@value": "Кира Трубенкова"
+        }
+      ],
+      "rft:birthYear": {
+        "@type": "xsd:gYear",
+        "@value": "1920"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col024",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col024', 'label_en': 'col024', 'raw': 'col024'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/lewonty-borhov",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Lewonty Borhov"
+        },
+        {
+          "@language": "et",
+          "@value": "Lewonty Borhov"
+        }
+      ],
+      "rft:age": 63
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/dariia-lipina",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Dariia Lipina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Дария Липина"
+        }
+      ],
+      "rft:birthYear": {
+        "@type": "xsd:gYear",
+        "@value": "1851"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nikolai-grecman",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Nikolai Grecman"
+        },
+        {
+          "@language": "et",
+          "@value": "Nikolai Grečman"
+        }
+      ],
+      "rft:age": 73
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col023",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col023', 'label_en': 'col023', 'raw': 'col023'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col037",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col037', 'label_en': 'col037', 'raw': 'col037'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/andrei-ulanov",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Andrei Ulanov"
+        },
+        {
+          "@language": "ru",
+          "@value": "Андрей Уланов"
+        }
+      ],
+      "rft:age": 48
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col041",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col041', 'label_en': 'col041', 'raw': 'col041'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anna-khalat",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:comment": {
+        "@language": "ru",
+        "@value": "выучила от дедушки Алексея Кириловича"
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Anna Khalat"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анна Халат"
+        }
+      ],
+      "rft:age": 80
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/olga-brandt",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'olga-brandt', 'label_en': 'olga brandt', 'raw': 'Olga Brandt', 'name_raw': 'Olga Brandt'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col028",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col028', 'label_en': 'col028', 'raw': 'col028'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/leon-borkhov",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:comment": {
+        "@language": "ru",
+        "@value": "\"бывалый человек\""
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Leon Borkhov"
+        },
+        {
+          "@language": "ru",
+          "@value": "Леон Борхов"
+        }
+      ],
+      "rft:age": 70
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/fedor-koniaev",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "ru",
+        "@value": "{'person_id': 'fedor-koniaev', 'label_en': 'fedor koniaev', 'raw': 'Федор Коняев', 'name_raw': 'Федор Коняев'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anna-terent-evna-gunina",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Anna Terent'evna Gunina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анна Терентьевна Гунина"
+        }
+      ],
+      "rft:birthYear": {
+        "@type": "xsd:gYear",
+        "@value": "1896"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/z-vasilieva-suvorova",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "ru",
+        "@value": "{'person_id': 'z-vasil-eva-suvorova', 'label_en': 'z vasil eva suvorova', 'raw': 'З. Васильева-Суворова', 'name_raw': 'З. Васильева-Суворова'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/marfa-shilova",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Marfa Shilova"
+        },
+        {
+          "@language": "ru",
+          "@value": "Марфа Шилова"
+        }
+      ],
+      "rft:age": 48
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col012",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col012', 'label_en': 'col012', 'raw': 'col012'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/michail-dragunin",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Michail Dragunin"
+        },
+        {
+          "@language": "et",
+          "@value": "Michail Dragunin"
+        }
+      ],
+      "rft:age": 34
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col019",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col019', 'label_en': 'col019', 'raw': 'col019'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col007",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col007', 'label_en': 'col007', 'raw': 'col007'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col011",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col011', 'label_en': 'col011', 'raw': 'col011'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/ivan-mishin",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Ivan Mishin"
+        },
+        {
+          "@language": "ru",
+          "@value": "Иван Мишин"
+        }
+      ],
+      "rft:age": 50
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nina-mukhina",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Nina Mukhina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Нина Мухина"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col002",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col002', 'label_en': 'col002', 'raw': 'col002'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar014",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:comment": {
+        "@language": "ru",
+        "@value": "неграмотная"
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "nar014"
+        },
+        {
+          "@language": "et",
+          "@value": "nar014"
+        }
+      ],
+      "rft:birthYear": {
+        "@type": "xsd:gYear",
+        "@value": "1894"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/aleksandr-osipovich-iariomin",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Aleksandr Osipovich Iariomin"
+        },
+        {
+          "@language": "ru",
+          "@value": "Александр Осипович Ярёмин"
+        }
+      ],
+      "rft:age": 60
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/mariia-latkina",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Mariia Latkina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Мария Латкина"
+        }
+      ],
+      "rft:age": 76
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col005",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col005', 'label_en': 'col005', 'raw': 'col005'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/ivan-petrovich-somov",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:comment": {
+        "@language": "ru",
+        "@value": "православный"
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Ivan Petrovich Somov"
+        },
+        {
+          "@language": "ru",
+          "@value": "Иван Петрович Сомов"
+        }
+      ],
+      "rft:birthYear": {
+        "@type": "xsd:gYear",
+        "@value": "1870"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col013",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col013', 'label_en': 'col013', 'raw': 'col013'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/andrei-nikhandrovich-lik",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:comment": {
+        "@language": "ru",
+        "@value": "православный"
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Andrei Nikhandrovich Lik"
+        },
+        {
+          "@language": "ru",
+          "@value": "Андрей Нихандрович Лик"
+        }
+      ],
+      "rft:birthYear": {
+        "@type": "xsd:gYear",
+        "@value": "1885"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar015",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "nar015"
+        },
+        {
+          "@language": "et",
+          "@value": "nar015"
+        }
+      ],
+      "rft:age": 59
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nastasja-kropetskaja",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Nastasja Kropetskaja"
+        },
+        {
+          "@language": "et",
+          "@value": "Nastasja Krõpetskaja"
+        }
+      ],
+      "rft:age": 60
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col038",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col038', 'label_en': 'col038', 'raw': 'col038'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anna-fedorovna-neverovskaia",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Anna Fedorovna Neverovskaia"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анна Федоровна Неверовская"
+        }
+      ],
+      "rft:age": 50
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/fedor-kolosov",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Fedor Kolosov"
+        },
+        {
+          "@language": "ru",
+          "@value": "Федор Колосов"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/denisikha",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Denisikha"
+        },
+        {
+          "@language": "ru",
+          "@value": "Денисиха"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/neizvestno",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "neizvestno"
+        },
+        {
+          "@language": "ru",
+          "@value": "неизвестно"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/fedor-minushkin",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:comment": {
+        "@language": "ru",
+        "@value": "слышал 40 лет назад"
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Fedor Minushkin"
+        },
+        {
+          "@language": "ru",
+          "@value": "Федор Минушкин"
+        }
+      ],
+      "rft:age": 60
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/olga-gildebrandt",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "ru",
+        "@value": "{'person_id': 'ol-ga-gil-debrandt', 'label_en': 'ol ga gil debrandt', 'raw': 'Ольга Гильдебрандт', 'name_raw': 'Ольга Гильдебрандт'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col009",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col009', 'label_en': 'col009', 'raw': 'col009'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/aksin-ia",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:comment": {
+        "@language": "ru",
+        "@value": "неграмотная"
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Aksin'ia"
+        },
+        {
+          "@language": "ru",
+          "@value": "Аксинья"
+        }
+      ],
+      "rft:age": 72
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar009",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "nar009"
+        },
+        {
+          "@language": "et",
+          "@value": "nar009"
+        }
+      ],
+      "rft:age": 80
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/ivan-petrovich-kirshinskii",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:comment": {
+        "@language": "ru",
+        "@value": "православ"
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Ivan Petrovich Kirshinskii"
+        },
+        {
+          "@language": "ru",
+          "@value": "Иван Петрович Киршинский"
+        }
+      ],
+      "rft:age": 63
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/s-minusov",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:comment": {
+        "@language": "et",
+        "@value": "kuulnud 50 aastat tagasi; kirjaoskamatu"
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "S. Minusov"
+        },
+        {
+          "@language": "et",
+          "@value": "S. Minusov"
+        }
+      ],
+      "rft:age": 76
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col004",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col004', 'label_en': 'col004', 'raw': 'col004'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar012",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "nar012"
+        },
+        {
+          "@language": "et",
+          "@value": "nar012"
+        }
+      ],
+      "rft:age": 80
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col022",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col022', 'label_en': 'col022', 'raw': 'col022'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anna-karpulistova",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Anna Karpulistova"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анна Карпулистова"
+        }
+      ],
+      "rft:age": 68
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/egorov-v",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'egorov-v', 'label_en': 'egorov v', 'raw': 'Egorov V.', 'name_raw': 'Egorov V.'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col006",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col006', 'label_en': 'col006', 'raw': 'col006'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col035",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col035', 'label_en': 'col035', 'raw': 'col035'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/o-brandt",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'o-brandt', 'label_en': 'o brandt', 'raw': 'O. Brandt', 'name_raw': 'O. Brandt'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/m-sokolov",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'm-sokolov', 'label_en': 'm sokolov', 'raw': 'M. Sokolov', 'name_raw': 'M. Sokolov'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar019",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "nar019"
+        },
+        {
+          "@language": "et",
+          "@value": "nar019"
+        }
+      ],
+      "rft:age": 67
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col021",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col021', 'label_en': 'col021', 'raw': 'col021'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/irin-ia-sal-nikova",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Irin'ia Sal'nikova"
+        },
+        {
+          "@language": "ru",
+          "@value": "Иринья Сальникова"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col034",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col034', 'label_en': 'col034', 'raw': 'col034'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/oleg-riumin-ivanov",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Oleg Riumin-Ivanov"
+        },
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'oleg-riumin-ivanov', 'label_en': 'oleg riumin ivanov', 'raw': 'Олег Рюмин-Иванов', 'name_raw': 'Олег Рюмин-Иванов'}"
+        },
+        {
+          "@language": "ru",
+          "@value": "Олег Рюмин-Иванов"
+        }
+      ],
+      "rft:birthYear": {
+        "@type": "xsd:gYear",
+        "@value": "1923"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/zoia-aleksandrovna-iupatova",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:comment": {
+        "@language": "ru",
+        "@value": "православная"
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Zoia Aleksandrovna Iupatova"
+        },
+        {
+          "@language": "ru",
+          "@value": "Зоя Александровна Юпатова"
+        }
+      ],
+      "rft:birthYear": {
+        "@type": "xsd:gYear",
+        "@value": "1927"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar001",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "nar001"
+        },
+        {
+          "@language": "et",
+          "@value": "nar001"
+        }
+      ],
+      "rft:age": 86
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col003",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col003', 'label_en': 'col003', 'raw': 'col003'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col033",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col033', 'label_en': 'col033', 'raw': 'col033'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col008",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col008', 'label_en': 'col008', 'raw': 'col008'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar013",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "nar013"
+        },
+        {
+          "@language": "et",
+          "@value": "nar013"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col014",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col014', 'label_en': 'col014', 'raw': 'col014'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col044",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col044', 'label_en': 'col044', 'raw': 'col044'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar011",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "nar011"
+        },
+        {
+          "@language": "et",
+          "@value": "nar011"
+        }
+      ],
+      "rft:age": 39
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar003",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "nar003"
+        },
+        {
+          "@language": "et",
+          "@value": "nar003"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/natal-ia-alekseevna-pagareva",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Natal'ia Alekseevna Pagareva"
+        },
+        {
+          "@language": "ru",
+          "@value": "Наталья Алексеевна Пагарева"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col018",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col018', 'label_en': 'col018', 'raw': 'col018'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col017",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col017', 'label_en': 'col017', 'raw': 'col017'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar004",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:comment": {
+        "@language": "ru",
+        "@value": "услышана от бабушки nar003"
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "nar004"
+        },
+        {
+          "@language": "et",
+          "@value": "nar004"
+        }
+      ],
+      "rft:age": 12
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anastasiia-kodar",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:comment": {
+        "@language": "ru",
+        "@value": "слышала от отца"
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Anastasiia Kodar"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анастасия Кодар"
+        }
+      ],
+      "rft:birthYear": {
+        "@type": "xsd:gYear",
+        "@value": "1909"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anastasiia-folomeevna-senetskaia",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Anastasiia Folomeevna Senetskaia"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анастасия Фоломеевна Сенецкая"
+        }
+      ],
+      "rft:age": 73
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col020",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col020', 'label_en': 'col020', 'raw': 'col020'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/vera-sumina",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Vera Sumina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Вера Сумина"
+        }
+      ],
+      "rft:age": 58
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col042",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col042', 'label_en': 'col042', 'raw': 'col042'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col015",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col015', 'label_en': 'col015', 'raw': 'col015'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col016",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col016', 'label_en': 'col016', 'raw': 'col016'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/marfa-petukhova",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Marfa Petukhova"
+        },
+        {
+          "@language": "ru",
+          "@value": "Марфа Петухова"
+        }
+      ],
+      "rft:birthYear": {
+        "@type": "xsd:gYear",
+        "@value": "1887"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/vera-voogla",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "ru",
+        "@value": "{'person_id': 'vera-voogla', 'label_en': 'vera voogla', 'raw': 'Вера Воогла', 'name_raw': 'Вера Воогла'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/zoia-dondukova",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "ru",
+        "@value": "{'person_id': 'zoia-dondukova', 'label_en': 'zoia dondukova', 'raw': 'Зоя Дондукова', 'name_raw': 'Зоя Дондукова'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/an-mukhina",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "An. Mukhina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Ан. Мухина"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/matrena-protaeva",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:comment": {
+        "@language": "ru",
+        "@value": "слепая, неграмотная"
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Matrena Protaeva"
+        },
+        {
+          "@language": "ru",
+          "@value": "Матрена Протаева"
+        }
+      ],
+      "rft:age": 85
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/tat-iana-semukhina",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Tat'iana Semukhina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Татьяна Семухина"
+        }
+      ],
+      "rft:birthYear": {
+        "@type": "xsd:gYear",
+        "@value": "1922"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/e-protasova",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:comment": {
+        "@language": "et",
+        "@value": "kuulnud 20 aastat tagasi"
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "E. Protasova"
+        },
+        {
+          "@language": "et",
+          "@value": "E. Protasova"
+        }
+      ],
+      "rft:age": 82
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col043",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col043', 'label_en': 'col043', 'raw': 'col043'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/dar-ia-zalavskaia",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Dar'ia Zalavskaia"
+        },
+        {
+          "@language": "ru",
+          "@value": "Дарья Залавская"
+        }
+      ],
+      "rft:age": 60
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/vassa-denisovna-gunina",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Vassa Denisovna Gunina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Васса Денисовна Гунина"
+        }
+      ],
+      "rft:birthYear": {
+        "@type": "xsd:gYear",
+        "@value": "1876"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col025",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col025', 'label_en': 'col025', 'raw': 'col025'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/maria-sokolova",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'maria-sokolova', 'label_en': 'maria sokolova', 'raw': 'Maria Sokolova', 'name_raw': 'Maria Sokolova'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col040",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col040', 'label_en': 'col040', 'raw': 'col040'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col032",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col032', 'label_en': 'col032', 'raw': 'col032'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar005",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "nar005"
+        },
+        {
+          "@language": "et",
+          "@value": "nar005"
+        }
+      ],
+      "rft:age": 60
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col030",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col030', 'label_en': 'col030', 'raw': 'col030'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar008",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "nar008"
+        },
+        {
+          "@language": "et",
+          "@value": "nar008"
+        }
+      ],
+      "rft:age": 80
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/maksim-tverdov",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:comment": {
+        "@language": "ru",
+        "@value": "православный"
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Maksim Tverdov"
+        },
+        {
+          "@language": "ru",
+          "@value": "Максим Твердов"
+        }
+      ],
+      "rft:age": 61
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar007",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "nar007"
+        },
+        {
+          "@language": "et",
+          "@value": "nar007"
+        }
+      ],
+      "rft:birthYear": {
+        "@type": "xsd:gYear",
+        "@value": "1908"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/ivan-mal-tsev",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Ivan Mal'tsev"
+        },
+        {
+          "@language": "ru",
+          "@value": "Иван Мальцев"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/z-vasil-eva-suvorova",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:comment": {
+        "@language": "ru",
+        "@value": "слышала от бабушки"
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Z. Vasil'eva-Suvorova"
+        },
+        {
+          "@language": "ru",
+          "@value": "З. Васильева-Суворова"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/dar-ia-rosolova",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:comment": {
+        "@language": "ru",
+        "@value": "неграмотная"
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Dar'ia Rosolova"
+        },
+        {
+          "@language": "ru",
+          "@value": "Дарья Росолова"
+        }
+      ],
+      "rft:age": 73
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/iraida-georgievna-topkina",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Iraida Georgievna Topkina"
+        },
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'iraida-georgievna-topkina', 'label_en': 'iraida georgievna topkina', 'raw': 'Ираида Георгиевна Топкина', 'name_raw': 'Ираида Георгиевна Топкина'}"
+        },
+        {
+          "@language": "ru",
+          "@value": "Ираида Георгиевна Топкина"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anastasiia-dorofeevna-topkina",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Anastasiia Dorofeevna Topkina"
+        },
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'anastasiia-dorofeevna-topkina', 'label_en': 'anastasiia dorofeevna topkina', 'raw': 'Анастасия Дорофеевна Топкина', 'name_raw': 'Анастасия Дорофеевна Топкина'}"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анастасия Дорофеевна Топкина"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/ol-ga-gromova",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "ru",
+        "@value": "{'person_id': 'ol-ga-gromova', 'label_en': 'ol ga gromova', 'raw': 'Ольга Громова', 'name_raw': 'Ольга Громова'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col026",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col026', 'label_en': 'col026', 'raw': 'col026'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anna-mikhailovna-seniushkina",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Anna Mikhailovna Seniushkina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анна Михайловна Сенюшкина"
+        }
+      ],
+      "rft:birthYear": {
+        "@type": "xsd:gYear",
+        "@value": "1900"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col027",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col027', 'label_en': 'col027', 'raw': 'col027'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/sergei-dimitrievich-tsvetkov",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector",
+        "rft:Narrator"
+      ],
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Sergei Dimitrievich Tsvetkov"
+        },
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'sergei-dimitrievich-tsvetkov', 'label_en': 'sergei dimitrievich tsvetkov', 'raw': 'Сергей Димитриевич Цветков', 'name_raw': 'Сергей Димитриевич Цветков'}"
+        },
+        {
+          "@language": "ru",
+          "@value": "Сергей Димитриевич Цветков"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/natalia-alekseevna-pagareva",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "ru",
+        "@value": "{'person_id': 'natal-ia-alekseevna-pagareva', 'label_en': 'natal ia alekseevna pagareva', 'raw': 'Наталья Алексеевна Пагарева', 'name_raw': 'Наталья Алексеевна Пагарева'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/zoia-zhemchuzhina",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "ru",
+        "@value": "{'person_id': 'zoia-zhemchuzhina', 'label_en': 'zoia zhemchuzhina', 'raw': 'Зоя Жемчужина', 'name_raw': 'Зоя Жемчужина'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col031",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col031', 'label_en': 'col031', 'raw': 'col031'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/menda-erenberg",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "{'person_id': 'menda-erenberg', 'label_en': 'menda erenberg', 'raw': 'Menda Erenberg', 'name_raw': 'Menda Erenberg'}"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/tatiana-semukhina",
+      "@type": [
+        "crm:E21_Person",
+        "prov:Agent",
+        "foaf:Person",
+        "rft:Collector"
+      ],
+      "rdfs:label": {
+        "@language": "ru",
+        "@value": "{'person_id': 'tat-iana-semukhina', 'label_en': 'tat iana semukhina', 'raw': 'Татьяна Семухина', 'name_raw': 'Татьяна Семухина'}"
+      }
+    }
+  ]
+}

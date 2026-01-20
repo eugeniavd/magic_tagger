@@ -1,0 +1,274 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_105_22> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_137_98> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_189_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_440_19> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_501_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_541_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_550_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_592_4> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_95_18> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_97_19> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_106_14> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_137_16> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_151_17> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_15_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_175_18> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_19_2> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_203_19> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_262_22> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_272_23> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_28_3> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_293_24> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_318_27> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_335_28> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_345_29> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_363_30> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_37_5> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_43_6> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_635_20> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_638_21> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_73_9> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_90_12> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_93_13> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_14_451_7> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_15_134_3> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_15_304_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_15_308_4> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_15_430_6> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_15_433_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_16_540_2> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_16_548_4> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_16_735_2> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_16_744_22> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_1_497_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_1_503_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_1_505_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_1_515_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_2_137_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_2_161_14> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_2_599_3> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_2_622_5> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_2_642_9> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_2_748_27> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_4_367_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_4_403_2> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_5_328_2> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_5_407_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_5_442_6> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_5_503_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_5_507_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_286_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_306_2> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_337_3> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_347_4> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_366_5> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_395_7> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_406_8> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_421_9> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_7_221_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_7_227_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_7_71_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_7_89_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_7_95_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_8_210_126> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_8_223_147> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_8_308_277> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/rkm_vene_1_236_5> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/rkm_vene_1_82_47> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/rkm_vene_3_257_117> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_12_44_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_13_23_2> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_13_31_2> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_13_47_3> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_13_59_4> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_18_12_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_1_191_4> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_25_120_23> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_29_54_68> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_32_14_2> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_32_17_3> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_32_26_5> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_41_83_43> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_43_8_2> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_48_62_110> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_5_36_20> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_5_58_29> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_62_7_1> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_9_28_3> dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/agents-ttl> a dcat:Distribution ;
+    dcterms:format "text/turtle" ;
+    dcterms:title "Agents graph (Turtle)"@en ;
+    dcat:accessURL <https://github.com/eugeniavd/magic_tagger/blob/main/rdf/rdf_serialization/agents.ttl> ;
+    dcat:downloadURL <https://raw.githubusercontent.com/eugeniavd/magic_tagger/main/rdf/rdf_serialization/agents.ttl> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/biblio-ttl> a dcat:Distribution ;
+    dcterms:format "text/turtle" ;
+    dcterms:title "Bibliographic sources graph (Turtle)"@en ;
+    dcat:accessURL <https://github.com/eugeniavd/magic_tagger/blob/main/rdf/rdf_serialization/biblio_sources.ttl> ;
+    dcat:downloadURL <https://raw.githubusercontent.com/eugeniavd/magic_tagger/main/rdf/rdf_serialization/biblio_sources.ttl> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/canonical-csv> a dcat:Distribution ;
+    dcterms:format "text/csv" ;
+    dcterms:title "Canonical table (CSV)"@en ;
+    dcat:accessURL <https://github.com/eugeniavd/magic_tagger/blob/main/data/processed/corpus_a_for_kg.csv> ;
+    dcat:downloadURL <https://raw.githubusercontent.com/eugeniavd/magic_tagger/main/data/processed/corpus_a_for_kg.csv> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/corpus-ttl> a dcat:Distribution ;
+    dcterms:format "text/turtle" ;
+    dcterms:title "Corpus graph (Turtle)"@en ;
+    dcat:accessURL <https://github.com/eugeniavd/magic_tagger/blob/main/rdf/rdf_serialization/corpus.ttl> ;
+    dcat:downloadURL <https://raw.githubusercontent.com/eugeniavd/magic_tagger/main/rdf/rdf_serialization/corpus.ttl> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/queries-bundle> a dcat:Distribution ;
+    dcterms:format "text/sparql" ;
+    dcterms:title "SPARQL queries bundle (repository folder)"@en ;
+    dcat:accessURL <https://github.com/eugeniavd/magic_tagger/blob/main/rdf/queries> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/shacl-ttl> a dcat:Distribution ;
+    dcterms:format "text/turtle" ;
+    dcterms:title "SHACL shapes (Turtle)"@en ;
+    dcat:accessURL <https://github.com/eugeniavd/magic_tagger/blob/main/rdf/shacl/shapes.ttl> ;
+    dcat:downloadURL <https://raw.githubusercontent.com/eugeniavd/magic_tagger/main/rdf/shacl/shapes.ttl> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/types-ttl> a dcat:Distribution ;
+    dcterms:format "text/turtle" ;
+    dcterms:title "Tale type concepts graph (Turtle)"@en ;
+    dcat:accessURL <https://github.com/eugeniavd/magic_tagger/blob/main/rdf/rdf_serialization/types.ttl> ;
+    dcat:downloadURL <https://raw.githubusercontent.com/eugeniavd/magic_tagger/main/rdf/rdf_serialization/types.ttl> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/evgeniia-vdovichenko> a prov:Agent,
+        foaf:Person ;
+    rdfs:label "Evgeniia Vdovichenko" .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1> a dcat:Dataset ;
+    dcterms:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/evgeniia-vdovichenko> ;
+    dcterms:description "A curated corpus of Russian-language magic folktales from the Estonian Folklore Archives (Estonian Literary Museum, Tartu), modeled as a knowledge graph with linked agents, bibliographic volumes/collections, and ATU tale type concepts."@en ;
+    dcterms:language "en",
+        "et",
+        "ru" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://github.com/eugeniavd/magic_tagger/rdf/person/evgeniia-vdovichenko> ;
+    dcterms:source <https://github.com/eugeniavd/magic_tagger/blob/main/data/processed/corpus_a_for_kg.csv> ;
+    dcterms:spatial <http://www.wikidata.org/entity/Q159>,
+        <http://www.wikidata.org/entity/Q191> ;
+    dcterms:title "Corpus v1"@en ;
+    dcat:distribution <https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/agents-ttl>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/biblio-ttl>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/canonical-csv>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/corpus-ttl>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/queries-bundle>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/shacl-ttl>,
+        <https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/types-ttl> ;
+    dcat:issued "2026"^^xsd:gYear ;
+    dcat:keyword "ATU types"@en,
+        "fairytale"@en,
+        "folktale"@en,
+        "сказка"@ru ;
+    dcat:theme <https://publications.europa.eu/resource/authority/data-theme/CULT> ;
+    prov:wasDerivedFrom <https://kivike.kirmus.ee/> .
+

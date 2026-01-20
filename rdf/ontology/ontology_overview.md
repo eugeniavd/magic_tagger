@@ -35,7 +35,7 @@ BASE = <https://github.com/eugeniavd/magic_tagger/rdf/>
 | Local entity | Description | Working class & alignment |
 |--------------|-------------|---------------------------|
 | Tale | A single folktale text (one row in the index). | `crm:E33_Linguistic_Object` and `prov:Entity`. |
-| Collection | Archival collection / series such as “ERA, Vene”, “RKM, Vene”, “TRÜ, VKK”. | `dcterms:Collection`, conceptually alignable to `crm:E78_Curated_Holding` |
+| Collection | Archival collection / series such as “ERA, Vene”, “RKM, Vene”, “TRÜ, VKK”. | `dcmitype:Collection`, conceptually alignable to `crm:E78_Curated_Holding` |
 | Volume | Physical volume within a collection (bound manuscript volume). | `dcterms:BibliographicResource` and `crm:E22_Man-Made_Object` (carrier) |
 | Place | Settlement / parish used in recording and origin fields. | `crm:E53_Place`. |
 | Type code (ATU, SUS, national types) | Tale type codes and related classifications. | `rft:TaleType` (working class), a subclass of `skos:Concept` within one or more `skos:ConceptScheme` (ATU, SUS, national schemes). |
@@ -61,7 +61,7 @@ This section shows how fields from `corpus_a_index` map to RDF properties. It is
 | Local field | Description | RDF property | Target vocabulary |
 |-------------|-------------|--------------|-------------------|
 | `tale_id`   | Stable identifier within the corpus (used to build a persistent URI for the tale). | `@id` (via URI template), e.g. `https://github.com/eugeniavd/magic_tagger/rdf/data/tale/{tale_id}` | project / JSON-LD |
-| `collection` | Archival series (e.g. “ERA, Vene”, “RKM, Vene”, “TRÜ, VKK”). | `dcterms:isPartOf` → `dcterms:Collection` (alignable to `crm:E78_Curated_Holding`) | DCTERMS / CIDOC-CRM |
+| `collection` | Archival series (e.g. “ERA, Vene”, “RKM, Vene”, “TRÜ, VKK”). | `dcterms:isPartOf` → `dcmitype:Collection` (alignable to `crm:E78_Curated_Holding`) | DCTERMS / CIDOC-CRM |
 | `volume_no` | Volume number within a collection (bound manuscript volume). | `dcterms:isPartOf` → `rft:Volume` (`dcterms:BibliographicResource`, alignable to `crm:E22_Man-Made_Object`); the volume number itself can be recorded as `dcterms:identifier` on the volume resource. | DCTERMS / rft |
 | `source_ref` | Full archival shelfmark string (as given in the index). | `dcterms:source` | DCTERMS |
 

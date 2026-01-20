@@ -1,0 +1,227 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@base": "https://github.com/eugeniavd/magic_tagger/rdf/",
+    "id": "@id",
+    "type": "@type",
+    "rft": "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#",
+    "dct": "http://purl.org/dc/terms/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcmitype": "http://purl.org/dc/dcmitype/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "label": {
+      "@id": "rdfs:label"
+    },
+    "comment": {
+      "@id": "rdfs:comment"
+    },
+    "seeAlso": {
+      "@id": "rdfs:seeAlso",
+      "@type": "@id"
+    },
+    "identifier": {
+      "@id": "dct:identifier"
+    },
+    "title": {
+      "@id": "dct:title"
+    },
+    "description": {
+      "@id": "dct:description"
+    },
+    "creator": {
+      "@id": "dct:creator",
+      "@type": "@id"
+    },
+    "contributor": {
+      "@id": "dct:contributor",
+      "@type": "@id"
+    },
+    "publisher": {
+      "@id": "dct:publisher"
+    },
+    "isPartOf": {
+      "@id": "dct:isPartOf",
+      "@type": "@id"
+    },
+    "source": {
+      "@id": "dct:source",
+      "@type": "@id"
+    },
+    "subject": {
+      "@id": "dct:subject",
+      "@type": "@id"
+    },
+    "spatial": {
+      "@id": "dct:spatial"
+    },
+    "rights": {
+      "@id": "dct:rights"
+    },
+    "accessRights": {
+      "@id": "dct:accessRights"
+    },
+    "license": {
+      "@id": "dct:license",
+      "@type": "@id"
+    },
+    "language": {
+      "@id": "dct:language"
+    },
+    "format": {
+      "@id": "dct:format"
+    },
+    "created": {
+      "@id": "dct:created",
+      "@type": "xsd:date"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "distribution": {
+      "@id": "dcat:distribution",
+      "@type": "@id"
+    },
+    "downloadURL": {
+      "@id": "dcat:downloadURL",
+      "@type": "@id"
+    },
+    "accessURL": {
+      "@id": "dcat:accessURL",
+      "@type": "@id"
+    },
+    "mediaType": {
+      "@id": "dcat:mediaType"
+    },
+    "issued": {
+      "@id": "dcat:issued",
+      "@type": "xsd:gYear"
+    },
+    "keyword": {
+      "@id": "dcat:keyword"
+    },
+    "theme": {
+      "@id": "dcat:theme",
+      "@type": "@id"
+    },
+    "age": {
+      "@id": "rft:age",
+      "@type": "xsd:integer"
+    },
+    "birthYear": {
+      "@id": "rft:birthYear",
+      "@type": "xsd:gYear"
+    },
+    "uri": {
+      "@id": "rft:uri",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_284_2011",
+      "@type": [
+        "dcterms:BibliographicResource",
+        "prov:Entity"
+      ],
+      "dcterms:identifier": "OCLC:974404961",
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_284-286_2011_uther"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "FFC 284 (2011): Animal Tales, Tales of Magic, Religious Tales, and Realistic Tales"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://edition.fi/kalevalaseura/catalog/book/763"
+        },
+        {
+          "@id": "https://search.worldcat.org/it/title/974404961"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_285_2011",
+      "@type": [
+        "dcterms:BibliographicResource",
+        "prov:Entity"
+      ],
+      "dcterms:identifier": "OCLC:974406311",
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_284-286_2011_uther"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "FFC 285 (2011): Tales of the Stupid Ogre, Anecdotes and Jokes, and Formula Tales"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://edition.fi/kalevalaseura/catalog/book/765"
+        },
+        {
+          "@id": "https://search.worldcat.org/it/title/974406311"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_286_2011",
+      "@type": [
+        "dcterms:BibliographicResource",
+        "prov:Entity"
+      ],
+      "dcterms:identifier": "OCLC:974415887",
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_284-286_2011_uther"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "FFC 286 (2011): Appendices"
+      },
+      "rdfs:seeAlso": [
+        {
+          "@id": "https://edition.fi/kalevalaseura/catalog/book/769"
+        },
+        {
+          "@id": "https://search.worldcat.org/it/title/974415887"
+        }
+      ]
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_284-286_2011_uther",
+      "@type": [
+        "dcterms:BibliographicResource",
+        "prov:Entity"
+      ],
+      "dcterms:bibliographicCitation": {
+        "@language": "en",
+        "@value": "Folklore Fellows’ Communications (FFC) 284–286. Sastamala: Vammalan Kirjapaino Oy, 2011. First published in 2004."
+      },
+      "dcterms:hasPart": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_284_2011"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_285_2011"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_286_2011"
+        }
+      ],
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "FFC 284–286 (2011): The Types of International Folktales – A Classification and Bibliography"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://edition.fi/kalevalaseura/catalog/view/763/715/2750-1"
+      }
+    }
+  ]
+}

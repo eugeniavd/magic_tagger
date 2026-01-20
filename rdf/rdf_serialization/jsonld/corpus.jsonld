@@ -1,0 +1,4096 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@base": "https://github.com/eugeniavd/magic_tagger/rdf/",
+    "id": "@id",
+    "type": "@type",
+    "rft": "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#",
+    "dct": "http://purl.org/dc/terms/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcmitype": "http://purl.org/dc/dcmitype/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "label": {
+      "@id": "rdfs:label"
+    },
+    "comment": {
+      "@id": "rdfs:comment"
+    },
+    "seeAlso": {
+      "@id": "rdfs:seeAlso",
+      "@type": "@id"
+    },
+    "identifier": {
+      "@id": "dct:identifier"
+    },
+    "title": {
+      "@id": "dct:title"
+    },
+    "description": {
+      "@id": "dct:description"
+    },
+    "creator": {
+      "@id": "dct:creator",
+      "@type": "@id"
+    },
+    "contributor": {
+      "@id": "dct:contributor",
+      "@type": "@id"
+    },
+    "publisher": {
+      "@id": "dct:publisher"
+    },
+    "isPartOf": {
+      "@id": "dct:isPartOf",
+      "@type": "@id"
+    },
+    "source": {
+      "@id": "dct:source",
+      "@type": "@id"
+    },
+    "subject": {
+      "@id": "dct:subject",
+      "@type": "@id"
+    },
+    "spatial": {
+      "@id": "dct:spatial"
+    },
+    "rights": {
+      "@id": "dct:rights"
+    },
+    "accessRights": {
+      "@id": "dct:accessRights"
+    },
+    "license": {
+      "@id": "dct:license",
+      "@type": "@id"
+    },
+    "language": {
+      "@id": "dct:language"
+    },
+    "format": {
+      "@id": "dct:format"
+    },
+    "created": {
+      "@id": "dct:created",
+      "@type": "xsd:date"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "distribution": {
+      "@id": "dcat:distribution",
+      "@type": "@id"
+    },
+    "downloadURL": {
+      "@id": "dcat:downloadURL",
+      "@type": "@id"
+    },
+    "accessURL": {
+      "@id": "dcat:accessURL",
+      "@type": "@id"
+    },
+    "mediaType": {
+      "@id": "dcat:mediaType"
+    },
+    "issued": {
+      "@id": "dcat:issued",
+      "@type": "xsd:gYear"
+    },
+    "keyword": {
+      "@id": "dcat:keyword"
+    },
+    "theme": {
+      "@id": "dcat:theme",
+      "@type": "@id"
+    },
+    "age": {
+      "@id": "rft:age",
+      "@type": "xsd:integer"
+    },
+    "birthYear": {
+      "@id": "rft:birthYear",
+      "@type": "xsd:gYear"
+    },
+    "uri": {
+      "@id": "rft:uri",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_13_31_2",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "restricted_anon",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar011"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1963-07-07"
+      },
+      "dcterms:description": "Царь продаёт сына дьяволу, потому что не знает о его рождении. Царевич жениться на Марусе-царевне. Возвратившись домой, забывает её и женится снова, голуби напоминают о Марусе, он возвращется к ней.",
+      "dcterms:identifier": "tru_vkk_13_31_2",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db81"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/313"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db81",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Zalit Island (imeni Zalita), abroad, Pskov Oblast, Russia / Venemaa, Pihkva obl., Pihkva raj., Zalita nim. saar (остров им. Залита), välismaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_306_2",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nikolai-grecman"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1935-07-28"
+      },
+      "dcterms:description": "Сказка про трех Иванов.",
+      "dcterms:identifier": "era_vene_6_306_2",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_6"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db61"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/465B"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db61",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Velje village, Petseri County, Pskov Oblast, Russia / Irboska v., Velje k., Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_440_19",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/fedor-kolosov"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1938-05-29"
+      },
+      "dcterms:description": "Снегурочка.",
+      "dcterms:identifier": "era_vene_12_440_19",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_12"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db4"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/703-star"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db4",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Kuningaküla village (Knyaz-Selo), Vaivara parish, Ida-Viru County, Estonia / Vasknarva v., Kuningaküla (Князь-село) k., Vaivara khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_29",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col009"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col017"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col020"
+        }
+      ],
+      "dcterms:identifier": "tru_vkk_29",
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/tru-vkk"
+      },
+      "rdfs:label": "TRÜ, VKK 29"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_2_642_9",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anna-khalat"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1928-01-01"
+      },
+      "dcterms:description": "Конек горбунок (в стихах).",
+      "dcterms:identifier": "era_vene_2_642_9",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_2"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db51"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/531"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db51",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Nina village, Kodavere parish, Tartu County, Estonia / Peipsiäärne v., Nina (Нос) k., Kodavere khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_62_7_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "restricted_anon",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar013"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1965-01-01"
+      },
+      "dcterms:description": "Иван-царевич и серый волк.",
+      "dcterms:identifier": "tru_vkk_62_7_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_62"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db96"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/550"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db96",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Kuru village, Iisaku parish, Ida-Viru County, Estonia / Kohtla-Järve raj., Kuru (Куру) k., Iisaku khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_151_17",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/dar-ia-rosolova"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1939-01-01"
+      },
+      "dcterms:description": "Богач Марко решает утсроить пир в свою честь и позвать Господа Бога. В саду явдяется Марко благоуханные свет и невидимый голос говорит, что если он позовёт на пир всех - богатых и бедных, то Бог придёт тоже. Марко позвал всех по миру, положил ковры для Бога от церкви до дома. Пир начался, а Бога всё нет. Марко ожидает Бога в сиянии, а он приходит в образе старика. Марко бежит к церкви проверить, видит старика и кричит ему уйти с ковра._x000D_ Старичок сидит на пире с нищими, потом просится переночевать, Марко говорит, что все места знатными людьми заняты, но можно идти в избушку сестры-инвалида. Старичок идёт туда, вылечивает сестру. Она ночью видит, как прилетают три ангела и спрашивают о судьбе новорождённого сына бедняка. Старичок отвечает, что судьба его владеть богатством Марко._x000D_ Сестра идёт к Марко - теперь на своих ногах, рассказывает что произошло ночью. Марко боится за своё богатсво. Марко находит и покупает мальчика Ваню у лесника. Мальчика не убивает, бросает около дороги замёрзнуть. Ребёнка подбирают проежающие мужыки и привозят в харчевню, где Марко снова покупает ребянка. Бросает Ваню в реке в чём-то. Ваню вылавливает монах, его оставляют в монастыре. Когда Ваня вырастает, поёт на клиросе и готовит кушанья, со всего свету съежаются Ваню слушать, включая Марко. Монахи рассказывают Марко откуда взялся чудесный повар. Марко просит Ваню в зятья, Ваня соглашается. Марко пишет письмо жене, которое Ваня должен отнести. Во время сна, ангел заменяет письмо. Ваня и дочка Марко венчаются._x000D_ Ваня всем угождает, кроме тестя Марко, который думает как Ваню погубить. Посылает его к людоеду богатство считать. Идёт к людоеду, по дороге встречны просят узнать, сколько ещё возьть перевозчику, сколько ещё стоять на столбе. Доходит до людоеда, его нет дома. Жена превращает Ваню в головную булавку, получает нужные ответы у людоеда. На утро Ваня возвращается домой, говорит Марко, что он может увидеть своё богатство у столба, Марко становится перевозчиком на реке.",
+      "dcterms:identifier": "era_vene_13_151_17",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db13"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/461"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db13",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Konechki village, Petseri County, Pskov Oblast, Russia / Изборская волость, д. Конечки, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_13_59_4",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "restricted_anon",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar011"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1963-07-09"
+      },
+      "dcterms:description": "Младший брат, Иван-царевич выдает сестёр за ворона, сокола и орла. Идёт искать сестёр. Приходит к старшей, даёт ей платок - если нальётся кровь, то Иван погиб. Средней даёт стакан, младшей гусли с той же целью. _x000D_ Видит поле брани, говорят, что виной Марья-Мария прекрасная королева. Поздже видит Иван посётся лошадь, рядом спит Марья. Думает убить, но передумывает и ложится рядом. Марья просыпается, думает убить Ивана, но передумывает, потому что он не сделал того же._x000D_ Иван и Малья идут к ней вдом, она даёт ему ключи, запрещает ходить в одну из комнат. Иван идёт туда - там весит змей, вокруг него три бочки воды. Змей просит напится из каждой бочки, Иван даёт, змей срывается с цепей._x000D_ Иван и Марья едут на родину Иван, змей следом - отрубает Ивану голову. У сестёр наливаются вещи кровью, ворон, сокол и орёл ловят голубя, чтобы тот принёс живой и мёртвой воды. Оживляют Ивана._x000D_ Марья велит идти к бабушке за конём, не убивать комаров, мух, слепней, что будут жалить, они потом помогут. Иван пасёт бабьих коней в поле, кони разбегаются, комары, мухи, слепни сгоняют._x000D_ Марья и Иван садятся на Коня-Горбунка, скачут на родину, змей их догнать не может._x000D_ справляется с ним на Коне-Горбунке, следуя советам Марьи.",
+      "dcterms:identifier": "tru_vkk_13_59_4",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db83"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/302C-star"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/552"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/554"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/556F-star"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db83",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Zalit Island (imeni Zalita), abroad, Pskov Oblast, Russia / Venemaa, Pihkva obl., Pihkva raj., Zalita nim. saar (остров им. Залита), välismaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_28_3",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/dar-ia-zalavskaia"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1939-01-01"
+      },
+      "dcterms:description": "Мать-рысь, сжигают шкуру - остается человеком.",
+      "dcterms:identifier": "era_vene_13_28_3",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db20"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/402"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db20",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Zalavya village, Petseri County, Pskov Oblast, Russia / Изборская волость, д. Залавья, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_2_137_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anna-mukhina"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1928-01-01"
+      },
+      "dcterms:description": "Сказка про Аленушку и Степанушку.",
+      "dcterms:identifier": "era_vene_2_137_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_2"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db47"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/450"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db47",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Nina village, Kodavere parish, Tartu County, Estonia / Peipsiäärne v., Nina (Нос) k., Kodavere khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_8_210_126",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anastasiia-folomeevna-senetskaia"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1936-06-15"
+      },
+      "dcterms:description": "Сказка про грехов. Баба не любит падчерицу, велит деду топить баню. Баба посылает падчерицу за своей рубахой в баню после того, как все вымылись. Падчерица приходит в баню, а там черти парятся. Девушка просит чертей дать рубашку, они велят зайти в баню. Старший грех сватает её, она просит сначала подарков и три раза на санях объехать. Пока они объежают, кричит петух; черти пропадают, девушка остаётся с богатством.",
+      "dcterms:identifier": "era_vene_8_210_126",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_8"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db73"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/480A"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db73",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Zahodõ village, Petseri County, Võru County, Estonia / Satserinna v., Zahodõ k., Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_4",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/zoia-dondukova"
+      },
+      "dcterms:identifier": [
+        "KIVIKE:ERA-17309-66564-56855",
+        "era_vene_4"
+      ],
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene"
+      },
+      "rdfs:label": "ERA, Vene 4",
+      "rdfs:seeAlso": {
+        "@id": "https://kivike.kirmus.ee/index.php?oid=8&module=400&op=3&pid=ERA-17309-66564-56855"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_106_14",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/leon-borkhov"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1939-01-01"
+      },
+      "dcterms:description": "Холостой Митя встречает на реке девушку, которая зовёт его гулять, он отказывается. Ночью она опять приходит и зовёт гулять, на следующую ночь тоже самое. Девка лезет целоваться, но Митя видит у неё рога. На утро он молится и плачет._x000D_ Барин зовёт Митю покойнику читать, вихром кони уносят в \"соседнюю деревню\". У колодца девушка учит, как защититься от покойницы-колдуньи. После похорон (где стягает покойницу) Митя встречает девушку у горелого пня и женится на ней. Превращаются в голубей и прилетают в Мите домой, где пропадают поп и попадья. Митяна жена хочет навестить родителей, её отец сулит богатсво, он отказывается, просит лошадей. Отец-колдун отдаёт коней на время, они превращаются в попа и попадью.",
+      "dcterms:identifier": "era_vene_13_106_14",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db11"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/307"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/410"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/424-star"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db11",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Vasttsy village, Petseri County, Pskov Oblast, Russia / Изборская волость, д. Вастцы, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_4_367_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/dariia-lipina"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1933-01-01"
+      },
+      "dcterms:description": "Ванюшка-дурачек. Мужик просит сыновей покараулить три ночи после смерти. Первым должен идти старший сын, но он просит идти младшего. Ванюшка приходит на могилу, ударяет кием вил, могила рассыпается и отец встаёт. Отец призывает Сивку-бурку, пролезает через уши и становиться молодым, ночь ездит и возвращается в могилу._x000D_ На следующую ночь всё повторяется, когда Ваня идёт вместо среднего брата. На третью ночь идёт опять, потому что братья отказались. Перед уходом в могилу, отец отдаёт Сивку-Бурку Ванюше._x000D_ Царь отдаёт свою дочь тому, кто поцелует её, через 12 венцов. Братья не дают Ванюшке идти, но он идёт в лес, призывает Сивку, целует только церез 10 венцов и пропадает. На следующий день, всё повторяется, но целует через 11 венцов. На третьй день всё повторяется, царевна ударяет его в лоб перстнем. Ваня зматывает лоб._x000D_ Царевна ищет своего жениха, призывая всех на пир. Братья приводят Ванюшу на пир, он и царевна женяться. Спустя время, царь видит барана злоторогого (потом золотую свинью, потом кобылу и одиннадцать жеребцов) и велит зятьём их поймать. Братья едут на хороших конях, Ваня на водовозке, сидя задом наперёд. Ваня убивает кобылу за городом и призывает Сивку-бурку. Ловит барана, раскидывает шатёр в поле. Отрезает пальцы и кожу у свояков, продавая животных._x000D_ По возвращении, Ванюша заставляет свояков идти в баню с царём, а они не раздеваются. Ванюша силой раздевает их и розаблачает их.",
+      "dcterms:identifier": "era_vene_4_367_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_4"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db53"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/530"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/530A"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db53",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Podgramye village, Petseri County, Pskov Oblast, Russia / Печёрский уезд, д. Подграмье, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_1_503_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anastasiia-dorofeevna-topkina"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1930-05-24"
+      },
+      "dcterms:description": "Царевна-лягушка.",
+      "dcterms:identifier": "era_vene_1_503_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_1"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db44"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/402"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db44",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Mustvee town, Torma parish, Jõgeva County, Estonia / Mustvee (Посад Черный) l., Torma khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_43_8_2",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "restricted_anon",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar001"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1967-01-01"
+      },
+      "dcterms:description": "Сказка \"Аленький цветочек\".",
+      "dcterms:identifier": "tru_vkk_43_8_2",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_43"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db92"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/425C"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db92",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Panikovichi village, abroad, Pskov Oblast, Russia / Venemaa, Pihkva obl., Petseri raj., Pankjavitsa (Паниковичи) k., välismaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_12_44_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "restricted_anon",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar014"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1963-07-01"
+      },
+      "dcterms:description": "У купца три дочки и сын. Часто гуляют в саду, но перестают, когда родители умирают. Один день всё таки идут в сад - ветер уносит старшую дочку, с другими сёстрами тоже. Брат решает идти искать сестёр, и может быть, женится на Елене Прекрасной._x000D_ Отправляется в путь, видит медный дворец без дверей, его привечает младшая сестра и прячет от мужа-орла. Орёл наплавляет к среднему брату и даёт перо. По дороге Иван встречает собаку, которая обещает оказать услугу, если не съест щенка._x000D_ У серебряного дворца привечает средняя сестра, муж, тоже орёл направляет к старшему брату, даёт перо. По дороге Иван встречает гусыню, которая обещает оказать услугу, если не съест гусёнка._x000D_ Всё повторяется в золотом дворце у старшего орла. Ивана направляют к Бабе-Яге пасти кобылу, чтобы получить жеребёнка. По дороге видит улей, пчела обещает пригодиться, если не съест мёд._x000D_ Иван приходит к Яге, та велит пасти кобылу-дочку. Яга говорит дочке завести Ивана в лес, чтобы он её не нашёл, даёт Ивану краюху хлеба. Иван съедает хлеб, засыпает, кобыла убегает, собака пригоняет кобылу. На следующие два раза тоже, но с гусыней и пчёлами. В награду, Яга выводит красивого жеребца, Иван берёт замухрышку. В пути жеребёнок три раза просится к матери, Иван отпускает, жеребёнок каждый раз возвращается сильнее._x000D_ Иван встречает богатыря Данилу Белого, они бьются, Иван умирает. Прилетают орлы, оживляют его с помощью мёртвой и живой воды. Иван едет дальше, видит поле битвы. Под курганом лежит живая голова, от которой получает меч, чтобы убить змея, который во дворец с Еленой. Голова просит смазать её сердце змея, чтобы ожить._x000D_ Иван сбивает у змея только среднюю голову, вырезает сердце и едет во дворец. Забирает Елену, оживляет богатыря, который оказывается Данилой.",
+      "dcterms:identifier": "tru_vkk_12_44_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_12"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db79"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/301"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/552"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/554"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/556F-star"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db79",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Belov Island (imeni Belova), abroad, Pskov Oblast, Russia / Venemaa, Pihkva obl., Pihkva raj., Belova nim. saar (остров им. Белова), välismaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_25",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col003"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col004"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col007"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col011"
+        }
+      ],
+      "dcterms:identifier": "tru_vkk_25",
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/tru-vkk"
+      },
+      "rdfs:label": "TRÜ, VKK 25"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_73_9",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/mariia-latkina"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1939-01-01"
+      },
+      "dcterms:description": "Корова помогает дочке выполнять задания мачехи.",
+      "dcterms:identifier": "era_vene_13_73_9",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db30"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/511"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db30",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Barshevitsy village, Petseri County, Pskov Oblast, Russia / Изборская волость, д. Баршевицы, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_203_19",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/andrei-ulanov"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1939-01-01"
+      },
+      "dcterms:description": "Богатый купец с женой просят Бога о ребёнке, но не получают. Стараха-гадалка даёт яблоко - половину жене, половину кобылице; рождаются сын и жеребёнок._x000D_ 10 лет спустя жена требует убить жеребёнка в доказательсто любви купца. Конь уносит сына в лес, где благодарит за спасение, даёт советы и убегает._x000D_ Сын уходит из дома и приходит в сад, где гуляет царевна; становится там садовником, царевна приносит ему еды. Она назывет его незнайкой, потому что он на всё отвечает \"Не знаю\"._x000D_ Змей требует на съеденье старшую из трёх царевень, царь соглашается, но за её спасение обещают полцарства. Сын призывает свистом коня, конь приносит доспехи, шар и меч; после сражения незнайка просит у спасённой царевны кольцо и пропадает._x000D_ Год спустя другой змей требует среднюю дочку, всё повторяется. Младшая царевна продолжает ходить в сад, она и незнайка влюбляются._x000D_ Два года спустя третий змей требует младшую дочку, во время битвы последняя голова жалит незнайку в руку и герой просит у царевны платок перевязать рану. Конь прощается с незнайкой, незнайка прячет богатую одежду под камень. Незнайка не знает, может ли он теперь говорить с царевной._x000D_ В царство приходит самозванец, который заявляет что убил змеев, сватает младшую царевну, царь соглашается. Незнайка переодевается, идёт к царю, рассказывает, что это он убил змея. Самозванца разоблачают отсутствием шапки, незнайка показывает перстни и платок. Царевна выходит за незнайку, когда он доказывает, что он тот кого она любит.",
+      "dcterms:identifier": "era_vene_13_203_19",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db17"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/300"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/314"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db17",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Izborsk, Petseri County, Pskov Oblast, Russia / Изборская волость, д. Старый Изборск, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_395_7",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nastasja-kropetskaja"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1935-01-01"
+      },
+      "dcterms:description": "Сказка про бабку. Бабка-повитуха думает, что только у греха детей не принимала. Вечером приходит мужчина в шляпе - грех - зовёт помочь его жене. Приводит бабку на гумно, где жена лежит. Жена велит готовить еду, бабка понимает, что что-то нечисто, просит чистую юбку. Грех приносит юбку - такую же, как у бабкиной невестке. Бабка метит юбку тестом._x000D_ Жена греха жалуется, что у неё слишком много молока - надо чужого ребёнка покормить. Грех приносит мальчика - такой же как у невестки. Баба отметила лоб ребёнка. Баба получает деньги за услуги и идёт домой._x000D_ Просит невестку показать юбку и ребёнка - на них отметины. Деньги греха превратились в угли.",
+      "dcterms:identifier": "era_vene_6_395_7",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_6"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db65"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/476-star"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/677"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/677-star-star-star"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db65",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Izborsk, Petseri County, Pskov Oblast, Russia / Irboska v., Irboska k., Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_7_89_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/a-billio"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1935-12-01"
+      },
+      "dcterms:description": "Сказка о Бабе-яге слышанная в младеньчестве от бабушки. У старика и старухи дочь Оленька и падчерица Машинька. Старуха посылают Машу в лес за укатившимся клубком. Спрашивает про клубок у Бабы-яги. Яга даёт Маше задания, птичка помогает. Яга дает Маше сундук денег. Мачеха посылает Олю к Яге. Оля была дерзкая - Яга её сварила, положила в сундук и послала домой.",
+      "dcterms:identifier": "era_vene_7_89_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_7"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db71"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/480"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/480E-star"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db71",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Tallinn, Harju County, Estonia / Tallinna linn"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_592_4",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/vera-sumina"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1938-05-29"
+      },
+      "dcterms:description": "Снегурочка.",
+      "dcterms:identifier": "era_vene_12_592_4",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_12"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db8"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/703-star"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db8",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Mustvee town, Torma parish, Jõgeva County, Estonia / Mustvee (Посад Черный) l., Torma khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_29_54_68",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "restricted_anon",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar005"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1966-07-13"
+      },
+      "dcterms:description": "Сказка о Бове Королевиче. Царь Вислаф Андронович уежает к любовнице, жена рожает сына Бову. Жена и её любовник, решают убить мальчика и заперают его в подвале. Няня жалеет его, и приносит ему хлеб, но предупреждает, что он отравлен. Боба сбегает, потому что няня не запирает двери погреба._x000D_ Попадает к разбойникам, награбленное сплавляли на корабле, куда Боба напросился. Корабли сбивается с курса и попадает в незнакомые земли, местная стража пытается выяснить кто пожаловал, но Боба-мальчик их заговаривает. Местный царь Афрон покупает мальчика у разбойников и делает его конюхом. После нескольких лет службы, царская дочка обращает на него внимание и Бобу берут в прислуги._x000D_ В царство приходит неприятель - хочет взять царевну в жёны и сжечь царство. Бова побеждает неприятеля с матыгой и пихалкой для навоза, от награды отказывается и продолжает прикидывается простолюдином._x000D_ Приходит второй богатырь сватать царевну, Боба хочеть сразиться, но царь говорить что без коня нельзя. Коня держут в цепях за двенадцатью замками. Бова кличет коня, том сам ломает оставшиеся шесть замков и цепи. Берёт меч в 50 пудов и разрубает богатыря. Афрон оставляет Бову за сына. Завистливые конюхи посылают Бову к царю Долмату, который кидает его в подвал. Боба сбегает. Царевна в плену у Долмата, Бова идёт к ней как нищий, обещает привести к ней королевича, молодые встречаются в лесу и убегают от Долмата.",
+      "dcterms:identifier": "tru_vkk_29_54_68",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_29"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db87"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/707"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/707B-star"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db87",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Dubrovka village, abroad, Pskov Oblast, Russia / Venemaa, Pihkva obl., Irboska raj., Dubrovka (Дубровка) k., välismaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_48",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col008"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col019"
+        }
+      ],
+      "dcterms:identifier": "tru_vkk_48",
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/tru-vkk"
+      },
+      "rdfs:label": "TRÜ, VKK 48"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_8",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/egorov-v"
+      },
+      "dcterms:identifier": [
+        "KIVIKE:ERA-17310-40743-46966",
+        "era_vene_8"
+      ],
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene"
+      },
+      "rdfs:label": "ERA, Vene 8",
+      "rdfs:seeAlso": {
+        "@id": "https://kivike.kirmus.ee/index.php?oid=12&module=400&op=3&pid=ERA-17310-40743-46966"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_6",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/m-sokolov"
+      },
+      "dcterms:identifier": [
+        "KIVIKE:ERA-17309-69688-68971",
+        "era_vene_6"
+      ],
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene"
+      },
+      "rdfs:label": "ERA, Vene 6",
+      "rdfs:seeAlso": {
+        "@id": "https://kivike.kirmus.ee/index.php?oid=10&module=400&op=3&pid=ERA-17309-69688-68971"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_262_22",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/matrena-protaeva"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1939-01-01"
+      },
+      "dcterms:description": "У царя три сына - два умных, третий - дурачёк. Царь приказывает сыновьям найти быстрого коня, старшие оставляют младшего спать в лесу. Он встречат в щаще кошку-царицу, который общает достать коня за семь лет службы. Кошка даёт ему работу - скосить поле, построить новый дворец, кошки-слуги помогают. Из трёх конюшен вороного коня, но кошка говорит, что сама приведёт его к дурачку домой._x000D_ Дома над дурачком смеются, потому что он вернулся с пустыми руками. Через два дня подъезжает золотая карета с впряжённым вороным конём, оттуда выходит барыня - расколдованная кошка.",
+      "dcterms:identifier": "era_vene_13_262_22",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db18"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/361"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db18",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Izborsk, Petseri County, Pskov Oblast, Russia / Изборская волость, д. Старый Изборск, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_318_27",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/matrena-protaeva"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1939-01-01"
+      },
+      "dcterms:description": "Царевен похищают, старшую - орел, среднюю сокол, младшую медведь, богатырь вызывается их спасти. Приходит в орлиное царство, старшая дочь не хочет возвращаться, орел показывает богатырю портреты невест, он выбирает ту, которую уже 99 сватали, но все в полону. Орел даёт богатырю кран от бочки и три пера._x000D_ Богатырь приходит в царство сокола, всё повторяется. Сокол даёт три пера и полотенце-скатерть. Приходит к медведю, всё повторяется. Медведь даёт три шерстинки и гусли-самоигры._x000D_ Приходит в царство желанной невесты, его сразу в тюрьму, где седят 99 изхудалых молодцов, богатырь кормит-поит с помощью волшебных вещей. Царевна хочет их купить, богатырь отдаёт за позволение разделись с ней постель. Богатырю удаётся её поцеловать, они женятся._x000D_ Царевна уежает, запрящая ходить в одну из горниц, он ослушивается. Там закованный старик, бочка крови и бочка смолы. Он просит пить, богатырь отказывается, просит остричь бороду - отстригает. Старик вырывается, убивает богатыря и сжигает тело. Сокол, орёл, медведь чуют вонь, оживляют богатыря мёртвой и живой водой. Чтобы найти жену, отправляется к старушке и собирает 12 коров с помощью затьёв, получает кобылу - заколдованую жену.",
+      "dcterms:identifier": "era_vene_13_318_27",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db22"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/302C-star"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/552"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/556A-star"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/580"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db22",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Izborsk, Petseri County, Pskov Oblast, Russia / Изборская волость, д. Старый Изборск, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_1_497_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/natal-ia-alekseevna-pagareva"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1930-05-24"
+      },
+      "dcterms:description": "Про мальчика, который не знал страха.",
+      "dcterms:identifier": "era_vene_1_497_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_1"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db43"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/326"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db43",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Mustvee town, Torma parish, Jõgeva County, Estonia / Mustvee (Посад Черный) l., Torma khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_32_26_5",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "restricted_anon",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar004"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1968-01-01"
+      },
+      "dcterms:description": "Лисичка. Больной король велит трём сыновьям найти лекарство. Младшему встречается лисичка, которая направляет его в замок с попугаями и велит взять самого неказистого. В замке принца хватает стража, которая велит привезти коня вземен попугая. Принц выходит плача из замка, ему снова встречается лисичка... фрагмент",
+      "dcterms:identifier": "tru_vkk_32_26_5",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_32"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db90"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/550"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db90",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Zalit Island (imeni Zalita), abroad, Pskov Oblast, Russia / Venemaa, Pihkva obl., Pihkva raj., Zalita nim. saar (остров им. Залита), välismaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_9_28_3",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "restricted_anon",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar009"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1963-01-01"
+      },
+      "dcterms:description": "Сказка про Ивана-Козлова сына. Королева съедает окуня, остатки - кухарка, коза - кости. Все трое рожают сыновей. Сыновья ночуют три ночи в доме, в который смог влесть только Иван-Козлов. Стоя в дозоре, он убивает шестиглавых змеев. Идут дальше, находят большую яму, которая ведет на тот свет. Иван-Козлов идёт туда один, сражается со змееями, третий раз оставляет в живых. Свтречает там трёх девушек, у них дворцы - медный, серебрянный, золотой. Братья женятся на них.",
+      "dcterms:identifier": "tru_vkk_9_28_3",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_9"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db97"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/300"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/300A"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db97",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Lisye village, abroad, Pskov Oblast, Russia / Venemaa, Pihkva obl., Petseri raj., Lisje (Лисье) k., välismaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_32",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col015"
+      },
+      "dcterms:identifier": "tru_vkk_32",
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/tru-vkk"
+      },
+      "rdfs:label": "TRÜ, VKK 32"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_15_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/avdot-ia-ershova"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1939-01-01"
+      },
+      "dcterms:description": "Морозко.",
+      "dcterms:identifier": "era_vene_13_15_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db14"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/480"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/480D-star"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db14",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Izborsk, Petseri County, Pskov Oblast, Russia / д. Старый Изборск, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_15_433_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/ivan-petrovich-somov"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1940-01-01"
+      },
+      "dcterms:description": "У царя Картауза после двуста лет рождается сын Еруслан Лазарич. Ерусланова сила такова, что руки и ноги отрывает. По наущению баяр царь помещает сына жить в отдельный дворец. Семь лет спустя, Еруслан решает обзавестись лошадью. Встречает под дубом Иванушку белую рубашку, который говорит где поймать коня. Еруслан бьёт лошадь кулаком по лбу и отводит к себе во дворец._x000D_ Идёт к отцу просить сбрую, мать даёт сбрую и оружие. Еруслан отправляется в путь, попадает на поле с побитой богатырём Иван Седларусским ратью. Находит шатёр богатыря, они мерюют силы, братаются._x000D_ Еруслан отправляется за невестой \"всех краше\" в Валхамеево царство по совету королевны Ивана. Там встречается с тремя сестрами, убивает старших за неприятный ответ, младшая посылает в Бахарухарской царство к Настасье._x000D_ Еруслан возвращается в родное царство, которое под атакой царя Данила/Дадона. Побеждает неприятельскую рать, Данон остаётся защищать царство._x000D_ Еруслан отправляется к Настасье Бугругоравне. В том царстве стоит защитником Ивашка белая рубашка. Они борятся, Еруслан убивает Ивана. Настасью отправляют на съедение змею. Иван приходит на берег, где ждёт змея Настасья. Говорит ей разбудить его, когда змей появится. Змей выходит из воды - Настасья не может богатыря разбудить, только ожог от слезы помогает._x000D_ Еруслан сбивает две головы змея, змей просит пощады за драгоценный камень. Отдаёт камень, но Еруслан его всё равно убивает. Отец Настасьи предлагает Еруслану женидьбу, он соглашается, но едет домой просить благословения. Дома царь Даниил убил жен Картуза и Лазаря, самих царей ослепил и посадил в темницу. Отцы посылают Еруслана к пламенному царю за желчью, которая вернёт зрение. По дороге берёт у обезглавленого богатыря Роганея меч, которым можно убить огненного царя. Убивает огненного царя одним ударом меча, оживляет Роганея, они братаются. Еруслан смазывает глаза отцам и рыцарям, они прозревают; убивает жену Даниила и ослепляет его._x000D_ Еруслан женится на Настасье, поздже спрашивает, если ли девица краше неё в Солнечном царстве. Она отвечает, что есть, Еруслан уежает проверить. Настасья рожает сына, его называут незаконорожденными, потому что отца нет. В пять лет мальчик решает поехать искать отца. Приежает в Солнечное царство, вызывает отца на поединок, Еруслан прижимает сына копьём к земле, но узнаёт по перстню._x000D_ Еруслан наказывает сыну, тоже Еруслану, ехать к Ивану Седларусскому. Сын побеждает богатыря и сравнивает себя с богом. На пути после боя встречает старика, который забирает у него за пахвальбу силу.",
+      "dcterms:identifier": "era_vene_15_433_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_15"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db38"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/650A"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/650B-star"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db38",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Shartovo village, Petseri County, Pskov Oblast, Russia / Kalda v., Saare (Шартово) k., Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_43_6",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/mariia-latkina"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1939-01-01"
+      },
+      "dcterms:description": "Царевич и лисичка.",
+      "dcterms:identifier": "era_vene_13_43_6",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db27"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/550"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db27",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Barshevitsy village, Petseri County, Pskov Oblast, Russia / Изборская волость, д. Баршевицы, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_13_23_2",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "restricted_anon",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar012"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1963-07-04"
+      },
+      "dcterms:description": "Былица про Беса. Бес разбивает деду руку о столб у кладбища. Дед ловит беса в рукомойник, одевает на беса крест. Дед идёт в церковь - бес рядом, народ его не видит. Дед и бес ходят в кабак вино пить. Бес требует работу. Камни с берега ворочить не может. Дед посылает с песка цепь свить - не получается; ладью перевернуть на берегу. Поехали ловить рыбу, бес советует, где лучше лов. Бес работает на деда три года, просит отпустить. Дед снимает крест, бес пропадает. Поп отчитывает проклятье, чтобы беса никто больше не видел.",
+      "dcterms:identifier": "tru_vkk_13_23_2",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db80"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/1168"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/1174"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/331"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db80",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Zalit Island (imeni Zalita), abroad, Pskov Oblast, Russia / Venemaa, Pihkva obl., Pihkva raj., Zalita nim. saar (остров им. Залита), välismaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_635_20",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/ivan-mishin"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1939-01-01"
+      },
+      "dcterms:description": "Два друга обещают позвать друг друга на свадьбу, когда женятся. Один из них умирает. Другой едет жениться мимо кладбища, идёт на могулу попрощаться. Там сидит покойный друг, благодарит, что навестил. Живой возвращается, а свадебный поезд пропал. Поздже оказывается, что он был на кладбище не 10 минут, а 60 лет, и что сам он и его невеста уже старики.",
+      "dcterms:identifier": "era_vene_13_635_20",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db28"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/470"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db28",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Izborsk, Petseri County, Pskov Oblast, Russia / д. Старый Изборск, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_4_403_2",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/dariia-lipina"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1933-01-01"
+      },
+      "dcterms:description": "Сказка.",
+      "dcterms:identifier": "era_vene_4_403_2",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_4"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db54"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/707"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db54",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Podgramye village, Petseri County, Pskov Oblast, Russia / Печёрский уезд, д. Подграмье, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_5_36_20",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "restricted_anon",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar015"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1963-01-01"
+      },
+      "dcterms:description": "Кобылица-Луравица с двенацатимя жеребятами. У деда с бабой три сына - два умных женатых, третий Иванушка дурачок холостой. Каждую ночь кто-то топчет пшеницу. Братья идут караулить, старшие спят и не видят кобылицу с двенадцатью жеребятами. Младший в карауле не спит, хватает одного жеребёнка, но отпускат, когда жеребица просит за услугу._x000D_ Царь отдат свою дочку за того, кто её на вышке поцелует. Старшие собираются, Иванушка идёт по грибы. В лесу призывает кобылицу, пролезает в ухо - делается красавцем. На кобылице допрыгивает до царевны и целует её. На второй день, царевна вбивает в лоб перстень. Иванушка завязывает лоб. Царь призывает всех мужчин, чтобы найти жениха. Дочки признаёт Иванушку по перстню, сняв повязку.",
+      "dcterms:identifier": "tru_vkk_5_36_20",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_5"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db94"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/530"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db94",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Molozhva village, abroad, Pskov Oblast, Russia / Venemaa, Pihkva obl., Petseri raj., Moložva (Моложва) k., välismaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_1",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/natalia-alekseevna-pagareva"
+      },
+      "dcterms:identifier": [
+        "KIVIKE:ERA-17309-64138-54391",
+        "era_vene_1"
+      ],
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene"
+      },
+      "rdfs:label": "ERA, Vene 1",
+      "rdfs:seeAlso": {
+        "@id": "https://kivike.kirmus.ee/index.php?oid=1&module=400&op=3&pid=ERA-17309-64138-54391"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_93_13",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anna-karpulistova"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1939-01-01"
+      },
+      "dcterms:description": "Превращённый в кобеля мужик.",
+      "dcterms:identifier": "era_vene_13_93_13",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db32"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/363"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/449"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db32",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Zuevo village, Petseri County, Pskov Oblast, Russia / Изборская волость, д. Зуево, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_62",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col024"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col027"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col035"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col043"
+        }
+      ],
+      "dcterms:identifier": "tru_vkk_62",
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/tru-vkk"
+      },
+      "rdfs:label": "TRÜ, VKK 62"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_13",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col025"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col029"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col031"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col033"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col041"
+        }
+      ],
+      "dcterms:identifier": "tru_vkk_13",
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/tru-vkk"
+      },
+      "rdfs:label": "TRÜ, VKK 13"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_421_9",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nastasja-kropetskaja"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1935-01-01"
+      },
+      "dcterms:description": "Сказка по Матюшу-дурачка. У отца три сына, дво умных, третий - Матюша дурачок. Отец присмерти велит караулить его могилу три ночи. После похорон, старшим братьям боязно караулить, просят младшего. На первую ночь даёт отец-покойник Матюше козу, которую отдаёт старшему. На вторую ночь отец даёт свинью с золотым хвостом, Матюша отдаёт её среднему. На третью ночь, отец призывает коня Сивку-Бурку. Матюша влеза в одно конье ухо, вылезает из другого - становится красавцем; затем обратно - становится как раньше, коня отпускает в поле._x000D_ Царевна приказывает всем молодцам сватать её. Она сидит в высокой башне, тот кто выше всех прыгнет и достанет её перстень - бедет её мужем. Старшие братья идут, Матюша призывает Сивку-Бурку, когда они уходят. Матюша-красавец сбивает братьев плетью с козы и свиньи, проежая мимо. Допрыгивает до окна царевны, она вбивает кольцо в лоб, который он прячет за повязкой._x000D_ Царевна ищет жениха, Матюша приходит ко дворцу нищим. Царевна находит его, но падает в обморок - идти за нищего надо. Её сёстры смеются над ней. Делать нечего Матюша и царевна женяться._x000D_ Царь велит затьям поймать жар-птицу, Матюша ловит её с помощью Сивки-Бурки. Встречает с зятьями, отдаёт им птицу за мизинцы. Матюша привозит ворон, царь гневается, царевна плачет, думая что муж дурак._x000D_ Царь велит затьям привезти лебедицу с лебедятами, поздже лошадь с жеребятами. Всё повторяется с зятьями. Царь приказывает затопить баню, обман зятьей открывается, царь даёт Матюше три-четверти государства._x000D_ Матюша просит у Бурки сделать его всегда красивым. Жена узнаёт в нём того, кто до окна допрыгнул.",
+      "dcterms:identifier": "era_vene_6_421_9",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_6"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db67"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/530"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/530A"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db67",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Izborsk, Petseri County, Pskov Oblast, Russia / Irboska v., Irboska k., Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/rkm_vene_3",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/olga-gildebrandt"
+      },
+      "dcterms:identifier": [
+        "KIVIKE:ERA-17169-52493-58876",
+        "rkm_vene_3"
+      ],
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/rkm-vene"
+      },
+      "rdfs:label": "RKM, Vene 3",
+      "rdfs:seeAlso": {
+        "@id": "https://kivike.kirmus.ee/index.php?oid=14&module=400&op=3&pid=ERA-17169-52493-58876"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_13_47_3",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "restricted_anon",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar011"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1963-07-09"
+      },
+      "dcterms:description": "Два сына купца, Николай и Иван, оправляются на кораблях торговать в другие страны. Иван продаёт соль за золото, отец даёт ему на радостях два корабля соли, которые он продаёт там же. Встречает Елену Прекрасную в первый рейс. На второй рейс, Елена просит взять её замуж и даёт перстень._x000D_ Встречаются с кораблём Николая, он выбрасывает младшего за борт, отбирает у него добытые золото и невесту. Велит Елене ничего не говорить отцу братьев. Иван не тонет (выплывает на берег на гитаре), возвращется домой (жена узнает его по перстню), старшего отец наказывает.",
+      "dcterms:identifier": "tru_vkk_13_47_3",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db82"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/1651A"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/301D-star"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db82",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Zalit Island (imeni Zalita), abroad, Pskov Oblast, Russia / Venemaa, Pihkva obl., Pihkva raj., Zalita nim. saar (остров им. Залита), välismaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_41",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col002"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col005"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col006"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col012"
+        }
+      ],
+      "dcterms:identifier": "tru_vkk_41",
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/tru-vkk"
+      },
+      "rdfs:label": "TRÜ, VKK 41"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_25_120_23",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "restricted_anon",
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1966-06-23"
+      },
+      "dcterms:description": "Мачеха говорит мужу избаться от трёх дочек. Отец отвёл их в лес, рубит топором дрова, дочки собирают ягоды. Отец повесил на топор халат - девочки думают, что отец рубит дрова, а он их одних оставил. Девочки стали плакать, из их слёз потекла река. Пришли к незнакомой речке рыболовы, дочки просятся замуж, обещают хлеб и пироги из одного колоса; штаны и рубашку из одной льнины; сына ручки-ножки золотые, во лбу месяц, в душе солнце. Рыболов женится на младшей._x000D_ Рыболов уезжает в Ленинград, жена сообщает о рождении обещенного сына в письме, которые перехватывают сёстры, написав что родилось то, незнамо что._x000D_ Жена кладёт сына в дубовую бочку и опускает в реку. Бочку ловят рыболовы._x000D_ После десяти лет возвращается Иван из Ленинграда домой, жена рассказывает о письме, решает найти сына. Просит у жены нацедить грудного молока и сделать из него ?хлеб. Иван приходит к разным пастухам, находит сына, когда он снимает перчатки сосчитать орешки.",
+      "dcterms:identifier": "tru_vkk_25_120_23",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_25"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db86"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/327A"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/707"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db86",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Opochka District, abroad, Pskov Oblast, Russia / Venemaa, Pihkva obl., Opotška (Опочецский) raj., välismaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_347_4",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/lewonty-borhov"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1935-07-31"
+      },
+      "dcterms:description": "Иван Иваныч - купецкий сын.",
+      "dcterms:identifier": "era_vene_6_347_4",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_6"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db63"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/303"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db63",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Vasttsy village, Petseri County, Pskov Oblast, Russia / Irboska v., Vastsõ k., Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_16",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/olga-brandt"
+      },
+      "dcterms:identifier": [
+        "KIVIKE:ERA-17310-45777-04852",
+        "era_vene_16"
+      ],
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene"
+      },
+      "rdfs:label": "ERA, Vene 16",
+      "rdfs:seeAlso": {
+        "@id": "https://kivike.kirmus.ee/index.php?oid=5&module=400&op=3&pid=ERA-17310-45777-04852"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_15",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/o-brandt"
+      },
+      "dcterms:identifier": [
+        "KIVIKE:ERA-17310-45323-48286",
+        "era_vene_15"
+      ],
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene"
+      },
+      "rdfs:label": "ERA, Vene 15",
+      "rdfs:seeAlso": {
+        "@id": "https://kivike.kirmus.ee/index.php?oid=4&module=400&op=3&pid=ERA-17310-45323-48286"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_90_12",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anna-karpulistova"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1939-01-01"
+      },
+      "dcterms:description": "Снегурочка.",
+      "dcterms:identifier": "era_vene_13_90_12",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db31"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/703"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db31",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Zuevo village, Petseri County, Pskov Oblast, Russia / Изборская волость, д. Зуево, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_5_442_6",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/e-protasova"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1934-04-02"
+      },
+      "dcterms:description": "Баба-Яга. 2 брата ссорятся деля богатство. Младший Василий уходит из дома, говорит, чтобы брат следил, что если чаша наполнится кровью - он в беде._x000D_ Василий приходит в город в трауре - шестиглавый змей ест жителей. Василий убивает змея, но мясник врёт, что он убил змея, после того как выбивает Василия из седла и похищает царевну и завтавляет её врать, что мясник убил змея. Царевня любит Василия, не хочет замуж за мясняка, высматривает Василия в трубу. Рассказывает правду отцу, они находят Василия в поле. Василий и царевня женятся, мясняка убивают._x000D_ Василий едет на охоту, гонится за оленем, приходит к избушке Бабы-Яги. Яга дает ему сонной еды, отрубает голову. Брат Николай видит, что чаша полна крови, едет искать брата. Николай встречает колдуна, который дал чашу, тот даёт совет как выжить у Яги._x000D_ Николай приходит в царство Василия, жениться на сестре царевны, брат не находится. Видит оленя на охоте, попадает к Яге, накрывает её полотенцем от колдуна. Заставляет Ягу принести мёртвой и живой воды, оживляет Василия. Ягу и другую тварь сжигают в печи.",
+      "dcterms:identifier": "era_vene_5_442_6",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_5"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db57"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/300"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/303"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db57",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Izborsk, Petseri County, Pskov Oblast, Russia / Irboska v., Vana-Irboska k., Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_137_16",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/dar-ia-rosolova"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1939-01-01"
+      },
+      "dcterms:description": "У попа и попадьи было много земли, не могут найти работника в помощь. Приходит мужик наниматься, плату требует - три щелчка в лоб. У батрака неведанная сила, поп и пападья хотят его извести от страха. Поп и попадья задают батраку невыполнимые задания: поймать медведя и посадить на цепь, привезти муку от мельника-колдуна, взять с барина оброк._x000D_ Батрак едет к барину на повозке с медведем, чёрт (с мельницы) в упряжке. Барин обещает отдать деньги, если батрак привезёт от беса баринову дочку. Барин и бес играют в карты на шелчки, убатрака защищает железная шапка. Батрак разбивает голову беса медной палкой, освобождает дочку. Барин отдаёт деньги, батрак возвращается к попу. Батрак щёлкая попа по лбу, на второй шёлчок поп умирает.",
+      "dcterms:identifier": "era_vene_13_137_16",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db12"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/1000"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/1060"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/1060-star"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/650A"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db12",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Konechki village, Petseri County, Pskov Oblast, Russia / Изборская волость, д. Конечки, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene",
+      "@type": "dcmitype:Collection",
+      "dcterms:identifier": "era_vene",
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "Käsikirjaarhiiv : ERA. Eesti Rahvaluule Arhiivi kogu 1927–1944 : ERA, Vene."
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://kivike.kirmus.ee/index.php?selectId=7895&module=403&op=1"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/rkm_vene_1",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/vera-voogla"
+      },
+      "dcterms:identifier": [
+        "KIVIKE:ERA-17169-45605-12424",
+        "rkm_vene_1"
+      ],
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/rkm-vene"
+      },
+      "rdfs:label": "RKM, Vene 1",
+      "rdfs:seeAlso": {
+        "@id": "https://kivike.kirmus.ee/index.php?oid=13&module=400&op=3&pid=ERA-17169-45605-12424"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_366_5",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/lewonty-borhov"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1935-07-31"
+      },
+      "dcterms:description": "Женатый брат работает по хозяйству, холостой младший охотится. Младший встречает у реки девушку, она зовёт его гулять, он отказывается и говорит, что вечером будет время - она пропадает. Ночью девушка появляется в амбаре и опять зовёт, он отказываеться, утром она пропадает. На следующую ночь всё повторяется. Мишька спит в избе, чтобы девка не мучала; никто не появляется._x000D_ Ночью на гумно приходит барин, просит Мишьку читать покойнице. Ночью покойница встаёт и его атакуют демоны, но старушка говорит, как защититься. После трёх ночей похоронили. Мишку относит домой девушка, на которой он женится. Возращаются навестить девушкину родню, она предупреждает, чтобы не брал приданого. По приезде дают богатство и хороших коней-чертей. Мишька отказывается, просит крестьянских лошадей. По возращении домой кони превращаються в попа и попадью, которые их наградили.",
+      "dcterms:identifier": "era_vene_6_366_5",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_6"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db64"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/307"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/410"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/424-star"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db64",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Vasttsy village, Petseri County, Pskov Oblast, Russia / Irboska v., Vastsõ k., Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_272_23",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/matrena-protaeva"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1939-01-01"
+      },
+      "dcterms:description": "В рыболовецкой деревне жил богач с семьёй. Но из года в год сети пустые, обеднел рыбак, и жена его с тоски померла. Рыбак ничему сына не учит, только рыбачит безрезультатно. Рыбак умирает, сыну надо его хоронить. Он идёт за помощью к богатому соседу - бесполезно; идёт за советом к бедному, тот посылает его к попу. Справляют похороны._x000D_ От сына требуют возврата отцовских долгов, он раздаёт вещи в избе. Приходит богач за долгом, ему достаются образа - всё остальное забрали, но образ Миколы Чудотворца сын Ваня просит оставить и молится иконе о помощи._x000D_ Утром приходит старичок, просит краюху хлеба. Делят с Ваней последний хлеб. Ваня просит старичка остаться и научить его жить. Старичок соглашается, если они всё будут делить пополам. Старичок ведёт хозяйство, Ваня всю зиму лежит на печи. По весне старичок велит ваня делять кирпичи, сломать сени, делают плот. Сквозь бурю довозят кирпичи на плоту на ярмарку. Платить за пристань нечем, Ваня идёт к царю попросить об отмене платы. Царь просит почитать псалтырь по умершей дочке-_x000D_ колдовке. Старичок учит, как от неё защититься. На третью ночь Ваня одевает на колдунью крест и заставляет молиться._x000D_ Ваня женится на царевне и получает богатое приданое. Теперь всё надо делить со стариком, золото разделили, с женой сложнее. Старичок велит поставить жену в угол и разрубить топором, Ваня слушается. Выбегают два козла - черти, что в жене сидели. Старичок благодарить Ваню за то, что обратился к нему с молитвой.",
+      "dcterms:identifier": "era_vene_13_272_23",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db19"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/307"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/849-star"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db19",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Izborsk, Petseri County, Pskov Oblast, Russia / Изборская волость, д. Старый Изборск, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_16_540_2",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anatolii-semenov"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1941-01-01"
+      },
+      "dcterms:description": "Водяной царь просит у купца продать то, что дома не знает. Оказывается, дома родился сын, которого водяной царь требует. Мальчик вырастает, водяной хочет его женить. Приводит двенадцать девушек на одно лицо. Она из девушек помогает пройти испытания, они сбегают, водяной посылает погоню. молодые оборачиваются другими людьми, чтобы скрыться от погони. Убегают окончательно превратившись в реку и ярша.",
+      "dcterms:identifier": "era_vene_16_540_2",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_16"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db39"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/313A"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/325"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db39",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Kirshino village, Petseri County, Pskov Oblast, Russia / Kulje v., Киршино (Kiršino) k., Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_337_3",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/lewonty-borhov"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1935-07-31"
+      },
+      "dcterms:description": "Сказка про заклянутое царство. Старик закидывает трижды невод, на третий раз - запечатаная бутыль. Открывает бутыль - из дыма появляеться страшный человек и горозит убить за то, что выпустил. Старик \"не верит\", просит показать, как такой огромный в бутылку помещается. Человек прячется в бутылке, мужик её закупыривает. Человек просится обратно за награду. Старик выпускает. Человек с козлом велит ловить рыбу, но самому не есть, а продать. Старик продаёт князю чудных четыре рыбины, они пропадают со сковородки после появления человека. Князь не верит, хочет сам увидеть, посялает старика за рыбой. Князь сам жарит рыбу, всё повторяется. С испугу князь Салтан требут у мужика место ловли. Возле озера князь находит большое здание, в нём сидит на троне царь Зензевей - на половину из камня. Его и его царство заколдовала жена за то, что её любовника ранил._x000D_ Салтан находит любовника и убивает, притворяеся раненым. Говорит жене, что поправиться, если всех расколдует. Вместо озера становить большой город. Салтан вернулся домой и наградил рыбака.",
+      "dcterms:identifier": "era_vene_6_337_3",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_6"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db62"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/331"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db62",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Vasttsy village, Petseri County, Pskov Oblast, Russia / Irboska v., Vastsõ k., Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_14_451_7",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/ivan-petrovich-kirshinskii"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1941-01-01"
+      },
+      "dcterms:description": "Салавей разбойник и Илья Мурамец.",
+      "dcterms:identifier": "era_vene_14_451_7",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_14"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db33"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/650A"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/650C-star"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db33",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Tartu, Tartu County, Estonia / Tartu linn"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_7_221_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/tat-iana-semukhina"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1935-12-04"
+      },
+      "dcterms:description": "Мужик и бесенок. Мужик чертыхается во время рубки дров - появляется чертёнок. Мужик прижимает чертёнка к бревну, за спасение чёртенок обещает волшебные ружьё и дудку. На свист чертёнка, другой бесёнок приносит обещанное. Мужик отпускает чертёнка._x000D_ Мужик подстреливает птицу, та падает в кусты. Монах хочет её вытащить, мужик играет на дудке пока монах тот не падает от усталости. Царь велит мужика за это повесить. Во время казни мужик играет, все пляшут, появляются черти, которые мучают народ. Царь оправдывает мужика, чтобы всё прекратилось.",
+      "dcterms:identifier": "era_vene_7_221_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_7"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db68"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/592"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db68",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Tallinn, Harju County, Estonia / Tallinna linn"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_95_18",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/marfa-petukhova"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1938-05-29"
+      },
+      "dcterms:description": "Мальчик-с-пальчик. Мужик бросает отрубленный палец за печку. Палец становиться мальчиком, он говорит, что отнесёт отцу обед в поле. По пути на дороге соломинка - ему не перелезть. Мальчик зовёт отца, мужик слышит голос, но мальчика не видит. Когда находит, спрашивает, откуда от взялся, мальчик отвечает, мужик радуется.",
+      "dcterms:identifier": "era_vene_12_95_18",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_12"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db9"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/700"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db9",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Vasknarva village (Syrenets), Vaivara parish, Ida-Viru County, Estonia / Vasknarva v., Vasknarva (Васкнарва, Сыренец) k., Vaivara khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_1_191_4",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "restricted_anon",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar019"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1963-07-17"
+      },
+      "dcterms:description": "Сказка пра цартов аброк. Иван нанялся хозяину в работники, хозяин его за своего считает. Хозяин говорит, что надо с чертей оброк собрать. Иван думает, что с настоящих чертей (на местном наречии так называли крестьян) и идёт к пруду, потому знал, что черти там водятся. Ударил палицей по воде - брызги во все стороны._x000D_ Выходит из пруда чёрт, Иван требует оброк, чёрт даёт ему мешок золота. Хозяин испугался, избавляется от Ивана. Иван приходит к мельнице, на которую дует богатырь. Иван удивляется его силе, богатырь говорит, что сильнее него Иван, который собрал с чертей аброк._x000D_ Идёт дальше вдвоём. Видят человек мост на усах держится, диалог повторяется. Встречают ещё одного богатыря._x000D_ В четвером находят в лесу могилу - там стройтельные инструменты. Построили избу, ходят на работу, один из них всегла остаётся дома. Приходит бабка и просит еды, мельник даёт ей три чашки, не больше. Остальное товарищам. Бабка избивает мельника, съедает всё и уходит. Остальные богатыри спрашивают, что случилось, мельник отвечает, что угорел. Тоже происходит и двуми другими богатырями._x000D_ Бабка приходит, когда Иван остаётся дома, он даёт ей всю еду, но она всё равно хочет его избить. Иван бьёт её палицей, она убегает в нору._x000D_ Богатыри делают сумку из кожаных ремней, спускают Ивана в нору. В норе три избушки: золотая, серебряная, медная. В избушке сёстры-красавицы, у третьей в погребе бочки с сильным и бессильным пивом, которые они переставляют местами._x000D_ Старуха просыпается, хочет убить Ивана, он просит поесть, так как кормил её ранее. Идут в погреб, бабка толкает его в сильное пиво, думая, что это бессильное. Соревнуются в силе на поле, Иван вбивает бабку в землю._x000D_ Сёстры превращают избушки в яйца. Сёстер поднимают в корзине, Иван вместо себя кладёт камень, богатыри обрезали ремни, сумка падает._x000D_ Иван накрывает пальтом птенцов от дождя. Птица выносит Ивана на Русь. Даёт ему ружьё, настреливает три бочки птиц, большую птицу кормить. Последние два куска отрезает Иван с ног, птица их потом выплёвывает._x000D_ Доходит до царства, завтра свадьба богатырей на сёстрах. Вытаскивает избы из яиц, садиться на крышу и стучит молотком. Сёстры указывают на Ивана как спасителя, остальных богатырей царь выгоняет.",
+      "dcterms:identifier": "tru_vkk_1_191_4",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_1"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db85"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/301"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db85",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Budovizh village, abroad, Pskov Oblast, Russia / Venemaa, Pihkva obl., Petseri raj., Budoviži (Будовиж) k., välismaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_2_599_3",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/neizvestno"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1928-01-01"
+      },
+      "dcterms:description": "Сказка о бедном и богатом. Бедный купец жил правдой, богатый - кривдой. Они решают пойти по свету, чтобы определить как лучше жить. Спрашивают у старика, лошади и собаки - отвечают, что кривдой, потому что служили всю жизнь правдой, а их выгнали, как только состарились (они встречали беса в разных обличьях). По уговору, проигравший спор, должел быть отдать победителю своё богатство. Бедный отдаёт имущество богатому._x000D_ Бедный приходит к морю, ночует в корабле. Ночью туда приходят пировать бесы. Бедный подслушивает, как вылечить царевича, которого отравил бес. На утро бедный купец идёт к царю и вылечивает сына, за что получает мешок золота._x000D_ Бедный приходит домой, богатый спрашивает откуда золота. Бедный отвечает, что от рыбы, которой бросил кишмиша. Богатый идёт на тот же корабль, бросает в воду кишмиш и ждёт. Ночью приходят черти. Кто-то подслушал их, потому что царевича вылечили. Находят богатого купца и разрывают.",
+      "dcterms:identifier": "era_vene_2_599_3",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_2"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db49"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/613"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db49",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Nina village, Kodavere parish, Tartu County, Estonia / Peipsiäärne v., Nina (Нос) k., Kodavere khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_105_22",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/marfa-petukhova"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1938-05-29"
+      },
+      "dcterms:description": "Снегурочка.",
+      "dcterms:identifier": "era_vene_12_105_22",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_12"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db1"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/703-star"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db1",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Vasknarva village (Syrenets), Vaivara parish, Ida-Viru County, Estonia / Vasknarva v., Vasknarva (Васкнарва, Сыренец) k., Vaivara khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_7",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/z-vasilieva-suvorova"
+      },
+      "dcterms:identifier": [
+        "KIVIKE:ERA-17310-40182-36187",
+        "era_vene_7"
+      ],
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene"
+      },
+      "rdfs:label": "ERA, Vene 7",
+      "rdfs:seeAlso": {
+        "@id": "https://kivike.kirmus.ee/index.php?oid=11&module=400&op=3&pid=ERA-17310-40182-36187"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_43",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col013"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col021"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col022"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col023"
+        }
+      ],
+      "dcterms:identifier": "tru_vkk_43",
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/tru-vkk"
+      },
+      "rdfs:label": "TRÜ, VKK 43"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_638_21",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/ivan-mishin"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1939-01-01"
+      },
+      "dcterms:description": "Бездетный хозяин говорит прислуге гадать на суженого в бане на Крещение. Прслуга видит в зеркале своего женатого хозяина, рассказывает его жена, она от тоски умирает. Жена ходит домой ночью после похорон и просит прислугу дать ей платье, которое на неё покойную не надели и дать ей еду, потому что живая скупая была и на том свете теперь есть нечего. На третий день жена разрешает прислуге выйти за своего вдовца замуж.",
+      "dcterms:identifier": "era_vene_13_638_21",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db29"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/737"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/809-star"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db29",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Izborsk, Petseri County, Pskov Oblast, Russia / д. Старый Изборск, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_5_58_29",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "restricted_anon",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar015"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1963-01-01"
+      },
+      "dcterms:description": "Морозко.",
+      "dcterms:identifier": "tru_vkk_5_58_29",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_5"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db95"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/480"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/480D-star"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db95",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Molozhva village, abroad, Pskov Oblast, Russia / Venemaa, Pihkva obl., Petseri raj., Moložva (Моложва) k., välismaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_1_505_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/iraida-georgievna-topkina"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1930-05-24"
+      },
+      "dcterms:description": "Мертвец. Жена горько оплакивает мужа. Однажды ночью постучался кто-то, в ком вдова признала мужа. Садятся в карету, едят к могиле. Мертвец велит лезть в могилу, а он после. Жена отказывается, мертвец лезет первым. Жена бросает платье и убегает. Мертвец за ней, но пропадает при крике первого петуха.",
+      "dcterms:identifier": "era_vene_1_505_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_1"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db45"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/365"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db45",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Mustvee town, Torma parish, Jõgeva County, Estonia / Mustvee (Посад Черный) l., Torma khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_2_161_14",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/an-mukhina"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1928-01-01"
+      },
+      "dcterms:description": "Сказка про царей.",
+      "dcterms:identifier": "era_vene_2_161_14",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_2"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db48"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/707"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db48",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Nina village, Kodavere parish, Tartu County, Estonia / Peipsiäärne v., Nina (Нос) k., Kodavere khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/rkm_vene_1_82_47",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/vassa-denisovna-gunina"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1948-07-10"
+      },
+      "dcterms:description": "Царевич Иван не может найти себе невесту. Три дочки попа вышли поласкать бельё, беседуют об Иване Царевиче и общают чтобы они сделали, если он на них женится; младшая обещает трёх сыновей - ноги в золоте, руки в серебре, в затылке месяц, во лбу солнышко, звёзды в волосах. Царевич жениться на младшей по совету бояр, старшие сёстры тоже набиваются во дворец._x000D_ Жена рожает обещанного сына, его отсылают змее и заменяют на щенка. Второго сына заменяют на котёнка, третьего - на простого ребёнка. Царь велит посадить жену и ребёнка в бочку и пустить по морю. Тридцать лет спустя, выплывают на остров, ветер \"надувает\" город по просьбе сына. Корабельщики рассказывают царю про новый город, сын прилетает с ними обратившись соколом, новая жена царя не хочет ехать смотреть новый город, рассказывая о \"лучшей\" диковинке._x000D_ На третьй приезд новая жена говорит о трёх чудесных сыновьях. По возвращении, сын просит мать замесить хлеб на её грудном молоке, берёт тапор и дубину, идёт искать братьев. Оставляет куски хлеба на трёх перекрёстках, приходит к избушке на курьих ножках, ест и залезает под печку. Братья возвращаются в избушку принося куски хлеба. Вчетвером убегают от змеи, три раза слышат погоню и избавляются от неё с помощью топора и дубинки. Царь приежает на остров, воссоединяется с семьёй; новую жену разрывают 12 жеребцов.",
+      "dcterms:identifier": "rkm_vene_1_82_47",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/rkm_vene_1"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db77"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/707"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db77",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Kyukita village, Torma parish, Jõgeva County, Estonia / Kasepää v., Kükita (Кюкита) k., Torma khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_1",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col028"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col032"
+        }
+      ],
+      "dcterms:identifier": "tru_vkk_1",
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/tru-vkk"
+      },
+      "rdfs:label": "TRÜ, VKK 1"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_9",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col037"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col040"
+        }
+      ],
+      "dcterms:identifier": "tru_vkk_9",
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/tru-vkk"
+      },
+      "rdfs:label": "TRÜ, VKK 9"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_37_5",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/aksin-ia"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1939-01-01"
+      },
+      "dcterms:description": "Женя брата оговаривает сестру, брат отрубает ей руки. Сестра омывает руки целебной водой из колодца, они отрастают обратно.",
+      "dcterms:identifier": "era_vene_13_37_5",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db26"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/706"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db26",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Petrovka village, Petseri County, Pskov Oblast, Russia / Изборская волость, д. Петровка, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_16_735_2",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/maksim-tverdov"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1941-01-01"
+      },
+      "dcterms:description": "Бессмертный Кащей.",
+      "dcterms:identifier": "era_vene_16_735_2",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_16"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db41"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/330B"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db41",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Kirshino village, Petseri County, Pskov Oblast, Russia / Kulje v., Киршино (Kiršino) k., Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_8_223_147",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/aleksandr-osipovich-iariomin"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1936-06-16"
+      },
+      "dcterms:description": "Лихорадок - 12 сестёр. Вот стоят три сестры возле мужика на поле и обсуждают, как в него войти. Мужик подслушивает их и избегает заболевания.",
+      "dcterms:identifier": "era_vene_8_223_147",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_8"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db74"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/735A"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/735A-star-star-star-star"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db74",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Saatse village, Petseri County, Võru County, Estonia / Satserinna v., Satserinna k., Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_18_12_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "restricted_anon",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar008"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1964-07-01"
+      },
+      "dcterms:description": "Змей (уж) заставляет выйти девушку замуж, у неё рождаются сын и дочка. Отец девушки зовёт ужа из воды и убивает. Дети и девушка превращаются в птиц и разлетаются по свету.",
+      "dcterms:identifier": "tru_vkk_18_12_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_18"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db84"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/425A"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/425M"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db84",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Uusküla village, Iisaku parish, Ida-Viru County, Estonia / Kohtla-Järve raj., Uusküla (Уускюла) k., Iisaku khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/rkm_vene_1_236_5",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anna-terent-evna-gunina"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1949-07-06"
+      },
+      "dcterms:description": "Сказка о мертвой царевне и семи багатырях. по сказке А. С. Пушкина",
+      "dcterms:identifier": "rkm_vene_1_236_5",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/rkm_vene_1"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db76"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/709"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db76",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Tiheda village, Torma parish, Jõgeva County, Estonia / Kasepää v., Tiheda (Тихотка) k., Torma khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_15_134_3",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/zoia-aleksandrovna-iupatova"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1940-01-01"
+      },
+      "dcterms:description": "Мачеха посылает падчерицу в баню прясть лён. Она берёт лён и петуха и идёт в баню. Туда приходит красивый парень - чёрт - и сватает её. Она просит принести ей одежду, чёрт приносит и пропадает с криком петуха. Мачеха посылает свою дочку в баню, увидя какое добро падчерица получила. Дочка берёт лён, но не петуха. Её тоже сватает чёрт, но петух не кричит, и чёрт разрывает дочку, оставляе шкуру на каменке.",
+      "dcterms:identifier": "era_vene_15_134_3",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_15"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db34"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/480A"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db34",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Mäe village, Petseri County, Võru County, Estonia / Mäe v., Lüübnitsa (Любницы), Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_8_308_277",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anna-fedorovna-neverovskaia"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1936-06-20"
+      },
+      "dcterms:description": "Страсти (сказка). Солдат со слугой Ванюшей идут искать страсти. Видят повешенника, кладут его в карету. Приежают в деревню, где померший когдун ест людей. Вошли в избу колдуна, внесли туда повешенного. Ванюша спрятался на печке от страха, солдат сел на лавку. Колдун-мертвец встал и пошол на солдата и повешенник стал с ним бороться до крика петуха. Солдат зовёт Ванюшу ехать дальше, потому что страстей (ничего страшного) нет._x000D_ Едут дальше с повешенником и ногой колдуна. Солдат залезает в пустую могилу, мертвец возвращается туда и рассказывает, как задушенного молодожёна и как его оживить. Приежают в ту деревню, там обвиняют невесту в убийстве. Солдат оживляет задушенного, возращается домой не найдя страстей.",
+      "dcterms:identifier": "era_vene_8_308_277",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_8"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db75"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/326B-star"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db75",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Zabolotye village, Petseri County, Pskov Oblast, Russia / Kulje v., Zabolotje k., Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_15_304_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anna-mikhailovna-seniushkina"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1940-01-01"
+      },
+      "dcterms:description": "Бедный брат просит у богатого брата верёвку повесится. Повеситься не удаётся, ветка слишком низко. Бедный просит лопату, раскапывает золото. Богатый с досады вешается на той же верёвке.",
+      "dcterms:identifier": "era_vene_15_304_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_15"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db35"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/740-star-star"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db35",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Kolpino village, Petseri County, Pskov Oblast, Russia / Kalda v., Kolpino (Колпино) k., Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_5",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/maria-sokolova"
+      },
+      "dcterms:identifier": [
+        "KIVIKE:ERA-17309-67938-53911",
+        "era_vene_5"
+      ],
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene"
+      },
+      "rdfs:label": "ERA, Vene 5",
+      "rdfs:seeAlso": {
+        "@id": "https://kivike.kirmus.ee/index.php?oid=9&module=400&op=3&pid=ERA-17309-67938-53911"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_18",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col014"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col016"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col018"
+        }
+      ],
+      "dcterms:identifier": "tru_vkk_18",
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/tru-vkk"
+      },
+      "rdfs:label": "TRÜ, VKK 18"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_5_407_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/s-minusov"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1934-08-10"
+      },
+      "dcterms:description": "Лев да конь. Сын генерала, Петр Семёныч проигрывается по пьяне в карты меняя свою офицерскую одежду на лохмотья. Стража его домой не пускает, но он прорывается. Отец запрещает пить в ресторане, но Пётр идёт опять и снова проигрывается, третий раз так же и решать домой не возвращаться. Идёт в лес, попадает в пустой дом, там стол накрыт на 12 человек. Богато, но грязно. Пётр пробует с тарелок и всё пребирает. В дом возвращаются разбойники, Пётр ведёт хозяйство. Запрещают ходит в два сарая, куда Пётр из любопытсва идёт. В первом голодные лев и конь. В другой сарае - котлы золота и серебра, Пётр золотит палец. Разбойники угрожают обезглавить, если ещё раз пойдёт в запретные сараи. Лев и конь дают три пузырька и три семени. Пётр выпивает пузырьки, становиться сильным и красивым. Окунает голову руки по локоть в серебро и золото. Приежают в другое царство, где Пётр становиться садовником. Лев и конь говорят, чтобы одел парик, чтобы девок от любви не сгубить. Пётр портит сад, но потом лев и конь сажают золотые и серебряные яблоки. Царь относит яблоки дочерям, велит поцеловать садовника. Младшая влюбляется в Пётра, подсмотрев как он без парика купается. Сватующий старшую царевну царь идёт войной. Садовник Пётр призывает коня и льва, разбивают первое и второе войско, Пётр отказывается от награды. Пётр идёт на третью войну, когда сватуют младшую дочку, она перевязывает ему руку во время боя. Младшая царевна признает садовника, его приводят к царю, когда он просыпается, Пётр и царевна женятся. Конь и лев велят сажать семена цветов, чтобы защитить от генералов-предателей, которые обращаются в волков. Лев и конь становятся людьми-генералами.",
+      "dcterms:identifier": "era_vene_5_407_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_5"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db56"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/314"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/935"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db56",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Miltso village, Petseri County, Pskov Oblast, Russia / Irboska v., Miltsõ k., Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_501_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/ivan-mal-tsev"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1938-05-29"
+      },
+      "dcterms:description": "Морозко.",
+      "dcterms:identifier": "era_vene_12_501_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_12"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db5"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/480"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/480D-star"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db5",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Skaryatino village, Vaivara parish, Pskov Oblast, Russia / Skarjatina v., Skarjatina (Скарятино) k., Vaivara khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/rkm-vene",
+      "@type": "dcmitype:Collection",
+      "dcterms:identifier": "rkm_vene",
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "Käsikirjaarhiiv : RKM. Riikliku Kirjandusmuuseumi kogu : RKM, Vene."
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://kivike.kirmus.ee/index.php?selectId=8002&module=403&op=1"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_41_83_43",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "restricted_anon",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar002"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1967-01-01"
+      },
+      "dcterms:description": "Покати-Горошинка. Семь братьев женятся на семи сестрах. Старшую сестру заманивает Змей под землю, когда она несет обед братьям, потом также остальных сестёр. Братья идут выручать, не могут съест быка, вола, Змеины орехи разгрыздь. Мать сестёр рожает сына, Покати-Горошинку, съев горошинку. Горошинка заказывает булаву, идёт выручать сёстер и их мужей, справляется с заданиями и убивает Змея.",
+      "dcterms:identifier": "tru_vkk_41_83_43",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_41"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db91"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/312D"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db91",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Zalesye village, abroad, Pskov Oblast, Russia / Venemaa, Pihkva obl., Petseri raj., д. Залесье, välismaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_5",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col034"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col044"
+        }
+      ],
+      "dcterms:identifier": "tru_vkk_5",
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/tru-vkk"
+      },
+      "rdfs:label": "TRÜ, VKK 5"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_19_2",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/avdot-ia-ershova"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1939-01-01"
+      },
+      "dcterms:description": "Сивко-Бурко.",
+      "dcterms:identifier": "era_vene_13_19_2",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db16"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/530A"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db16",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Izborsk, Petseri County, Pskov Oblast, Russia / д. Старый Изборск, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_2_622_5",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/denisikha"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1928-01-01"
+      },
+      "dcterms:description": "Сказка об аленьком цветочке.",
+      "dcterms:identifier": "era_vene_2_622_5",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_2"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db50"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/425C"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db50",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Nina village, Kodavere parish, Tartu County, Estonia / Peipsiäärne v., Nina (Нос) k., Kodavere khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/tru-vkk",
+      "@type": "dcmitype:Collection",
+      "dcterms:identifier": "tru_vkk",
+      "rdfs:label": {
+        "@language": "et",
+        "@value": "Käsikirjaarhiiv : TRÜ, VKK. Tartu Riikliku Ülikooli vene keele kateedri ja vene kirjanduse kateedri kogu"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://kivike.kirmus.ee/index.php?selectId=8035&module=403&op=1"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_16_548_4",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anatolii-semenov"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1941-01-01"
+      },
+      "dcterms:description": "Гармонист всречает девушку, которая говорит, что он теперь её жених. До свадьбы девушка остаётся лягушкой. На свадьбе лягушка обращается красавицей. После свадьбы она обращается кобылой, велит продать на ярмарке, но без узды, иначе останется кобылой. Продаёт её много раз - богатеет. Случайно продаёт вместе с уздечкой. Через три года идёт мельнику, кому продал чтобы жену забрать. Мельник не продаёт, узду не украсть, друг передаёт. Жена возвращается домой - тощая, и боль ше не оборачивается.",
+      "dcterms:identifier": "era_vene_16_548_4",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_16"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db40"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/325"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/402"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db40",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Kirshino village, Petseri County, Pskov Oblast, Russia / Kulje v., Киршино (Kiršino) k., Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/zoia-zhemchuzhina"
+      },
+      "dcterms:identifier": [
+        "KIVIKE:ERA-17310-43411-19198",
+        "era_vene_13"
+      ],
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene"
+      },
+      "rdfs:label": "ERA, Vene 13",
+      "rdfs:seeAlso": {
+        "@id": "https://kivike.kirmus.ee/index.php?oid=4&module=400&op=3&pid=ERA-17310-43411-19198"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_7_227_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/kira-trubenkova"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1935-01-01"
+      },
+      "dcterms:description": "Баба-яга. Старуха посылает патчерицу Ную к сестре Бабе-яге за шолочкой. Яга велит Нуе прясть, а сама идет топить баню, чтобы Ную зажарить. В избу заходит чернявка, даёт Нуе волшебные вещи для побега. Нуя добралась до дома и рассказывает всё отцу, который выганяет мачеху.",
+      "dcterms:identifier": "era_vene_7_227_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_7"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db69"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/313"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db69",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Tallinn, Harju County, Estonia / Tallinna linn"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_16_744_22",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/maksim-tverdov"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1941-01-01"
+      },
+      "dcterms:description": "Якорий убивает змея.",
+      "dcterms:identifier": "era_vene_16_744_22",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_16"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db42"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/300"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db42",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Kulje v., Киршино (Kiršino) k., Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_335_28",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/matrena-protaeva"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1939-01-01"
+      },
+      "dcterms:description": "Три царства.",
+      "dcterms:identifier": "era_vene_13_335_28",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db23"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/301A"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db23",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Izborsk, Petseri County, Pskov Oblast, Russia / Изборская волость, д. Старый Изборск, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_2_748_27",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nina-mukhina"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1928-01-01"
+      },
+      "dcterms:description": "Рассказ про чертей. Три человека просятся ночевать к старухе-чертихе. Она укладывает их в конюшне, утром не выпускает. Два выскочили и убежали, третий остался. Отмаливает старуху три ночи, от чертей защищает круг. На третью ночь пришёл сам чёрт, человек оглянулся в его глаза, его схватили и растерзали.",
+      "dcterms:identifier": "era_vene_2_748_27",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_2"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db52"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/307"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db52",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Nina village, Kodavere parish, Tartu County, Estonia / Peipsiäärne v., Nina (Нос) k., Kodavere khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_541_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/avdot-ia-suvorova"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1938-05-29"
+      },
+      "dcterms:description": "Липунюшка Мальчик-с-пальчик.",
+      "dcterms:identifier": "era_vene_12_541_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_12"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db6"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/700"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db6",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Djuk-Perevolok village, Vaivara parish, Leningrad Oblast, Russia / Vasknarva v., Djuk-Perevolok (Дюк Переволока) k., Vaivara khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_97_19",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/marfa-petukhova"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1938-05-29"
+      },
+      "dcterms:description": "Морозко.",
+      "dcterms:identifier": "era_vene_12_97_19",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_12"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db10"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/480"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/480D-star"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db10",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Vasknarva village (Syrenets), Vaivara parish, Ida-Viru County, Estonia / Vasknarva v., Vasknarva (Васкнарва, Сыренец) k., Vaivara khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_15_308_4",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anna-mikhailovna-seniushkina"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1940-01-01"
+      },
+      "dcterms:description": "Дед, баба и их дочери пошли ткать пояса в баню. Туда просится погреться волк, пускают. Все кроме Тани - дедушкиной дочки, пугаются и убегают. Волк сватает её за своего сына, Таня отвечает, что у неё нет приданого. Волк говорит сыну принести то, что невеста требует. Всё приносится и девушка соглашается. Выходят из бани, она просит петухов запеть, чёрт и сын проваливаются, Таня остаётся с приданым._x000D_ Мачеха посылает свою дочку в баню, увидя новое платье на падчерице. Дочка впускает волка в баню, он сватает её за сына, дочка говорит, что у неё нет приданого, сын приносит. Девка ничего не может больше просить, волк её съедает.",
+      "dcterms:identifier": "era_vene_15_308_4",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_15"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db36"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/480A"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db36",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Kolpino village, Petseri County, Pskov Oblast, Russia / Kalda v., Kolpino (Колпино) k., Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_2",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/fedor-koniaev"
+      },
+      "dcterms:identifier": [
+        "KIVIKE:ERA-17309-64663-90856",
+        "era_vene_2"
+      ],
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene"
+      },
+      "rdfs:label": "ERA, Vene 2",
+      "rdfs:seeAlso": {
+        "@id": "https://kivike.kirmus.ee/index.php?oid=6&module=400&op=3&pid=ERA-17309-64663-90856"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_5_507_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/starukha-guseva"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1934-08-10"
+      },
+      "dcterms:description": "Сказка про брата и сестру.",
+      "dcterms:identifier": "era_vene_5_507_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_5"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db59"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/706"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db59",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Izborsk, Petseri County, Pskov Oblast, Russia / Изборская волость (Irboska), Vana-Irboska, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_286_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nikolai-grecman"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1935-07-28"
+      },
+      "dcterms:description": "Сказка про младёжные яблоки.",
+      "dcterms:identifier": "era_vene_6_286_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_6"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db60"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/551"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db60",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Velje village, Petseri County, Pskov Oblast, Russia / Irboska v., Velje k., Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/rkm_vene_3_257_117",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anastasiia-kodar"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1949-01-01"
+      },
+      "dcterms:description": "Метроха поступает в мельники и приносит домой полный карман гороху, баба варит суп, а одна горошина падает в подпол, из неё вырастает стебель до неба. Дед лезет на небо, там избушка с сахарной печкой, откалывает кусок от печки, пряник от стола, решает привести бабу и сына туда жить. На стебле у деда кружиться голова и он разбивается на смерть.",
+      "dcterms:identifier": "rkm_vene_3_257_117",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/rkm_vene_3"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db78"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/328"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/328C-star"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db78",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Tartu, Tartu County, Estonia / Tartu linn"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_15_430_6",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/andrei-nikhandrovich-lik"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1940-01-01"
+      },
+      "dcterms:description": "Барин видит во сне огненный столб. Для толкования сна идёт к сыну Марьи-вдовы. Сын говорит, что сон хороший и покупает полсна. Барин выкапывает из под крыльца шесть бочек с золотом. Барину жалко золота, хочет купить мальчика. Мальчик соглашается если барин осыпет его золотом. Дома барин спрашивает у мальчика, о чём говорят гуси. Мальчик отвечает, что барину скоро смерть. Барин велит утопить слугам утопить мальчика, мальчик отдаёт им золото, они топят вместо него чучело. Мальчик возвращается к матери.",
+      "dcterms:identifier": "era_vene_15_430_6",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_15"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db37"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/671"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/671E-star"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db37",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Medli village, Petseri County, Pskov Oblast, Russia / Kalda v., Medli (Медли) k., Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_5_503_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/fedor-minushkin"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1934-08-12"
+      },
+      "dcterms:description": "Про духов лесных и бабу-колдовку. У царя сын королевич и дочка царевна, в лесу жили семь злых и семь добрых духов, царь советуется всегда с добрыми. Злые рассердились, наслали на сына болезнь, он умирает. Просят бабу-колдовку украсть царевну, потому что царь к ним всё равно не обращается. Добрые духи посылают к царевне Лукапере голубя с тремя волшебными вещами, которые они кидает при побеге. В конце баба тонет в полотенце-реке.",
+      "dcterms:identifier": "era_vene_5_503_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_5"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db58"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/313"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db58",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Miltsy village, Petseri County, Pskov Oblast, Russia / Изборская волость (Irboska), д. Мильцы, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_7_95_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/z-vasil-eva-suvorova"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1935-01-01"
+      },
+      "dcterms:description": "Зверь-Норка (сказка). Из царского зверинца Зверь-Норка уносит зверей. Царь прказывает сыновья караулить, старшие ночами спят, младший увидель где зверь спрятался по камнем. У старших небыло сил отвалить камень, младших смог. Под камнем дыра - старшие боятся идти. Младший привязывает канат к поясу, велит старшим держать верёвку и спускает в подземное царство. У Зверя-Норки три сестры, которых дурак обещает спасти, с их помощью побеждает Змея. Братья завидуют и решают погубить младшего, он их перехитрил и выжил._x000D_ Во время дождя дурак прикрывает птенцов своей одеждой. Большая мать - мать птенцов - в благодарность выностит наверх дурака с сестрами. Дома младший обличает злых братьев.",
+      "dcterms:identifier": "era_vene_7_95_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_7"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db72"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/301"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db72",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Tallinna linn"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_12",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/ol-ga-gromova"
+      },
+      "dcterms:identifier": [
+        "KIVIKE:ERA-17310-42908-91551",
+        "era_vene_12"
+      ],
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene"
+      },
+      "rdfs:label": "ERA, Vene 12",
+      "rdfs:seeAlso": {
+        "@id": "https://kivike.kirmus.ee/index.php?oid=2&module=400&op=3&pid=ERA-17310-42908-91551"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_32_14_2",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "restricted_anon",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar003"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1968-01-01"
+      },
+      "dcterms:description": "Деду помогают Месяц, Солнце и Орёл по дороге во Псков за овсом. Он просватал за них своих дочерей. Отпраялется к зятьям в гости. Насмотрелся там всяких чудес, думает, что ему это тоже дозволено, но баба избевает его.",
+      "dcterms:identifier": "tru_vkk_32_14_2",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_32"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db88"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/552"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db88",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Zalit Island (imeni Zalita), abroad, Pskov Oblast, Russia / Venemaa, Pihkva obl., Pihkva raj., Zalita nim. saar (остров им. Залита), välismaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_137_98",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/marfa-petukhova"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1938-05-29"
+      },
+      "dcterms:description": "Иван-дурак.",
+      "dcterms:identifier": "era_vene_12_137_98",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_12"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db2"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/530"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db2",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Vasknarva village (Syrenets), Vaivara parish, Ida-Viru County, Estonia / Vasknarva v., Vasknarva (Васкнарва, Сыренец) k., Vaivara khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_14",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/olga-brandt"
+      },
+      "dcterms:identifier": [
+        "KIVIKE:ERA-17310-44062-73327",
+        "era_vene_14"
+      ],
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene"
+      },
+      "rdfs:label": "ERA, Vene 14",
+      "rdfs:seeAlso": {
+        "@id": "https://kivike.kirmus.ee/index.php?oid=3&module=400&op=3&pid=ERA-17310-44062-73327"
+      }
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_12",
+      "@type": "dcterms:BibliographicResource",
+      "dcterms:creator": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col026"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col030"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col038"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col042"
+        }
+      ],
+      "dcterms:identifier": "tru_vkk_12",
+      "dcterms:isPartOf": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/collection/tru-vkk"
+      },
+      "rdfs:label": "TRÜ, VKK 12"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_345_29",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/matrena-protaeva"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1939-01-01"
+      },
+      "dcterms:identifier": "era_vene_13_345_29",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db24"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/513A"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db24",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Izborsk, Petseri County, Pskov Oblast, Russia / Изборская волость, д. Старый Изборск, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_1_515_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/sergei-dimitrievich-tsvetkov"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1930-05-24"
+      },
+      "dcterms:description": "По пьяне мужик спорит, что сможет принести ночью с каменки камень. Идёт в баню, берёт камень, его кто-то хватает за руку. Слышит голос девушки, которая говорит, что отпустит, только если замуж возьмёт. Мужик соглашается, девушка отпускает._x000D_ Через время девушка является ему во сне, мучает его. Свадебный поезд останавливается у бани, выводят невесту из-под пола. Проклятая невеста не идёт в церковь. Говорит, что пусть поп кинет своего ребёнка в печь, потому что это подмёныш чертей, которые её в бани засадили. Поп слушается, мужик и проклятая девушка женятся.",
+      "dcterms:identifier": "era_vene_1_515_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_1"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db46"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/410"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/424-star"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db46",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Mustvee town, Torma parish, Jõgeva County, Estonia / Mustvee (Посад Черный) l., Torma khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_5_328_2",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/michail-dragunin"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1934-08-19"
+      },
+      "dcterms:description": "Хозяин даёт парню ключи от комнаты, которую запрещает открывать. Парень выпускает 7 царевен из запретной комнаты. Перед возращением хозяина царевны превращаются в голубей и улетают, хозяин находит царевен и снова запирает их. Во время следующего отъезда это повторяется, но царевны улетают так далеко, что их не поймать._x000D_ Хозяин даёт перед смертью парню три нити. Парень приходит в царство, где прячется от царевны (на которой раньше женился, но она его не узнаёт) три раза, превращаесь с помощью нитей. Парень отмывается от грязи, царевна его узнает.",
+      "dcterms:identifier": "era_vene_5_328_2",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_5"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db55"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/312"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/329"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db55",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Maly village, Petseri County, Pskov Oblast, Russia / Irboska v., Mõla (Малы) k., Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_363_30",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/matrena-protaeva"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1939-01-01"
+      },
+      "dcterms:description": "Чудо-птица",
+      "dcterms:identifier": "era_vene_13_363_30",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db25"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/567"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db25",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Izborsk, Petseri County, Pskov Oblast, Russia / Изборская волость, д. Старый Изборск, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_32_17_3",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "restricted_anon",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar004"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1968-01-01"
+      },
+      "dcterms:description": "Мачеха отправляет падчерицу Лену к Бабе-Яги за ниткой и иглой, чтобы от неё избавиться. Дороге к Яге идёт мимо тётиного дома. Тётя говорит Лене, что её послали на смерть и даёт указания и волшебные вещи, чтобы избежать опасности._x000D_ Баба-Яга велит своей работнице затопить баню, чтобы Лену зажарить. Лена задабривает работницу и животных, убегает и избегает погони Яги, используя волщебные вещи. По возвращении домой, Лена рассказывает всё отцу. Он выгоняет мачеху и её дочек.",
+      "dcterms:identifier": "tru_vkk_32_17_3",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_32"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db89"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/313"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db89",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Zalit Island (imeni Zalita), abroad, Pskov Oblast, Russia / Venemaa, Pihkva obl., Pihkva raj., Zalita nim. saar (остров им. Залита), välismaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_406_8",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nastasja-kropetskaja"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1935-01-01"
+      },
+      "dcterms:description": "Сказка про царя и явоных двянадцать сыновей.",
+      "dcterms:identifier": "era_vene_6_406_8",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_6"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db66"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/707"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db66",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Izborsk, Petseri County, Pskov Oblast, Russia / Irboska v., Irboska k., Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_48_62_110",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "restricted_anon",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar007"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1966-01-01"
+      },
+      "dcterms:description": "Сказка Морозко.",
+      "dcterms:identifier": "tru_vkk_48_62_110",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/tru_vkk_48"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db93"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/480"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/480D-star"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db93",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Vasttsy village, abroad, Pskov Oblast, Russia / Venemaa, Pihkva obl., Petseri raj., Vasstsõ (Вастцы) k., välismaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_175_18",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/andrei-ulanov"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1939-01-01"
+      },
+      "dcterms:description": "Царица Милитриса хочет сгубить мужа, сильного царя Дадона, потому что любит другого, хилого царя Гвидона. \"Хворая\" цариса посылает мужа в лес убить вепря, куда он едет без свиты, только с дядькой. На них наподает войско Гвидона и царь возвращается обратно в город, но все ворота заперты; он бросается в море, чтобы не дасться живым. Милитриса встречает Гвидона, но её сын Бова не привечает отчима._x000D_ Гвидон видит сон, который толкуют как желание Бовы убить Гвидона, чтобы отомстить за смерть отца. Бову кидают в темницу, где ему прислуживает девка Чарнавка. Милитриса печёт Бове отравленные пироги, Чарнявка предупреждает Бову, выпускает из темницы. Бова уплывает с корабельщиками прикидываясь простолюдином. Остается в царстве Бранбауса, где прислуживает царевне Мальчигрии, которая положила на него глаз. Её приставания ему не нравятся, просится конюхом. После тяжелой работы идет спасть на три дня._x000D_ Бранбаусого царства атакует персидский царь, которые хочет Мальчирию, она его не любит. Бова признается Мальчирии, что он царский сын, они соглашаются поженится. Бова разметает войско метлой, убивает персидского царевича освобоздает Бранбауса, но народ не хочет царем простолюдина и отправляют Бову к персидскому царю с грамотой, где приказ его убить. Пирсидский царь кидает Бову в темницу, персидская царевна Лукопёра влюбляется в него, Бова отказывается жениться. Бова сбегает из тюрьмы и возвлащается в Бранбаусово царство к невесте. Они успляются персидского царя и сбегают в царство Бовы. Мальчигрия рожает мальчика. Бова оставляет жену с сыном, чтобы сразиться с Гвидоновым войском. Мальчигрия становиться батрачкой, через семь лет семье воссоиденяется, когда Бова признает сына по своему перстню.",
+      "dcterms:identifier": "era_vene_13_175_18",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db15"
+      },
+      "dcterms:subject": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/707"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/707B-star"
+        }
+      ]
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db15",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Izborsk, Petseri County, Pskov Oblast, Russia / Изборская волость, д. Старый Изборск, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_550_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/marfa-shilova"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1938-05-29"
+      },
+      "dcterms:description": "Дикий мужичек.",
+      "dcterms:identifier": "era_vene_12_550_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_12"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db7"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/502"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db7",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Perevolok village, Vaivara parish, Leningrad Oblast, Russia / Vasknarva v., Suur Perevoloka (Большая Переволока) k., Vaivara khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_189_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/irin-ia-sal-nikova"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1938-05-29"
+      },
+      "dcterms:description": "Два брата.",
+      "dcterms:identifier": "era_vene_12_189_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_12"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db3"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/735A"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db3",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Skamya village, Vaivara parish, Pskov Oblast, Russia / Skarjatina v., Skamja (Скамья) k., Vaivara khk."
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_293_24",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/matrena-protaeva"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1939-01-01"
+      },
+      "dcterms:description": "У пьяницы были сын и дочь. Он каждый день напивается до чёртиков - они вокруг него бегают. Один чёрт предлагает за деньги съесть/убить сына, пьяница сначала отказывается, но ночью зарубает сына. Чёрт даёт денег, мужик всё пропивает. Чёрт снова обещает денег, если убьёт дочку. Дочка чувтвует неладное и сбегает из дома. Слышит кто-то приближается и начинает молится и креститься - отец умирает, чёрт проваливается под землю._x000D_ Дочку берёт к себе дядя, его жена не взлюбила и морит её. Дочка кормит побирающегося старика, который даёт ей клубок, указывающий дорогу. Останавливается на поле, превращается в цветник, услышав всадников. Проезжал царский сын со свитой, берёт цветок с собой. Царевич целует дочку ночью в человеческом образе, она остаётся человеком.",
+      "dcterms:identifier": "era_vene_13_293_24",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_13"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db21"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/407"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db21",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Izborsk, Petseri County, Pskov Oblast, Russia / Изборская волость, д. Старый Изборск, Petserimaa"
+    },
+    {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_7_71_1",
+      "@type": "crm:E33_Linguistic_Object",
+      "dcterms:accessRights": "open",
+      "dcterms:contributor": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/oleg-riumin-ivanov"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "1935-12-03"
+      },
+      "dcterms:description": "Сказка о Змей Горыныче. Во дворец царевны попадает молния - она пропадает. Позже оказывается, что она у Змей Горыныча, который хочет на ней женится, но не может, потому что не истёк срок, который скоро заканчивается - о чём царь сообщает сыну, младшему брату царевны Ивану._x000D_ Иван летит в царство Змея на птице из волшебного яйца. Дворец Змея на ледяной горе. Иван убивает Змея мечом, возвращаются с сестрой на птице домой.",
+      "dcterms:identifier": "era_vene_7_71_1",
+      "dcterms:isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_7"
+        }
+      ],
+      "dcterms:spatial": {
+        "@id": "_:nb29d25273c04422cad25bcb3a9f2294db70"
+      },
+      "dcterms:subject": {
+        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/301"
+      }
+    },
+    {
+      "@id": "_:nb29d25273c04422cad25bcb3a9f2294db70",
+      "@type": "crm:E53_Place",
+      "rdfs:label": "Tallinn, Harju County, Estonia / Tallinna linn"
+    }
+  ]
+}

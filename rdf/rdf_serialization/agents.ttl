@@ -1,0 +1,896 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rft: <https://github.com/eugeniavd/magic_tagger/rdf/ontology/#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/a-billio> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector,
+        rft:Narrator ;
+    rdfs:label "A. Billio"@en,
+        "{'person_id': 'a-billio', 'label_en': 'a billio', 'raw': 'А. Биллио', 'name_raw': 'А. Биллио'}"@ru,
+        "А. Биллио"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/aksin-ia> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Aksin'ia"@en,
+        "Аксинья"@ru ;
+    rdfs:comment "неграмотная"@ru ;
+    rft:age 72 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/aleksandr-osipovich-iariomin> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Aleksandr Osipovich Iariomin"@en,
+        "Александр Осипович Ярёмин"@ru ;
+    rft:age 60 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/an-mukhina> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "An. Mukhina"@en,
+        "Ан. Мухина"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/anastasiia-dorofeevna-topkina> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector,
+        rft:Narrator ;
+    rdfs:label "Anastasiia Dorofeevna Topkina"@en,
+        "{'person_id': 'anastasiia-dorofeevna-topkina', 'label_en': 'anastasiia dorofeevna topkina', 'raw': 'Анастасия Дорофеевна Топкина', 'name_raw': 'Анастасия Дорофеевна Топкина'}"@ru,
+        "Анастасия Дорофеевна Топкина"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/anastasiia-folomeevna-senetskaia> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Anastasiia Folomeevna Senetskaia"@en,
+        "Анастасия Фоломеевна Сенецкая"@ru ;
+    rft:age 73 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/anastasiia-kodar> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Anastasiia Kodar"@en,
+        "Анастасия Кодар"@ru ;
+    rdfs:comment "слышала от отца"@ru ;
+    rft:birthYear "1909"^^xsd:gYear .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/anatolii-semenov> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Anatolii Semenov"@en,
+        "Анатолий Семенов"@ru ;
+    rdfs:comment "православный"@ru ;
+    rft:age 56 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/andrei-nikhandrovich-lik> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Andrei Nikhandrovich Lik"@en,
+        "Андрей Нихандрович Лик"@ru ;
+    rdfs:comment "православный"@ru ;
+    rft:birthYear "1885"^^xsd:gYear .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/andrei-ulanov> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Andrei Ulanov"@en,
+        "Андрей Уланов"@ru ;
+    rft:age 48 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/anna-fedorovna-neverovskaia> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Anna Fedorovna Neverovskaia"@en,
+        "Анна Федоровна Неверовская"@ru ;
+    rft:age 50 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/anna-karpulistova> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Anna Karpulistova"@en,
+        "Анна Карпулистова"@ru ;
+    rft:age 68 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/anna-khalat> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Anna Khalat"@en,
+        "Анна Халат"@ru ;
+    rdfs:comment "выучила от дедушки Алексея Кириловича"@ru ;
+    rft:age 80 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/anna-mikhailovna-seniushkina> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Anna Mikhailovna Seniushkina"@en,
+        "Анна Михайловна Сенюшкина"@ru ;
+    rft:birthYear "1900"^^xsd:gYear .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/anna-mukhina> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Anna Mukhina"@en,
+        "Анна Мухина"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/anna-terent-evna-gunina> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Anna Terent'evna Gunina"@en,
+        "Анна Терентьевна Гунина"@ru ;
+    rft:birthYear "1896"^^xsd:gYear .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/avdot-ia-ershova> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Avdot'ia Ershova"@en,
+        "Авдотья Ершова"@ru ;
+    rdfs:comment "неграмотная"@ru ;
+    rft:age 76 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/avdot-ia-suvorova> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Avdot'ia Suvorova"@en,
+        "Авдотья Суворова"@ru ;
+    rft:age 60 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col002> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col002', 'label_en': 'col002', 'raw': 'col002'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col003> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col003', 'label_en': 'col003', 'raw': 'col003'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col004> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col004', 'label_en': 'col004', 'raw': 'col004'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col005> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col005', 'label_en': 'col005', 'raw': 'col005'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col006> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col006', 'label_en': 'col006', 'raw': 'col006'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col007> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col007', 'label_en': 'col007', 'raw': 'col007'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col008> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col008', 'label_en': 'col008', 'raw': 'col008'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col009> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col009', 'label_en': 'col009', 'raw': 'col009'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col011> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col011', 'label_en': 'col011', 'raw': 'col011'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col012> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col012', 'label_en': 'col012', 'raw': 'col012'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col013> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col013', 'label_en': 'col013', 'raw': 'col013'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col014> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col014', 'label_en': 'col014', 'raw': 'col014'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col015> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col015', 'label_en': 'col015', 'raw': 'col015'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col016> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col016', 'label_en': 'col016', 'raw': 'col016'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col017> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col017', 'label_en': 'col017', 'raw': 'col017'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col018> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col018', 'label_en': 'col018', 'raw': 'col018'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col019> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col019', 'label_en': 'col019', 'raw': 'col019'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col020> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col020', 'label_en': 'col020', 'raw': 'col020'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col021> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col021', 'label_en': 'col021', 'raw': 'col021'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col022> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col022', 'label_en': 'col022', 'raw': 'col022'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col023> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col023', 'label_en': 'col023', 'raw': 'col023'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col024> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col024', 'label_en': 'col024', 'raw': 'col024'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col025> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col025', 'label_en': 'col025', 'raw': 'col025'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col026> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col026', 'label_en': 'col026', 'raw': 'col026'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col027> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col027', 'label_en': 'col027', 'raw': 'col027'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col028> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col028', 'label_en': 'col028', 'raw': 'col028'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col029> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col029', 'label_en': 'col029', 'raw': 'col029'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col030> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col030', 'label_en': 'col030', 'raw': 'col030'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col031> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col031', 'label_en': 'col031', 'raw': 'col031'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col032> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col032', 'label_en': 'col032', 'raw': 'col032'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col033> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col033', 'label_en': 'col033', 'raw': 'col033'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col034> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col034', 'label_en': 'col034', 'raw': 'col034'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col035> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col035', 'label_en': 'col035', 'raw': 'col035'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col037> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col037', 'label_en': 'col037', 'raw': 'col037'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col038> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col038', 'label_en': 'col038', 'raw': 'col038'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col040> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col040', 'label_en': 'col040', 'raw': 'col040'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col041> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col041', 'label_en': 'col041', 'raw': 'col041'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col042> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col042', 'label_en': 'col042', 'raw': 'col042'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col043> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col043', 'label_en': 'col043', 'raw': 'col043'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/col044> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'col044', 'label_en': 'col044', 'raw': 'col044'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/dar-ia-rosolova> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Dar'ia Rosolova"@en,
+        "Дарья Росолова"@ru ;
+    rdfs:comment "неграмотная"@ru ;
+    rft:age 73 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/dar-ia-zalavskaia> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Dar'ia Zalavskaia"@en,
+        "Дарья Залавская"@ru ;
+    rft:age 60 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/dariia-lipina> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Dariia Lipina"@en,
+        "Дария Липина"@ru ;
+    rft:birthYear "1851"^^xsd:gYear .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/denisikha> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Denisikha"@en,
+        "Денисиха"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/e-protasova> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "E. Protasova"@en,
+        "E. Protasova"@et ;
+    rdfs:comment "kuulnud 20 aastat tagasi"@et ;
+    rft:age 82 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/egorov-v> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'egorov-v', 'label_en': 'egorov v', 'raw': 'Egorov V.', 'name_raw': 'Egorov V.'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/fedor-kolosov> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Fedor Kolosov"@en,
+        "Федор Колосов"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/fedor-koniaev> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'fedor-koniaev', 'label_en': 'fedor koniaev', 'raw': 'Федор Коняев', 'name_raw': 'Федор Коняев'}"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/fedor-minushkin> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Fedor Minushkin"@en,
+        "Федор Минушкин"@ru ;
+    rdfs:comment "слышал 40 лет назад"@ru ;
+    rft:age 60 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/iraida-georgievna-topkina> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector,
+        rft:Narrator ;
+    rdfs:label "Iraida Georgievna Topkina"@en,
+        "{'person_id': 'iraida-georgievna-topkina', 'label_en': 'iraida georgievna topkina', 'raw': 'Ираида Георгиевна Топкина', 'name_raw': 'Ираида Георгиевна Топкина'}"@ru,
+        "Ираида Георгиевна Топкина"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/irin-ia-sal-nikova> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Irin'ia Sal'nikova"@en,
+        "Иринья Сальникова"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/ivan-mal-tsev> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Ivan Mal'tsev"@en,
+        "Иван Мальцев"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/ivan-mishin> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Ivan Mishin"@en,
+        "Иван Мишин"@ru ;
+    rft:age 50 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/ivan-petrovich-kirshinskii> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Ivan Petrovich Kirshinskii"@en,
+        "Иван Петрович Киршинский"@ru ;
+    rdfs:comment "православ"@ru ;
+    rft:age 63 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/ivan-petrovich-somov> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Ivan Petrovich Somov"@en,
+        "Иван Петрович Сомов"@ru ;
+    rdfs:comment "православный"@ru ;
+    rft:birthYear "1870"^^xsd:gYear .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/kira-trubenkova> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector,
+        rft:Narrator ;
+    rdfs:label "Kira Trubenkova"@en,
+        "{'person_id': 'kira-trubenkova', 'label_en': 'kira trubenkova', 'raw': 'Кира Трубенкова', 'name_raw': 'Кира Трубенкова'}"@ru,
+        "Кира Трубенкова"@ru ;
+    rft:birthYear "1920"^^xsd:gYear .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/leon-borkhov> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Leon Borkhov"@en,
+        "Леон Борхов"@ru ;
+    rdfs:comment "\"бывалый человек\""@ru ;
+    rft:age 70 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/lewonty-borhov> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Lewonty Borhov"@en,
+        "Lewonty Borhov"@et ;
+    rft:age 63 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/m-sokolov> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'm-sokolov', 'label_en': 'm sokolov', 'raw': 'M. Sokolov', 'name_raw': 'M. Sokolov'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/maksim-tverdov> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Maksim Tverdov"@en,
+        "Максим Твердов"@ru ;
+    rdfs:comment "православный"@ru ;
+    rft:age 61 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/marfa-petukhova> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Marfa Petukhova"@en,
+        "Марфа Петухова"@ru ;
+    rft:birthYear "1887"^^xsd:gYear .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/marfa-shilova> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Marfa Shilova"@en,
+        "Марфа Шилова"@ru ;
+    rft:age 48 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/maria-sokolova> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'maria-sokolova', 'label_en': 'maria sokolova', 'raw': 'Maria Sokolova', 'name_raw': 'Maria Sokolova'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/mariia-latkina> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Mariia Latkina"@en,
+        "Мария Латкина"@ru ;
+    rft:age 76 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/matrena-protaeva> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Matrena Protaeva"@en,
+        "Матрена Протаева"@ru ;
+    rdfs:comment "слепая, неграмотная"@ru ;
+    rft:age 85 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/menda-erenberg> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'menda-erenberg', 'label_en': 'menda erenberg', 'raw': 'Menda Erenberg', 'name_raw': 'Menda Erenberg'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/michail-dragunin> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Michail Dragunin"@en,
+        "Michail Dragunin"@et ;
+    rft:age 34 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/nar001> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "nar001"@en,
+        "nar001"@et ;
+    rft:age 86 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/nar002> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "nar002"@en,
+        "nar002"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/nar003> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "nar003"@en,
+        "nar003"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/nar004> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "nar004"@en,
+        "nar004"@et ;
+    rdfs:comment "услышана от бабушки nar003"@ru ;
+    rft:age 12 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/nar005> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "nar005"@en,
+        "nar005"@et ;
+    rft:age 60 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/nar007> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "nar007"@en,
+        "nar007"@et ;
+    rft:birthYear "1908"^^xsd:gYear .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/nar008> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "nar008"@en,
+        "nar008"@et ;
+    rft:age 80 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/nar009> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "nar009"@en,
+        "nar009"@et ;
+    rft:age 80 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/nar011> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "nar011"@en,
+        "nar011"@et ;
+    rft:age 39 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/nar012> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "nar012"@en,
+        "nar012"@et ;
+    rft:age 80 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/nar013> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "nar013"@en,
+        "nar013"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/nar014> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "nar014"@en,
+        "nar014"@et ;
+    rdfs:comment "неграмотная"@ru ;
+    rft:birthYear "1894"^^xsd:gYear .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/nar015> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "nar015"@en,
+        "nar015"@et ;
+    rft:age 59 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/nar019> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "nar019"@en,
+        "nar019"@et ;
+    rft:age 67 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/nastasja-kropetskaja> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Nastasja Kropetskaja"@en,
+        "Nastasja Krõpetskaja"@et ;
+    rft:age 60 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/natal-ia-alekseevna-pagareva> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Natal'ia Alekseevna Pagareva"@en,
+        "Наталья Алексеевна Пагарева"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/natalia-alekseevna-pagareva> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'natal-ia-alekseevna-pagareva', 'label_en': 'natal ia alekseevna pagareva', 'raw': 'Наталья Алексеевна Пагарева', 'name_raw': 'Наталья Алексеевна Пагарева'}"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/neizvestno> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "neizvestno"@en,
+        "неизвестно"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/nikolai-grecman> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Nikolai Grecman"@en,
+        "Nikolai Grečman"@et ;
+    rft:age 73 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/nina-mukhina> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Nina Mukhina"@en,
+        "Нина Мухина"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/o-brandt> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'o-brandt', 'label_en': 'o brandt', 'raw': 'O. Brandt', 'name_raw': 'O. Brandt'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/ol-ga-gromova> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'ol-ga-gromova', 'label_en': 'ol ga gromova', 'raw': 'Ольга Громова', 'name_raw': 'Ольга Громова'}"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/oleg-riumin-ivanov> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector,
+        rft:Narrator ;
+    rdfs:label "Oleg Riumin-Ivanov"@en,
+        "{'person_id': 'oleg-riumin-ivanov', 'label_en': 'oleg riumin ivanov', 'raw': 'Олег Рюмин-Иванов', 'name_raw': 'Олег Рюмин-Иванов'}"@ru,
+        "Олег Рюмин-Иванов"@ru ;
+    rft:birthYear "1923"^^xsd:gYear .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/olga-brandt> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'olga-brandt', 'label_en': 'olga brandt', 'raw': 'Olga Brandt', 'name_raw': 'Olga Brandt'}"@et .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/olga-gildebrandt> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'ol-ga-gil-debrandt', 'label_en': 'ol ga gil debrandt', 'raw': 'Ольга Гильдебрандт', 'name_raw': 'Ольга Гильдебрандт'}"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/s-minusov> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "S. Minusov"@en,
+        "S. Minusov"@et ;
+    rdfs:comment "kuulnud 50 aastat tagasi; kirjaoskamatu"@et ;
+    rft:age 76 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/sergei-dimitrievich-tsvetkov> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector,
+        rft:Narrator ;
+    rdfs:label "Sergei Dimitrievich Tsvetkov"@en,
+        "{'person_id': 'sergei-dimitrievich-tsvetkov', 'label_en': 'sergei dimitrievich tsvetkov', 'raw': 'Сергей Димитриевич Цветков', 'name_raw': 'Сергей Димитриевич Цветков'}"@ru,
+        "Сергей Димитриевич Цветков"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/starukha-guseva> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "starukha Guseva"@en,
+        "старуха Guseva"@ru ;
+    rdfs:comment "слышала в детстве"@ru ;
+    rft:age 92 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/tat-iana-semukhina> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Tat'iana Semukhina"@en,
+        "Татьяна Семухина"@ru ;
+    rft:birthYear "1922"^^xsd:gYear .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/tatiana-semukhina> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'tat-iana-semukhina', 'label_en': 'tat iana semukhina', 'raw': 'Татьяна Семухина', 'name_raw': 'Татьяна Семухина'}"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/vassa-denisovna-gunina> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Vassa Denisovna Gunina"@en,
+        "Васса Денисовна Гунина"@ru ;
+    rft:birthYear "1876"^^xsd:gYear .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/vera-sumina> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Vera Sumina"@en,
+        "Вера Сумина"@ru ;
+    rft:age 58 .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/vera-voogla> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'vera-voogla', 'label_en': 'vera voogla', 'raw': 'Вера Воогла', 'name_raw': 'Вера Воогла'}"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/z-vasil-eva-suvorova> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Z. Vasil'eva-Suvorova"@en,
+        "З. Васильева-Суворова"@ru ;
+    rdfs:comment "слышала от бабушки"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/z-vasilieva-suvorova> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'z-vasil-eva-suvorova', 'label_en': 'z vasil eva suvorova', 'raw': 'З. Васильева-Суворова', 'name_raw': 'З. Васильева-Суворова'}"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/zoia-aleksandrovna-iupatova> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Narrator ;
+    rdfs:label "Zoia Aleksandrovna Iupatova"@en,
+        "Зоя Александровна Юпатова"@ru ;
+    rdfs:comment "православная"@ru ;
+    rft:birthYear "1927"^^xsd:gYear .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/zoia-dondukova> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'zoia-dondukova', 'label_en': 'zoia dondukova', 'raw': 'Зоя Дондукова', 'name_raw': 'Зоя Дондукова'}"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/zoia-zhemchuzhina> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'zoia-zhemchuzhina', 'label_en': 'zoia zhemchuzhina', 'raw': 'Зоя Жемчужина', 'name_raw': 'Зоя Жемчужина'}"@ru .
+
