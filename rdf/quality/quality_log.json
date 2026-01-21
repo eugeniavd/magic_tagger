@@ -1,0 +1,94 @@
+{
+  "generatedAtTime": "2026-01-21T13:31:07.830981+00:00",
+  "inputs": {
+    "ttl": "/Users/eugenia/Desktop/thesis/magic_tagger/rdf/rdf_serialization/corpus.ttl"
+  },
+  "size": {
+    "triples": 1633
+  },
+  "entities": {
+    "tales": 97,
+    "volumes": 27,
+    "collections": 3,
+    "atu_concepts_referenced": 85,
+    "persons_referenced": 121
+  },
+  "coverage": {
+    "tales_with_isPartOf_volume": {
+      "count": 97,
+      "percent": 100.0
+    },
+    "tales_with_atu_subject": {
+      "count": 97,
+      "percent": 100.0
+    },
+    "tales_with_created": {
+      "count": 97,
+      "percent": 100.0
+    },
+    "tales_with_accessRights": {
+      "count": 97,
+      "percent": 100.0
+    },
+    "tales_with_rights": {
+      "count": 0,
+      "percent": 0.0
+    },
+    "tales_with_contributor_narrator": {
+      "count": 96,
+      "percent": 98.97
+    },
+    "tales_with_spatial": {
+      "count": 97,
+      "percent": 100.0
+    },
+    "collections_with_label_langtag": {
+      "count": 3,
+      "percent": 100.0
+    }
+  },
+  "completeness": {
+    "tales_with_rights": {
+      "count": 97,
+      "percent": 100.0
+    },
+    "tales_with_source": {
+      "count": 97,
+      "percent": 100.0
+    },
+    "tales_with_place": {
+      "count": 97,
+      "percent": 100.0
+    },
+    "tales_with_date": {
+      "count": 97,
+      "percent": 100.0
+    },
+    "volumes_with_source": {
+      "count": 27,
+      "percent": 100.0
+    }
+  },
+  "volume_source_breakdown": {
+    "volumes_with_foaf_page": {
+      "count": 27,
+      "percent": 100.0
+    },
+    "volumes_with_dct_source": {
+      "count": 0,
+      "percent": 0.0
+    },
+    "volumes_with_rdfs_seeAlso": {
+      "count": 0,
+      "percent": 0.0
+    }
+  },
+  "sanity": {
+    "tales_created_wrong_datatype": 0
+  },
+  "notes": {
+    "tales_with_source_definition": "direct: tale has dcterms:source OR dcterms:bibliographicCitation; fallback: tale dcterms:isPartOf volume AND volume has foaf:page OR dcterms:source OR rdfs:seeAlso",
+    "volumes_with_source_definition": "volume has foaf:page OR dcterms:source OR rdfs:seeAlso",
+    "foaf_page_iri_used": "http://xmlns.com/foaf/0.1/page"
+  }
+}

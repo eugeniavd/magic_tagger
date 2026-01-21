@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 import argparse
@@ -419,8 +418,10 @@ def build_graph(
 
         if kiv_pid:
             g.add((vol_uri, DCT.identifier, Literal(f"KIVIKE:{kiv_pid}")))
+
         if kiv_url:
-            g.add((vol_uri, RDFS.seeAlso, URIRef(kiv_url)))
+            # Prefer foaf:page for a human-readable web record page
+            g.add((vol_uri, FOAF.page, URIRef(kiv_url)))
 
         # Collection
         g.add((coll_uri, RDF.type, DCMITYPE.Collection))
@@ -455,16 +456,29 @@ def build_graph(
         # type
         g.add((tale_uri, RDF.type, CRM.E33_Linguistic_Object))
 
-        # identifier 
+        # identifier
         g.add((tale_uri, DCT.identifier, Literal(tid)))
 
-        # isPartOf volume
+        # isPartOf volume (structural containment)
         if vol_uri is not None and vid:
             g.add((tale_uri, DCT.isPartOf, vol_uri))
 
-        # NEW: isPartOf dataset (publishing-level container)
+        # isPartOf dataset (publishing-level container)
         if add_dataset_links and dataset_iri is not None:
             g.add((tale_uri, DCT.isPartOf, dataset_iri))
+
+        # -------------------------
+        # NEW: Source handling (no custom ontology)
+        # -------------------------
+        # 1) Always link to volume as the source if we have it
+        if vol_uri is not None and vid:
+            g.add((tale_uri, DCT.source, vol_uri))
+
+        # 2) If you have full reference like "ERA, Vene 4, 403/29 (2)" -> bibliographicCitation on tale
+        if "source_ref" in row.index:
+            src = clean_ws(row.get("source_ref"))
+            if src:
+                g.add((tale_uri, DCT.bibliographicCitation, Literal(src)))
 
         # description/title
         if "content_description_clean" in row.index:
@@ -524,7 +538,7 @@ def main() -> int:
     ap.add_argument("--limit-volumes", type=int, default=None, help="Export only first N unique volumes (after filters).")
     ap.add_argument("--limit-tales", type=int, default=None, help="Export only first N tales (after filters).")
 
-    # NEW: dataset link controls
+    # dataset link controls
     ap.add_argument(
         "--dataset-iri",
         default=str(DEFAULT_DATASET_IRI),
