@@ -78,35 +78,69 @@ This section shows how fields from `corpus_a_index` map to RDF properties. It is
 
 ---
 
-### 3.3 Agents: narrator and collectors
+### 3.3 Agents: narrators and collectors
 
-**Domain:** Tale (`rft:Tale`)  
-**Related classes:** Narrator (`rft:Narrator`, aligned with `crm:E21_Person`), Collector (`rft:Collector`, aligned with `crm:E21_Person`)
+**Core entities**
+- **Tale**: `crm:E33_Linguistic_Object` (local alias: `rft:Tale` if used)
+- **Volume**: (local alias: `rft:Volume`; CRM typing optional in the light profile)
+- **Person (Agent)**: `prov:Agent`, optionally `crm:E21_Person` (and/or `foaf:Person`)
 
-| Local field           | Description                                                  | RDF property (on Tale) | Target vocabulary |
-|-----------------------|--------------------------------------------------------------|------------------------|-------------------|
-| `narrator`            | Narrator’s name and biographical note (composite field).    | `rft:narrator` → `rft:Narrator` | rft              |
-| `collector_1`–`collector_5` | Collectors of the tale (up to five per tale).              | `rft:collector` → `rft:Collector` | rft (subproperty of DCTERMS creator/contributor) |
+**Role principle**
+- We mint stable **Person** URIs and keep roles **contextual** (defined by the predicate).
+- `rft:Narrator` / `rft:Collector` may be used as **facet classes** (derived convenience tags), not as exclusive role types.
 
-On the **Narrator / Collector** person nodes:
+#### Canonical role links
 
-- name is recorded as `rdfs:label` (e.g. `"Paul Ariste"@et`);
-- the composite biographical note (age, occupation, origin, religion, etc. as a single string at this stage) is recorded as `rdfs:comment`.
+| Context | Domain | Property | Range | Meaning |
+|---|---|---|---|---|
+| **Tale-level (content attribution)** | Tale | `dcterms:contributor` | Person | Narrator attribution (supports variant/content analysis) |
+| **Volume-level (capture attribution)** | Volume | `dcterms:creator` | Person | Collector/fieldworker attribution (supports capture/HTR quality analysis) |
+| **Tale → Volume containment** | Tale | `dcterms:isPartOf` | Volume | Tale belongs to a volume (recording context carrier) |
 
-Notes:
+**Notes**
+- Collectors are *not asserted on the Tale* in the baseline model. They are attached to the **Volume**, because recording context (including time) is volume-scoped and collectors influence capture/legibility at that level.
+- When a manuscript lists multiple collectors (up to five in the index), this is represented as repeated `dcterms:creator` links on the Volume (no need for `collector_1…collector_5` in RDF).
 
-- Many manuscripts were recorded by groups of fieldworkers, and a single volume may list up to five collectors; for this reason, we provide up to five separate collector fields in the index, all mapped to repeated uses of `rft:collector` in the graph.
-- In later processing, the composite narrator field will be parsed into separate structured attributes (e.g. narrator_name, narrator_age, narrator_occupation, narrator_religion, narrator_origin) for use in the knowledge graph.
+---
 
-**Provenance pattern (optional):**
+#### Person node (Narrator / Collector)
 
-- Recording event is modelled as `rft:RecordingEvent` (`prov:Activity`, aligned with `crm:E7_Activity`).
-  - Tale (`rft:Tale`, `prov:Entity`, `crm:E33_Linguistic_Object`)  
-    `prov:wasGeneratedBy` / `crm:P94_has_created` → `rft:RecordingEvent`.
-  - Narrator and collectors (`rft:Narrator`, `rft:Collector`, aligned with `crm:E21_Person`)  
-    `prov:wasAssociatedWith` / `crm:P14_carried_out_by` → `rft:RecordingEvent`.
+On each **Person** resource:
 
-This provenance pattern is optional for the pilot and can be implemented incrementally, starting from the simple `rft:narrator` / `rft:collector` links on `rft:Tale`.
+- **Types:** `prov:Agent` (required); optionally `crm:E21_Person` (and/or `foaf:Person`)
+- **Name:** `rdfs:label "Full Name"@<lang>`
+- **Biographical note:** `rdfs:comment` (composite string at pilot stage)
+
+**Data quality guidance**
+- Keep `rdfs:label` strictly for the display name. Store any raw/parsing artifacts outside `rdfs:label` (e.g., `rft:rawName`, `rft:sourceRecord`, `skos:altLabel`).
+
+---
+
+#### Mapping from local index fields
+
+| Local field | Description | RDF mapping | Comment |
+|---|---|---|---|
+| `narrator` | Narrator name + bio note (composite) | `Tale dcterms:contributor Person` + `Person rdfs:label` / `rdfs:comment` | Repeat `dcterms:contributor` if multiple narrators |
+| `collector_1`–`collector_5` | Collectors listed for the volume | `Volume dcterms:creator Person` (repeated) | Keep in index as separate columns, but in RDF they become repeated assertions |
+| `volume_date` (or similar) | Recording date known at volume level | `Volume dcterms:created` (`xsd:date` or `xsd:gYear`) | Enables time coverage queries (Q4) |
+
+---
+
+#### Optional provenance pattern (incremental, PROV-O + CIDOC light)
+
+If later you need explicit recording acts, introduce a **RecordingActivity** without breaking the baseline:
+
+- `rft:RecordingActivity a prov:Activity` (optionally aligned with `crm:E7_Activity`)
+- `Tale prov:wasGeneratedBy rft:RecordingActivity`
+- `rft:RecordingActivity prov:wasAssociatedWith Person`  
+  (use this if you need to qualify roles, responsibility, evidence, or sources)
+
+**Important:** In the pilot, the baseline graph remains:
+- narrator: `dcterms:contributor` on Tale
+- collectors: `dcterms:creator` on Volume
+- time: `dcterms:created` on Volume
+
+This keeps querying and UX simple while preserving an upgrade path.
 
 ---
 
@@ -231,90 +265,83 @@ Each individual tale type (ATU, SUS, national schemes) is represented as:
 ## 5. Agents and Recording Context 
 
 This section defines how we model **narrators** and **collectors** as agents in a way that:
-- preserves the narrators’ strong influence on content/variants,
-- captures collectors’ influence on **text quality / handwriting / HTR**,
-- reflects the fact that **recording time is available at the volume level**, not per tale,
-- stays **portable across traditions** (other peoples’ folktales) and reuse-first (PROV-O + light CIDOC).
+- preserves narrators’ influence on tale variants and content,
+- captures collectors’ influence on **capture conditions** (handwriting, legibility, HTR/OCR usability),
+- reflects that **recording time is available at the volume level**, not per tale,
+- stays **portable across traditions** and reuse-first (PROV-O + light CIDOC-CRM).
 
-### 1) Core principle
+### 5.1 Core principle: stable person identity, role expressed by context
 
-We always mint stable agent URIs for persons and keep roles contextual (a person may be a narrator in one record and a collector in another).  
+We mint stable URIs for persons and keep role attribution **contextual**:
+- the same person can be a narrator in one context and a collector in another;
+- role in a given statement is determined by the **linking predicate** (and may be further qualified if needed).
 
-### 2) Canonical agent entity
+In addition, we maintain lightweight **facet classes** for convenience:
+- `rft:Narrator` and `rft:Collector` are **derived tags** indicating that a person appears in at least one narrator/collector attribution in the dataset.
+- These classes are used for filtering and fast aggregation; they do **not** encode role for a specific record.
 
-Each agent is represented as a person node:
+### 5.2 Canonical agent entity: Person node
 
-- **Types:** `prov:Agent`, optionally also `crm:E21_Person`
-- **Label:** `rdfs:label "Full Name"`
-- **Optional note:** `rdfs:comment` for biographical free text (age/occupation/origin as recorded)
+Each agent is represented as a person resource:
+
+- **Types (canonical):** `prov:Agent`, optionally `crm:E21_Person` and/or `foaf:Person`
+- **Preferred label:** `rdfs:label "Full Name"@<lang>`
+- **Optional biographical notes:** free-text and/or structured fields when available
+
+Recommended additional naming policy:
+- keep `rdfs:label` strictly for the human-facing name;
+- store raw strings / parsing metadata outside `rdfs:label` (e.g., `rft:rawName`, `rft:sourceRecord`, `skos:altLabel`).
 
 **URI template**
-- `BASE + "person/{person_id}"` (preferred)
-- fallback: `BASE + "person/{slug}"` (deterministic, collision-safe)
+- Preferred: `BASE + "person/{person_id}"`
+- Fallback: `BASE + "person/{slug}"` (deterministic and collision-safe)
 
-### 3) Role linking policy
+### 5.3 Role linking policy (two-layer model)
 
-Because narrators are central for content variation, and collectors affect capture/legibility, we use two layers:
+Because narrators drive **content variation**, and collectors drive **capture conditions**, we separate two attribution layers.
 
-#### 3.1 Tale-level content attribution (narrator, always on Tale)
-Narrator is asserted directly on the Tale to support variant and content analysis.
+#### 5.3.1 Tale-level content attribution (Narrator on Tale)
 
-- `Tale dcterms:contributor NarratorAgent .`
+Narrator attribution is asserted directly on the Tale to support variant/content analysis.
 
-Rationale: `dcterms:contributor` is widely understood and allows cross-corpus reuse.  
+- `Tale dcterms:contributor NarratorPerson .`
+
 If multiple narrators exist, repeat the statement.
 
-#### 3.2 Volume-level capture attribution (collectors, on Volume)
-Because recording time is known per volume, and collectors affect handwriting/capture conditions, we treat collectors as part of the volume capture context.
+**Rationale**
+- `dcterms:contributor` is widely understood and cross-corpus friendly.
+- It supports portable querying and aligns with lightweight provenance needs.
 
-- `Volume dcterms:creator CollectorAgent.` 
+#### 5.3.2 Volume-level capture attribution (Collectors on Volume)
 
-This expresses: “these agents are responsible for the creation/recording of this volume’s content”.
+Collectors are part of the **recording/capture context** and are attached at the volume level.
 
-### 4) Time modeling (volume-level)
+- `Volume dcterms:creator CollectorPerson .`
 
-Because dates exist at the volume level, we model time there as the canonical record:
+**Interpretation**
+- This expresses responsibility for compiling/recording the volume’s content and is the canonical hook for capture-related analysis (e.g., handwriting/HTR usability differences across collectors).
 
-- `Volume dcterms:created "YYYY-MM-DD"^^xsd:date`  
-  or, if you truly have ranges:
-- `Volume dcterms:temporal "YYYY–YYYY"` (literal)  
-  and/or an optional `crm:E52_Time-Span` later.
+### 5.4 Recording time and place: volume as the primary context carrier
 
-Tales can be dated indirectly via:
-- `Tale dcterms:isPartOf Volume .`
+Recording time is modeled at the volume level:
 
-This preserves truthfulness to the source and supports time-based analysis at the appropriate granularity.
+- `Volume dcterms:created "YYYY-MM-DD"^^xsd:date .`
+- if only year is known: `Volume dcterms:created "YYYY"^^xsd:gYear .`
 
-### 5) Place modeling 
+Recording place may be attached either:
+- via a generic predicate (portable): `dcterms:spatial`, and/or
+- via project predicates when needed for UI/data quality: `rft:recordingPlace`, `rft:recordingParish`.
 
-If place is known per tale: attach it to the Tale.
-- `Tale dcterms:spatial Place .`
+### 5.5 Optional: qualified attribution for high-precision provenance (PROV-O)
 
-If place is only known at volume level: attach it to the Volume.
-- `Volume dcterms:spatial Place .`
+If future requirements demand explicit role nodes (e.g., narrator vs collector vs editor, with time/place qualifiers),
+we can add qualified PROV attributions without breaking the baseline model:
 
-### 6) Linking structure (minimal published graph)
+- `prov:qualifiedAttribution` with a blank node or URI attribution record
+- `prov:agent` pointing to the person
+- optional role typing or role label on the attribution record
 
-- `Tale dcterms:isPartOf Volume .`
-- `Tale dcterms:contributor NarratorAgent .`   *(content influence)*
-- `Volume dcterms:creator CollectorAgent .`    *(capture / handwriting influence)*
-- `Volume dcterms:created …`                   *(time at volume level)*
-
-This is the minimal, portable structure that supports:
-- “variants by narrator”
-- “top narrators / narrator-based clustering”
-- “collector effects on OCR/HTR quality” (via volume association)
-- “temporal analysis by volume decade/period”
-
-### 7) Quality signals linked to collectors (handwriting / OCR-HTR)
-
-To operationalize the collector effect on recognition quality:
-
-- attach quality metrics to the **text-bearing artifact** (page / transcription / volume-level text object),
-  then aggregate by collector via `Volume dcterms:creator`.
-
-This yields a defensible KM claim:
-> collectors influence capture modality/handwriting, which correlates with recognition quality and downstream extraction reliability.
+This remains optional; the baseline queries and UX operate on `dcterms:contributor` and `dcterms:creator`.
 
 ## 6. Classifier / decision-support layer 
 

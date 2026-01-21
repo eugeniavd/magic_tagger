@@ -14,7 +14,7 @@ versioned baselines for validation and regression checks.
 
 ## Data source
 
-- RDF export (input): `../export/corpus.ttl`
+- RDF export (input): `rdf/rdf_serialization/corpus.ttl`
 
 Release alignment:
 - These queries and expected outputs are intended to be executed against a **specific dataset release**
@@ -42,4 +42,4 @@ Install dependencies (example):
 ```bash
 pip install rdflib pandas
 
-python run_queries.py --data ../export/corpus.ttl --query Q2_top_atu_types.rq --out expected/Q2_top_atu_types.csv
+python -m rdf.queries.run Q2 --data rdf/rdf_serialization/corpus.ttl --out rdf/queries/query_results

@@ -1,4 +1,4 @@
-# File: kg/queries/Q4_top_collectors_time_coverage.rq
+
 # Purpose: Q4 — Top collectors (via volume) + time coverage (min/max volume date)
 # Assumes:
 #   Tale dcterms:isPartOf Volume

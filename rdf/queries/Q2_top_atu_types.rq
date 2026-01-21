@@ -1,15 +1,23 @@
-# File: kg/queries/Q2_top_atu_types.rq
-# Purpose: Q2 — Distribution of ATU types 
+
+# Purpose: Q2 — Distribution of ATU types (Top 20)
 
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
-PREFIX rft:     <https://github.com/eugeniavd/magic_tagger/rdf/ontology/#>
 
 SELECT ?atuConcept ?atuCode (COUNT(DISTINCT ?tale) AS ?taleCount)
 WHERE {
   ?tale dcterms:subject ?atuConcept .
-  ?atuConcept skos:inScheme rft:ATU_Scheme ;
-              skos:notation ?atuCode .
+
+  OPTIONAL { ?atuConcept skos:notation ?atuCodeSkos . }
+  BIND(
+    COALESCE(
+      STR(?atuCodeSkos),
+      STRAFTER(STR(?atuConcept), "/rdf/taleType/atu/")
+    ) AS ?atuCode
+  )
+
+  # safety: drop any subject URIs that are not ATU concepts (if you have other subjects)
+  FILTER(STRSTARTS(STR(?atuConcept), "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/"))
 }
 GROUP BY ?atuConcept ?atuCode
 ORDER BY DESC(?taleCount) ?atuCode

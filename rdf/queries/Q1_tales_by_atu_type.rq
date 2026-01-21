@@ -1,21 +1,31 @@
-# File: kg/queries/Q1_tales_by_atu_type.rq
+
 # Purpose: Q1 — Tales by ATU type (faceted retrieval)
 # Baseline policy: keep a fixed ATU code for the expected output snapshot.
 
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
-PREFIX rft:     <https://github.com/eugeniavd/magic_tagger/rdf/ontology/#>
 
 SELECT ?tale ?taleDesc ?volume ?atuConcept ?atuCode
 WHERE {
   ?tale dcterms:subject ?atuConcept .
-  ?atuConcept skos:inScheme rft:ATU_Scheme ;
-              skos:notation ?atuCode .
+
+  # Prefer explicit skos:notation if you later add SKOS for ATU concepts,
+  # otherwise derive code from the minted URI.
+  OPTIONAL { ?atuConcept skos:notation ?atuCodeSkos . }
+  BIND(
+    COALESCE(
+      STR(?atuCodeSkos),
+      STRAFTER(STR(?atuConcept), "/rdf/taleType/atu/")
+    ) AS ?atuCode
+  )
 
   # Fixed baseline parameter:
-  FILTER(STR(?atuCode) = "707")
+  FILTER(?atuCode = "707")
 
-  OPTIONAL { ?tale dcterms:isPartOf ?volume . }
+  OPTIONAL {
+    ?tale dcterms:isPartOf ?volume .
+    FILTER(CONTAINS(STR(?volume), "/rdf/volume/"))
+  }
   OPTIONAL { ?tale dcterms:description ?taleDesc . }
 }
 ORDER BY ?tale

@@ -1,15 +1,29 @@
-# File: kg/queries/Q3_top_narrators.rq
+
 # Purpose: Q3 — Top narrators by number of tales
-# Assumes narrator attribution on Tale via dcterms:contributor.
+# Model: narrator attribution via dcterms:contributor (IRI or literal)
 
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT ?narrator (SAMPLE(?narrLabel) AS ?narratorLabel) (COUNT(DISTINCT ?tale) AS ?taleCount)
+SELECT ?narratorKey (SAMPLE(?narratorLabel) AS ?narratorLabel) (COUNT(DISTINCT ?tale) AS ?taleCount)
 WHERE {
-  ?tale dcterms:contributor ?narrator .
-  OPTIONAL { ?narrator rdfs:label ?narrLabel . }
+  ?tale dcterms:contributor ?n .
+
+  # Key that groups IRIs and literals consistently
+  BIND(STR(?n) AS ?narratorKey)
+
+  OPTIONAL { ?n rdfs:label ?lbl . }
+
+  BIND(
+    COALESCE(
+      STR(?lbl),
+      IF(isIRI(?n), REPLACE(STR(?n), "^.*/", ""), STR(?n))
+    ) AS ?narratorLabel
+  )
+
+  # Optional: keep only "person-like" IRIs but allow literals through
+  FILTER( !isIRI(?n) || CONTAINS(STR(?n), "/rdf/person/") )
 }
-GROUP BY ?narrator
-ORDER BY DESC(?taleCount) ?narrator
+GROUP BY ?narratorKey
+ORDER BY DESC(?taleCount) LCASE(STR(?narratorLabel))
 LIMIT 20

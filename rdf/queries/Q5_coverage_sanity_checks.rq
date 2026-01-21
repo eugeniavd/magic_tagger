@@ -1,36 +1,51 @@
-# File: kg/queries/Q5_coverage_sanity_checks.rq
+
 # Purpose: Q5 — Coverage sanity checks: missing volume / missing subject / missing place
-# Tale typing is constrained to CIDOC-CRM E33.
-# Place predicate: default is dcterms:spatial; if we use rft:recordingPlace / rft:recordingParish,
-# switch the FILTER NOT EXISTS block accordingly.
+# Tale typing: crm:E33_Linguistic_Object
 
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX crm:     <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX rft:     <https://github.com/eugeniavd/magic_tagger/rdf/ontology/#>
 
 SELECT ?metric (COUNT(DISTINCT ?tale) AS ?count)
 WHERE {
   {
     BIND("missing_volume" AS ?metric)
     ?tale a crm:E33_Linguistic_Object .
-    FILTER NOT EXISTS { ?tale dcterms:isPartOf ?v . }
+    FILTER(isIRI(?tale))
+
+    # Treat "volume" specifically (avoid counting dataset isPartOf as a volume)
+    FILTER NOT EXISTS {
+      ?tale dcterms:isPartOf ?v .
+      FILTER(CONTAINS(STR(?v), "/rdf/volume/"))
+    }
   }
   UNION
   {
     BIND("missing_subject" AS ?metric)
     ?tale a crm:E33_Linguistic_Object .
+    FILTER(isIRI(?tale))
+
     FILTER NOT EXISTS { ?tale dcterms:subject ?s . }
   }
   UNION
   {
     BIND("missing_place" AS ?metric)
     ?tale a crm:E33_Linguistic_Object .
+    FILTER(isIRI(?tale))
 
-    # Option A (default):
-    FILTER NOT EXISTS { ?tale dcterms:spatial ?p . }
-
-    # Option B (if you model place with project predicates):
-    # FILTER NOT EXISTS { ?tale <https://github.com/eugeniavd/magic_tagger/rdf/ontology/#recordingPlace> ?p . }
-    # FILTER NOT EXISTS { ?tale <https://github.com/eugeniavd/magic_tagger/rdf/ontology/#recordingParish> ?p . }
+    FILTER NOT EXISTS {
+      {
+        ?tale dcterms:spatial ?p .
+      }
+      UNION
+      {
+        ?tale rft:recordingPlace ?p .
+      }
+      UNION
+      {
+        ?tale rft:recordingParish ?p .
+      }
+    }
   }
 }
 GROUP BY ?metric
