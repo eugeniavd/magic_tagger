@@ -727,18 +727,14 @@
         "Nastasja Krõpetskaja"@et ;
     rft:age 60 .
 
-<https://github.com/eugeniavd/magic_tagger/rdf/person/natal-ia-alekseevna-pagareva> a crm:E21_Person,
-        prov:Agent,
-        foaf:Person,
-        rft:Narrator ;
-    rdfs:label "Natal'ia Alekseevna Pagareva"@en,
-        "Наталья Алексеевна Пагарева"@ru .
-
 <https://github.com/eugeniavd/magic_tagger/rdf/person/natalia-alekseevna-pagareva> a crm:E21_Person,
         prov:Agent,
         foaf:Person,
-        rft:Collector ;
-    rdfs:label "{'person_id': 'natal-ia-alekseevna-pagareva', 'label_en': 'natal ia alekseevna pagareva', 'raw': 'Наталья Алексеевна Пагарева', 'name_raw': 'Наталья Алексеевна Пагарева'}"@ru .
+        rft:Collector,
+        rft:Narrator ;
+    rdfs:label "Natal'ia Alekseevna Pagareva"@en,
+        "{'person_id': 'natalia-alekseevna-pagareva', 'label_en': 'natalia alekseevna pagareva', 'raw': 'Наталья Алексеевна Пагарева', 'name_raw': 'Наталья Алексеевна Пагарева'}"@ru,
+        "Наталья Алексеевна Пагарева"@ru .
 
 <https://github.com/eugeniavd/magic_tagger/rdf/person/neizvestno> a crm:E21_Person,
         prov:Agent,
@@ -768,12 +764,6 @@
         rft:Collector ;
     rdfs:label "{'person_id': 'o-brandt', 'label_en': 'o brandt', 'raw': 'O. Brandt', 'name_raw': 'O. Brandt'}"@et .
 
-<https://github.com/eugeniavd/magic_tagger/rdf/person/ol-ga-gromova> a crm:E21_Person,
-        prov:Agent,
-        foaf:Person,
-        rft:Collector ;
-    rdfs:label "{'person_id': 'ol-ga-gromova', 'label_en': 'ol ga gromova', 'raw': 'Ольга Громова', 'name_raw': 'Ольга Громова'}"@ru .
-
 <https://github.com/eugeniavd/magic_tagger/rdf/person/oleg-riumin-ivanov> a crm:E21_Person,
         prov:Agent,
         foaf:Person,
@@ -794,7 +784,13 @@
         prov:Agent,
         foaf:Person,
         rft:Collector ;
-    rdfs:label "{'person_id': 'ol-ga-gil-debrandt', 'label_en': 'ol ga gil debrandt', 'raw': 'Ольга Гильдебрандт', 'name_raw': 'Ольга Гильдебрандт'}"@ru .
+    rdfs:label "{'person_id': 'olga-gil-debrandt', 'label_en': 'olga gil debrandt', 'raw': 'Ольга Гильдебрандт', 'name_raw': 'Ольга Гильдебрандт'}"@ru .
+
+<https://github.com/eugeniavd/magic_tagger/rdf/person/olga-gromova> a crm:E21_Person,
+        prov:Agent,
+        foaf:Person,
+        rft:Collector ;
+    rdfs:label "{'person_id': 'olga-gromova', 'label_en': 'olga gromova', 'raw': 'Ольга Громова', 'name_raw': 'Ольга Громова'}"@ru .
 
 <https://github.com/eugeniavd/magic_tagger/rdf/person/s-minusov> a crm:E21_Person,
         prov:Agent,
@@ -859,7 +855,7 @@
         rft:Collector ;
     rdfs:label "{'person_id': 'vera-voogla', 'label_en': 'vera voogla', 'raw': 'Вера Воогла', 'name_raw': 'Вера Воогла'}"@ru .
 
-<https://github.com/eugeniavd/magic_tagger/rdf/person/z-vasil-eva-suvorova> a crm:E21_Person,
+<https://github.com/eugeniavd/magic_tagger/rdf/person/z-vasileva-suvorova> a crm:E21_Person,
         prov:Agent,
         foaf:Person,
         rft:Narrator ;
@@ -871,7 +867,7 @@
         prov:Agent,
         foaf:Person,
         rft:Collector ;
-    rdfs:label "{'person_id': 'z-vasil-eva-suvorova', 'label_en': 'z vasil eva suvorova', 'raw': 'З. Васильева-Суворова', 'name_raw': 'З. Васильева-Суворова'}"@ru .
+    rdfs:label "{'person_id': 'z-vasileva-suvorova', 'label_en': 'z vasileva suvorova', 'raw': 'З. Васильева-Суворова', 'name_raw': 'З. Васильева-Суворова'}"@ru .
 
 <https://github.com/eugeniavd/magic_tagger/rdf/person/zoia-aleksandrovna-iupatova> a crm:E21_Person,
         prov:Agent,

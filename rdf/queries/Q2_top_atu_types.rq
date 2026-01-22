@@ -1,24 +1,51 @@
-
-# Purpose: Q2 — Distribution of ATU types (Top 20)
+# Q2 — Distribution of ATU types + notation + prefLabel + cleaned title
+# Output columns: atuConcept, atuCode, atuPrefLabel, atuTitle, taleCount
 
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
 
-SELECT ?atuConcept ?atuCode (COUNT(DISTINCT ?tale) AS ?taleCount)
+SELECT
+  ?atuConcept
+  ?atuCode
+  (SAMPLE(?atuPrefLabelFinal) AS ?atuPrefLabel)
+  (SAMPLE(?atuTitleFinal) AS ?atuTitle)
+  (COUNT(DISTINCT ?tale) AS ?taleCount)
 WHERE {
   ?tale dcterms:subject ?atuConcept .
 
-  OPTIONAL { ?atuConcept skos:notation ?atuCodeSkos . }
+  FILTER(STRSTARTS(STR(?atuConcept), "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/"))
+
+  # --- code: prefer skos:notation (handles 556A* even if URI is 556A-star)
+  OPTIONAL { ?atuConcept skos:notation ?not . }
+  BIND(STR(?not) AS ?notStr)
+
+  # fallback from URI, with "-star" -> "*"
+  BIND(
+    REPLACE(STRAFTER(STR(?atuConcept), "/rdf/taleType/atu/"), "-star$", "*")
+    AS ?codeFromUri
+  )
+  BIND(COALESCE(?notStr, ?codeFromUri) AS ?atuCode)
+
+  # --- prefLabel: prefer EN, fallback to any prefLabel, else use code
+  OPTIONAL { ?atuConcept skos:prefLabel ?prefEn . FILTER(LANG(?prefEn) = "en") }
+  OPTIONAL { ?atuConcept skos:prefLabel ?prefAny . }
+
   BIND(
     COALESCE(
-      STR(?atuCodeSkos),
-      STRAFTER(STR(?atuConcept), "/rdf/taleType/atu/")
-    ) AS ?atuCode
+      STR(?prefEn),
+      STR(?prefAny),
+      ?atuCode
+    ) AS ?atuPrefLabelFinal
   )
 
-  # safety: drop any subject URIs that are not ATU concepts (if you have other subjects)
-  FILTER(STRSTARTS(STR(?atuConcept), "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/"))
+  # --- title: remove leading "ATU <code> " if present; fallback to prefLabel/code
+  BIND(
+    COALESCE(
+      REPLACE(?atuPrefLabelFinal, "^ATU\\s+[^\\s]+\\s+", ""),
+      ?atuPrefLabelFinal,
+      ?atuCode
+    ) AS ?atuTitleFinal
+  )
 }
 GROUP BY ?atuConcept ?atuCode
 ORDER BY DESC(?taleCount) ?atuCode
-LIMIT 20

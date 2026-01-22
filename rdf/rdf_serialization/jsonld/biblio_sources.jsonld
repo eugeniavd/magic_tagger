@@ -35,6 +35,21 @@
     "description": {
       "@id": "dct:description"
     },
+    "bibliographicCitation": {
+      "@id": "dct:bibliographicCitation"
+    },
+    "accessRights": {
+      "@id": "dct:accessRights"
+    },
+    "rights": {
+      "@id": "dct:rights"
+    },
+    "language": {
+      "@id": "dct:language"
+    },
+    "format": {
+      "@id": "dct:format"
+    },
     "creator": {
       "@id": "dct:creator",
       "@type": "@id"
@@ -44,7 +59,8 @@
       "@type": "@id"
     },
     "publisher": {
-      "@id": "dct:publisher"
+      "@id": "dct:publisher",
+      "@type": "@id"
     },
     "isPartOf": {
       "@id": "dct:isPartOf",
@@ -58,24 +74,12 @@
       "@id": "dct:subject",
       "@type": "@id"
     },
-    "spatial": {
-      "@id": "dct:spatial"
-    },
-    "rights": {
-      "@id": "dct:rights"
-    },
-    "accessRights": {
-      "@id": "dct:accessRights"
-    },
     "license": {
       "@id": "dct:license",
       "@type": "@id"
     },
-    "language": {
-      "@id": "dct:language"
-    },
-    "format": {
-      "@id": "dct:format"
+    "spatial": {
+      "@id": "dct:spatial"
     },
     "created": {
       "@id": "dct:created",
@@ -118,28 +122,67 @@
     "birthYear": {
       "@id": "rft:birthYear",
       "@type": "xsd:gYear"
-    },
-    "uri": {
-      "@id": "rft:uri",
-      "@type": "@id"
     }
   },
   "@graph": [
     {
+      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_284-286_2011_uther",
+      "@type": [
+        "http://purl.org/dc/terms/BibliographicResource",
+        "http://www.w3.org/ns/prov#Entity"
+      ],
+      "http://purl.org/dc/terms/bibliographicCitation": [
+        {
+          "@language": "en",
+          "@value": "Folklore Fellows’ Communications (FFC) 284–286. Sastamala: Vammalan Kirjapaino Oy, 2011. First published in 2004."
+        }
+      ],
+      "http://purl.org/dc/terms/hasPart": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_284_2011"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_285_2011"
+        },
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_286_2011"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "FFC 284–286 (2011): The Types of International Folktales – A Classification and Bibliography"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+        {
+          "@id": "https://edition.fi/kalevalaseura/catalog/view/763/715/2750-1"
+        }
+      ]
+    },
+    {
       "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_284_2011",
       "@type": [
-        "dcterms:BibliographicResource",
-        "prov:Entity"
+        "http://purl.org/dc/terms/BibliographicResource",
+        "http://www.w3.org/ns/prov#Entity"
       ],
-      "dcterms:identifier": "OCLC:974404961",
-      "dcterms:isPartOf": {
-        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_284-286_2011_uther"
-      },
-      "rdfs:label": {
-        "@language": "en",
-        "@value": "FFC 284 (2011): Animal Tales, Tales of Magic, Religious Tales, and Realistic Tales"
-      },
-      "rdfs:seeAlso": [
+      "http://purl.org/dc/terms/identifier": [
+        {
+          "@value": "OCLC:974404961"
+        }
+      ],
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_284-286_2011_uther"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "FFC 284 (2011): Animal Tales, Tales of Magic, Religious Tales, and Realistic Tales"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
         {
           "@id": "https://edition.fi/kalevalaseura/catalog/book/763"
         },
@@ -151,18 +194,26 @@
     {
       "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_285_2011",
       "@type": [
-        "dcterms:BibliographicResource",
-        "prov:Entity"
+        "http://purl.org/dc/terms/BibliographicResource",
+        "http://www.w3.org/ns/prov#Entity"
       ],
-      "dcterms:identifier": "OCLC:974406311",
-      "dcterms:isPartOf": {
-        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_284-286_2011_uther"
-      },
-      "rdfs:label": {
-        "@language": "en",
-        "@value": "FFC 285 (2011): Tales of the Stupid Ogre, Anecdotes and Jokes, and Formula Tales"
-      },
-      "rdfs:seeAlso": [
+      "http://purl.org/dc/terms/identifier": [
+        {
+          "@value": "OCLC:974406311"
+        }
+      ],
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_284-286_2011_uther"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "FFC 285 (2011): Tales of the Stupid Ogre, Anecdotes and Jokes, and Formula Tales"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
         {
           "@id": "https://edition.fi/kalevalaseura/catalog/book/765"
         },
@@ -174,18 +225,26 @@
     {
       "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_286_2011",
       "@type": [
-        "dcterms:BibliographicResource",
-        "prov:Entity"
+        "http://purl.org/dc/terms/BibliographicResource",
+        "http://www.w3.org/ns/prov#Entity"
       ],
-      "dcterms:identifier": "OCLC:974415887",
-      "dcterms:isPartOf": {
-        "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_284-286_2011_uther"
-      },
-      "rdfs:label": {
-        "@language": "en",
-        "@value": "FFC 286 (2011): Appendices"
-      },
-      "rdfs:seeAlso": [
+      "http://purl.org/dc/terms/identifier": [
+        {
+          "@value": "OCLC:974415887"
+        }
+      ],
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_284-286_2011_uther"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "FFC 286 (2011): Appendices"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
         {
           "@id": "https://edition.fi/kalevalaseura/catalog/book/769"
         },
@@ -193,35 +252,6 @@
           "@id": "https://search.worldcat.org/it/title/974415887"
         }
       ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_284-286_2011_uther",
-      "@type": [
-        "dcterms:BibliographicResource",
-        "prov:Entity"
-      ],
-      "dcterms:bibliographicCitation": {
-        "@language": "en",
-        "@value": "Folklore Fellows’ Communications (FFC) 284–286. Sastamala: Vammalan Kirjapaino Oy, 2011. First published in 2004."
-      },
-      "dcterms:hasPart": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_284_2011"
-        },
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_285_2011"
-        },
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/biblio/ffc_286_2011"
-        }
-      ],
-      "rdfs:label": {
-        "@language": "en",
-        "@value": "FFC 284–286 (2011): The Types of International Folktales – A Classification and Bibliography"
-      },
-      "rdfs:seeAlso": {
-        "@id": "https://edition.fi/kalevalaseura/catalog/view/763/715/2750-1"
-      }
     }
   ]
 }

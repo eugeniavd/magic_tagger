@@ -1,24 +1,43 @@
-
-# Purpose: Q5 — Coverage sanity checks: missing volume / missing subject / missing place
-# Tale typing: crm:E33_Linguistic_Object
+# Purpose: Q5 — Coverage sanity checks 
+# Scope: Tales (crm:E33_Linguistic_Object)
 
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX crm:     <http://www.cidoc-crm.org/cidoc-crm/>
 PREFIX rft:     <https://github.com/eugeniavd/magic_tagger/rdf/ontology/#>
+PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
 
 SELECT ?metric (COUNT(DISTINCT ?tale) AS ?count)
 WHERE {
+  # ------------------------------------------------------------
+  # A) Containers / provenance
+  # ------------------------------------------------------------
   {
-    BIND("missing_volume" AS ?metric)
+    BIND("missing_volume_container" AS ?metric)
     ?tale a crm:E33_Linguistic_Object .
     FILTER(isIRI(?tale))
 
-    # Treat "volume" specifically (avoid counting dataset isPartOf as a volume)
+    # No volume membership (avoid counting dataset isPartOf as volume)
     FILTER NOT EXISTS {
       ?tale dcterms:isPartOf ?v .
       FILTER(CONTAINS(STR(?v), "/rdf/volume/"))
     }
   }
+  UNION
+  {
+    BIND("missing_dataset_container" AS ?metric)
+    ?tale a crm:E33_Linguistic_Object .
+    FILTER(isIRI(?tale))
+
+    # Requires dataset/container membership (adjust if you use different IRI patterns)
+    FILTER NOT EXISTS {
+      ?tale dcterms:isPartOf ?ds .
+      FILTER(CONTAINS(STR(?ds), "/rdf/dataset/"))
+    }
+  }
+
+  # ------------------------------------------------------------
+  # B) Typing (ATU via dcterms:subject)
+  # ------------------------------------------------------------
   UNION
   {
     BIND("missing_subject" AS ?metric)
@@ -29,22 +48,84 @@ WHERE {
   }
   UNION
   {
+    BIND("subject_not_atu_concept" AS ?metric)
+    ?tale a crm:E33_Linguistic_Object .
+    FILTER(isIRI(?tale))
+
+    # Has subject, but none of the subjects looks like an ATU concept URI
+    FILTER EXISTS { ?tale dcterms:subject ?s_any . }
+    FILTER NOT EXISTS {
+      ?tale dcterms:subject ?s_atu .
+      FILTER(CONTAINS(STR(?s_atu), "/rdf/taleType/atu/"))
+    }
+  }
+
+  # ------------------------------------------------------------
+  # C) People
+  # ------------------------------------------------------------
+  UNION
+  {
+    BIND("missing_narrator_contributor" AS ?metric)
+    ?tale a crm:E33_Linguistic_Object .
+    FILTER(isIRI(?tale))
+
+    FILTER NOT EXISTS { ?tale dcterms:contributor ?narrator . }
+  }
+  UNION
+  {
+    BIND("missing_collector_creator_on_volume" AS ?metric)
+    ?tale a crm:E33_Linguistic_Object .
+    FILTER(isIRI(?tale))
+
+    # If tale has a volume container, ensure that volume has a collector (dcterms:creator)
+    FILTER EXISTS {
+      ?tale dcterms:isPartOf ?v .
+      FILTER(CONTAINS(STR(?v), "/rdf/volume/"))
+    }
+    FILTER NOT EXISTS {
+      ?tale dcterms:isPartOf ?v2 .
+      FILTER(CONTAINS(STR(?v2), "/rdf/volume/")) .
+      ?v2 dcterms:creator ?collector .
+    }
+  }
+
+  # ------------------------------------------------------------
+  # D) Place
+  # ------------------------------------------------------------
+  UNION
+  {
     BIND("missing_place" AS ?metric)
     ?tale a crm:E33_Linguistic_Object .
     FILTER(isIRI(?tale))
 
     FILTER NOT EXISTS {
-      {
-        ?tale dcterms:spatial ?p .
-      }
-      UNION
-      {
-        ?tale rft:recordingPlace ?p .
-      }
-      UNION
-      {
-        ?tale rft:recordingParish ?p .
-      }
+      { ?tale dcterms:spatial ?p . }
+      UNION { ?tale rft:recordingPlace ?p . }
+      UNION { ?tale rft:recordingParish ?p . }
+    }
+  }
+
+  # ------------------------------------------------------------
+  # E) Time (tale-level dcterms:created)
+  # ------------------------------------------------------------
+  UNION
+  {
+    BIND("missing_created_date" AS ?metric)
+    ?tale a crm:E33_Linguistic_Object .
+    FILTER(isIRI(?tale))
+
+    FILTER NOT EXISTS { ?tale dcterms:created ?dt . }
+  }
+  UNION
+  {
+    BIND("created_date_not_xsd_date" AS ?metric)
+    ?tale a crm:E33_Linguistic_Object .
+    FILTER(isIRI(?tale))
+
+    FILTER EXISTS { ?tale dcterms:created ?dt_any . }
+    FILTER NOT EXISTS {
+      ?tale dcterms:created ?dt_ok .
+      FILTER(datatype(?dt_ok) = xsd:date)
     }
   }
 }

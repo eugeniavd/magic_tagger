@@ -1,21 +1,55 @@
-collector,collectorLabel,taleCount,minDate,maxDate
-https://github.com/eugeniavd/magic_tagger/rdf/person/zoia-zhemchuzhina,,22,,
-https://github.com/eugeniavd/magic_tagger/rdf/person/ol-ga-gromova,,10,,
-https://github.com/eugeniavd/magic_tagger/rdf/person/m-sokolov,,8,,
-https://github.com/eugeniavd/magic_tagger/rdf/person/fedor-koniaev,,6,,
-https://github.com/eugeniavd/magic_tagger/rdf/person/maria-sokolova,,5,,
-https://github.com/eugeniavd/magic_tagger/rdf/person/o-brandt,,5,,
-https://github.com/eugeniavd/magic_tagger/rdf/person/olga-brandt,,5,,
-https://github.com/eugeniavd/magic_tagger/rdf/person/z-vasilieva-suvorova,,5,,
-https://github.com/eugeniavd/magic_tagger/rdf/person/col025,,4,,
-https://github.com/eugeniavd/magic_tagger/rdf/person/col029,,4,,
-https://github.com/eugeniavd/magic_tagger/rdf/person/col031,,4,,
-https://github.com/eugeniavd/magic_tagger/rdf/person/col033,,4,,
-https://github.com/eugeniavd/magic_tagger/rdf/person/col041,,4,,
-https://github.com/eugeniavd/magic_tagger/rdf/person/natalia-alekseevna-pagareva,,4,,
-https://github.com/eugeniavd/magic_tagger/rdf/person/col015,,3,,
-https://github.com/eugeniavd/magic_tagger/rdf/person/egorov-v,,3,,
-https://github.com/eugeniavd/magic_tagger/rdf/person/col034,,2,,
-https://github.com/eugeniavd/magic_tagger/rdf/person/col044,,2,,
-https://github.com/eugeniavd/magic_tagger/rdf/person/vera-voogla,,2,,
-https://github.com/eugeniavd/magic_tagger/rdf/person/zoia-dondukova,,2,,
+collector,collectorLabel,year,taleCount
+https://github.com/eugeniavd/magic_tagger/rdf/person/fedor-koniaev,fedor koniaev,1928,6
+https://github.com/eugeniavd/magic_tagger/rdf/person/natalia-alekseevna-pagareva,Natal'ia Alekseevna Pagareva,1930,4
+https://github.com/eugeniavd/magic_tagger/rdf/person/zoia-dondukova,zoia dondukova,1933,2
+https://github.com/eugeniavd/magic_tagger/rdf/person/maria-sokolova,maria sokolova,1934,5
+https://github.com/eugeniavd/magic_tagger/rdf/person/m-sokolov,m sokolov,1935,8
+https://github.com/eugeniavd/magic_tagger/rdf/person/z-vasilieva-suvorova,z vasileva suvorova,1935,5
+https://github.com/eugeniavd/magic_tagger/rdf/person/egorov-v,egorov v,1936,3
+https://github.com/eugeniavd/magic_tagger/rdf/person/olga-gromova,olga gromova,1938,10
+https://github.com/eugeniavd/magic_tagger/rdf/person/zoia-zhemchuzhina,zoia zhemchuzhina,1939,22
+https://github.com/eugeniavd/magic_tagger/rdf/person/o-brandt,o brandt,1940,5
+https://github.com/eugeniavd/magic_tagger/rdf/person/olga-brandt,olga brandt,1941,5
+https://github.com/eugeniavd/magic_tagger/rdf/person/vera-voogla,vera voogla,1948,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/vera-voogla,vera voogla,1949,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/olga-gildebrandt,olga gil debrandt,1949,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col025,col025,1963,4
+https://github.com/eugeniavd/magic_tagger/rdf/person/col029,col029,1963,4
+https://github.com/eugeniavd/magic_tagger/rdf/person/col031,col031,1963,4
+https://github.com/eugeniavd/magic_tagger/rdf/person/col033,col033,1963,4
+https://github.com/eugeniavd/magic_tagger/rdf/person/col041,col041,1963,4
+https://github.com/eugeniavd/magic_tagger/rdf/person/col034,col034,1963,2
+https://github.com/eugeniavd/magic_tagger/rdf/person/col044,col044,1963,2
+https://github.com/eugeniavd/magic_tagger/rdf/person/col026,col026,1963,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col030,col030,1963,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col038,col038,1963,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col042,col042,1963,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col028,col028,1963,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col032,col032,1963,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col037,col037,1963,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col040,col040,1963,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col014,col014,1964,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col016,col016,1964,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col018,col018,1964,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col024,col024,1965,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col027,col027,1965,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col035,col035,1965,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col043,col043,1965,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col003,col003,1966,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col004,col004,1966,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col007,col007,1966,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col011,col011,1966,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col009,col009,1966,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col017,col017,1966,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col020,col020,1966,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col008,col008,1966,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col019,col019,1966,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col002,col002,1967,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col005,col005,1967,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col006,col006,1967,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col012,col012,1967,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col013,col013,1967,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col021,col021,1967,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col022,col022,1967,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col023,col023,1967,1
+https://github.com/eugeniavd/magic_tagger/rdf/person/col015,col015,1968,3

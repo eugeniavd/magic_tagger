@@ -4,6 +4,8 @@ import os
 import sys
 from datetime import datetime, timezone
 import copy
+import pandas as pd
+import numpy as np
 
 import html
 import json
@@ -11,6 +13,8 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 from pathlib import Path
 import streamlit as st
 from functools import lru_cache
+import altair as alt
+
 
 from src.service import classify
 from src.utils import atu_parent
@@ -34,11 +38,41 @@ LABELS_PATH = MODELS_DIR / "labels.json"
 META_PATH = MODELS_DIR / "meta.json"
 ATU_LABELS_PATH = REPO_ROOT / "data" / "processed" / "atu_labels.json"
 
+DATA_DIR = REPO_ROOT / "data"
+PROCESSED_DIR = DATA_DIR / "processed"
+CORPUS_PATH = REPO_ROOT / "data" / "processed" / "corpus_a_for_kg.csv"
+
+# SPARQL CQ outputs 
+CQ_RESULTS_DIR = REPO_ROOT / "rdf" / "queries"  / "query_results"
+
+# RDF / KG export candidates
+RDF_EXPORT_DIR = REPO_ROOT / "rdf" / "rdf_serialization"
+RDF_JSONLD_DIR = RDF_EXPORT_DIR / "jsonld"
+
+REPO_URL = "https://github.com/eugeniavd/magic_tagger"
+
+TALE_ID_COL = "tale_id"
+VOLUME_ID_COL = "volume_id"
+COLLECTION_COL = "collection"
+NARRATOR_COL = "narrator_label_en"
+ATU_COL = "atu_codes"  
 
 @st.cache_data(show_spinner=False)
 def load_training_meta() -> dict:
     with META_PATH.open("r", encoding="utf-8") as f:
         return json.load(f)
+
+def load_csv_if_exists(path: Path) -> pd.DataFrame:
+    if not path or not path.exists():
+        return pd.DataFrame()
+    try:
+        return pd.read_csv(path)
+    except Exception:
+        # tolerate TSV
+        try:
+            return pd.read_csv(path, sep="\t")
+        except Exception:
+            return pd.DataFrame()
 
 def attach_training_meta(result: dict, training_meta: dict) -> dict:
     result.setdefault("meta", {})
@@ -86,10 +120,29 @@ def get_atu_title(code: str) -> str:
 APP_TITLE = "MagicTagger — Tale Classifier"
 APP_SUBTITLE = "Prototype UI: Top-3 ATU + Anchors"
 
+@st.cache_data(show_spinner=False)
+def load_corpus_df(path_str: str, mtime: float) -> pd.DataFrame:
+    """
+    Streamlit cache invalidation key includes file modification time (mtime),
+    so metrics auto-refresh when file changes.
+    """
+    path = Path(path_str)
+    if not path.exists():
+        return pd.DataFrame()
+    # choose loader by suffix
+    if path.suffix.lower() == ".parquet":
+        return pd.read_parquet(path)
+    return pd.read_csv(path)
+
+def get_corpus_df(path: Path) -> pd.DataFrame:
+    mtime = path.stat().st_mtime if path.exists() else 0.0
+    return load_corpus_df(str(path), mtime)
 
 # -----------------------------
 # Utilities
 # -----------------------------
+
+
 def _init_state() -> None:
     st.session_state.setdefault("nav_main", "Home")
     st.session_state.setdefault("nav_explore", "Overview")
@@ -98,6 +151,27 @@ def _init_state() -> None:
     st.session_state.setdefault("last_tale_id", "external_001")
     st.session_state.setdefault("selected_atu", None)         # type: Optional[str]
     st.session_state.setdefault("help_open", False)
+    st.session_state.setdefault("explore_tab", "Corpus Overview")  
+
+
+def _first_existing_dir(candidates: List[Path]) -> Optional[Path]:
+    for p in candidates:
+        try:
+            if p.exists() and p.is_dir():
+                return p
+        except Exception:
+            pass
+    return None
+
+
+def _first_existing_file(candidates: List[Path]) -> Optional[Path]:
+    for p in candidates:
+        try:
+            if p.exists() and p.is_file():
+                return p
+        except Exception:
+            pass
+    return None
 
 
 def _set_home() -> None:
@@ -301,7 +375,85 @@ def apply_expert_override(result: dict, expert_state: dict) -> dict:
     effective["meta"] = meta
     return effective
 
+def find_cq_file(filename: str) -> Optional[Path]:
+ 
+    if not CQ_RESULTS_DIR.exists():
+        return None
+    p = CQ_RESULTS_DIR / filename
+    return p if p.exists() else None
 
+
+def safe_metric(value: Any) -> str:
+    if value is None:
+        return "—"
+    try:
+        if isinstance(value, (int, np.integer)):
+            return f"{int(value)}"
+        if isinstance(value, (float, np.floating)):
+            if float(value).is_integer():
+                return f"{int(value)}"
+            return f"{float(value):.2f}"
+        s = str(value).strip()
+        return s if s else "—"
+    except Exception:
+        return "—"
+
+
+def read_text_head(path: Path, max_lines: int = 200) -> str:
+    if not path or not path.exists():
+        return ""
+    try:
+        with path.open("r", encoding="utf-8", errors="replace") as f:
+            lines = []
+            for i, line in enumerate(f):
+                if i >= max_lines:
+                    break
+                lines.append(line.rstrip("\n"))
+        return "\n".join(lines)
+    except Exception:
+        return ""
+
+
+def read_bytes(path: Path) -> bytes:
+    try:
+        return path.read_bytes()
+    except Exception:
+        return b""
+
+def _nunique_nonempty(series: pd.Series) -> int:
+    s = series.dropna().astype(str).str.strip()
+    s = s[s != ""]
+    return int(s.nunique())
+
+def _count_unique_atu(df: pd.DataFrame, col: str) -> Optional[int]:
+    if col not in df.columns:
+        return None
+    s = df[col]
+
+    # list-per-row case
+    if s.apply(lambda x: isinstance(x, list)).any():
+        codes = s.dropna().explode().astype(str).str.strip()
+        codes = codes[codes != ""]
+        return int(codes.nunique())
+
+    # string case (single or multi)
+    ss = s.dropna().astype(str).str.strip()
+    if ss.empty:
+        return 0
+
+    # if delimiter present, split; else treat as single code
+    if ss.str.contains(r"[;,]").any() or ss.str.contains(r"\[").any():
+        codes = (
+            ss.str.replace(r"[\[\]\"']", "", regex=True)
+              .str.split(r"[;,]\s*")
+              .explode()
+              .astype(str)
+              .str.strip()
+        )
+        codes = codes[codes != ""]
+        return int(codes.nunique())
+
+    return _nunique_nonempty(ss)
 # -----------------------------
 # Navigation
 # -----------------------------
@@ -315,17 +467,8 @@ def render_left_nav() -> None:
         label_visibility="collapsed",
     )
 
-    if main == "Explore":
-        st.sidebar.markdown("#### Explore")
-        st.sidebar.radio(
-            "Explore sections",
-            ["Overview", "Types", "Maps & Timeline", "Names & Roles"],
-            key="nav_explore",
-            label_visibility="collapsed",
-        )
-
     st.sidebar.markdown("---")
-    st.sidebar.caption("Prototype: UI + service contract (no model)")
+    st.sidebar.caption("Prototype, work in progress")
 
 
 # -----------------------------
@@ -402,6 +545,7 @@ def page_home() -> None:
         )
         st.markdown("</div>", unsafe_allow_html=True)
 
+
     with c2:
         st.markdown('<div class="card">', unsafe_allow_html=True)
         st.markdown("### Classify a tale")
@@ -419,7 +563,7 @@ def page_home() -> None:
         st.markdown("</div>", unsafe_allow_html=True)
 
     # -----------------------------
-    # Minimal “status/limitations” line (no self-sabotage)
+    # Minimal “status/limitations” line 
     # -----------------------------
     st.write("")
     st.caption(
@@ -428,48 +572,605 @@ def page_home() -> None:
     )
 
 
+
+
+
 # -----------------------------
 # Explore
 # -----------------------------
 
-def page_explore_overview() -> None:
-    st.header("Explore — Overview")
-    st.write("High-level stats and featured maps/charts (placeholder).")
+def page_explore() -> None:
+    # -----------------------------
+    # Page header 
+    # -----------------------------
+    st.markdown("# Explore the Corpus")
+    st.write(
+        "A structured overview of the corpus composition, metadata coverage, ATU type distribution "
+        "and RDF serializations for reuse."
+    )
 
-    m1, m2, m3 = st.columns(3)
-    m1.metric("Tales", "—")
-    m2.metric("Volumes", "—")
-    m3.metric("Collectors", "—")
+    with st.expander("How the corpus was built"):
+        st.markdown(
+    """
+    - **Source**: Estonian Folklore Archive, Russian-language collections (originally handwritten notebooks)  
+    - **Digitization**: physical notebooks → scanned page images  
+    - **Text**: HTR-assisted extraction + manual correction or transcriptions; normalization → corpus tables  
+    - **Metadata harmonization**: volumes, collectors, narrators, places, dates (tale-level vs volume-level attribution)  
+    - **Typing layer**: ATU concepts linked via `dcterms:subject`   
+    - **Knowledge Graph**: JSON-LD / Turtle exports with provenance (PROV-O) and reuse-first vocabularies  
+    
+    Note: Texts selected for close reading and annotation currently prioritize the subset used to train and evaluate the ATU classifier, 
+    with an emphasis on high-frequency types to maximize training signal and coverage.  
+    """
+)
 
-    st.info("Add: Top ATU types, decade distribution, region map, and collector network highlights.")
+    # -----------------------------
+    # Load CQ outputs 
+    # -----------------------------
+    q2_path = find_cq_file("Q2.csv")
+    q3_path = find_cq_file("Q3.csv")
+    q4_path = find_cq_file("Q4.csv")
+    q5_path = find_cq_file("Q5.csv")
+    q1_all_path = find_cq_file("Q1.csv")  
+
+    df_q2 = load_csv_if_exists(q2_path) if q2_path else pd.DataFrame()
+    df_q3 = load_csv_if_exists(q3_path) if q3_path else pd.DataFrame()
+    df_q4 = load_csv_if_exists(q4_path) if q4_path else pd.DataFrame()
+    df_q5 = load_csv_if_exists(q5_path) if q5_path else pd.DataFrame()
+    df_q1 = load_csv_if_exists(q1_all_path) if q1_all_path else pd.DataFrame()
+
+    # -----------------------------
+    # Tabs 
+    # -----------------------------
+    tab_names = ["Corpus Overview", "Metadata", "Types Explorer", "Knowledge Graph"]
+    picked = st.session_state.get("explore_tab", "Overview")
+    if picked not in tab_names:
+       picked = "Overview"
+
+    # reorder so the picked tab becomes the first (active) tab
+    ordered = [picked] + [t for t in tab_names if t != picked]
+    t1, t2, t3, t4 = st.tabs(ordered)
+    tabs = {ordered[0]: t1, ordered[1]: t2, ordered[2]: t3, ordered[3]: t4}
+    
+
+    # =========================================================
+    # Tab 1 — Overview 
+    # =========================================================
+    df = get_corpus_df(CORPUS_PATH)
+    if df.empty:
+       st.warning(f"Corpus file not found or empty: {CORPUS_PATH}")
+       return
+    
+    with tabs["Corpus Overview"]:
+        st.markdown("## Key stats")
+        
+        # Compute counts (robust fallbacks)
+        tales_count = _nunique_nonempty(df[TALE_ID_COL]) if TALE_ID_COL in df.columns else int(len(df))
+        volumes_count = _nunique_nonempty(df[VOLUME_ID_COL]) if VOLUME_ID_COL in df.columns else None
+        collections_count = _nunique_nonempty(df[COLLECTION_COL]) if COLLECTION_COL in df.columns else None
+        narrators_count = _nunique_nonempty(df[NARRATOR_COL]) if NARRATOR_COL in df.columns else None
+        atu_types_count = _count_unique_atu(df, ATU_COL)
+
+        # Render metric grid
+        m1, m2, m3, m4, m5, m6 = st.columns(6)
+        m1.metric("Tales", safe_metric(tales_count))
+        m2.metric("Volumes", safe_metric(volumes_count))
+        m3.metric("Collections", safe_metric(collections_count))
+        m4.metric("ATU Types", safe_metric(atu_types_count))
+        m5.metric("Narrators", safe_metric(narrators_count))
+ 
+
+        st.markdown("## Corpus overview charts")
+
+        c1, c2 = st.columns(2, vertical_alignment="top")
+
+        with c1:
+           st.markdown("**Top ATU types**")
+
+           if df_q2.empty or not {"atuCode", "taleCount"}.issubset(df_q2.columns):
+               st.info("Q2 output not found or missing required columns: `atuCode`, `taleCount`.")
+           else:
+               topn = st.slider(
+            "How many types you would like to observe?",
+            min_value=5,
+            max_value=20,
+            value=10,
+            step=1,
+            key="q2_topn",
+            )
+
+               d = df_q2.copy()
+               d["taleCount"] = pd.to_numeric(d["taleCount"], errors="coerce").fillna(0).astype(int)
+               d["atuCode"] = d["atuCode"].astype(str).str.strip()
+               d = d.sort_values("taleCount", ascending=False).head(topn)
+  
+               chart = (
+              alt.Chart(d)
+              .mark_bar()
+              .encode(
+                x=alt.X("taleCount:Q", title="Number of tales"),
+                y=alt.Y("atuCode:N", sort="-x", title="ATU type"),
+                tooltip=[
+                    alt.Tooltip("atuCode:N", title="ATU type"),
+                    alt.Tooltip("taleCount:Q", title="# tales"),
+                ],
+              )
+              .properties(height=360)
+            )
+
+               st.altair_chart(chart, use_container_width=True)
+
+               st.caption("Want to explore ATU types in detail?")
+               if st.button("Go to Types Explorer →", key="go_to_types_from_overview", use_container_width=True):
+                 st.session_state["explore_tab"] = "Types Explorer"
+                 st.rerun()
+
+        with c2:
+            st.markdown("**Top narrators**")
+
+            if df_q3.empty:
+              st.info("Q3 output not found.")
+            else:
+              label_col = "narratorLabel" if "narratorLabel" in df_q3.columns else None
+              key_col = (
+            "narratorKey"
+            if "narratorKey" in df_q3.columns
+            else ("narrator" if "narrator" in df_q3.columns else None)
+            )
+
+            if not key_col or "taleCount" not in df_q3.columns:
+               st.info("Q3 output missing required columns: narrator key + `taleCount`.")
+            else:
+               topn_n = st.slider(
+                "How many narrators do you want to observe?",
+                min_value=5,
+                max_value=20,
+                value=10,
+                step=1,
+                key="q3_topn",
+                )
+
+               d = df_q3.copy()
+               d["taleCount"] = pd.to_numeric(d["taleCount"], errors="coerce").fillna(0).astype(int)
+
+               if label_col:
+                   d["label"] = d[label_col].fillna(d[key_col].astype(str))
+               else:
+                   d["label"] = d[key_col].astype(str)
+
+               d["label"] = d["label"].astype(str).str.strip()
+               d = d.sort_values("taleCount", ascending=False).head(topn_n)
+
+               chart = (
+                alt.Chart(d)
+                .mark_bar()
+                .encode(
+                    x=alt.X("taleCount:Q", title="Number of tales"),
+                    y=alt.Y("label:N", sort="-x", title="Narrator"),
+                    tooltip=[
+                        alt.Tooltip("label:N", title="Narrator"),
+                        alt.Tooltip("taleCount:Q", title="# tales"),
+                    ],
+                )
+                .properties(height=360)
+               )
+
+               st.altair_chart(chart, use_container_width=True)         
+
+        st.markdown("**Collectors timeline**")
+
+        required_any_collector = ("collectorLabel" in df_q4.columns) or ("collector" in df_q4.columns)
+        required = required_any_collector and ("year" in df_q4.columns) and ("taleCount" in df_q4.columns)
+
+        if df_q4.empty or not required:
+           st.info("Q4 output not found or missing required columns: collectorLabel/collector, year, taleCount.")
+        else:
+           d = df_q4.copy()
+
+        # normalize columns
+        d["collectorLabel"] = (
+          d["collectorLabel"].fillna(d["collector"].astype(str))
+          if "collectorLabel" in d.columns and "collector" in d.columns
+          else (d["collectorLabel"].astype(str) if "collectorLabel" in d.columns else d["collector"].astype(str))
+        )
+        d["collectorLabel"] = d["collectorLabel"].astype(str).str.strip()
+
+        d["year"] = pd.to_numeric(d["year"], errors="coerce")
+        d["taleCount"] = pd.to_numeric(d["taleCount"], errors="coerce").fillna(0).astype(int)
+
+        d = d.dropna(subset=["year"])
+        d["year"] = d["year"].astype(int)
+
+        topn = st.slider(
+        "How many collectors to show?",
+          min_value=10,
+          max_value=60,
+          value=20,
+          step=5,
+          key="q4_collectors_topn",
+        )
+
+        totals = (
+            d.groupby("collectorLabel", as_index=False)["taleCount"]
+             .sum()
+             .rename(columns={"taleCount": "collectorTotal"})
+             .sort_values("collectorTotal", ascending=False)
+        )
+
+        top_collectors = totals.head(topn)["collectorLabel"].tolist()
+        dd = d[d["collectorLabel"].isin(top_collectors)].copy()
+
+        if dd.empty:
+            st.warning("No rows left after applying Top-N filter. Try increasing Top-N.")
+            st.dataframe(d.head(100), use_container_width=True)
+        else:
+            # Attach totals for stable sorting in the chart
+            dd = dd.merge(totals, on="collectorLabel", how="left")
+
+            # Heatmap timeline: year × collector, color = #tales
+            height = max(260, 18 * len(top_collectors))
+
+            chart = (
+                alt.Chart(dd)
+                .mark_rect()
+                .encode(
+                    x=alt.X("year:O", title="Year"),
+                    y=alt.Y(
+                        "collectorLabel:N",
+                        title="Collector",
+                        sort=alt.SortField(field="collectorTotal", order="descending"),
+                    ),
+                    color=alt.Color("taleCount:Q", title="Tales number"),
+                    tooltip=[
+                        alt.Tooltip("collectorLabel:N", title="Collector"),
+                        alt.Tooltip("year:O", title="Year"),
+                        alt.Tooltip("taleCount:Q", title="Tales number"),
+                    ],
+                )
+                .properties(height=height)
+            )
+
+            st.altair_chart(chart, use_container_width=True)
+
+            # Optional: compact table under the chart
+            with st.expander("Show in the table format"):
+                st.dataframe(
+                    dd.sort_values(["year", "collectorLabel", "collectorTotal"], ascending=[True, False, True]),
+                    use_container_width=True,
+                    hide_index=True,
+                )
+       
+
+    # =========================================================
+    # Tab 2 — Metadata 
+    # =========================================================
+    with tabs["Metadata"]:
+        st.markdown("## What’s inside")
+        st.markdown(
+        """
+        **Core entities and links**
+        - **Tale** (`crm:E33_Linguistic_Object`) with text/description and type links  
+        - **Volume** as container with collection-level provenance  
+        - **ATU Concept** (SKOS) linked via `dcterms:subject`  
+        - **People**: narrators (`dcterms:contributor` at tale level) and collectors (`dcterms:creator` at volume level)  
+        - **Place**: `dcterms:spatial`, `dcterms:created` (tale-level coverage)   
+        - **Time**: `dcterms:created` (tale-level coverage)   
+        """
+    )
+
+        st.markdown("## Coverage sanity checks")
+
+        if df_q5.empty or not {"metric", "count"}.issubset(df_q5.columns):
+            st.info("Q5 output not found or missing required columns: `metric`, `count`.")
+        else:
+            d = df_q5.copy()
+            d["count"] = pd.to_numeric(d["count"], errors="coerce").fillna(0).astype(int)
+            d = d.sort_values("count", ascending=False)
+
+            total_issues = int(d["count"].sum())
+            n_metrics = int(len(d))
+
+            c1, c2 = st.columns([1, 3], vertical_alignment="center")
+            with c1:
+                st.metric("Issues flagged", total_issues)
+            with c2:
+                if total_issues == 0:
+                    st.success("No issues detected by Q5 sanity checks for this snapshot.")
+                else:
+                    top_metric = d.iloc[0]["metric"]
+                    top_count = int(d.iloc[0]["count"])
+                    st.warning(
+                    f"Top issue: `{top_metric}` ({top_count}). Open the quality log to inspect affected records."
+                )
+
+            st.dataframe(d, use_container_width=True, hide_index=True)
+
+            if n_metrics >= 2 and total_issues > 0:
+                st.bar_chart(d.set_index("metric")["count"])
+
+            st.caption(
+            "Q5 checks cover missing containers (volume/dataset), missing `dcterms:subject` (ATU typing), "
+            "missing people links (narrator/collector), missing place, and missing time (`dcterms:created`)."
+            )
+
+            with st.expander("Known issues / quality log"):
+                qlog_path = REPO_ROOT / "rdf" / "quality" / "quality_log.json"
+
+                if not qlog_path.exists():
+                    st.info(f"Quality log not found: {qlog_path}")
+                else:
+                    try:
+                        raw = json.loads(qlog_path.read_text(encoding="utf-8"))
+                    except Exception as e:
+                        st.error(f"Failed to read quality_log.json: {e}")
+                        st.stop()
+
+                    if isinstance(raw, list) and (len(raw) == 0 or isinstance(raw[0], dict)):
+                        qdf = pd.DataFrame(raw)
+                        st.caption(f"Loaded quality log: {len(qdf)} rows")
+                        st.dataframe(qdf.head(200), use_container_width=True, hide_index=True)
+                    else:
+                        st.caption("Loaded quality log (JSON preview)")
+                        st.json(raw)
+
+                    st.download_button(
+                    "Download quality_log.json",
+                        data=qlog_path.read_bytes(),
+                        file_name="quality_log.json",
+                       mime="application/json",
+                        use_container_width=True,
+                    )
 
 
-def page_explore_types() -> None:
-    st.header("Explore — Types")
-    st.write("Browse ATU / custom types with links to examples (placeholder).")
+    # =========================================================
+    # Tab 3 — Types Explorer 
+    # =========================================================
+    with tabs["Types Explorer"]:
+        st.subheader("Fairy tale Types")
 
-    st.info("Add: searchable list of types, type cards, and example tale links.")
+        if df_q2.empty or not {"atuCode", "taleCount"}.issubset(df_q2.columns):
+            st.info("Q2 output not available.")
+        else:
+            topn = st.slider("How many types you would like to observe?", 5, 86, 10, 1, key="types_topn")
+
+            d = df_q2.copy()
+            d["taleCount"] = pd.to_numeric(d["taleCount"], errors="coerce").fillna(0).astype(int)
+
+            d["atuCode"] = d["atuCode"].astype(str).str.strip()
+            d["atuCode_norm"] = d["atuCode"].str.replace("-star", "*", regex=False)
+
+        # tie-break ordering: numeric part + suffix
+            d["atu_num"] = pd.to_numeric(
+                d["atuCode_norm"].str.extract(r"^(\d+)", expand=False),
+                errors="coerce",
+            ).fillna(10**9).astype(int)
+            d["atu_suffix"] = d["atuCode_norm"].str.replace(r"^\d+", "", regex=True)
+
+        # sort: popular first; ties by ATU numbering asc
+            d = d.sort_values(
+                by=["taleCount", "atu_num", "atu_suffix", "atuCode_norm"],
+                ascending=[False, True, True, True],
+                kind="mergesort",
+            ).head(topn)
+
+        # Altair: force top-down by sorting Y by descending X (count)
+            chart = (
+                alt.Chart(d)
+                .mark_bar()
+                .encode(
+                    x=alt.X(
+                     "taleCount:Q",
+                    title="Number of tales",
+                    axis=alt.Axis(format="d", tickMinStep=1),
+                ),
+                    y=alt.Y("atuCode_norm:N", sort="-x", title="ATU type"),
+                    tooltip=[
+                    alt.Tooltip("atuCode_norm:N", title="ATU type"),
+                    alt.Tooltip("taleCount:Q", title="Tales Count", format="d"),
+           ],
+        )
+            .properties(height=min(28 * len(d) + 40, 700))
+            )
+
+            st.altair_chart(chart, use_container_width=True)
 
 
-def page_explore_maps_timeline() -> None:
-    st.header("Explore — Maps & Timeline")
-    st.write("Spatial–temporal exploration of tales and collectors (placeholder).")
 
-    st.info("Add: map (parishes/regions) + timeline chart + filters.")
+        st.subheader("C0. Filters")
+        # Minimal filters (extend if you have more facets)
+        selected_atu = None
+        if not df_q2.empty and "atuCode" in df_q2.columns:
+            atu_codes = sorted([str(x) for x in df_q2["atuCode"].dropna().astype(str).unique()])
+            selected_atu = st.selectbox("ATU type code", options=[""] + atu_codes, index=0)
+        else:
+            selected_atu = st.text_input("ATU type code", value="", placeholder="e.g., 707")
+
+        
+        st.subheader("C2. Type card")
+        if selected_atu:
+            st.markdown(f"**ATU {selected_atu}**")
+            st.caption(get_atu_title(str(selected_atu)))
+            # If you have SKOS relations, render them here (broader/narrower/related)
+        else:
+            st.caption("Select an ATU type code to view its card and associated tales.")
+
+        st.subheader("C3. Tales for selected type (CQ Q1)")
+        if not selected_atu:
+            st.info("Choose an ATU type to list associated tales (Q1).")
+        else:
+            
+            if df_q1.empty or not {"atuCode", "tale", "volume"}.issubset(df_q1.columns):
+                st.info(
+                    "Q1 output not found. Recommended: materialize a file `Q1_tales_by_atu_type.csv` with columns:\n"
+                    "`tale, taleDesc, volume, atuConcept, atuCode` for all types."
+                )
+            else:
+                d = df_q1.copy()
+                d["atuCode"] = d["atuCode"].astype(str)
+                d = d[d["atuCode"] == str(selected_atu)]
+                if d.empty:
+                    st.warning("No tales found for this ATU code in the Q1 output.")
+                else:
+                    
+                    cols = [c for c in ["tale", "taleDesc", "volume", "atuConcept", "atuCode"] if c in d.columns]
+                    st.dataframe(d[cols], use_container_width=True, hide_index=True)
 
 
-def page_explore_names_roles() -> None:
-    st.header("Explore — Names & Roles")
-    st.write("People, their roles, and relationships (placeholder).")
+    # =========================================================
+    # Tab D — Type Ontology 
+    # =========================================================
+    
+    with tabs["Knowledge Graph"]:
+        st.subheader("D1. Ontology in brief")
 
-    st.info("Add: entity list, role facets, and relationship edges (collector↔narrator↔place).")
+        st.markdown(
+        """
+        - **Reuse-first vocabularies**: DCTERMS, SKOS, PROV-O, CIDOC-CRM (light), DCAT  
+        - **Typing**: ATU concepts are linked via `dcterms:subject` (SKOS Concept URIs; `skos:notation` as fallback)  
+        - **Attribution model**: **narrators at tale level** (`dcterms:contributor`), **collectors at volume level** (`dcterms:creator`)  
+        - **Time/Place**: tale/volume-level time metadata via `dcterms:created`; places via `dcterms:spatial` / recording place properties  
+        - **Provenance**: exports are designed to keep processing context explicit (what was derived vs asserted)  
+        """
+      )
+
+        st.markdown("**Method (how we account for introduced entities/links)**")
+        st.markdown(
+        """
+        - Introduced links follow a **controlled mapping policy** (documented rules, stable URI templates).  
+        - Each derived assertion is intended to be explainable and traceable (PROV-friendly metadata).  
+        - Validation/QA is supported through coverage checks (e.g., Q5) and internal quality logs.  
+        """
+      )
+
+        st.subheader("D2. Serialization preview (RDF preview)")
+
+        rdf_dir = RDF_EXPORT_DIR if RDF_EXPORT_DIR.exists() else None
+        if not rdf_dir:
+           st.info(
+            "RDF export directory not found. Expected: "
+            f"{RDF_EXPORT_DIR}"
+          )
+           st.stop()
+
+        jsonld_dir = RDF_JSONLD_DIR if RDF_JSONLD_DIR.exists() else None
+
+        ttl_agents = rdf_dir / "agents.ttl"
+        ttl_atu = rdf_dir / "atu_types.ttl"
+
+        jsonld_agents = (jsonld_dir / "agents.jsonld") if jsonld_dir else None
+        jsonld_atu = (jsonld_dir / "atu_types.jsonld") if jsonld_dir else None
+
+        ttl_options = []
+        if ttl_agents.exists():
+            ttl_options.append(("Agents (TTL)", ttl_agents))
+        if ttl_atu.exists():
+            ttl_options.append(("ATU Types (TTL)", ttl_atu))
+
+        jsonld_options = []
+        if jsonld_agents and jsonld_agents.exists():
+            jsonld_options.append(("Agents (JSON-LD)", jsonld_agents))
+        if jsonld_atu and jsonld_atu.exists():
+            jsonld_options.append(("ATU Types (JSON-LD)", jsonld_atu))
+
+        fmt = st.selectbox("Format", ["Turtle", "JSON-LD"], index=0, key="rdf_fmt")
+
+        if fmt == "Turtle":
+            if not ttl_options:
+                st.warning("No Turtle files found in rdf/rdf_serialization/.")
+                st.stop()
+
+            label, chosen = st.selectbox(
+                "Dataset",
+                options=ttl_options,
+                format_func=lambda x: x[0],
+                key="rdf_dataset_ttl",
+            )
+            language = "ttl"
+
+        else:  # JSON-LD
+            if not jsonld_options:
+                st.warning("No JSON-LD files found in rdf/rdf_serialization/jsonld/.")
+                st.stop()
+
+            label, chosen = st.selectbox(
+                "Dataset",
+                options=jsonld_options,
+                format_func=lambda x: x[0],
+                key="rdf_dataset_jsonld",
+            )
+            language = "json"
+
+    # Preview
+        max_lines = st.slider("Preview lines", 50, 500, 200, 50, key="rdf_preview_lines")
+        preview = read_text_head(chosen, max_lines=max_lines)
+        st.code(preview if preview else "# (empty preview)", language=language)
+
+    # Downloads
+        st.markdown("### Downloads (RDF only)")
+        c1, c2 = st.columns(2, vertical_alignment="top")
+
+        with c1:
+            if ttl_agents.exists():
+                st.download_button(
+                "Download agents.ttl",
+                    data=read_bytes(ttl_agents),
+                   file_name="agents.ttl",
+                    mime="text/turtle",
+                    use_container_width=True,
+                )
+            else:
+                st.button("Download agents.ttl", disabled=True, use_container_width=True)
+
+            if ttl_atu.exists():
+                st.download_button(
+                 "Download atu_types.ttl",
+                data=read_bytes(ttl_atu),
+                file_name="atu_types.ttl",
+                mime="text/turtle",
+                use_container_width=True,
+            )
+            else:
+                st.button("Download atu_types.ttl", disabled=True, use_container_width=True)
+
+        with c2:
+            if jsonld_agents and jsonld_agents.exists():
+                st.download_button(
+                "Download agents.jsonld",
+                data=read_bytes(jsonld_agents),
+                file_name="agents.jsonld",
+                mime="application/ld+json",
+                use_container_width=True,
+            )
+            else:
+                st.button("Download agents.jsonld", disabled=True, use_container_width=True)
+
+            if jsonld_atu and jsonld_atu.exists():
+                st.download_button(
+                "Download atu_types.jsonld",
+                data=read_bytes(jsonld_atu),
+                file_name="atu_types.jsonld",
+                mime="application/ld+json",
+                use_container_width=True,
+            )
+            else:
+               st.button("Download atu_types.jsonld", disabled=True, use_container_width=True)
+
+        st.markdown("---")
+        st.markdown("**Links**")
+        st.markdown(f"- Repository: {REPO_URL}")
+
+
+
+
+
+
 
 # -----------------------------
 # Classify
 # -----------------------------
 
 def page_classify() -> None:
-    st.header("Classify")
+    st.markdown("# Classify your tale")
 
     # --- Disclaimer (EN)
     st.info(
@@ -745,6 +1446,8 @@ def page_classify() -> None:
 
 
 
+# rendering
+
 def render_page() -> None:
     main = st.session_state.get("nav_main")
     if main == "Home":
@@ -752,15 +1455,7 @@ def render_page() -> None:
         return
 
     if main == "Explore":
-        sub = st.session_state.get("nav_explore", "Overview")
-        if sub == "Overview":
-            page_explore_overview()
-        elif sub == "Types":
-            page_explore_types()
-        elif sub == "Maps & Timeline":
-            page_explore_maps_timeline()
-        else:
-            page_explore_names_roles()
+        page_explore()
         return
 
     # Classify

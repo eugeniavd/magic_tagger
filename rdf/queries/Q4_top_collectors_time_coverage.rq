@@ -1,9 +1,5 @@
-
-# Purpose: Q4 — Top collectors (via volume) + time coverage (min/max volume date)
-# Assumes:
-#   Tale dcterms:isPartOf Volume
-#   Volume dcterms:creator CollectorAgent
-#   Volume dcterms:created xsd:date
+# Q4_yearly_collectors_labeled.rq
+# Output: collector, collectorLabel, year, taleCount
 
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
@@ -11,22 +7,53 @@ PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
 
 SELECT
   ?collector
-  (SAMPLE(?collectorLabel) AS ?collectorLabel)
+  (SAMPLE(?collectorLabelClean) AS ?collectorLabel)
+  ?year
   (COUNT(DISTINCT ?tale) AS ?taleCount)
-  (MIN(?vDate) AS ?minDate)
-  (MAX(?vDate) AS ?maxDate)
 WHERE {
+  # --- link tale -> volume (exclude dataset IRIs inside isPartOf)
   ?tale dcterms:isPartOf ?volume .
+  FILTER(CONTAINS(STR(?volume), "/rdf/volume/")) .
+
+  # --- collector from volume
   ?volume dcterms:creator ?collector .
 
-  OPTIONAL { ?collector rdfs:label ?collectorLabel . }
+  # --- year from tale-level created date (as in your schema)
+  ?tale dcterms:created ?taleDate .
+  FILTER(datatype(?taleDate) = xsd:date) .
+  BIND(YEAR(?taleDate) AS ?year) .
 
-  # Date is optional. Keep OPTIONAL to still count tales even if some volumes are undated.
-  OPTIONAL {
-    ?volume dcterms:created ?vDate .
-    FILTER(datatype(?vDate) = xsd:date)
-  }
+  # --- prefer human-readable English label if present
+  OPTIONAL { ?collector rdfs:label ?lblEn . FILTER(LANG(?lblEn) = "en") }
+
+  # --- fallback: dict-like label (often @ru/@et) where label_en is embedded as text
+  OPTIONAL { ?collector rdfs:label ?lblAny . }
+  BIND(STR(?lblAny) AS ?lblStr) .
+
+  BIND(
+    COALESCE(
+      STR(?lblEn),
+
+      # 1) label_en inside dict-like string
+      IF(REGEX(?lblStr, "'label_en':\\s*'[^']+'"),
+        REPLACE(?lblStr, ".*'label_en':\\s*'([^']+)'.*", "$1"),
+        ""),
+
+      # 2) name_raw inside dict-like string
+      IF(REGEX(?lblStr, "'name_raw':\\s*'[^']+'"),
+        REPLACE(?lblStr, ".*'name_raw':\\s*'([^']+)'.*", "$1"),
+        ""),
+
+      # 3) raw inside dict-like string
+      IF(REGEX(?lblStr, "'raw':\\s*'[^']+'"),
+        REPLACE(?lblStr, ".*'raw':\\s*'([^']+)'.*", "$1"),
+        ""),
+
+      # 4) fallback to local id from IRI
+      REPLACE(STR(?collector), ".*/rdf/person/([^>/]+)$", "$1")
+    )
+    AS ?collectorLabelClean
+  )
 }
-GROUP BY ?collector
-ORDER BY DESC(?taleCount) ?collector
-LIMIT 20
+GROUP BY ?collector ?year
+ORDER BY ?year DESC(?taleCount)

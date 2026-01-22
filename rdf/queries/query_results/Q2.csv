@@ -1,21 +1,86 @@
-atuConcept,atuCode,taleCount
-https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/707,707,7
-https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/480,480,6
-https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/480D-star,480D-star,5
-https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/300,300,4
-https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/301,301,4
-https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/307,307,4
-https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/313,313,4
-https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/530,530,4
-https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/552,552,4
-https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/402,402,3
-https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/410,410,3
-https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/424-star,424-star,3
-https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/480A,480A,3
-https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/530A,530A,3
-https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/550,550,3
-https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/650A,650A,3
-https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/703-star,703-star,3
-https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/302C-star,302C-star,2
-https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/303,303,2
-https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/314,314,2
+atuConcept,atuCode,atuPrefLabel,atuTitle,taleCount
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/707,707,ATU 707 The Three Golden Children,The Three Golden Children,7
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/480,480,ATU 480 The Kind and the Unkind Girls,The Kind and the Unkind Girls,6
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/480D-star,480D*,ATU 480D* Tales of Kind and Unkind Girls,Tales of Kind and Unkind Girls,5
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/300,300,ATU 300 The Dragon-Slayer,The Dragon-Slayer,4
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/301,301,ATU 301 The Three Stolen Princesses,The Three Stolen Princesses,4
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/307,307,ATU 307 The Princess in the Coffin,The Princess in the Coffin,4
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/313,313,ATU 313 The Magic Flight,The Magic Flight,4
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/530,530,ATU 530 The Princess on the Glass Mountain,The Princess on the Glass Mountain,4
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/552,552,ATU 552 The Girls Who Married Animals,The Girls Who Married Animals,4
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/402,402,ATU 402 The Animal Bride,The Animal Bride,3
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/410,410,ATU 410 Sleeping Beauty,Sleeping Beauty,3
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/424-star,424*,ATU 424* [et] Abielu kuradi röövitud neiuga,[et] Abielu kuradi röövitud neiuga,3
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/480A,480A,ATU 480A Girl and Devil in a Strange House,Girl and Devil in a Strange House,3
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/530A,530A,ATU 530A The Pig with the Golden Bristles,The Pig with the Golden Bristles,3
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/550,550,"ATU 550 Bird, Horse and Princess","Bird, Horse and Princess",3
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/650A,650A,ATU 650A Strong John,Strong John,3
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/703-star,703*,ATU 703* The Artificial Child,The Artificial Child,3
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/302C-star,302C*,ATU 302C* The Magic Horse,The Magic Horse,2
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/303,303,ATU 303 The Twins Or Blood-Brothers,The Twins Or Blood-Brothers,2
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/314,314,ATU 314 Goldener,Goldener,2
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/325,325,ATU 325 The Magician and His Pupil,The Magician and His Pupil,2
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/331,331,ATU 331 The Spirit in the Bottle,The Spirit in the Bottle,2
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/425C,425C,ATU 425C Beauty and the Beast,Beauty and the Beast,2
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/554,554,ATU 554 The Grateful Animals,The Grateful Animals,2
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/556F-star,556F*,ATU 556F* The Shepherd in the Service of a Witch,The Shepherd in the Service of a Witch,2
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/700,700,ATU 700 Thumbling,Thumbling,2
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/706,706,ATU 706 The Maiden without Hands,The Maiden without Hands,2
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/707B-star,707B*,ATU 707B* [ru] Бова-королевич,[ru] Бова-королевич,2
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/735A,735A,ATU 735A Bad Luck Imprisoned,Bad Luck Imprisoned,2
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/1000,1000,ATU 1000 Contest Not to Become Angry,Contest Not to Become Angry,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/1060,1060,ATU 1060 Squeezing the (Supposed) Stone.,Squeezing the (Supposed) Stone.,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/1060-star,1060*,ATU 1060* Squeezing the Hand,Squeezing the Hand,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/1168,1168,ATU 1168 Various Ways of Exorcising Devils,Various Ways of Exorcising Devils,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/1174,1174,ATU 1174 Making a Rope of Sand,Making a Rope of Sand,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/1651A,1651A,ATU 1651A Fortune in Salt,Fortune in Salt,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/300A,300A,ATU 300A The Fight on the Bridge,The Fight on the Bridge,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/301A,301A,ATU 301A The Three Stolen Princesses (var.),The Three Stolen Princesses (var.),1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/301D-star,301D*,ATU 301D* The Princess’s Ring,The Princess’s Ring,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/312,312,ATU 312 Maiden-Killer (Bluebeard),Maiden-Killer (Bluebeard),1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/312D,312D,ATU 312D Rescue by the Brother,Rescue by the Brother,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/313A,313A,ATU 313A The Magic Flight (var.),The Magic Flight (var.),1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/326,326,ATU 326 The Youth Who Wanted to Learn What Fear is,The Youth Who Wanted to Learn What Fear is,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/326B-star,326B*,ATU 326B* The Youth and the Corpse,The Youth and the Corpse,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/327A,327A,ATU 327A Hansel and Gretel,Hansel and Gretel,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/328,328,ATU 328 The Boy Steals the Ogre’s Treasure,The Boy Steals the Ogre’s Treasure,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/328C-star,328C*,ATU 328C* [et] Uba pidi taevasse,[et] Uba pidi taevasse,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/329,329,ATU 329 Hiding from the Princess,Hiding from the Princess,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/330B,330B,ATU 330B The Smith and the Devil (var),The Smith and the Devil (var),1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/361,361,ATU 361 Bear-Skin,Bear-Skin,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/363,363,ATU 363 The Corpse-Eater,The Corpse-Eater,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/365,365,ATU 365 The Dead Bridegroom Carries off His Bride,The Dead Bridegroom Carries off His Bride,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/407,407,ATU 407 The Girl as Flower,The Girl as Flower,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/425A,425A,ATU 425A The Animal as Bridegroom,The Animal as Bridegroom,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/425M,425M,ATU 425M The Snake as Bridegroom,The Snake as Bridegroom,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/449,449,ATU 449 Sidi Numan,Sidi Numan,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/450,450,ATU 450 Little Brother and Little Sister,Little Brother and Little Sister,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/461,461,ATU 461 Three Hairs from the Devil’s Beard,Three Hairs from the Devil’s Beard,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/465B,465B,ATU 465B Красавица-жена (Гусли-самогуды) (rus.),Красавица-жена (Гусли-самогуды) (rus.),1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/470,470,ATU 470 Friends in Life and Death,Friends in Life and Death,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/476-star,476*,ATU 476* In the Frog’s House,In the Frog’s House,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/480E-star,480E*,ATU 480E* [et] Kelluke hiire kaelas,[et] Kelluke hiire kaelas,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/502,502,ATU 502 The Wild Man,The Wild Man,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/511,511,"ATU 511 One-Eye, Two-Eyes, Three-Eyes","One-Eye, Two-Eyes, Three-Eyes",1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/513A,513A,ATU 513A Six Go through the Whole World,Six Go through the Whole World,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/531,531,ATU 531 The Clever Horse,The Clever Horse,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/551,551,ATU 551 Water of Life,Water of Life,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/556A-star,556A*,ATU 556A* The Grateful Animals (var.),The Grateful Animals (var.),1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/567,567,ATU 567 The Magic Bird-Heart,The Magic Bird-Heart,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/580,580,ATU 580 Beloved of Women,Beloved of Women,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/592,592,ATU 592 The Dance among Thorns,The Dance among Thorns,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/613,613,ATU 613 The Two Travelers,The Two Travelers,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/650B-star,650B*,ATU 650B* [ru] Еруслан Лазаревич,[ru] Еруслан Лазаревич,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/650C-star,650C*,ATU 650C* [ru] Илья Муромец,[ru] Илья Муромец,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/671,671,ATU 671 The Three Languages,The Three Languages,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/671E-star,671E*,ATU 671E* A Magic Boy,A Magic Boy,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/677,677,ATU 677 Iron is More Precious than Gold,Iron is More Precious than Gold,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/677-star-star-star,677***,ATU 677*** [ru] Повитуха попадает к чертям,[ru] Повитуха попадает к чертям,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/703,703,ATU 703 [ru] Снегурочка,[ru] Снегурочка,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/709,709,ATU 709 Snow White,Snow White,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/735A-star-star-star-star,735A****,ATU 735A**** [ru] Три лихорадки,[ru] Три лихорадки,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/737,737,ATU 737 Who Will be Her Future Husband?,Who Will be Her Future Husband?,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/740-star-star,740**,ATU 740** The Brother (the Poor Man) about to Hang Himself Finds a Treasure,The Brother (the Poor Man) about to Hang Himself Finds a Treasure,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/809-star,809*,ATU 809* Rich Man Allowed to Stay in Heaven,Rich Man Allowed to Stay in Heaven,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/849-star,849*,ATU 849* The Cross as Security,The Cross as Security,1
+https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/935,935,ATU 935 The Prodigal’s Return,The Prodigal’s Return,1

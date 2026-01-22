@@ -1,5 +1,5 @@
 {
-  "generatedAtTime": "2026-01-21T13:31:07.830981+00:00",
+  "generatedAtTime": "2026-01-22T19:00:28.819025+00:00",
   "inputs": {
     "ttl": "/Users/eugenia/Desktop/thesis/magic_tagger/rdf/rdf_serialization/corpus.ttl"
   },
@@ -11,7 +11,7 @@
     "volumes": 27,
     "collections": 3,
     "atu_concepts_referenced": 85,
-    "persons_referenced": 121
+    "persons_referenced": 120
   },
   "coverage": {
     "tales_with_isPartOf_volume": {

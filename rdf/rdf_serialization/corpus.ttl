@@ -616,7 +616,7 @@
 <https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_1_497_1> a crm:E33_Linguistic_Object ;
     dcterms:accessRights "open" ;
     dcterms:bibliographicCitation "ERA, Vene 1, 497/8 (1)" ;
-    dcterms:contributor <https://github.com/eugeniavd/magic_tagger/rdf/person/natal-ia-alekseevna-pagareva> ;
+    dcterms:contributor <https://github.com/eugeniavd/magic_tagger/rdf/person/natalia-alekseevna-pagareva> ;
     dcterms:created "1930-05-24"^^xsd:date ;
     dcterms:description "Про мальчика, который не знал страха." ;
     dcterms:identifier "era_vene_1_497_1" ;
@@ -1033,7 +1033,7 @@
 <https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_7_95_1> a crm:E33_Linguistic_Object ;
     dcterms:accessRights "open" ;
     dcterms:bibliographicCitation "ERA, Vene 7, 95/9 (1)" ;
-    dcterms:contributor <https://github.com/eugeniavd/magic_tagger/rdf/person/z-vasil-eva-suvorova> ;
+    dcterms:contributor <https://github.com/eugeniavd/magic_tagger/rdf/person/z-vasileva-suvorova> ;
     dcterms:created "1935-01-01"^^xsd:date ;
     dcterms:description "Зверь-Норка (сказка). Из царского зверинца Зверь-Норка уносит зверей. Царь прказывает сыновья караулить, старшие ночами спят, младший увидель где зверь спрятался по камнем. У старших небыло сил отвалить камень, младших смог. Под камнем дыра - старшие боятся идти. Младший привязывает канат к поясу, велит старшим держать верёвку и спускает в подземное царство. У Зверя-Норки три сестры, которых дурак обещает спасти, с их помощью побеждает Змея. Братья завидуют и решают погубить младшего, он их перехитрил и выжил._x000D_ Во время дождя дурак прикрывает птенцов своей одеждой. Большая мать - мать птенцов - в благодарность выностит наверх дурака с сестрами. Дома младший обличает злых братьев." ;
     dcterms:identifier "era_vene_7_95_1" ;
@@ -1654,7 +1654,7 @@
 
 <https://github.com/eugeniavd/magic_tagger/rdf/volume/era_vene_12> a dcterms:BibliographicResource ;
     rdfs:label "ERA, Vene 12" ;
-    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/ol-ga-gromova> ;
+    dcterms:creator <https://github.com/eugeniavd/magic_tagger/rdf/person/olga-gromova> ;
     dcterms:identifier "KIVIKE:ERA-17310-42908-91551",
         "era_vene_12" ;
     dcterms:isPartOf <https://github.com/eugeniavd/magic_tagger/rdf/collection/era-vene> ;
