@@ -784,7 +784,7 @@
         prov:Agent,
         foaf:Person,
         rft:Collector ;
-    rdfs:label "{'person_id': 'olga-gil-debrandt', 'label_en': 'olga gil debrandt', 'raw': 'Ольга Гильдебрандт', 'name_raw': 'Ольга Гильдебрандт'}"@ru .
+    rdfs:label "{'person_id': 'olga-gil-debrandt', 'label_en': 'olga gildebrandt', 'raw': 'Ольга Гильдебрандт', 'name_raw': 'Ольга Гильдебрандт'}"@ru .
 
 <https://github.com/eugeniavd/magic_tagger/rdf/person/olga-gromova> a crm:E21_Person,
         prov:Agent,
