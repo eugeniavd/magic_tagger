@@ -42,6 +42,7 @@ ATU_LABELS_PATH = REPO_ROOT / "data" / "processed" / "atu_labels.json"
 ATU_REF_PATH = REPO_ROOT / "data" / "processed" / "atu_reference.csv"
 
 
+
 DATA_DIR = REPO_ROOT / "data"
 PROCESSED_DIR = DATA_DIR / "processed"
 CORPUS_PATH = REPO_ROOT / "data" / "processed" / "corpus_a_for_kg.csv"
@@ -61,7 +62,9 @@ TALE_ID_COL = "tale_id"
 VOLUME_ID_COL = "volume_id"
 COLLECTION_COL = "collection"
 NARRATOR_COL = "narrator_label_en"
-ATU_COL = "atu_codes"  
+ATU_COL = "atu_codes" 
+APP_TITLE = "MagicTagger — Tale Classifier"
+APP_SUBTITLE = "Prototype UI: Top-3 ATU + Anchors" 
 
 @st.cache_data(show_spinner=False)
 def load_training_meta() -> dict:
@@ -79,6 +82,26 @@ def load_csv_if_exists(path: Path) -> pd.DataFrame:
             return pd.read_csv(path, sep="\t")
         except Exception:
             return pd.DataFrame()
+
+@st.cache_data(show_spinner=False)
+def load_corpus_min(corpus_path: str) -> pd.DataFrame:
+    # expects: tale_id, collection
+    df = pd.read_csv(corpus_path, dtype=str)
+    # normalize
+    if "collection" in df.columns:
+        df["collection"] = df["collection"].fillna("").astype(str).str.strip()
+    if "tale_id" in df.columns:
+        df["tale_id"] = df["tale_id"].fillna("").astype(str).str.strip()
+    return df
+
+@st.cache_data(show_spinner=False)
+def load_collection_map(map_path: str) -> pd.DataFrame:
+    # file is ; separated: collection_id;label_et;see_also_urls
+    df = pd.read_csv(map_path, sep=";", dtype=str)
+    for c in ["collection_id", "label_et", "see_also_urls"]:
+        if c in df.columns:
+            df[c] = df[c].fillna("").astype(str).str.strip()
+    return df
 
 def attach_training_meta(result: dict, training_meta: dict) -> dict:
     result.setdefault("meta", {})
@@ -123,9 +146,6 @@ def get_atu_title(code: str) -> str:
 
     return "Unknown ATU type"
 
-APP_TITLE = "MagicTagger — Tale Classifier"
-APP_SUBTITLE = "Prototype UI: Top-3 ATU + Anchors"
-
 @st.cache_data(show_spinner=False)
 def load_corpus_df(path_str: str, mtime: float) -> pd.DataFrame:
     """
@@ -160,6 +180,25 @@ def load_atu_reference(path: Path) -> pd.DataFrame:
             df[c] = df[c].astype(str).str.strip()
     return df
 
+@st.cache_data(show_spinner=False)
+def read_text_head(path_str: str, max_lines: int, file_sig: tuple[int, int]) -> str:
+    """
+    file_sig = (mtime_ns, size) — forces cache invalidation when file changes
+    and also differentiates between different chosen files robustly.
+    """
+    p = Path(path_str)
+    if not p.exists():
+        return ""
+    out: list[str] = []
+    with p.open("r", encoding="utf-8", errors="replace") as f:
+        for _ in range(max_lines):
+            line = f.readline()
+            if not line:
+                break
+            out.append(line)
+    return "".join(out)
+
+
 def atu_ref_lookup(df_ref: pd.DataFrame, code: str) -> dict:
     """
     Returns {"title_en": str|None, "desc_en": str|None} for code.
@@ -178,11 +217,116 @@ def atu_ref_lookup(df_ref: pd.DataFrame, code: str) -> dict:
         "title_en": (row.get("title_en") or "").strip() or None,
         "desc_en": (row.get("desc_en") or "").strip() or None,
     }
+
+def make_collection_coverage_df(corpus_df: pd.DataFrame, coll_map_df: pd.DataFrame) -> pd.DataFrame:
+    # counts unique tales per collection
+    d = corpus_df.copy()
+    d = d[d["collection"].astype(str).str.strip() != ""]
+    counts = (
+        d.groupby("collection", as_index=False)["tale_id"]
+        .nunique()
+        .rename(columns={"collection": "collection_id", "tale_id": "taleCount"})
+    )
+
+    # join labels
+    if not coll_map_df.empty and "collection_id" in coll_map_df.columns:
+        out = counts.merge(
+            coll_map_df[["collection_id", "label_et", "see_also_urls"]].drop_duplicates("collection_id"),
+            on="collection_id",
+            how="left",
+        )
+    else:
+        out = counts.copy()
+        out["label_et"] = ""
+        out["see_also_urls"] = ""
+
+    # final label
+    out["collectionLabel"] = out["label_et"].where(out["label_et"].astype(str).str.len() > 0, out["collection_id"])
+    out["taleCount"] = pd.to_numeric(out["taleCount"], errors="coerce").fillna(0).astype(int)
+
+    # sort: most represented first; ties by label
+    out = out.sort_values(by=["taleCount", "collectionLabel"], ascending=[False, True], kind="mergesort")
+    return out
+
 # -----------------------------
 # Utilities
 # -----------------------------
 
+def _collection_display_name(collection_id: str) -> str:
+    s = (collection_id or "").strip()
+    low = s.lower()
 
+    if "era" in low and "vene" in low:
+        return "ERA, Vene"
+    if "rkm" in low and "vene" in low:
+        return "RKM, Vene"
+    if ("tru" in low and "vkk" in low) or ("trü" in low):
+        return "TRU, VKK"
+
+    return s
+
+def render_collection_coverage_pie(df_corpus_min: pd.DataFrame, df_coll_map: pd.DataFrame) -> None:
+    st.markdown("**Coverage by collection**")
+
+    df_cov = make_collection_coverage_df(df_corpus_min, df_coll_map)
+    if df_cov.empty:
+        st.info("No collection coverage data available.")
+        return
+
+    d = df_cov.copy()
+    d["collectionDisplay"] = d["collection_id"].apply(_collection_display_name)
+
+    d["taleCount"] = pd.to_numeric(d["taleCount"], errors="coerce").fillna(0).astype(int)
+    total = int(d["taleCount"].sum()) if len(d) else 0
+    if total == 0:
+        st.info("No texts counted for collections.")
+        return
+
+    d["share"] = d["taleCount"] / total
+    d["sharePct"] = (d["share"] * 100).round(1)
+
+    # Donut chart
+    pie_order = alt.Order("taleCount:Q", sort="descending")
+    
+    pie = (
+        alt.Chart(d)
+        .mark_arc(innerRadius=55, outerRadius=110)
+        .encode(
+            theta=alt.Theta("taleCount:Q", stack=True),
+            order=pie_order,
+            color=alt.Color("collectionDisplay:N", title="Collection"),
+            tooltip=[
+                alt.Tooltip("collectionDisplay:N", title="Collection (ID)"),
+                alt.Tooltip("taleCount:Q", title="Texts", format="d"),
+                alt.Tooltip("sharePct:Q", title="Share (%)"),
+                alt.Tooltip("see_also_urls:N", title="See also"),
+            ],
+        )
+        .properties(height=260)
+    )
+
+    slice_numbers = (
+        alt.Chart(d)  
+        .mark_text(radius=85, fontSize=12, fontWeight="bold", color="white")
+        .encode(
+        theta=alt.Theta("taleCount:Q", stack=True),
+        order=pie_order,
+        text=alt.Text("taleCount:Q", format="d"),
+        )
+    )
+    # Labels 
+    labels = (
+        alt.Chart(d[d["share"] >= 0.08])  # hide labels for very small slices
+        .mark_text(radius=135, size=12)
+        .encode(
+            theta=alt.Theta("taleCount:Q", stack=True),
+            text=alt.Text("collectionDisplay:N"),
+        )
+    )
+
+    st.altair_chart(pie + slice_numbers + labels, use_container_width=True)
+
+    
 def _init_state() -> None:
     st.session_state.setdefault("nav_main", "Home")
     st.session_state.setdefault("nav_explore", "Overview")
@@ -437,22 +581,6 @@ def safe_metric(value: Any) -> str:
         return s if s else "—"
     except Exception:
         return "—"
-
-
-def read_text_head(path: Path, max_lines: int = 200) -> str:
-    if not path or not path.exists():
-        return ""
-    try:
-        with path.open("r", encoding="utf-8", errors="replace") as f:
-            lines = []
-            for i, line in enumerate(f):
-                if i >= max_lines:
-                    break
-                lines.append(line.rstrip("\n"))
-        return "\n".join(lines)
-    except Exception:
-        return ""
-
 
 def read_bytes(path: Path) -> bytes:
     try:
@@ -747,10 +875,6 @@ def page_home() -> None:
         "The interface and export contract remain stable."
     )
 
-
-
-
-
 # -----------------------------
 # Explore
 # -----------------------------
@@ -834,9 +958,19 @@ def page_explore() -> None:
         m3.metric("Collections", safe_metric(collections_count))
         m4.metric("ATU Types", safe_metric(atu_types_count))
         m5.metric("Narrators", safe_metric(narrators_count))
+
+        st.divider()
  
 
         st.markdown("## Corpus overview charts")
+
+        df_corpus_min = load_corpus_min(str(CORPUS_PATH)) 
+        df_coll_map = load_collection_map(str(REPO_ROOT / "data" / "processed" / "collection_kivike_map.csv"))
+
+        render_collection_coverage_pie(df_corpus_min, df_coll_map)
+    
+
+        st.divider()
 
         c1, c2 = st.columns(2, vertical_alignment="top")
 
@@ -937,6 +1071,8 @@ def page_explore() -> None:
 
                st.altair_chart(chart, use_container_width=True)         
 
+        st.divider()       
+
         st.markdown("**Collectors timeline**")
 
         required_any_collector = ("collectorLabel" in df_q4.columns) or ("collector" in df_q4.columns)
@@ -1012,14 +1148,120 @@ def page_explore() -> None:
 
             st.altair_chart(chart, use_container_width=True)
 
-            # Optional: compact table under the chart
             with st.expander("Show in the table format"):
                 st.dataframe(
                     dd.sort_values(["year", "collectorLabel", "collectorTotal"], ascending=[True, False, True]),
                     use_container_width=True,
                     hide_index=True,
                 )
-       
+
+        st.divider()     
+
+        st.markdown("**Geographical distribution of top ATU types**")
+
+        # --- Top-N ATU codes from Q2
+        df_corpus = get_corpus_df(CORPUS_PATH)
+        if df_corpus.empty:
+            st.warning(f"Corpus file not found or empty: {CORPUS_PATH}")
+            return
+        
+        # IMPORTANT: use full corpus, not df_corpus_min (min has no region/atu_codes)
+        corp = df_corpus.copy()
+
+        if "region_english" not in corp.columns:
+            st.info("Column `region_english` not found in corpus dataframe.")
+            return
+        corp["region_english"] = corp["region_english"].fillna("").astype(str).str.strip()
+
+
+        if ATU_COL not in corp.columns:
+            st.info(f"Column `{ATU_COL}` not found in corpus dataframe.")
+            return
+
+        corp["atuCode"] = (
+        corp[ATU_COL]
+        .fillna("")
+        .astype(str)
+        .str.replace(r"[\[\]']", "", regex=True)           # if codes stored like ['707']
+        .str.replace(",", ";", regex=False)
+        .str.split(r"\s*;\s*", regex=True)                 # split on ';' with spaces
+      )
+
+        corp = corp.explode("atuCode")
+        corp["atuCode"] = corp["atuCode"].fillna("").astype(str).str.strip().str.replace("-star", "*", regex=False)
+
+        
+        corp = corp[(corp["atuCode"] != "") & (corp["region_english"] != "")]
+        top_codes: list[str] = []
+
+        if df_q2.empty or not {"atuCode", "taleCount"}.issubset(df_q2.columns):
+            st.info("Q2 output not found or missing required columns: `atuCode`, `taleCount`.")
+            return
+        else:
+            d_top = df_q2.copy()
+            d_top["taleCount"] = pd.to_numeric(d_top["taleCount"], errors="coerce").fillna(0).astype(int)
+            d_top["atuCode"] = d_top["atuCode"].astype(str).str.strip()
+            d_top = d_top.sort_values("taleCount", ascending=False).head(topn)
+            top_codes = d_top["atuCode"].tolist()
+
+        if not top_codes:
+            st.info("No ATU codes found in Q2 for the selected Top N.")
+            return
+        corp = corp[corp["atuCode"].isin(top_codes)]
+
+        reg = (
+        corp.groupby(["atuCode", "region_english"], as_index=False)[TALE_ID_COL]
+        .nunique()
+        .rename(columns={TALE_ID_COL: "taleCount"})
+        )
+
+        if reg.empty:
+            st.warning("No rows after filtering. Check that corpus has `atu_codes` and `region_english` populated for these top types.")
+            return
+
+        reg["atuCode"] = pd.Categorical(reg["atuCode"], categories=top_codes, ordered=True)
+
+        # stacked normalized bars (no explicit share column needed)
+        stacked = (
+        alt.Chart(reg)
+       .mark_bar()
+        .encode(
+        y=alt.Y("atuCode:N", title="ATU type", sort=None),
+        x=alt.X(
+            "taleCount:Q",
+            title="Share of tales by region",
+            stack="normalize",
+            axis=alt.Axis(format="%", tickMinStep=0.1),
+        ),
+        color=alt.Color(
+           "region_english:N",
+           title="Region",
+           scale=alt.Scale(
+            range=[
+        "#4a8fc7",  
+        "#0f3b5f",  
+        "#0f86ee",  
+        "#b3d9f5",  
+        "#2a739f",  
+        "#3c89b5",  
+        "#5aa3c6",  
+        "#7dbad6",  
+        "#a8cfe6",  
+        "#d6e7f3",  
+         ]
+        ),
+       ),
+        tooltip=[
+            alt.Tooltip("atuCode:N", title="ATU type"),
+            alt.Tooltip("region_english:N", title="Region"),
+            alt.Tooltip("taleCount:Q", title="Tales", format="d"),
+        ],
+        )
+        .properties(height=min(28 * len(top_codes) + 70, 560))
+        )
+
+        st.altair_chart(stacked, use_container_width=True)
+
 
     # =========================================================
     # Tab 2 — Metadata 
@@ -1037,6 +1279,7 @@ def page_explore() -> None:
         - **Time**: `dcterms:created` (tale-level coverage)   
         """
     )
+        st.divider()
 
         st.markdown("## Coverage sanity checks")
 
@@ -1189,68 +1432,66 @@ def page_explore() -> None:
     # If no selection -> hide card + tales (as you want)
         if not selected_atu:
             st.caption("Select an ATU type code to view its card and associated tales.")
-        # IMPORTANT: do NOT st.stop() here (keeps tab stable)
-            return
-
-        st.divider()
+        else:
+            st.divider()
 
     # =========================================================
     # C) Type card
     # =========================================================
-        st.markdown("### Explore a type")
-        st.markdown(f"**ATU {selected_atu}**")
+            st.markdown("### Explore a type")
+            st.markdown(f"**ATU {selected_atu}**")
 
-        atu_ref_df = load_atu_reference(ATU_REF_PATH)
-        ref = atu_ref_lookup(atu_ref_df, str(selected_atu))
+            atu_ref_df = load_atu_reference(ATU_REF_PATH)
+            ref = atu_ref_lookup(atu_ref_df, str(selected_atu))
 
-        title = ref.get("title_en") or get_atu_title(str(selected_atu))
-        st.caption(title if title else "—")
+            title = ref.get("title_en") or get_atu_title(str(selected_atu))
+            st.caption(title if title else "—")
 
-        MAX_TYPE_DESC = 200
-        desc_full = (ref.get("desc_en") or "").strip()
+            MAX_TYPE_DESC = 200
+            desc_full = (ref.get("desc_en") or "").strip()
 
-        if desc_full:
-            st.write(preview_text(desc_full, MAX_TYPE_DESC))
-            if len(desc_full) > MAX_TYPE_DESC:
-                with st.expander("Read full description"):
-                    st.write(desc_full)
-        else:
-            st.caption("No long description available for this type in atu_reference.csv.")
+            if desc_full:
+                st.write(preview_text(desc_full, MAX_TYPE_DESC))
+                if len(desc_full) > MAX_TYPE_DESC:
+                    with st.expander("Read full description"):
+                        st.write(desc_full)
+            else:
+                st.caption("No long description available for this type in atu_reference.csv.")
 
-        st.divider()
+            st.divider()
 
     # =========================================================
     # D) Tales for selected type (from corpus.ttl)
     # =========================================================
 
-        st.markdown("### Tale witnesses for this type")
-        st.caption("Browse corpus records typed with this ATU concept and inspect their contents.")
+            st.markdown("### Tale witnesses for this type")
+            st.caption("Browse corpus records typed with this ATU concept and inspect their contents.")
 
-        if not CORPUS_TTL.exists():
-           st.info(f"Corpus TTL not found: {CORPUS_TTL}")
-           return
+            if not CORPUS_TTL.exists():
+               st.info(f"Corpus TTL not found: {CORPUS_TTL}")
+               return
         
-        d_tales = tales_by_atu_from_ttl(
-        ttl_files=(str(CORPUS_TTL), str(AGENTS_TTL)),  
-        atu_code=str(selected_atu),
-        limit=30,
-    )
+            d_tales = tales_by_atu_from_ttl(
+            ttl_files=(str(CORPUS_TTL), str(AGENTS_TTL)),  
+            atu_code=str(selected_atu),
+            limit=30,
+          )
 
-        if d_tales.empty:
-            st.warning("No tales found for this ATU code in corpus.ttl.")
-            return
+            if d_tales.empty:
+                st.warning("No tales found for this ATU code in corpus.ttl.")
+                return
 
-# --- Normalize fields (keep robust to missing OPTIONALs)
-        for c in ["tale", "taleId", "sourceRef", "rightsStatus", "narratorLabelEn", "createdIn", "place", "taleDesc"]:
-            if c not in d_tales.columns:
-                d_tales[c] = ""
+            # --- Normalize fields (keep robust to missing OPTIONALs)
+            for c in ["tale", "taleId", "sourceRef", "rightsStatus", "narratorLabelEn", "createdIn", "place", "taleDesc"]:
+                if c not in d_tales.columns:
+                    d_tales[c] = ""
 
-        for c in ["tale", "taleId", "sourceRef", "rightsStatus", "narratorLabelEn", "createdIn", "place", "taleDesc"]:
-            d_tales[c] = d_tales[c].fillna("").astype(str).str.strip()
+            for c in ["tale", "taleId", "sourceRef", "rightsStatus", "narratorLabelEn", "createdIn", "place", "taleDesc"]:
+                d_tales[c] = d_tales[c].fillna("").astype(str).str.strip()
 
-# --- Card CSS (once per page; safe if repeated)
-        st.markdown(
-    """
+            # --- Card CSS 
+            st.markdown(
+            """
     <style>
       .tale-card {
         border: 1px solid rgba(49,51,63,0.16);
@@ -1317,28 +1558,28 @@ def page_explore() -> None:
       }
     </style>
     """,
-    unsafe_allow_html=True,
-)
+            unsafe_allow_html=True,
+            )
 
 
-        MAX_TALE_DESC = 220
+            MAX_TALE_DESC = 220
 
-# --- 3-column grid like your example
-        cols = st.columns(3, vertical_alignment="top")
+    # --- 3-column grid like your example
+            cols = st.columns(3, vertical_alignment="top")
 
-        for i, row in d_tales.reset_index(drop=True).iterrows():
-            with cols[i % 3]:
-               tale_iri = row.get("tale", "")
-               tale_id = row.get("taleId", "") or (tale_iri.rsplit("/", 1)[-1] if "/" in tale_iri else tale_iri)
-               source_ref = row.get("sourceRef", "")
-               rights = row.get("rightsStatus", "")
-               narrator_en = row.get("narratorLabelEn", "")
-               created_in = row.get("createdIn", "")
-               place = row.get("place", "")
-               desc_full = row.get("taleDesc", "")
+            for i, row in d_tales.reset_index(drop=True).iterrows():
+                with cols[i % 3]:
+                   tale_iri = row.get("tale", "")
+                   tale_id = row.get("taleId", "") or (tale_iri.rsplit("/", 1)[-1] if "/" in tale_iri else tale_iri)
+                   source_ref = row.get("sourceRef", "")
+                   rights = row.get("rightsStatus", "")
+                   narrator_en = row.get("narratorLabelEn", "")
+                   created_in = row.get("createdIn", "")
+                   place = row.get("place", "")
+                   desc_full = row.get("taleDesc", "")
 
         # Render card (all requested fields)
-               st.markdown(
+                   st.markdown(
             f"""
             <div class="tale-card">
               <div class="tale-title">{tale_id}</div>
@@ -1353,13 +1594,13 @@ def page_explore() -> None:
               {f'<div class="tale-desc">{preview_text(desc_full, MAX_TALE_DESC)}</div>' if desc_full else '<div class="tale-desc-muted">No description available.</div>'}
             </div>
             """,
-                unsafe_allow_html=True,
-                 )
+                    unsafe_allow_html=True,
+                     )
 
        
-               if desc_full and len(desc_full) > MAX_TALE_DESC:
-                    with st.expander("Open full description", expanded=False):
-                        st.write(desc_full)
+                   if desc_full and len(desc_full) > MAX_TALE_DESC:
+                        with st.expander("Open full description", expanded=False):
+                            st.write(desc_full)
 
            
     # =========================================================
@@ -1388,19 +1629,58 @@ def page_explore() -> None:
         - Validation and quality analysis is supported through coverage checks (e.g., Q5) and internal quality logs.  
         """
       )
+     
+        st.markdown(
+    f"""
+    <style>
+      .button, .button:link, .button:visited {{
+        display: inline-block;
+        padding: 0.4rem 1.2rem;
+        border-radius: 4px;
+        background-color: #f97316;
+        color: #ffffff !important;
+        text-decoration: none !important;
+        font-weight: 600;
+        font-size: 0.9rem;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+      }}
+      .button:hover {{
+        background-color: #ea580c;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+      }}
+      .button:active {{
+        background-color: #c2410c;
+        transform: translateY(0px);
+        box-shadow: none;
+      }}
+    </style>
+
+    <a class="button"
+       href="https://github.com/eugeniavd/magic_tagger/blob/main/rdf/ontology/ontology_overview.md"
+       target="_blank"
+       rel="noopener noreferrer">
+       Read documentation
+    </a>
+    """,
+        unsafe_allow_html=True,
+    )
+        st.divider()
 
         st.markdown("## Serialization preview")
 
-        rdf_dir = RDF_EXPORT_DIR if RDF_EXPORT_DIR.exists() else None
-        if not rdf_dir:
-            st.info("RDF export directory not found. Expected: " f"{RDF_EXPORT_DIR}")
-            st.stop()
+        rdf_dir = RDF_EXPORT_DIR
+        if not rdf_dir.exists():
+            st.info(f"RDF export directory not found. Expected: {rdf_dir}")
+            st.stop()  # IMPORTANT: stop only when missing, do NOT return when present
 
-        jsonld_dir = RDF_JSONLD_DIR if RDF_JSONLD_DIR.exists() else None
+        jsonld_dir = RDF_JSONLD_DIR
+        if not jsonld_dir.exists():
+            jsonld_dir = None
 
-# -----------------------------
-# Files we want to expose
-# -----------------------------
+
         TTL_FILES = [
             ("Agents", "agents.ttl"),
             ("ATU Types", "atu_types.ttl"),
@@ -1416,8 +1696,7 @@ def page_explore() -> None:
             ("Corpus", "corpus.jsonld"),
             ("Dataset (corpus v1)", "dataset_corpus_v1.jsonld"),
       ]
-
-# Build option lists
+        
         ttl_options: list[tuple[str, Path]] = []
         for label, fname in TTL_FILES:
             p = rdf_dir / fname
@@ -1430,7 +1709,13 @@ def page_explore() -> None:
                 p = jsonld_dir / fname
                 if p.exists():
                     jsonld_options.append((f"{label} (JSON-LD)", p))
-        fmt = st.selectbox("Format", ["Turtle", "JSON-LD"], index=0, key="rdf_fmt")
+
+        fmt = st.selectbox(
+        "Format",
+        ["Turtle", "JSON-LD"],
+        index=0,
+        key="kg_rdf_fmt",
+        )
 
         if fmt == "Turtle":
             if not ttl_options:
@@ -1438,50 +1723,58 @@ def page_explore() -> None:
                 st.stop()
 
             chosen = st.selectbox(
-        "Dataset",
-        options=ttl_options,
-        format_func=lambda x: x[0],
-        key=f"rdf_dataset_ttl_{fmt}",
-            )[1]
+            "Dataset",
+            options=ttl_options,
+            format_func=lambda x: x[0],
+            key="kg_rdf_dataset_ttl",
+                )[1]
             language = "ttl"
+            mime = "text/turtle"
         else:
             if not jsonld_options:
                 st.warning("No JSON-LD files found in rdf/rdf_serialization/jsonld/.")
                 st.stop()
-
+            
             chosen = st.selectbox(
-        "Dataset",
-        options=jsonld_options,
-        format_func=lambda x: x[0],
-        key=f"rdf_dataset_jsonld_{fmt}",
-            )[1]
+            "Dataset",
+            options=jsonld_options,
+            format_func=lambda x: x[0],
+            key="kg_rdf_dataset_jsonld",
+             )[1]
             language = "json"
+            mime = "application/ld+json"
 
-# -----------------------------
-# Preview
-# -----------------------------
-        max_lines = st.slider("Preview lines", 50, 500, 200, 50, key="rdf_preview_lines")
-        preview = read_text_head(chosen, max_lines=max_lines)
+        chosen_key = f"{fmt}:{chosen.as_posix()}"
+        if st.session_state.get("kg_last_chosen") != chosen_key:
+            st.session_state["kg_last_chosen"] = chosen_key
+            st.cache_data.clear()    
 
-        st.code(preview if preview else "# (empty preview)", language=language)
-        
+        max_lines = st.slider("Preview lines", 50, 500, 200, 50, key="kg_rdf_preview_lines")
+
+        p = Path(chosen)  # chosen is Path
+        sig = (p.stat().st_mtime_ns, p.stat().st_size)
+
+        preview = read_text_head(str(p), max_lines=max_lines, file_sig=sig)
 
 
-# -----------------------------
-# Downloads
-# -----------------------------
-        st.markdown("### Downloads (RDF only)")
+        preview_box = st.empty()
+        preview_box.code(preview if preview else "# (empty preview)", language=language)
+
+
+
+        st.markdown("### Downloads")
         c1, c2 = st.columns(2, vertical_alignment="top")
 
-        def _download_or_disabled(label: str, path: Path | None, mime: str) -> None:
+        def _download_or_disabled(label: str, path: Path | None, mime_type: str) -> None:
             if path and path.exists():
                 st.download_button(
-            f"Download {path.name}",
-            data=read_bytes(path),
-            file_name=path.name,
-            mime=mime,
-            use_container_width=True,
-        )
+                f"Download {path.name}",
+                data=read_bytes(path),
+                file_name=path.name,
+                mime=mime_type,
+                use_container_width=True,
+                key=f"kg_dl_{path.name}",  # unique key per file
+                )
             else:
                 st.button(f"Download {label}", disabled=True, use_container_width=True)
 
@@ -1490,6 +1783,7 @@ def page_explore() -> None:
             for label, fname in TTL_FILES:
                 p = rdf_dir / fname
                 _download_or_disabled(label, p if p.exists() else None, "text/turtle")
+
         with c2:
             st.markdown("**JSON-LD (.jsonld)**")
             if not jsonld_dir:
@@ -1498,21 +1792,6 @@ def page_explore() -> None:
                 for label, fname in JSONLD_FILES:
                     p = jsonld_dir / fname
                     _download_or_disabled(label, p if p.exists() else None, "application/ld+json")
-
-
-
-
-
-
-        st.markdown("---")
-        st.markdown("**Links**")
-        st.markdown(f"- Repository: {REPO_URL}")
-
-
-
-
-
-
 
 # -----------------------------
 # Classify
