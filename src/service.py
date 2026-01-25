@@ -66,8 +66,8 @@ def classify(
     tale_id: str,
     text_ru: str,
     top_k: int = DEFAULT_TOP_K,
-    with_anchors: bool = True,
-    anchor_k: int = DEFAULT_ANCHOR_K,
+    with_anchors: bool = False,
+    anchor_k: int = 0,
 ) -> Dict[str, Any]:
     """
     Contract-shaped response:

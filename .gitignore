@@ -37,3 +37,6 @@ data/raw/scans/
 # local-only scans
 data/raw/scans/
 .DS_Store
+
+# --- nested repo copy (do not track)
+notebooks/magic_tagger/

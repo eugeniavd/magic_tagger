@@ -1900,7 +1900,8 @@ def page_classify() -> None:
             )
 
         with c2:
-            with_anchors = st.checkbox("With anchors", value=True)
+           # with_anchors = st.checkbox("With anchors", value=True)
+            pass 
 
         uploaded = st.file_uploader("Upload .txt (optional)", type=["txt"])
         if uploaded is not None:
@@ -1916,7 +1917,7 @@ def page_classify() -> None:
                 placeholder="Paste the Russian tale here…",
             )
 
-        anchor_k = st.slider("Anchors per candidate", min_value=3, max_value=12, value=8, step=1)
+        # anchor_k = st.slider("Anchors per candidate", min_value=3, max_value=12, value=8, step=1)
         submitted = st.form_submit_button("Suggest ATU (Top-3)")
 
     # Run once on submit -> build canonical export_result -> store in session_state
@@ -1929,24 +1930,24 @@ def page_classify() -> None:
                 tale_id=tale_id,
                 text_ru=text_ru,
                 top_k=3,
-                with_anchors=with_anchors,
-                anchor_k=anchor_k,
+                with_anchors=False,
+                anchor_k=0,
             )
 
         export_result = build_export_result(raw, tale_id=tale_id, text_ru=text_ru, k=3)
         st.session_state["last_export_result"] = export_result
 
         # default selected ATU
-        cands = export_result.get("candidates", []) or []
-        if cands:
-            st.session_state["selected_atu"] = cands[0].get("atu")
+        #cands = export_result.get("candidates", []) or []
+        #if cands:
+        #    st.session_state["selected_atu"] = cands[0].get("atu")
 
     # -----------------------------
     # Source of truth: canonical model result
     # -----------------------------
     result = st.session_state.get("last_export_result")
     if not result:
-        st.info("Run classification to see Top-3 suggestions and anchors.")
+        st.info("Run classification to see Top-3 suggestions.")
         return
 
     # -----------------------------
@@ -2087,62 +2088,8 @@ def page_classify() -> None:
             st.metric("SCORE", f"{float(c.get('score', 0.0) or 0.0):.2f}")
             st.write(f"Confidence: `{c.get('confidence_band','—')}`")
             st.write(c.get("rationale_short", "") or "")
-            if st.button("View anchors", key=f"view_anchors_{i}", use_container_width=True):
-                st.session_state["selected_atu"] = c.get("atu")
-
-    # --- Anchors panel
-    st.subheader("Anchors / Evidence")
-
-    if not atu_options:
-        st.info("No candidates available for anchor inspection.")
-        return
-
-    selected_atu = st.selectbox(
-        "Candidate",
-        options=atu_options,
-        index=0
-        if st.session_state.get("selected_atu") not in atu_options
-        else atu_options.index(st.session_state["selected_atu"]),
-    )
-    st.session_state["selected_atu"] = selected_atu
-
-    cand = next((c for c in candidates if c.get("atu") == selected_atu), None)
-    anchors = (cand or {}).get("evidence", {}).get("anchors", []) or []
-
-    if not anchors:
-        st.info("No anchors available for this candidate.")
-        return
-
-    # Compute spans for highlight
-    spans: List[Tuple[int, int]] = []
-    for a in anchors:
-        if not isinstance(a, dict):
-            continue
-        span = a.get("span", {}) or {}
-        if isinstance(span, dict) and "start_char" in span and "end_char" in span:
-            spans.append((int(span["start_char"]), int(span["end_char"])))
-
-    left, right = st.columns([2, 3], vertical_alignment="top")
-
-    with left:
-        st.markdown("**Anchors list**")
-        for a in anchors:
-            if not isinstance(a, dict):
-                continue
-            st.markdown(
-                f"- **{a.get('anchor_id','')}** (score: {float(a.get('score',0.0) or 0.0):.2f})"
-            )
-            st.caption(a.get("rationale", ""))
-            st.write(a.get("snippet", "…"))
-
-        with st.expander("Raw anchors JSON"):
-            st.json(anchors)
-
-    with right:
-        st.markdown("**Full text with highlights**")
-        full_text = st.session_state.get("last_text", "")
-        html_block = highlight_text_with_spans(full_text, spans)
-        st.markdown(html_block, unsafe_allow_html=True)
+            # if st.button("View anchors", key=f"view_anchors_{i}", use_container_width=True):
+                # st.session_state["selected_atu"] = c.get("atu")
 
     # Raw JSON (canonical)
     with st.expander("Raw export result (source of truth)"):
