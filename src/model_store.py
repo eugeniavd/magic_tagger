@@ -6,10 +6,13 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any, Dict, Optional
 from datetime import datetime, timezone
+import hashlib
 
 import joblib
 import numpy as np
 import pandas as pd
+from src.export_jsonld import BASE_DATA, LABELS_URI, POLICY_URI, DATASET_URI
+
 
 # -----------------------------------------------------------------------------
 # Paths
@@ -21,7 +24,7 @@ MODEL_PATH = MODELS_DIR / "model.joblib"
 LABELS_PATH = MODELS_DIR / "labels.json"
 META_PATH = MODELS_DIR / "meta.json"
 
-# -----------------------------------------------------------------------------
+
 # Types (MUST be above load_artifacts)
 # -----------------------------------------------------------------------------
 @dataclass(frozen=True)
@@ -139,29 +142,87 @@ def predict_topk(
 
     return out
 
+def _sha256_text(s: str) -> str:
+    return hashlib.sha256((s or "").encode("utf-8")).hexdigest()
+
+
 def build_export_result(raw: dict, tale_id: str, text_ru: str, k: int = 3) -> dict:
+    """
+    Canonical export_result used by UI and JSON-LD export.
+
+    - instance URIs minted from BASE_DATA (data namespace), NOT RFT_ONT.
+    - adds dataset_uri (training corpus), labels_uri, decision_policy_uri, text_sha256.
+    - keeps source_version as dataset snapshot/version id used for inference.
+    """
     run = raw.get("run", {}) or {}
     suggestions = raw.get("suggestions", []) or []
-    anchors_map = raw.get("anchors", {}) or {}
 
-    # --- META: single source of truth for provenance & UI "Run metadata"
+    # ---------------------------------------------------------------------
+    # Confidence policy (UX label)
+    # ---------------------------------------------------------------------
+    band_raw = str(run.get("confidence_band") or "").strip().lower()
+    run_band = "high" if band_raw == "high" else "low"
+
+    run_policy_id = str(run.get("decision_policy") or "high_else").strip()
+    run_policy_label = str(run.get("decision_policy_label") or "High/Else").strip()
+
+    # ---------------------------------------------------------------------
+    # Stable identifiers
+    # ---------------------------------------------------------------------
+    run_id = str(run.get("run_id") or "").strip() or None
+    model_sha = str(run.get("model_sha") or "").strip() or None
+    model_version = str(run.get("model_version") or "").strip() or None
+
+    # External tale ID is the input artifact identifier (stable across reruns)
+    input_text_id = str(run.get("tale_id") or tale_id).strip() or str(tale_id).strip()
+
+    created_at = run.get("created_at")
+
+    # ---------------------------------------------------------------------
+    # Hash input text instead of embedding it
+    # ---------------------------------------------------------------------
+    text_sha256 = _sha256_text(text_ru)
+
+    # ---------------------------------------------------------------------
+    # URIs (instances): build from the DATA namespace
+    # ---------------------------------------------------------------------
+    def _data_iri(*parts: str) -> str:
+        path = "/".join(str(p).strip("/").strip() for p in parts if p is not None and str(p).strip() != "")
+        return f"{BASE_DATA}/{path}"
+
+    run_uri = _data_iri("run", run_id) if run_id else None
+    model_uri = _data_iri("model", model_sha or model_version or "unknown")
+    input_text_uri = _data_iri("text", input_text_id)
+
+    if created_at:
+        ts_slug = str(created_at).replace("+00:00", "Z").replace(":", "-")
+        result_uri = _data_iri("result", input_text_id, ts_slug)
+    else:
+        result_uri = _data_iri("result", run_id or "run", input_text_id)
+
+    # ---------------------------------------------------------------------
+    # META: single source of truth for provenance & UI "Run metadata"
+    # ---------------------------------------------------------------------
     meta = {
-        # training-time (NOW FROM run)
+        # training-time (FROM run; sourced from models/meta.json)
         "task": run.get("task"),
         "text_cols": run.get("text_cols"),
         "model_name": run.get("model_name"),
-        "model_version": run.get("model_version"),
+        "model_version": model_version,
         "trained_at": run.get("trained_at"),
         "note": run.get("note"),
-        "model_sha": run.get("model_sha"),
+        "model_sha": model_sha,
+
+        # NEW: training dataset pointer (commit/release asset later)
+        "dataset_uri": str(run.get("dataset_uri") or DATASET_URI),
 
         # inference-time / run-time
-        "run_id": run.get("run_id"),
-        "tale_id": run.get("tale_id") or tale_id,
-        "created_at": run.get("created_at"),
+        "run_id": run_id,
+        "tale_id": input_text_id,
+        "created_at": created_at,
         "status": run.get("status", "done"),
         "warnings": run.get("warnings", []) or [],
-        "source_version": run.get("source_version"),
+        "source_version": run.get("source_version"),  # dataset snapshot/version id used for inference
 
         # decision summary
         "tale_status": run.get("tale_status"),
@@ -169,87 +230,73 @@ def build_export_result(raw: dict, tale_id: str, text_ru: str, k: int = 3) -> di
         "co_types": run.get("co_types", []) or [],
         "delta_top12": run.get("delta_top12"),
 
-        "typing_source": run.get("typing_source") or {"id": "ffc_284-286_2011_uther",
+        # policy signals (UX + provenance)
+        "confidence_band": run_band,
+        "decision_policy": run_policy_id,
+        "decision_policy_label": run_policy_label,
+        "score1": run.get("score1"),
+        "score2": run.get("score2"),
+        "confidence_band_raw": band_raw or None,
 
-        "label": "FFC 284–286 (2011): Animal Tales, Tales of Magic, Religious Tales, Realistic Tales; etc.",
+        # reproducibility pointers (stable)
+        "labels_uri": str(run.get("labels_uri") or LABELS_URI),
+        "decision_policy_uri": str(run.get("decision_policy_uri") or POLICY_URI),
 
-    "citation": (
-        "Folklore Fellows’ Communications (FFC) 284–286. "
-        "Sastamala: Vammalan Kirjapaino Oy, 2011. "
-        "First published in 2004."
-    ),
+        # instance URIs (for to_jsonld() reuse)
+        "run_uri": run_uri,
+        "model_uri": model_uri,
+        "input_text_uri": input_text_uri,
+        "result_uri": result_uri,
 
-    "uri": "https://edition.fi/kalevalaseura/catalog/view/763/715/2750-1",
+        # input integrity
+        "text_sha256": text_sha256,
 
-    "identifiers": {
-        "issn": "0014-5815",
-        "issn_l": "0014-5815",
-        "ffc": ["284", "285", "286"],
-        "isbn": [
-            "978-951-41-1054-2",
-            "978-951-41-1055-9",
-            "978-951-41-1067-2",
-        ],
-    },
-
-    "publisher": "Vammalan Kirjapaino Oy",
-    "place": "Sastamala",
-    "year": "2011",
-    "note": "First published in 2004.",
-}
-
+        # typing source
+        "typing_source": run.get("typing_source") or {
+            "id": "ffc_284-286_2011_uther",
+            "label": "FFC 284–286 (2011): Animal Tales, Tales of Magic, Religious Tales, Realistic Tales; etc.",
+            "citation": (
+                "Folklore Fellows’ Communications (FFC) 284–286. "
+                "Sastamala: Vammalan Kirjapaino Oy, 2011. "
+                "First published in 2004."
+            ),
+            "uri": "https://edition.fi/kalevalaseura/catalog/view/763/715/2750-1",
+            "identifiers": {
+                "issn": "0014-5815",
+                "issn_l": "0014-5815",
+                "ffc": ["284", "285", "286"],
+                "isbn": [
+                    "978-951-41-1054-2",
+                    "978-951-41-1055-9",
+                    "978-951-41-1067-2",
+                ],
+            },
+            "publisher": "Vammalan Kirjapaino Oy",
+            "place": "Sastamala",
+            "year": "2011",
+            "note": "First published in 2004.",
+        },
     }
 
-    # --- CANDIDATES: single source of truth for Top-3 + anchors
+    # ---------------------------------------------------------------------
+    # CANDIDATES: Top-K (no anchors/evidence)
+    # ---------------------------------------------------------------------
     candidates = []
     for rank, s in enumerate(suggestions[:k], start=1):
         if not isinstance(s, dict):
             continue
         atu = str(s.get("atu_code", "")).strip()
         score = s.get("score", None)
-
-        # anchors for this candidate (if present)
-        raw_anchors = []
-        snippets = []
-        if isinstance(anchors_map, dict) and atu:
-            for a in anchors_map.get(atu, []) or []:
-                if not isinstance(a, dict):
-                    continue
-                sn = a.get("snippet")
-                if sn:
-                    snippets.append(sn)
-
-                raw_anchors.append(
-                    {
-                        "anchor_id": a.get("anchor_id"),
-                        "score": a.get("score"),
-                        "rationale": a.get("rationale"),
-                        "snippet": a.get("snippet"),
-                        "span": a.get("span"),  # expects {start_char, end_char}
-                    }
-                )
+        cand_band = run_band if rank == 1 else "low"
 
         candidates.append(
             {
                 "rank": rank,
                 "atu": atu,
                 "score": float(score) if score is not None else None,
-
-                # optional UX fields (if you want them in UI)
-                "label": s.get("label"),
-                "confidence_band": s.get("confidence_band"),
-                "rationale_short": s.get("rationale_short"),
-
-                "evidence": {
-                    "snippets": snippets,
-                    "anchors": raw_anchors,
-                },
+                "label": s.get("label") or "Unknown ATU type",
+                "confidence_band": cand_band,
             }
         )
 
-    export_result = {
-        "id": tale_id,
-        "meta": meta,
-        "candidates": candidates,
-    }
-    return export_result
+    return {"id": tale_id, "meta": meta, "candidates": candidates}

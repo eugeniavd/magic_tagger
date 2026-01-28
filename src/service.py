@@ -1,19 +1,15 @@
-# src/service.py
 from __future__ import annotations
 
 import hashlib
 import re
 from datetime import datetime, timezone
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Tuple
 
 from src.utils import atu_parent
-from src.anchors import AnchorEngine, normalize_atu_code
-from src.config import DEFAULT_TOP_K, DEFAULT_ANCHOR_K, clip01
+from src.config import DEFAULT_TOP_K, clip01
 from src.scoring import Candidate, make_decision
-from src.model_store import predict_topk 
+from src.model_store import predict_topk, load_training_meta
 
-# Load once (fast for Streamlit reruns)
-ANCHOR_ENGINE = AnchorEngine()
 
 ATU_LABELS: Dict[str, str] = {
     "ATU-510A": "Cinderella",
@@ -26,6 +22,38 @@ ATU_LABELS: Dict[str, str] = {
     "ATU-555": "The Fisherman and His Wife",
     "ATU-650A": "Strong John",
 }
+
+# Robust pattern: optional "ATU", optional dash, digits, optional letter suffix, optional trailing "*"
+_ATU_RE = re.compile(r"(?i)\b(?:ATU)?\s*[-–—]?\s*(\d{1,4})\s*([A-Z]{0,3})\s*(\*?)\b")
+
+
+def normalize_atu_code_any(x: Any) -> str:
+    """
+    Robust ATU code normalizer supporting:
+      - letters: 480a -> 480A
+      - star: 480A* -> 480A*
+      - prefixes: ATU-480A*, atu 480a*, ATU480A*, etc.
+    If no ATU-like pattern is found, returns a conservative cleaned string (digits/letters/*).
+    """
+    s = str(x or "").strip()
+    if not s:
+        return ""
+
+    s2 = s.replace("–", "-").replace("—", "-")
+    s2 = re.sub(r"\s+", " ", s2)
+
+    m = _ATU_RE.search(s2)
+    if m:
+        num = m.group(1)
+        suf = (m.group(2) or "").upper()
+        star = "*" if (m.group(3) or "") else ""
+        return f"{num}{suf}{star}"
+
+    # fallback: strip obvious prefixes and keep only [0-9A-Za-z*]
+    s3 = re.sub(r"(?i)\bATU\b", "", s2)
+    s3 = s3.replace("-", "").replace(" ", "")
+    s3 = re.sub(r"[^0-9A-Za-z\*]", "", s3).upper()
+    return s3
 
 
 def _utc_now_iso_z() -> str:
@@ -47,18 +75,28 @@ def _run_id(tale_id: str, source_ver: str, created_at: str) -> str:
     return f"cls_{created_at}_{short}"
 
 
-def _confidence_band(score: float) -> str:
-    if score >= 0.75:
-        return "high"
-    if score >= 0.50:
-        return "medium"
-    return "low"
-
-
 def _label_for_code(code: str) -> str:
-    # your ATU_LABELS keys are like "ATU-510A"
-    key = f"ATU-{code}"
+    # Labels are stored without the trailing "*", so lookup uses the base form.
+    base = re.sub(r"\*$", "", (code or "").strip())
+    key = f"ATU-{base}"
     return ATU_LABELS.get(key, "Unknown ATU type")
+
+
+def _load_policy_from_meta(meta: Dict[str, Any]) -> Dict[str, Any]:
+    dp = meta.get("decision_policy") or {}
+    return dp if isinstance(dp, dict) else {}
+
+
+def _high_else_band(score1: float, score2: float, policy: Dict[str, Any]) -> Tuple[str, float]:
+    """
+    Returns: (band, delta) with band in {"high","low"}.
+    """
+    delta = float(score1) - float(score2)
+    high_rule = policy.get("high_rule") or {}
+    min_s = float(high_rule.get("min_score1", 1.0))
+    min_d = float(high_rule.get("min_delta", 1.0))
+    band = "high" if (score1 >= min_s and delta >= min_d) else "low"
+    return band, delta
 
 
 def classify(
@@ -66,15 +104,18 @@ def classify(
     tale_id: str,
     text_ru: str,
     top_k: int = DEFAULT_TOP_K,
-    with_anchors: bool = False,
-    anchor_k: int = 0,
 ) -> Dict[str, Any]:
     """
     Contract-shaped response:
       - run
       - suggestions (Top-K)
-      - anchors (optional)
+    Notes:
+      - Model metadata and decision policy are loaded from models/meta.json (via load_training_meta()).
+      - ATU codes are normalized to support letter suffixes and trailing '*' (e.g., 480A, 480A*).
     """
+    # --- single source of truth: models/meta.json
+    meta_file = load_training_meta()
+    policy = _load_policy_from_meta(meta_file)
 
     warnings: List[str] = []
     if not (text_ru or "").strip():
@@ -82,7 +123,7 @@ def classify(
     elif len(text_ru.strip()) < 400:
         warnings.append("SHORT_TEXT")
 
-    # 1) model_store inference (single source of truth)
+    # 1) inference (labels + scores)
     pred = predict_topk(
         text=text_ru,
         summary="",
@@ -94,66 +135,59 @@ def classify(
 
     top_labels = pred.get("top_labels", []) or []
     top_scores = pred.get("top_scores", []) or []
-    meta = pred.get("meta", {}) or {}
 
-    # normalize ATU codes
-    codes = [normalize_atu_code(c) for c in top_labels]
+    # normalize ATU codes robustly (supports letters and trailing '*')
+    codes = [normalize_atu_code_any(c) for c in top_labels]
     scores = [clip01(float(s)) for s in top_scores]
 
+    # robust top1/top2 for policy
+    score1 = float(scores[0]) if len(scores) > 0 else 0.0
+    score2 = float(scores[1]) if len(scores) > 1 else 0.0
+    band, delta = _high_else_band(score1=score1, score2=score2, policy=policy)
+    tale_status = "accept" if band == "high" else "review"
+
     # time + ids
-    created_at = str(meta.get("inferred_at") or _utc_now_iso_z()).replace("+00:00", "Z")
+    created_at = _utc_now_iso_z()
     src_ver = _source_version(text_ru)
     run_id = _run_id(tale_id, src_ver, created_at)
 
-    # model provenance (training meta from model_store)
-    model_name = meta.get("model_name") or "MagicTagger ATU classifier"
-    model_sha = meta.get("model_version") or "unknown"         # your training sha like a16b3a1
-    trained_at = meta.get("trained_at") or meta.get("generated_at")
-    task = meta.get("task")
-    text_cols = meta.get("text_cols")
-    note = meta.get("note")
+    # --- model provenance: strictly from meta.json
+    model_name = meta_file.get("model_name") or "MagicTagger ATU classifier"
+    model_sha = meta_file.get("model_sha") or meta_file.get("model_version") or "unknown"
+    trained_at = meta_file.get("trained_at") or meta_file.get("generated_at")
+    task = meta_file.get("task")
+    text_cols = meta_file.get("text_cols")
+    note = meta_file.get("note")
+    model_version_tag = meta_file.get("model_version_tag") or f"{model_name}-v0.1.0"
 
-    # human-readable model tag for UI/LOD (keeps your previous pattern)
-    # IMPORTANT: keep it stable because it's used in JSON-LD IRI
-    model_version_tag = f"{model_name}+anchors-v0.1.0"
-
-    # 2) Anchors evidence
-    anchor_results = ANCHOR_ENGINE.score_types(text_ru, codes) if with_anchors else {}
-
-    # 3) Decision logic candidates
-    candidates: List[Candidate] = []
-    for code, score in zip(codes, scores):
-        ar = anchor_results.get(normalize_atu_code(code))
-        anchor_score = float(ar.anchor_score) if ar else 0.0
-        candidates.append(Candidate(atu_code=normalize_atu_code(code), score=score, anchor=clip01(anchor_score)))
-
+    # 2) Build candidates (no anchors)
+    candidates: List[Candidate] = [
+        Candidate(atu_code=code, score=float(score), anchor=0.0)
+        for code, score in zip(codes, scores)
+    ]
     decision = make_decision(candidates)
 
-    # 4) Suggestions payload
+    # 3) Suggestions payload
     suggestions: List[Dict[str, Any]] = []
     for i, cand in enumerate(decision.candidates[:top_k], start=1):
-        ar = anchor_results.get(cand.atu_code)
-        hit_count = len(ar.hits) if (with_anchors and ar) else 0
+        # parent computation should ignore trailing '*' (classification variant marker)
+        base_for_parent = re.sub(r"\*$", "", cand.atu_code)
 
         suggestions.append(
             {
                 "rank": i,
-                "atu_code": cand.atu_code,
+                "atu_code": cand.atu_code,  # keeps letters and '*' if present
                 "label": _label_for_code(cand.atu_code),
                 "score": float(cand.score),
-                "atu_parent": atu_parent(cand.atu_code),
-                "confidence_band": _confidence_band(float(cand.score)),
-                "rationale_short": "Model SCORE with rule-based motif anchors as evidence.",
-                "anchors_summary": {
-                    "count": int(min(hit_count, anchor_k)),
-                    "top_pages": [],
-                },
+                "atu_parent": atu_parent(base_for_parent),
+
+                # policy band is meaningful primarily for the top-1 decision
+                "confidence_band": band if i == 1 else "low",
             }
         )
 
     payload: Dict[str, Any] = {
         "run": {
-            # run identity
             "run_id": run_id,
             "tale_id": tale_id,
             "created_at": created_at,
@@ -162,12 +196,18 @@ def classify(
             "source_version": src_ver,
 
             # decision summary
-            "tale_status": decision.tale_status.value,
+            "tale_status": tale_status,
             "primary_atu": decision.primary_atu,
             "co_types": list(decision.co_types),
-            "delta_top12": float(decision.delta_top12),
 
-            # training provenance (NOW from model_store, not UI file)
+            # policy signals
+            "score1": score1,
+            "score2": score2,
+            "delta_top12": float(delta),
+            "confidence_band": band,
+            "decision_policy": policy.get("type", "high_else"),
+
+            # training provenance (FROM meta.json)
             "task": task,
             "text_cols": text_cols,
             "note": note,
@@ -178,40 +218,5 @@ def classify(
         },
         "suggestions": suggestions,
     }
-
-    # 5) Anchors payload
-    if with_anchors:
-        anchors_out: Dict[str, List[Dict[str, Any]]] = {}
-
-        for cand in decision.candidates[:top_k]:
-            ar = anchor_results.get(cand.atu_code)
-            if not ar:
-                anchors_out[cand.atu_code] = []
-                continue
-
-            hits = []
-            for j, h in enumerate(ar.hits[:anchor_k]):
-                hits.append(
-                    {
-                        "anchor_id": f"{cand.atu_code}_anc_{j+1}",
-                        "rank": j + 1,
-                        "score": float(clip01(ar.anchor_score)),
-                        "snippet": h.snippet,
-                        "rationale": f"Matched pattern '{h.pattern}' (w={h.w:.2f}).",
-                        "source": {
-                            "method": "rule_based_motifs",
-                            "model_version": model_version_tag,
-                        },
-                        "span": {
-                            "text_unit": "plain",
-                            "start_char": int(h.start_char),
-                            "end_char": int(h.end_char),
-                        },
-                    }
-                )
-
-            anchors_out[cand.atu_code] = hits
-
-        payload["anchors"] = anchors_out
 
     return payload

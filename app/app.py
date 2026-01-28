@@ -19,7 +19,6 @@ from rdflib import Graph
 
 
 from src.service import classify
-from src.utils import atu_parent
 from src.export_jsonld import to_jsonld
 from src.model_store import build_export_result
 
@@ -29,8 +28,6 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 SRC = os.path.join(ROOT, "src")
 if SRC not in sys.path:
     sys.path.insert(0, SRC)
-
-from src.service import classify
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 MODELS_DIR = REPO_ROOT / "models"
@@ -373,7 +370,7 @@ def _safe_get(d: Dict[str, Any], path: Sequence[str], default=None):
 def adapt_classify_result_for_jsonld(raw: dict, tale_id: str, k: int = 3) -> dict:
     run = raw.get("run", {}) or {}
     suggestions = raw.get("suggestions", []) or []
-    anchors_map = raw.get("anchors", {}) or {}
+     # anchors_map = raw.get("anchors", {}) or {}
 
     candidates = []
     for s in suggestions[:k]:
@@ -382,31 +379,31 @@ def adapt_classify_result_for_jsonld(raw: dict, tale_id: str, k: int = 3) -> dic
         atu = str(s.get("atu_code", "")).strip()
         score = s.get("score", None)
 
-        anchors = []
-        snippets = []
-        if isinstance(anchors_map, dict) and atu and atu in anchors_map:
-            for a in anchors_map.get(atu, []) or []:
-                if not isinstance(a, dict):
-                    continue
+         # anchors = []
+         # snippets = []
+         # if isinstance(anchors_map, dict) and atu and atu in anchors_map:
+             # for a in anchors_map.get(atu, []) or []:
+                 # if not isinstance(a, dict):
+                    # continue
                 # snippet list
-                sn = a.get("snippet")
-                if sn:
-                    snippets.append(sn)
+                 #sn = a.get("snippet")
+                 #if sn:
+                     #snippets.append(sn)
 
-                anchors.append({
-                    "anchor_id": a.get("anchor_id"),
-                    "score": a.get("score"),
-                    "rationale": a.get("rationale"),
-                    "span": a.get("span"),  # {start_char, end_char} если есть
-                })
+                 #anchors.append({
+                     #"anchor_id": a.get("anchor_id"),
+                     #"score": a.get("score"),
+                     #"rationale": a.get("rationale"),
+                     #"span": a.get("span"),  # {start_char, end_char} если есть
+                 #})
 
         candidates.append({
             "atu": atu,
             "score": float(score) if score is not None else None,
-            "evidence": {
-                "snippets": snippets,
-                "anchors": anchors,
-            }
+             # "evidence": {
+                # "snippets": snippets,
+                 # "anchors": anchors,
+             # }
         })
 
     export_result = {
@@ -415,7 +412,7 @@ def adapt_classify_result_for_jsonld(raw: dict, tale_id: str, k: int = 3) -> dic
             "k": k,
             "model_name": run.get("model_name", "MagicTagger ATU classifier"),
             "model_version": run.get("model_version", "unknown"),
-            # время инференса (лучше для prov:generatedAtTime)
+
             "inferred_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         },
         "candidates": candidates,
@@ -496,7 +493,7 @@ def make_quick_exports(result: Optional[Dict[str, Any]]) -> Dict[str, bytes]:
             "@vocab": "https://example.org/vocab/",
             "run": "run",
             "suggestions": "suggestions",
-            "anchors": "anchors",
+            # "anchors": "anchors",
         },
         **result,
     }
@@ -542,7 +539,7 @@ def apply_expert_override(result: dict, expert_state: dict) -> dict:
 
     expert_atu = str((expert_state or {}).get("atu") or "").strip()
     if expert_atu:
-        meta["tale_status"] = "expert_override"
+        meta["tale_status"] = "by expert"
         meta["final_decision_source"] = "expert"
         meta["final_atu"] = expert_atu
         meta["final_expert_note"] = str((expert_state or {}).get("note") or "").strip()
@@ -813,7 +810,7 @@ def page_home() -> None:
         f"""
         <div class="lead">
           Explore and annotate Russian magic tales from the Estonian Folklore Archives.
-          Filter the corpus by provenance metadata and get ATU Top-3 suggestions with evidence anchors for new texts.
+          Filter the corpus by provenance metadata and get ATU Top-3 suggestions for new texts.
         </div>
         """,
         unsafe_allow_html=True,
@@ -847,7 +844,7 @@ def page_home() -> None:
     with c2:
  
         st.markdown("### Classify a tale")
-        st.caption("Paste text → get Top-3 ATU suggestions with evidence anchors.")
+        st.caption("Paste text → get Top-3 ATU suggestions.")
         if st.button("Classify a text", use_container_width=True):
             st.session_state["nav_main_target"] = "Classify"
             st.rerun()
@@ -855,7 +852,6 @@ def page_home() -> None:
             """
             **What you get**
             - **Top-3 ATU** candidates + confidence scores
-            - **Anchors** to support interpretability
             - Exportable output for reporting
             """
         )
@@ -1900,8 +1896,8 @@ def page_classify() -> None:
             )
 
         with c2:
-           # with_anchors = st.checkbox("With anchors", value=True)
-            pass 
+            # reserved (anchors toggle, etc.)
+            pass
 
         uploaded = st.file_uploader("Upload .txt (optional)", type=["txt"])
         if uploaded is not None:
@@ -1917,30 +1913,24 @@ def page_classify() -> None:
                 placeholder="Paste the Russian tale here…",
             )
 
-        # anchor_k = st.slider("Anchors per candidate", min_value=3, max_value=12, value=8, step=1)
         submitted = st.form_submit_button("Suggest ATU (Top-3)")
 
-    # Run once on submit -> build canonical export_result -> store in session_state
+    # -----------------------------
+    # Run once on submit -> store canonical model export_result
+    # -----------------------------
     if submitted:
         st.session_state["last_tale_id"] = tale_id
         st.session_state["last_text"] = text_ru
 
         with st.spinner("Classifying…"):
-            raw = classify(
-                tale_id=tale_id,
-                text_ru=text_ru,
-                top_k=3,
-                with_anchors=False,
-                anchor_k=0,
-            )
+            raw = classify(tale_id=tale_id, text_ru=text_ru, top_k=3)
 
         export_result = build_export_result(raw, tale_id=tale_id, text_ru=text_ru, k=3)
         st.session_state["last_export_result"] = export_result
 
-        # default selected ATU
-        #cands = export_result.get("candidates", []) or []
-        #if cands:
-        #    st.session_state["selected_atu"] = cands[0].get("atu")
+        # If user starts a new run, do not carry old expert decision silently
+        # (optional but strongly recommended to avoid wrong exports)
+        st.session_state["expert_decision"] = {}
 
     # -----------------------------
     # Source of truth: canonical model result
@@ -1950,11 +1940,12 @@ def page_classify() -> None:
         st.info("Run classification to see Top-3 suggestions.")
         return
 
+    candidates = result.get("candidates", []) or []
+    meta_model = result.get("meta", {}) or {}
+
     # -----------------------------
     # Human-in-the-loop: Final decision (expert)
-    # (UI state only; export will be built from this state every rerun)
     # -----------------------------
-    candidates = result.get("candidates", []) or []
     expert_state = st.session_state.get("expert_decision", {}) or {}
 
     st.subheader("Final decision (expert)")
@@ -2004,7 +1995,7 @@ def page_classify() -> None:
                     "note": expert_note,
                     "saved_at": datetime.now(timezone.utc).isoformat(),
                 }
-                expert_state = st.session_state["expert_decision"]  # keep local in sync
+                expert_state = st.session_state["expert_decision"]
         with b2:
             if st.button("Clear expert decision", use_container_width=True):
                 st.session_state["expert_decision"] = {}
@@ -2013,59 +2004,96 @@ def page_classify() -> None:
         st.caption("Using the model output as the final decision for export.")
 
     # -----------------------------
-    # Effective result for export (model vs expert) — computed on EVERY rerun
+    # Effective result for export (model vs expert)
+    # IMPORTANT:
+    # - candidates stay model candidates
+    # - meta is rewritten for export + UI summary
     # -----------------------------
-    use_expert = bool((expert_state or {}).get("atu"))
+    use_expert = (mode == "Expert override") and bool((expert_state or {}).get("atu"))
 
     effective_result = copy.deepcopy(result)
     effective_meta = (effective_result.get("meta", {}) or {}).copy()
 
-    model_primary = effective_meta.get("primary_atu")
+    # Always store model primary ATU explicitly (for provenance)
+    model_primary = meta_model.get("primary_atu") or effective_meta.get("primary_atu")
     effective_meta["model_primary_atu"] = model_primary
+
+    # Always reset HITL-related fields to avoid stale exports
+    for k_ in ("hitl_activity_uri", "was_derived_from_result_uri", "expert_agent_id"):
+        effective_meta.pop(k_, None)
 
     if use_expert:
         final_atu = str(expert_state.get("atu") or "").strip()
+
         effective_meta["final_decision_source"] = "expert"
         effective_meta["final_atu"] = final_atu
         effective_meta["final_expert_note"] = str(expert_state.get("note", "") or "").strip()
         effective_meta["final_saved_at"] = str(expert_state.get("saved_at", "") or "").strip()
+
+        # Update effective decision (used in UI + export)
         effective_meta["primary_atu"] = final_atu
-        effective_meta["tale_status"] = "expert_override"
+        effective_meta["tale_status"] = "review"
+
+        # Optional provenance hooks
+        effective_meta["hitl_activity_uri"] = f"{effective_meta.get('run_uri', '')}/hitl"
+        effective_meta["was_derived_from_result_uri"] = effective_meta.get("result_uri", "")
+        effective_meta["expert_agent_id"] = "expert_1"
     else:
         effective_meta["final_decision_source"] = "model"
-        effective_meta["final_atu"] = str(model_primary or "")
+        effective_meta["final_atu"] = str(model_primary or "").strip()
         effective_meta["final_expert_note"] = ""
         effective_meta["final_saved_at"] = ""
+
 
     effective_result["meta"] = effective_meta
 
     meta = effective_meta
-    tale_id = effective_result.get("id") or st.session_state.get("last_tale_id", "tale")
+
+    # External tale id for export + file name
+    effective_tale_id = str(
+        meta.get("tale_id") or effective_result.get("id")
+        or st.session_state.get("last_tale_id") or "tale"
+    ).strip()
+
+    # Keep id consistent for downstream consumers
+    effective_result["id"] = effective_tale_id
+
     st.caption(f"Model version: {meta.get('model_version', '—')}")
 
-    # --- Download JSON-LD (export uses EFFECTIVE result)
-    jsonld_obj = to_jsonld(effective_result)
+
+    effective_result["id"] = effective_tale_id 
+    jsonld_obj = to_jsonld(effective_result, tale_id=effective_tale_id)
+
     payload = json.dumps(jsonld_obj, ensure_ascii=False, indent=2).encode("utf-8")
 
     st.download_button(
         "Download JSON-LD",
         data=payload,
-        file_name=f"{tale_id}.jsonld",
+        file_name=f"{effective_tale_id}.jsonld",
         mime="application/ld+json",
     )
 
-    # --- Summary
+    # -----------------------------
+    # Decision summary (reflects EFFECTIVE meta)
+    # -----------------------------
     st.subheader("Decision summary")
-    s1, s2, s3, s4 = st.columns(4)
-    s1.metric("Status", str(meta.get("tale_status", "—")))
-    s2.metric("Final", str(meta.get("primary_atu", "—")))
-    s3.metric("Model primary", str(meta.get("model_primary_atu", "—")))
-    s4.metric("Δ (top1-top2)", f"{float(meta.get('delta_top12', 0.0) or 0.0):.2f}")
+    s1, s2, s3, s4, s5 = st.columns(5)
+    s1.metric("We Suggest", str(meta.get("tale_status", "—")))
+    s2.metric("Final Type", str(meta.get("primary_atu", "—")))
+    s3.metric("Model Decision", str(meta.get("model_primary_atu", "—")))
+    s4.metric("Confidence", str(meta.get("confidence_band", "—")))
+    s5.metric("Top-1 vs Top-2 gap", f"{float(meta.get('delta_top12', 0.0) or 0.0):.2f}")
 
+    # -----------------------------
+    # Run metadata
+    # Show EFFECTIVE meta (includes HITL fields only if used)
+    # -----------------------------
     with st.expander("Run metadata"):
         st.json(meta)
 
-    # --- Top-3 cards
+    # -----------------------------
+    # Top-3 cards (MODEL candidates only)
+    # -----------------------------
     st.subheader("Top-3 ATU candidates")
     if not candidates:
         st.warning("No candidates returned.")
@@ -2077,22 +2105,17 @@ def page_classify() -> None:
             st.markdown(f"**#{c.get('rank', i+1)} — {c.get('atu','')}**")
             atu_code = c.get("atu", "")
             raw_label = str(c.get("label") or "").strip()
-
             file_label = get_atu_title(atu_code)
-            if (not raw_label) or (raw_label.lower().startswith("unknown")):
-                title = file_label
-            else:
-                title = raw_label
+            title = file_label if (not raw_label) or raw_label.lower().startswith("unknown") else raw_label
 
             st.caption(title or "Unknown ATU type")
             st.metric("SCORE", f"{float(c.get('score', 0.0) or 0.0):.2f}")
-            st.write(f"Confidence: `{c.get('confidence_band','—')}`")
-            st.write(c.get("rationale_short", "") or "")
-            # if st.button("View anchors", key=f"view_anchors_{i}", use_container_width=True):
-                # st.session_state["selected_atu"] = c.get("atu")
+
+            # Show the actual per-candidate confidence band from export_result
+            st.caption(f"Confidence (policy): {c.get('confidence_band', '—')}")
 
     # Raw JSON (canonical)
-    with st.expander("Raw export result (source of truth)"):
+    with st.expander("Model result without expert changes"):
         st.json(result)
 
     # -----------------------------

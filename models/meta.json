@@ -7,6 +7,32 @@
   ],
   "model_name": "A_char + word_summary (balanced)",
   "note": "predict_proba columns correspond to labels.json order",
-  "model_version": "e0bf3df",
-  "generated_at": "2026-01-25T16:13:28+00:00"
+  "model_version": "8980292",
+  "generated_at": "2026-01-26T14:16:19+00:00",
+  "decision_policy": {
+    "type": "high_else",
+    "high_rule": {
+      "min_score1": 0.38,
+      "min_delta": 0.14,
+      "expected_precision_cv": 0.9,
+      "expected_coverage_cv": 0.25,
+      "n_cv": 10
+    },
+    "else_rule": {
+      "definition": "else = NOT high",
+      "expected_coverage_cv": 0.75,
+      "n_cv": 30
+    },
+    "tuned_on": {
+      "dataset_split": "train_cv",
+      "metric": "parent_correct1 (top1 parent in gold parents)",
+      "procedure": "grid-search thresholds over (score1, delta); choose maximal coverage subject to target precision and minimum n",
+      "target_precision": 0.85,
+      "min_n": 5
+    },
+    "notes": [
+      "This confidence is a policy band (decision support), not a calibrated probability.",
+      "score1 is model predict_proba(top1); delta=score1-score2."
+    ]
+  }
 }

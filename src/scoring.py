@@ -1,20 +1,14 @@
 # scoring.py
 """
-Decision logic for ATU Top-3 + Anchors.
+Scoring and decision helpers for ATU Top-K suggestions.
 
-Implements tale-level status assignment using fixed thresholds from config.py:
+Policy-agnostic:
+- normalize + sort by SCORE
+- compute Δ = score1 - score2
+- optionally propose co-types (score proximity only)
 
-Priority 1: auto-adopt (primary) if SCORE ≥ 0.75 AND ANCHOR ≥ 0.60 AND Δ ≥ 0.15
-Priority 2: needs review (A)      if SCORE ≥ 0.50 AND ANCHOR ≥ 0.40
-Priority 3: needs review (B)      if SCORE ≥ 0.35 AND ANCHOR ≥ 0.70
-Else: weak
-
-Where:
-- SCORE  : calibrated model confidence in [0,1]
-- ANCHOR : rule-based evidence strength in [0,1]
-- Δ      : SCORE1 - SCORE2 (top-1 vs top-2 separation)
-
-Also supports optional multi-label (co-types) proposal.
+Confidence policy (High/Else) MUST be applied upstream (classify())
+using thresholds loaded from models/meta.json.
 """
 
 from __future__ import annotations
@@ -23,17 +17,12 @@ from dataclasses import dataclass
 from typing import Iterable, List, Optional, Sequence, Tuple
 
 from src.config import (
-    TaleStatus,
-    STATUS_RULES,
-    DEFAULT_STATUS,
     ALLOW_MULTI_LABEL,
     CO_TYPE_MAX_SCORE_GAP,
     CO_TYPE_MIN_SCORE,
-    CO_TYPE_MIN_ANCHOR,
     MAX_CO_TYPES,
     clip01,
-)
-
+)              # limit additional co-types
 
 # -----------------------------
 # Data structures
@@ -44,8 +33,8 @@ class Candidate:
     One candidate ATU type for a tale.
     """
     atu_code: str
-    score: float   # calibrated confidence
-    anchor: float  # evidence strength
+    score: float   # model score in [0,1]
+    anchor: float = 0.0  # backward-compat only; always forced to 0.0
 
 
 @dataclass(frozen=True)
@@ -53,30 +42,41 @@ class Decision:
     """
     Decision output used by UI and persistence.
     """
-    tale_status: TaleStatus
+    tale_status: str  # placeholder, policy lives upstream
     primary_atu: Optional[str]
     co_types: Tuple[str, ...]
     delta_top12: float
-    candidates: Tuple[Candidate, ...]  # normalized and sorted by score desc
+    candidates: Tuple[Candidate, ...]
 
 
 # -----------------------------
 # Helpers
 # -----------------------------
+def _atu_code_soft_norm(code: str) -> str:
+    """
+    Minimal, policy-agnostic normalization:
+    - strip whitespace
+    - drop trailing '*' (uncertainty markers)
+    Full normalization (e.g., ATU-480A vs 480a) should be upstream.
+    """
+    return str(code or "").strip().rstrip("*").strip()
+
+
 def normalize_candidates(candidates: Iterable[Candidate]) -> List[Candidate]:
     """
-    Clamp SCORE and ANCHOR to [0,1], drop empty codes, and sort desc by SCORE.
+    Clamp SCORE to [0,1], drop empty codes, minimal-normalize codes,
+    and sort desc by SCORE.
     """
     norm: List[Candidate] = []
     for c in candidates:
-        code = (c.atu_code or "").strip()
+        code = _atu_code_soft_norm(c.atu_code)
         if not code:
             continue
         norm.append(
             Candidate(
                 atu_code=code,
                 score=clip01(float(c.score)),
-                anchor=clip01(float(c.anchor)),
+                anchor=0.0,  # anchors disabled in current pipeline
             )
         )
 
@@ -87,36 +87,21 @@ def normalize_candidates(candidates: Iterable[Candidate]) -> List[Candidate]:
 def compute_delta_top12(sorted_candidates: Sequence[Candidate]) -> float:
     """
     Δ = SCORE1 - SCORE2. If no second candidate, Δ = 0.
+    Assumes candidates are already sorted desc by SCORE.
     """
     if len(sorted_candidates) < 2:
         return 0.0
-    return clip01(sorted_candidates[0].score - sorted_candidates[1].score)
-
-
-def decide_status(primary: Candidate, delta_top12: float) -> TaleStatus:
-    """
-    Apply priority-ordered rules to the primary (top-1) candidate.
-    """
-    for rule in sorted(STATUS_RULES, key=lambda r: r.priority):
-        if primary.score < rule.min_score:
-            continue
-        if primary.anchor < rule.min_anchor:
-            continue
-        if rule.min_delta is not None and delta_top12 < rule.min_delta:
-            continue
-        return rule.label
-    return DEFAULT_STATUS
+    d = float(sorted_candidates[0].score) - float(sorted_candidates[1].score)
+    return d if d > 0.0 else 0.0
 
 
 def propose_co_types(sorted_candidates: Sequence[Candidate]) -> Tuple[str, ...]:
     """
-    Optional: propose additional ATU types ("co-types") when a tale plausibly
-    has multiple correct types. Uses simple closeness + minimum evidence constraints.
+    Optional: propose additional ATU types ("co-types") based on score proximity only.
 
     A candidate i becomes a co-type if:
       SCORE1 - SCOREi <= CO_TYPE_MAX_SCORE_GAP
       SCOREi >= CO_TYPE_MIN_SCORE
-      ANCHORi >= CO_TYPE_MIN_ANCHOR
 
     Returns at most MAX_CO_TYPES.
     """
@@ -130,8 +115,8 @@ def propose_co_types(sorted_candidates: Sequence[Candidate]) -> Tuple[str, ...]:
         if len(co) >= MAX_CO_TYPES:
             break
 
-        score_gap = top1.score - cand.score
-        if score_gap <= CO_TYPE_MAX_SCORE_GAP and cand.score >= CO_TYPE_MIN_SCORE and cand.anchor >= CO_TYPE_MIN_ANCHOR:
+        score_gap = float(top1.score) - float(cand.score)
+        if score_gap <= CO_TYPE_MAX_SCORE_GAP and float(cand.score) >= CO_TYPE_MIN_SCORE:
             co.append(cand.atu_code)
 
     return tuple(co)
@@ -142,20 +127,19 @@ def propose_co_types(sorted_candidates: Sequence[Candidate]) -> Tuple[str, ...]:
 # -----------------------------
 def make_decision(top_candidates: Sequence[Candidate]) -> Decision:
     """
-    Input: a list (typically Top-3) of Candidate(atu_code, score, anchor).
-    Output: Decision with normalized+sorted candidates, tale-level status, primary,
-            optional co-types, and Δ (top-1 vs top-2).
+    Input: list of Candidate(atu_code, score, anchor=0.0).
+    Output: normalized+sorted candidates, primary_atu, Δ, optional co-types.
 
-    Notes:
-    - Status is determined ONLY from the top-1 candidate + Δ, per your plan.
-    - Top-3 is still returned for UI even when status is "weak".
+    NOTE:
+    - tale_status is a placeholder because policy lives upstream.
+      classify() should set the final policy outputs (confidence_band, tale_status, etc.).
     """
     cands = normalize_candidates(top_candidates)
     delta = compute_delta_top12(cands)
 
     if not cands:
         return Decision(
-            tale_status=DEFAULT_STATUS,
+            tale_status="no_prediction",
             primary_atu=None,
             co_types=tuple(),
             delta_top12=delta,
@@ -163,11 +147,10 @@ def make_decision(top_candidates: Sequence[Candidate]) -> Decision:
         )
 
     primary = cands[0]
-    status = decide_status(primary, delta)
     co_types = propose_co_types(cands)
 
     return Decision(
-        tale_status=status,
+        tale_status="unreviewed",
         primary_atu=primary.atu_code,
         co_types=co_types,
         delta_top12=delta,
@@ -175,14 +158,12 @@ def make_decision(top_candidates: Sequence[Candidate]) -> Decision:
     )
 
 
-# -----------------------------
-# Convenience: proxy metric flag
-# -----------------------------
-def is_high_confidence_proxy(top_candidates: Sequence[Candidate], threshold: float = 0.75) -> bool:
+def is_high_confidence_proxy(top_candidates: Sequence[Candidate], threshold: float) -> bool:
     """
-    For reporting: "auto-adopt share (max_score ≥ 0.75)" proxy.
+    Proxy helper for reporting when you explicitly pass a threshold.
+    Thresholds must come from models/meta.json (do not hardcode here).
     """
     cands = normalize_candidates(top_candidates)
     if not cands:
         return False
-    return cands[0].score >= float(threshold)
+    return float(cands[0].score) >= float(threshold)

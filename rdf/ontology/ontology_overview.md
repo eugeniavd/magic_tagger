@@ -24,7 +24,7 @@ This document defines the minimal, analysis-oriented knowledge model for the Unl
 
 Data base IRI:
 
-BASE = <https://github.com/eugeniavd/magic_tagger/rdf/>
+BASE = <https://raw.githubusercontent.com/eugeniavd/magic_tagger/main/rdf/ontology.ttl>
 
 ---
 
