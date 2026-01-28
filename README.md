@@ -39,6 +39,7 @@ MagicTagger distinguishes between **archival source materials**, **derived data*
 - **Software stack**:  
   Built with **Streamlit** and **Python** (plus supporting libraries included in the repository).
 
+---
 
 ## 3. Contact
 evgeniia.vdovichenko@studio.unibo.it
