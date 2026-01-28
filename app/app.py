@@ -1,7 +1,16 @@
 # streamlit_app.py
+
 from __future__ import annotations
-import os
+
 import sys
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parents[1] 
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+
+import os
 from datetime import datetime, timezone
 import copy
 from weakref import ref
@@ -11,25 +20,16 @@ import numpy as np
 import html
 import json
 from typing import Any, Dict, List, Optional, Sequence, Tuple
-from pathlib import Path
 import streamlit as st
 from functools import lru_cache
 import altair as alt
 from rdflib import Graph 
-
 
 from src.service import classify
 from src.export_jsonld import to_jsonld
 from src.model_store import build_export_result
 
 
-
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-SRC = os.path.join(ROOT, "src")
-if SRC not in sys.path:
-    sys.path.insert(0, SRC)
-
-REPO_ROOT = Path(__file__).resolve().parents[1]
 MODELS_DIR = REPO_ROOT / "models"
 
 MODEL_PATH = MODELS_DIR / "model.joblib"
@@ -37,8 +37,6 @@ LABELS_PATH = MODELS_DIR / "labels.json"
 META_PATH = MODELS_DIR / "meta.json"
 ATU_LABELS_PATH = REPO_ROOT / "data" / "processed" / "atu_labels.json"
 ATU_REF_PATH = REPO_ROOT / "data" / "processed" / "atu_reference.csv"
-
-
 
 DATA_DIR = REPO_ROOT / "data"
 PROCESSED_DIR = DATA_DIR / "processed"
