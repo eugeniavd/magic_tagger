@@ -59,7 +59,7 @@ COLLECTION_COL = "collection"
 NARRATOR_COL = "narrator_label_en"
 ATU_COL = "atu_codes" 
 APP_TITLE = "MagicTagger — Tale Classifier"
-APP_SUBTITLE = "Prototype UI: Top-3 ATU + Anchors" 
+APP_SUBTITLE = "Prototype UI: Top-3 ATU" 
 
 @st.cache_data(show_spinner=False)
 def load_training_meta() -> dict:
@@ -1662,9 +1662,9 @@ def page_explore() -> None:
         display:inline-flex;
         align-items:center;
         justify-content:center;
-        min-height: 38px;      /* одинаковая высота */
-        line-height: 1;        /* убирает "прыжки" baseline */
-        padding: 0 1.2rem;     /* высота контролируется min-height */
+        min-height: 38px;      
+        line-height: 1;        
+        padding: 0 1.2rem;     
         border-radius: 4px;
         background-color: #f97316;
         color: #ffffff !important;

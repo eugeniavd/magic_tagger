@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MagicTagger — RDF artifacts index</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 24px; line-height: 1.45; }
+    code { background: #f4f4f4; padding: 2px 6px; border-radius: 6px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 16px; }
+    .card { border: 1px solid #e6e6e6; border-radius: 12px; padding: 14px 16px; }
+    .card h2 { font-size: 16px; margin: 0 0 8px 0; }
+    ul { margin: 8px 0 0 18px; }
+    .small { color: #555; font-size: 14px; }
+  </style>
+</head>
+
+<body>
+  <h1>MagicTagger — RDF artifacts</h1>
+
+  <p class="small">
+    This is a technical index page for the RDF/knowledge graph artifacts stored in <code>/rdf</code>.
+    The main project UI is the Streamlit application.
+  </p>
+
+  <div class="card">
+    <h2>Quick links</h2>
+    <ul>
+      <li><a href="../">Project root (GitHub Pages)</a></li>
+      <li><a href="./README_RDF.md">README_RDF.md</a></li>
+      <li><a href="./context.json">context.json (JSON-LD context)</a></li>
+    </ul>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <h2>Folders</h2>
+      <ul>
+        <!-- NOTE: these links work best if each folder also contains its own index.html -->
+        <li><a href="./ontology/">ontology/</a> <span class="small">— ontology overview & specs</span></li>
+        <li><a href="./shacl/">shacl/</a> <span class="small">— SHACL shapes</span></li>
+        <li><a href="./queries/">queries/</a> <span class="small">— SPARQL queries</span></li>
+        <li><a href="./rdf_serialization/">rdf_serialization/</a> <span class="small">— RDF serializations</span></li>
+        <li><a href="./validation/">validation/</a> <span class="small">— validation outputs</span></li>
+        <li><a href="./quality/">quality/</a> <span class="small">— quality logs</span></li>
+      </ul>
+      <p class="small" style="margin-top:10px;">
+        If a folder link shows 404, add a small <code>index.html</code> inside that folder.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Top-level files in /rdf</h2>
+      <ul>
+        <li><a href="./build_kg.py">build_kg.py</a></li>
+        <li><a href="./export_jsonld.py">export_jsonld.py</a></li>
+        <li><a href="./export_agents.py">export_agents.py</a></li>
+        <li><a href="./export_atu_types.py">export_atu_types.py</a></li>
+        <li><a href="./export_biblio.py">export_biblio.py</a></li>
+        <li><a href="./export_data_info.py">export_data_info.py</a></li>
+        <li><a href="./README_RDF.md">README_RDF.md</a></li>
+        <li><a href="./context.json">context.json</a></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Suggested canonical IRIs (if you adopt Pages as base)</h2>
+      <p class="small" style="margin: 0 0 6px 0;">
+        (Optional) Use these as your unified base:
+      </p>
+      <ul>
+        <li><code>BASE_DATA</code> = <code>https://eugeniavd.github.io/magic_tagger/rdf/</code></li>
+        <li><code>ONT_IRI</code> = <code>https://eugeniavd.github.io/magic_tagger/rdf/ontology</code></li>
+        <li><code>rft:</code> = <code>https://eugeniavd.github.io/magic_tagger/rdf/ontology#</code></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <hr style="margin: 22px 0; border: none; border-top: 1px solid #eee;" />
+
+  <p class="small">
+    Next step: add <code>index.html</code> files inside each subfolder (ontology/, shacl/, queries/, ...),
+    to list and link every file inside them.
+  </p>
+</body>
+</html>

@@ -19,6 +19,8 @@ Provide a small, self-contained workbench that allows a researcher to:
 
 The emphasis is on reproducibility (versioned corpus, stable label-set/policy pointers, dataset snapshot identifiers).
 
+https://eugeniavd.github.io/magic_tagger/rdf/ 
+
 ---
 
 ## 2. Licensing

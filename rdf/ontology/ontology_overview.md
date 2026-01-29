@@ -229,7 +229,7 @@ This project distinguishes **two time axes**:
 
 #### 3.6.1 Recording time 
 
-**Preferred baseline (light profile): attach to Volume, not Tale**
+**Preferred baseline: attach to Volume, not Tale**
 
 Rationale: recording context (including time) is usually consistent within a volume and co-varies with collectors and capture conditions. Tale-level recording dates can be introduced later if truly reliable at row level.
 
