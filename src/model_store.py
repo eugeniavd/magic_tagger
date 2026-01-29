@@ -7,12 +7,13 @@ from pathlib import Path
 from typing import Any, Dict, Optional
 from datetime import datetime, timezone
 import hashlib
+from urllib.parse import quote
 
 import joblib
 import numpy as np
 import pandas as pd
-from src.export_jsonld import BASE_DATA, LABELS_URI, POLICY_URI, DATASET_URI
-
+from src.export_jsonld import LABELS_DOWNLOAD_URL, POLICY_DOWNLOAD_URL, DATASET_URL
+from src.uris import BASE_DATA  
 
 # -----------------------------------------------------------------------------
 # Paths
@@ -150,9 +151,9 @@ def build_export_result(raw: dict, tale_id: str, text_ru: str, k: int = 3) -> di
     """
     Canonical export_result used by UI and JSON-LD export.
 
-    - instance URIs minted from BASE_DATA (data namespace), NOT RFT_ONT.
-    - adds dataset_uri (training corpus), labels_uri, decision_policy_uri, text_sha256.
-    - keeps source_version as dataset snapshot/version id used for inference.
+    - instance URIs minted from BASE_DATA (data namespace)
+    - stores ONLY resolvable pointers for reproducibility (download/landing URLs)
+    - keeps source_version as dataset snapshot/version id used for inference
     """
     run = raw.get("run", {}) or {}
     suggestions = raw.get("suggestions", []) or []
@@ -187,15 +188,16 @@ def build_export_result(raw: dict, tale_id: str, text_ru: str, k: int = 3) -> di
     # URIs (instances): build from the DATA namespace
     # ---------------------------------------------------------------------
     def _data_iri(*parts: str) -> str:
+        base = str(BASE_DATA).rstrip("/")
         path = "/".join(str(p).strip("/").strip() for p in parts if p is not None and str(p).strip() != "")
-        return f"{BASE_DATA}/{path}"
+        return f"{base}/{path}" if path else base
 
     run_uri = _data_iri("run", run_id) if run_id else None
     model_uri = _data_iri("model", model_sha or model_version or "unknown")
     input_text_uri = _data_iri("text", input_text_id)
 
     if created_at:
-        ts_slug = str(created_at).replace("+00:00", "Z").replace(":", "-")
+        ts_slug = quote(str(created_at).replace("+00:00", "Z").replace(":", "-"), safe="-_.~")
         result_uri = _data_iri("result", input_text_id, ts_slug)
     else:
         result_uri = _data_iri("result", run_id or "run", input_text_id)
@@ -213,8 +215,9 @@ def build_export_result(raw: dict, tale_id: str, text_ru: str, k: int = 3) -> di
         "note": run.get("note"),
         "model_sha": model_sha,
 
-        # NEW: training dataset pointer (commit/release asset later)
-        "dataset_uri": str(run.get("dataset_uri") or DATASET_URI),
+        # reproducibility: dataset pointer MUST be resolvable (landing/download), not synthetic identity URI
+        # Prefer run-provided dataset_landing_url; fallback to module-level DATASET_URL.
+        "dataset_landing_url": str(run.get("dataset_landing_url") or DATASET_URL),
 
         # inference-time / run-time
         "run_id": run_id,
@@ -238,9 +241,12 @@ def build_export_result(raw: dict, tale_id: str, text_ru: str, k: int = 3) -> di
         "score2": run.get("score2"),
         "confidence_band_raw": band_raw or None,
 
-        # reproducibility pointers (stable)
-        "labels_uri": str(run.get("labels_uri") or LABELS_URI),
-        "decision_policy_uri": str(run.get("decision_policy_uri") or POLICY_URI),
+        # reproducibility pointers (resolvable content links only)
+        "labels_download_url": str(run.get("labels_download_url") or LABELS_DOWNLOAD_URL),
+        "decision_policy_download_url": str(run.get("decision_policy_download_url") or POLICY_DOWNLOAD_URL),
+
+        # OPTIONAL: keep labelset id as a short string (not a URL)
+        "labelset_id": str(run.get("labelset_id") or run.get("labels_id") or "labels-v1"),
 
         # instance URIs (for to_jsonld() reuse)
         "run_uri": run_uri,
@@ -279,7 +285,7 @@ def build_export_result(raw: dict, tale_id: str, text_ru: str, k: int = 3) -> di
     }
 
     # ---------------------------------------------------------------------
-    # CANDIDATES: Top-K (no anchors/evidence)
+    # CANDIDATES: Top-K 
     # ---------------------------------------------------------------------
     candidates = []
     for rank, s in enumerate(suggestions[:k], start=1):
@@ -300,3 +306,4 @@ def build_export_result(raw: dict, tale_id: str, text_ru: str, k: int = 3) -> di
         )
 
     return {"id": tale_id, "meta": meta, "candidates": candidates}
+

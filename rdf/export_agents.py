@@ -1,5 +1,11 @@
 
 from __future__ import annotations
+from pathlib import Path
+import sys
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 import argparse
 import ast
@@ -7,12 +13,13 @@ import csv
 import json
 import os
 import re
-from pathlib import Path
 from typing import Dict, List, Optional, Set, Tuple
 
 import pandas as pd
 from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.namespace import RDF, RDFS, DCTERMS as DCT, XSD
+from src.uris import BASE_DATA, RFT
+
 
 # ---------------------------------------------------------------------
 # Repo paths
@@ -28,8 +35,6 @@ ENV_OUT = "CORPUS_AGENTS_TTL"
 # ---------------------------------------------------------------------
 # Namespaces
 # ---------------------------------------------------------------------
-BASE = "https://github.com/eugeniavd/magic_tagger/rdf/"
-RFT = Namespace("https://github.com/eugeniavd/magic_tagger/rdf/ontology/#")
 PROV = Namespace("http://www.w3.org/ns/prov#")
 FOAF = Namespace("http://xmlns.com/foaf/0.1/")
 CRM = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
@@ -41,7 +46,7 @@ _CYR = re.compile(r"[\u0400-\u04FF]")  # Cyrillic block
 # IRI policy
 # ---------------------------------------------------------------------
 def iri_person(person_id: str) -> URIRef:
-    return URIRef(f"{BASE}person/{person_id}")
+    return URIRef(f"{BASE_DATA}person/{person_id}")
 
 # ---------------------------------------------------------------------
 # Robust IO helpers (encoding + delimiter)

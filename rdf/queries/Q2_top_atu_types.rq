@@ -13,7 +13,7 @@ SELECT
 WHERE {
   ?tale dcterms:subject ?atuConcept .
 
-  FILTER(STRSTARTS(STR(?atuConcept), "https://github.com/eugeniavd/magic_tagger/rdf/taleType/atu/"))
+  FILTER(STRSTARTS(STR(?atuConcept), "https://eugeniavd.github.io/magic_tagger/rdf/taleType/atu/"))
 
   # --- code: prefer skos:notation (handles 556A* even if URI is 556A-star)
   OPTIONAL { ?atuConcept skos:notation ?not . }

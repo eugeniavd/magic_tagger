@@ -1,10 +1,10 @@
 {
   "@context": {
     "@version": 1.1,
-    "@base": "https://github.com/eugeniavd/magic_tagger/rdf/",
+    "@base": "https://eugeniavd.github.io/magic_tagger/rdf/",
     "id": "@id",
     "type": "@type",
-    "rft": "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#",
+    "rft": "https://eugeniavd.github.io/magic_tagger/rdf/ontology#",
     "dct": "http://purl.org/dc/terms/",
     "dcterms": "http://purl.org/dc/terms/",
     "dcat": "http://www.w3.org/ns/dcat#",
@@ -126,31 +126,559 @@
   },
   "@graph": [
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_1_191_4",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_6_406_8",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_7_221_1",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/rkm_vene_3_257_117",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_347_4",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_13_335_28",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/rkm_vene_1_82_47",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/tru_vkk_48_62_110",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_16_744_22",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_2_642_9",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_12_97_19",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_2_161_14",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/distribution/corpus/v1/agents-ttl",
+      "@type": [
+        "http://www.w3.org/ns/dcat#Distribution"
+      ],
+      "http://purl.org/dc/terms/format": [
+        {
+          "@value": "text/turtle"
+        }
+      ],
+      "http://purl.org/dc/terms/title": [
+        {
+          "@language": "en",
+          "@value": "Agents graph (Turtle)"
+        }
+      ],
+      "http://www.w3.org/ns/dcat#accessURL": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/blob/main/rdf/rdf_serialization/agents.ttl"
+        }
+      ],
+      "http://www.w3.org/ns/dcat#downloadURL": [
+        {
+          "@id": "https://raw.githubusercontent.com/eugeniavd/magic_tagger/main/rdf/rdf_serialization/agents.ttl"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/tru_vkk_5_58_29",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_6_286_1",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_6_337_3",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_5_328_2",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_13_203_19",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_6_421_9",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_5_507_1",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_13_15_1",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/tru_vkk_32_17_3",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_6_395_7",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_13_272_23",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_1_505_1",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/tru_vkk_18_12_1",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_8_308_277",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/distribution/corpus/v1/biblio-ttl",
+      "@type": [
+        "http://www.w3.org/ns/dcat#Distribution"
+      ],
+      "http://purl.org/dc/terms/format": [
+        {
+          "@value": "text/turtle"
+        }
+      ],
+      "http://purl.org/dc/terms/title": [
+        {
+          "@language": "en",
+          "@value": "Bibliographic sources graph (Turtle)"
+        }
+      ],
+      "http://www.w3.org/ns/dcat#accessURL": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/blob/main/rdf/rdf_serialization/biblio_sources.ttl"
+        }
+      ],
+      "http://www.w3.org/ns/dcat#downloadURL": [
+        {
+          "@id": "https://raw.githubusercontent.com/eugeniavd/magic_tagger/main/rdf/rdf_serialization/biblio_sources.ttl"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_13_293_24",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_1_503_1",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_13_262_22",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_15_433_1",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_16_540_2",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_5_503_1",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_1_515_1",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_13_28_3",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_7_71_1",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/distribution/corpus/v1/corpus-ttl",
+      "@type": [
+        "http://www.w3.org/ns/dcat#Distribution"
+      ],
+      "http://purl.org/dc/terms/format": [
+        {
+          "@value": "text/turtle"
+        }
+      ],
+      "http://purl.org/dc/terms/title": [
+        {
+          "@language": "en",
+          "@value": "Corpus graph (Turtle)"
+        }
+      ],
+      "http://www.w3.org/ns/dcat#accessURL": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/blob/main/rdf/rdf_serialization/corpus.ttl"
+        }
+      ],
+      "http://www.w3.org/ns/dcat#downloadURL": [
+        {
+          "@id": "https://raw.githubusercontent.com/eugeniavd/magic_tagger/main/rdf/rdf_serialization/corpus.ttl"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_4_403_2",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_14_451_7",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_15_308_4",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/tru_vkk_29_54_68",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/tru_vkk_1_191_4",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_12_137_98",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/tru_vkk_12_44_1",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_13_318_27",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_16_548_4",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/distribution/corpus/v1/canonical-csv",
+      "@type": [
+        "http://www.w3.org/ns/dcat#Distribution"
+      ],
+      "http://purl.org/dc/terms/format": [
+        {
+          "@value": "text/csv"
+        }
+      ],
+      "http://purl.org/dc/terms/title": [
+        {
+          "@language": "en",
+          "@value": "Canonical table (CSV)"
+        }
+      ],
+      "http://www.w3.org/ns/dcat#accessURL": [
+        {
+          "@id": "https://github.com/eugeniavd/magic_tagger/blob/main/data/processed/corpus_a_for_kg.csv"
+        }
+      ],
+      "http://www.w3.org/ns/dcat#downloadURL": [
+        {
+          "@id": "https://raw.githubusercontent.com/eugeniavd/magic_tagger/main/data/processed/corpus_a_for_kg.csv"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_7_95_1",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_6_366_5",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_12_189_1",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_13_175_18",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_4_367_1",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_5_442_6",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/evgeniia-vdovichenko",
+      "@type": [
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@value": "Evgeniia Vdovichenko"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/tru_vkk_5_36_20",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_2_748_27",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_7_221_1",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_15_430_6",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_13_19_2",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/tru_vkk_32_26_5",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_12_550_1",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1",
       "@type": [
         "http://www.w3.org/ns/dcat#Dataset"
       ],
@@ -161,7 +689,7 @@
       ],
       "http://purl.org/dc/terms/creator": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/evgeniia-vdovichenko"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/evgeniia-vdovichenko"
         }
       ],
       "http://purl.org/dc/terms/description": [
@@ -188,7 +716,7 @@
       ],
       "http://purl.org/dc/terms/publisher": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/evgeniia-vdovichenko"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/evgeniia-vdovichenko"
         }
       ],
       "http://purl.org/dc/terms/source": [
@@ -212,25 +740,25 @@
       ],
       "http://www.w3.org/ns/dcat#distribution": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/agents-ttl"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/distribution/corpus/v1/agents-ttl"
         },
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/biblio-ttl"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/distribution/corpus/v1/biblio-ttl"
         },
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/canonical-csv"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/distribution/corpus/v1/canonical-csv"
         },
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/corpus-ttl"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/distribution/corpus/v1/corpus-ttl"
         },
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/queries-bundle"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/distribution/corpus/v1/queries-bundle"
         },
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/shacl-ttl"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/distribution/corpus/v1/shacl-ttl"
         },
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/types-ttl"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/distribution/corpus/v1/types-ttl"
         }
       ],
       "http://www.w3.org/ns/dcat#issued": [
@@ -269,561 +797,15 @@
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_29_54_68",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/tru_vkk_13_23_2",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_28_3",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_43_6",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_318_27",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_7_89_1",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_8_210_126",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_16_540_2",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_1_515_1",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_48_62_110",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/rkm_vene_1_82_47",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_189_1",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_2_161_14",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_203_19",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_25_120_23",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_395_7",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_90_12",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_5_503_1",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_262_22",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_366_5",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_2_642_9",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_5_36_20",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_93_13",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_5_58_29",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_13_59_4",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_7_95_1",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_335_28",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_19_2",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_18_12_1",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_14_451_7",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_137_16",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_638_21",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_406_8",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_16_735_2",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_43_8_2",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_13_31_2",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/types-ttl",
-      "@type": [
-        "http://www.w3.org/ns/dcat#Distribution"
-      ],
-      "http://purl.org/dc/terms/format": [
-        {
-          "@value": "text/turtle"
-        }
-      ],
-      "http://purl.org/dc/terms/title": [
-        {
-          "@language": "en",
-          "@value": "Tale type concepts graph (Turtle)"
-        }
-      ],
-      "http://www.w3.org/ns/dcat#accessURL": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/blob/main/rdf/rdf_serialization/types.ttl"
-        }
-      ],
-      "http://www.w3.org/ns/dcat#downloadURL": [
-        {
-          "@id": "https://raw.githubusercontent.com/eugeniavd/magic_tagger/main/rdf/rdf_serialization/types.ttl"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_12_44_1",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/evgeniia-vdovichenko",
-      "@type": [
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@value": "Evgeniia Vdovichenko"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_32_17_3",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_16_548_4",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_2_748_27",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_1_505_1",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_4_403_2",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_286_1",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_97_19",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_8_308_277",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/rkm_vene_1_236_5",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_345_29",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_592_4",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_15_134_3",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_175_18",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_272_23",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_7_227_1",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_105_22",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_2_137_1",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_15_430_6",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_137_98",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_2_599_3",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_363_30",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_635_20",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/agents-ttl",
-      "@type": [
-        "http://www.w3.org/ns/dcat#Distribution"
-      ],
-      "http://purl.org/dc/terms/format": [
-        {
-          "@value": "text/turtle"
-        }
-      ],
-      "http://purl.org/dc/terms/title": [
-        {
-          "@language": "en",
-          "@value": "Agents graph (Turtle)"
-        }
-      ],
-      "http://www.w3.org/ns/dcat#accessURL": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/blob/main/rdf/rdf_serialization/agents.ttl"
-        }
-      ],
-      "http://www.w3.org/ns/dcat#downloadURL": [
-        {
-          "@id": "https://raw.githubusercontent.com/eugeniavd/magic_tagger/main/rdf/rdf_serialization/agents.ttl"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_16_744_22",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_32_26_5",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_9_28_3",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/queries-bundle",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/distribution/corpus/v1/queries-bundle",
       "@type": [
         "http://www.w3.org/ns/dcat#Distribution"
       ],
@@ -845,79 +827,135 @@
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_32_14_2",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/rkm_vene_1_236_5",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_7_71_1",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_12_440_19",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_5_442_6",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_16_735_2",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_8_223_147",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/tru_vkk_13_47_3",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_550_1",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/tru_vkk_41_83_43",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_15_1",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/tru_vkk_43_8_2",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_421_9",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_13_73_9",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_151_17",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_15_304_1",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_5_507_1",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_13_635_20",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/shacl-ttl",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_2_599_3",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_1_497_1",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/tru_vkk_13_31_2",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_7_89_1",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_15_134_3",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_13_106_14",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_13_345_29",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/distribution/corpus/v1/shacl-ttl",
       "@type": [
         "http://www.w3.org/ns/dcat#Distribution"
       ],
@@ -944,127 +982,215 @@
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_440_19",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/tru_vkk_62_7_1",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_306_2",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/tru_vkk_9_28_3",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_293_24",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_7_227_1",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_6_337_3",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_13_363_30",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_15_308_4",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_8_223_147",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_37_5",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_6_306_2",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_95_18",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_13_37_5",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/rkm_vene_3_257_117",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_12_541_1",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_541_1",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_2_622_5",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_1_503_1",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_2_137_1",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_12_501_1",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_12_105_22",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_73_9",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_12_95_18",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_15_304_1",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/tru_vkk_13_59_4",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_5_328_2",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_13_638_21",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_13_106_14",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_12_501_1",
       "http://purl.org/dc/terms/isPartOf": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/biblio-ttl",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_5_407_1",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_13_90_12",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_13_151_17",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/tru_vkk_25_120_23",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_6_347_4",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_12_592_4",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_13_43_6",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/tru_vkk_32_14_2",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_13_137_16",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_8_210_126",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/tale/era_vene_13_93_13",
+      "http://purl.org/dc/terms/isPartOf": [
+        {
+          "@id": "https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/distribution/corpus/v1/types-ttl",
       "@type": [
         "http://www.w3.org/ns/dcat#Distribution"
       ],
@@ -1076,143 +1202,17 @@
       "http://purl.org/dc/terms/title": [
         {
           "@language": "en",
-          "@value": "Bibliographic sources graph (Turtle)"
+          "@value": "Tale type concepts graph (Turtle)"
         }
       ],
       "http://www.w3.org/ns/dcat#accessURL": [
         {
-          "@id": "https://github.com/eugeniavd/magic_tagger/blob/main/rdf/rdf_serialization/biblio_sources.ttl"
+          "@id": "https://github.com/eugeniavd/magic_tagger/blob/main/rdf/rdf_serialization/types.ttl"
         }
       ],
       "http://www.w3.org/ns/dcat#downloadURL": [
         {
-          "@id": "https://raw.githubusercontent.com/eugeniavd/magic_tagger/main/rdf/rdf_serialization/biblio_sources.ttl"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_1_497_1",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_5_407_1",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/corpus-ttl",
-      "@type": [
-        "http://www.w3.org/ns/dcat#Distribution"
-      ],
-      "http://purl.org/dc/terms/format": [
-        {
-          "@value": "text/turtle"
-        }
-      ],
-      "http://purl.org/dc/terms/title": [
-        {
-          "@language": "en",
-          "@value": "Corpus graph (Turtle)"
-        }
-      ],
-      "http://www.w3.org/ns/dcat#accessURL": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/blob/main/rdf/rdf_serialization/corpus.ttl"
-        }
-      ],
-      "http://www.w3.org/ns/dcat#downloadURL": [
-        {
-          "@id": "https://raw.githubusercontent.com/eugeniavd/magic_tagger/main/rdf/rdf_serialization/corpus.ttl"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_15_433_1",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_2_622_5",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_62_7_1",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/era_vene_4_367_1",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_13_23_2",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_41_83_43",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/distribution/corpus/v1/canonical-csv",
-      "@type": [
-        "http://www.w3.org/ns/dcat#Distribution"
-      ],
-      "http://purl.org/dc/terms/format": [
-        {
-          "@value": "text/csv"
-        }
-      ],
-      "http://purl.org/dc/terms/title": [
-        {
-          "@language": "en",
-          "@value": "Canonical table (CSV)"
-        }
-      ],
-      "http://www.w3.org/ns/dcat#accessURL": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/blob/main/data/processed/corpus_a_for_kg.csv"
-        }
-      ],
-      "http://www.w3.org/ns/dcat#downloadURL": [
-        {
-          "@id": "https://raw.githubusercontent.com/eugeniavd/magic_tagger/main/data/processed/corpus_a_for_kg.csv"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/tale/tru_vkk_13_47_3",
-      "http://purl.org/dc/terms/isPartOf": [
-        {
-          "@id": "https://github.com/eugeniavd/magic_tagger/rdf/dataset/corpus/v1"
+          "@id": "https://raw.githubusercontent.com/eugeniavd/magic_tagger/main/rdf/rdf_serialization/types.ttl"
         }
       ]
     }

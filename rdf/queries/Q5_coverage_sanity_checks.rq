@@ -3,7 +3,7 @@
 
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX crm:     <http://www.cidoc-crm.org/cidoc-crm/>
-PREFIX rft:     <https://github.com/eugeniavd/magic_tagger/rdf/ontology/#>
+PREFIX rft:     <https://eugeniavd.github.io/magic_tagger/rdf/ontology#>
 PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
 
 SELECT ?metric (COUNT(DISTINCT ?tale) AS ?count)

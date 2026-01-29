@@ -1,14 +1,20 @@
 from __future__ import annotations
+from pathlib import Path
+import sys
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 import argparse
 import csv
 import os
 import re
-from pathlib import Path
 
 import pandas as pd
 from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.namespace import RDF, RDFS, XSD, DCTERMS as DCT
+from src.uris import BASE_DATA, RFT
 
 # ---------------------------------------------------------------------
 # Repo paths
@@ -24,17 +30,15 @@ ENV_OUT = "ATU_OUT_TTL"
 # ---------------------------------------------------------------------
 # Namespaces (project)
 # ---------------------------------------------------------------------
-BASE = "https://github.com/eugeniavd/magic_tagger/rdf/"
-RFT = Namespace("https://github.com/eugeniavd/magic_tagger/rdf/ontology/#")
 SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 PROV = Namespace("http://www.w3.org/ns/prov#")
 
 # ---------------------------------------------------------------------
 # Bibliographic sources
 # ---------------------------------------------------------------------
-BIBLIO_SET_IRI = f"{BASE}biblio/ffc_284-286_2011_uther"
-BIBLIO_VOL1_IRI = f"{BASE}biblio/ffc_284_2011"  # < 1000
-BIBLIO_VOL2_IRI = f"{BASE}biblio/ffc_285_2011"  # >= 1000
+BIBLIO_SET_IRI = f"{BASE_DATA}biblio/ffc_284-286_2011_uther"
+BIBLIO_VOL1_IRI = f"{BASE_DATA}biblio/ffc_284_2011"  # < 1000
+BIBLIO_VOL2_IRI = f"{BASE_DATA}biblio/ffc_285_2011"  # >= 1000
 
 SCHEME_LABEL_EN = "THE TYPES OF INTERNATIONAL FOLKTALES Based on the System of Antti Aarne and Stith Thompson"
 
@@ -85,7 +89,7 @@ def normalize_code_for_iri(code: str, star_policy: str = "hyphen") -> str:
 
 def iri_atu(code: str, star_policy: str = "hyphen") -> URIRef:
     seg = normalize_code_for_iri(code, star_policy=star_policy)
-    return URIRef(f"{BASE}taleType/atu/{seg}")
+    return URIRef(f"{BASE_DATA}taleType/atu/{seg}")
 
 def detect_delimiter(path: Path) -> str:
     sample = path.read_text(encoding="utf-8")[:5000]

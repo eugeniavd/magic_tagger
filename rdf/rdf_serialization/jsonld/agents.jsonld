@@ -1,10 +1,10 @@
 {
   "@context": {
     "@version": 1.1,
-    "@base": "https://github.com/eugeniavd/magic_tagger/rdf/",
+    "@base": "https://eugeniavd.github.io/magic_tagger/rdf/",
     "id": "@id",
     "type": "@type",
-    "rft": "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#",
+    "rft": "https://eugeniavd.github.io/magic_tagger/rdf/ontology#",
     "dct": "http://purl.org/dc/terms/",
     "dcterms": "http://purl.org/dc/terms/",
     "dcat": "http://www.w3.org/ns/dcat#",
@@ -126,82 +126,122 @@
   },
   "@graph": [
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/ol-ga-gromova",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/anna-mikhailovna-seniushkina",
       "@type": [
         "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
         "http://www.w3.org/ns/prov#Agent",
         "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'ol-ga-gromova', 'label_en': 'ol ga gromova', 'raw': 'Ольга Громова', 'name_raw': 'Ольга Громова'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/menda-erenberg",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'menda-erenberg', 'label_en': 'menda erenberg', 'raw': 'Menda Erenberg', 'name_raw': 'Menda Erenberg'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/natalia-alekseevna-pagareva",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'natal-ia-alekseevna-pagareva', 'label_en': 'natal ia alekseevna pagareva', 'raw': 'Наталья Алексеевна Пагарева', 'name_raw': 'Наталья Алексеевна Пагарева'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anna-fedorovna-neverovskaia",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
       ],
       "http://www.w3.org/2000/01/rdf-schema#label": [
         {
           "@language": "en",
-          "@value": "Anna Fedorovna Neverovskaia"
+          "@value": "Anna Mikhailovna Seniushkina"
         },
         {
           "@language": "ru",
-          "@value": "Анна Федоровна Неверовская"
+          "@value": "Анна Михайловна Сенюшкина"
         }
       ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
         {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 50
+          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+          "@value": "1900"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/s-minusov",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col018",
       "@type": [
         "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
         "http://www.w3.org/ns/prov#Agent",
         "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col018', 'label_en': 'col018', 'raw': 'col018'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/aleksandr-osipovich-iariomin",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Aleksandr Osipovich Iariomin"
+        },
+        {
+          "@language": "ru",
+          "@value": "Александр Осипович Ярёмин"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 60
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col042",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col042', 'label_en': 'col042', 'raw': 'col042'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col011",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col011', 'label_en': 'col011', 'raw': 'col011'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col029",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col029', 'label_en': 'col029', 'raw': 'col029'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/s-minusov",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
       ],
       "http://www.w3.org/2000/01/rdf-schema#comment": [
         {
@@ -219,7 +259,7 @@
           "@value": "S. Minusov"
         }
       ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
         {
           "@type": "http://www.w3.org/2001/XMLSchema#integer",
           "@value": 76
@@ -227,12 +267,153 @@
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/z-vasil-eva-suvorova",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/marfa-shilova",
       "@type": [
         "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
         "http://www.w3.org/ns/prov#Agent",
         "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Marfa Shilova"
+        },
+        {
+          "@language": "ru",
+          "@value": "Марфа Шилова"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 48
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col019",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col019', 'label_en': 'col019', 'raw': 'col019'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/kira-trubenkova",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Kira Trubenkova"
+        },
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'kira-trubenkova', 'label_en': 'kira trubenkova', 'raw': 'Кира Трубенкова', 'name_raw': 'Кира Трубенкова'}"
+        },
+        {
+          "@language": "ru",
+          "@value": "Кира Трубенкова"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+          "@value": "1920"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/zoia-zhemchuzhina",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'zoia-zhemchuzhina', 'label_en': 'zoia zhemchuzhina', 'raw': 'Зоя Жемчужина', 'name_raw': 'Зоя Жемчужина'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/anna-karpulistova",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Anna Karpulistova"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анна Карпулистова"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 68
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/ivan-petrovich-somov",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#comment": [
+        {
+          "@language": "ru",
+          "@value": "православный"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Ivan Petrovich Somov"
+        },
+        {
+          "@language": "ru",
+          "@value": "Иван Петрович Сомов"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+          "@value": "1870"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/z-vasileva-suvorova",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
       ],
       "http://www.w3.org/2000/01/rdf-schema#comment": [
         {
@@ -252,2117 +433,12 @@
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/fedor-kolosov",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/neizvestno",
       "@type": [
         "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
         "http://www.w3.org/ns/prov#Agent",
         "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Fedor Kolosov"
-        },
-        {
-          "@language": "ru",
-          "@value": "Федор Колосов"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/aleksandr-osipovich-iariomin",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Aleksandr Osipovich Iariomin"
-        },
-        {
-          "@language": "ru",
-          "@value": "Александр Осипович Ярёмин"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 60
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/tatiana-semukhina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'tat-iana-semukhina', 'label_en': 'tat iana semukhina', 'raw': 'Татьяна Семухина', 'name_raw': 'Татьяна Семухина'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anastasiia-kodar",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "слышала от отца"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Anastasiia Kodar"
-        },
-        {
-          "@language": "ru",
-          "@value": "Анастасия Кодар"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1909"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/lewonty-borhov",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Lewonty Borhov"
-        },
-        {
-          "@language": "et",
-          "@value": "Lewonty Borhov"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 63
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/marfa-shilova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Marfa Shilova"
-        },
-        {
-          "@language": "ru",
-          "@value": "Марфа Шилова"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 48
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col011",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col011', 'label_en': 'col011', 'raw': 'col011'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/e-protasova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "et",
-          "@value": "kuulnud 20 aastat tagasi"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "E. Protasova"
-        },
-        {
-          "@language": "et",
-          "@value": "E. Protasova"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 82
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anastasiia-dorofeevna-topkina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Anastasiia Dorofeevna Topkina"
-        },
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'anastasiia-dorofeevna-topkina', 'label_en': 'anastasiia dorofeevna topkina', 'raw': 'Анастасия Дорофеевна Топкина', 'name_raw': 'Анастасия Дорофеевна Топкина'}"
-        },
-        {
-          "@language": "ru",
-          "@value": "Анастасия Дорофеевна Топкина"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col038",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col038', 'label_en': 'col038', 'raw': 'col038'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col037",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col037', 'label_en': 'col037', 'raw': 'col037'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar004",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "услышана от бабушки nar003"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar004"
-        },
-        {
-          "@language": "et",
-          "@value": "nar004"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 12
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col025",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col025', 'label_en': 'col025', 'raw': 'col025'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/starukha-guseva",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "слышала в детстве"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "starukha Guseva"
-        },
-        {
-          "@language": "ru",
-          "@value": "старуха Guseva"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 92
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar003",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar003"
-        },
-        {
-          "@language": "et",
-          "@value": "nar003"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col028",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col028', 'label_en': 'col028', 'raw': 'col028'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar014",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "неграмотная"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar014"
-        },
-        {
-          "@language": "et",
-          "@value": "nar014"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1894"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anna-karpulistova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Anna Karpulistova"
-        },
-        {
-          "@language": "ru",
-          "@value": "Анна Карпулистова"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 68
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col012",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col012', 'label_en': 'col012', 'raw': 'col012'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col021",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col021', 'label_en': 'col021', 'raw': 'col021'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anatolii-semenov",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "православный"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Anatolii Semenov"
-        },
-        {
-          "@language": "ru",
-          "@value": "Анатолий Семенов"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 56
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col004",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col004', 'label_en': 'col004', 'raw': 'col004'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col043",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col043', 'label_en': 'col043', 'raw': 'col043'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col015",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col015', 'label_en': 'col015', 'raw': 'col015'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/a-billio",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "A. Billio"
-        },
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'a-billio', 'label_en': 'a billio', 'raw': 'А. Биллио', 'name_raw': 'А. Биллио'}"
-        },
-        {
-          "@language": "ru",
-          "@value": "А. Биллио"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar002",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar002"
-        },
-        {
-          "@language": "et",
-          "@value": "nar002"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/zoia-zhemchuzhina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'zoia-zhemchuzhina', 'label_en': 'zoia zhemchuzhina', 'raw': 'Зоя Жемчужина', 'name_raw': 'Зоя Жемчужина'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/denisikha",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Denisikha"
-        },
-        {
-          "@language": "ru",
-          "@value": "Денисиха"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col002",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col002', 'label_en': 'col002', 'raw': 'col002'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/ivan-mishin",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Ivan Mishin"
-        },
-        {
-          "@language": "ru",
-          "@value": "Иван Мишин"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 50
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col019",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col019', 'label_en': 'col019', 'raw': 'col019'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anna-mukhina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Anna Mukhina"
-        },
-        {
-          "@language": "ru",
-          "@value": "Анна Мухина"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nastasja-kropetskaja",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Nastasja Kropetskaja"
-        },
-        {
-          "@language": "et",
-          "@value": "Nastasja Krõpetskaja"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 60
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col041",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col041', 'label_en': 'col041', 'raw': 'col041'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar008",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar008"
-        },
-        {
-          "@language": "et",
-          "@value": "nar008"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 80
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col024",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col024', 'label_en': 'col024', 'raw': 'col024'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/vera-sumina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Vera Sumina"
-        },
-        {
-          "@language": "ru",
-          "@value": "Вера Сумина"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 58
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anastasiia-folomeevna-senetskaia",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Anastasiia Folomeevna Senetskaia"
-        },
-        {
-          "@language": "ru",
-          "@value": "Анастасия Фоломеевна Сенецкая"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 73
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nina-mukhina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Nina Mukhina"
-        },
-        {
-          "@language": "ru",
-          "@value": "Нина Мухина"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col026",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col026', 'label_en': 'col026', 'raw': 'col026'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/andrei-nikhandrovich-lik",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "православный"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Andrei Nikhandrovich Lik"
-        },
-        {
-          "@language": "ru",
-          "@value": "Андрей Нихандрович Лик"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1885"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col029",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col029', 'label_en': 'col029', 'raw': 'col029'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar013",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar013"
-        },
-        {
-          "@language": "et",
-          "@value": "nar013"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/natal-ia-alekseevna-pagareva",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Natal'ia Alekseevna Pagareva"
-        },
-        {
-          "@language": "ru",
-          "@value": "Наталья Алексеевна Пагарева"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/oleg-riumin-ivanov",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Oleg Riumin-Ivanov"
-        },
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'oleg-riumin-ivanov', 'label_en': 'oleg riumin ivanov', 'raw': 'Олег Рюмин-Иванов', 'name_raw': 'Олег Рюмин-Иванов'}"
-        },
-        {
-          "@language": "ru",
-          "@value": "Олег Рюмин-Иванов"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1923"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nikolai-grecman",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Nikolai Grecman"
-        },
-        {
-          "@language": "et",
-          "@value": "Nikolai Grečman"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 73
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/z-vasilieva-suvorova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'z-vasil-eva-suvorova', 'label_en': 'z vasil eva suvorova', 'raw': 'З. Васильева-Суворова', 'name_raw': 'З. Васильева-Суворова'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anna-khalat",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "выучила от дедушки Алексея Кириловича"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Anna Khalat"
-        },
-        {
-          "@language": "ru",
-          "@value": "Анна Халат"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 80
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar007",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar007"
-        },
-        {
-          "@language": "et",
-          "@value": "nar007"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1908"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/m-sokolov",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'm-sokolov', 'label_en': 'm sokolov', 'raw': 'M. Sokolov', 'name_raw': 'M. Sokolov'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col031",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col031', 'label_en': 'col031', 'raw': 'col031'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/olga-gildebrandt",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'ol-ga-gil-debrandt', 'label_en': 'ol ga gil debrandt', 'raw': 'Ольга Гильдебрандт', 'name_raw': 'Ольга Гильдебрандт'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col003",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col003', 'label_en': 'col003', 'raw': 'col003'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/kira-trubenkova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Kira Trubenkova"
-        },
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'kira-trubenkova', 'label_en': 'kira trubenkova', 'raw': 'Кира Трубенкова', 'name_raw': 'Кира Трубенкова'}"
-        },
-        {
-          "@language": "ru",
-          "@value": "Кира Трубенкова"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1920"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/aksin-ia",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "неграмотная"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Aksin'ia"
-        },
-        {
-          "@language": "ru",
-          "@value": "Аксинья"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 72
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/tat-iana-semukhina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Tat'iana Semukhina"
-        },
-        {
-          "@language": "ru",
-          "@value": "Татьяна Семухина"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1922"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/an-mukhina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "An. Mukhina"
-        },
-        {
-          "@language": "ru",
-          "@value": "Ан. Мухина"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar001",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar001"
-        },
-        {
-          "@language": "et",
-          "@value": "nar001"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 86
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/zoia-aleksandrovna-iupatova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "православная"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Zoia Aleksandrovna Iupatova"
-        },
-        {
-          "@language": "ru",
-          "@value": "Зоя Александровна Юпатова"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1927"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col009",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col009', 'label_en': 'col009', 'raw': 'col009'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/maksim-tverdov",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "православный"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Maksim Tverdov"
-        },
-        {
-          "@language": "ru",
-          "@value": "Максим Твердов"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 61
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/avdot-ia-suvorova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Avdot'ia Suvorova"
-        },
-        {
-          "@language": "ru",
-          "@value": "Авдотья Суворова"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 60
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col033",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col033', 'label_en': 'col033', 'raw': 'col033'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/marfa-petukhova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Marfa Petukhova"
-        },
-        {
-          "@language": "ru",
-          "@value": "Марфа Петухова"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1887"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col027",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col027', 'label_en': 'col027', 'raw': 'col027'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anna-mikhailovna-seniushkina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Anna Mikhailovna Seniushkina"
-        },
-        {
-          "@language": "ru",
-          "@value": "Анна Михайловна Сенюшкина"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1900"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/ivan-mal-tsev",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Ivan Mal'tsev"
-        },
-        {
-          "@language": "ru",
-          "@value": "Иван Мальцев"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar009",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar009"
-        },
-        {
-          "@language": "et",
-          "@value": "nar009"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 80
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col007",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col007', 'label_en': 'col007', 'raw': 'col007'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/leon-borkhov",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "\"бывалый человек\""
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Leon Borkhov"
-        },
-        {
-          "@language": "ru",
-          "@value": "Леон Борхов"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 70
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/dar-ia-zalavskaia",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Dar'ia Zalavskaia"
-        },
-        {
-          "@language": "ru",
-          "@value": "Дарья Залавская"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 60
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/anna-terent-evna-gunina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Anna Terent'evna Gunina"
-        },
-        {
-          "@language": "ru",
-          "@value": "Анна Терентьевна Гунина"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1896"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/andrei-ulanov",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Andrei Ulanov"
-        },
-        {
-          "@language": "ru",
-          "@value": "Андрей Уланов"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 48
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col005",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col005', 'label_en': 'col005', 'raw': 'col005'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/michail-dragunin",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Michail Dragunin"
-        },
-        {
-          "@language": "et",
-          "@value": "Michail Dragunin"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 34
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/egorov-v",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'egorov-v', 'label_en': 'egorov v', 'raw': 'Egorov V.', 'name_raw': 'Egorov V.'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/irin-ia-sal-nikova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Irin'ia Sal'nikova"
-        },
-        {
-          "@language": "ru",
-          "@value": "Иринья Сальникова"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar005",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar005"
-        },
-        {
-          "@language": "et",
-          "@value": "nar005"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 60
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col016",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col016', 'label_en': 'col016', 'raw': 'col016'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar012",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar012"
-        },
-        {
-          "@language": "et",
-          "@value": "nar012"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 80
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col013",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col013', 'label_en': 'col013', 'raw': 'col013'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col032",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col032', 'label_en': 'col032', 'raw': 'col032'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col018",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col018', 'label_en': 'col018', 'raw': 'col018'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col006",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col006', 'label_en': 'col006', 'raw': 'col006'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/dar-ia-rosolova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "неграмотная"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Dar'ia Rosolova"
-        },
-        {
-          "@language": "ru",
-          "@value": "Дарья Росолова"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 73
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/mariia-latkina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Mariia Latkina"
-        },
-        {
-          "@language": "ru",
-          "@value": "Мария Латкина"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 76
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/ivan-petrovich-somov",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "православный"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Ivan Petrovich Somov"
-        },
-        {
-          "@language": "ru",
-          "@value": "Иван Петрович Сомов"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1870"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col035",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col035', 'label_en': 'col035', 'raw': 'col035'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/o-brandt",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'o-brandt', 'label_en': 'o brandt', 'raw': 'O. Brandt', 'name_raw': 'O. Brandt'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar011",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar011"
-        },
-        {
-          "@language": "et",
-          "@value": "nar011"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 39
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar019",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar019"
-        },
-        {
-          "@language": "et",
-          "@value": "nar019"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 67
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/maria-sokolova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'maria-sokolova', 'label_en': 'maria sokolova', 'raw': 'Maria Sokolova', 'name_raw': 'Maria Sokolova'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col020",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col020', 'label_en': 'col020', 'raw': 'col020'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/olga-brandt",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'olga-brandt', 'label_en': 'olga brandt', 'raw': 'Olga Brandt', 'name_raw': 'Olga Brandt'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col034",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col034', 'label_en': 'col034', 'raw': 'col034'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/iraida-georgievna-topkina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Iraida Georgievna Topkina"
-        },
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'iraida-georgievna-topkina', 'label_en': 'iraida georgievna topkina', 'raw': 'Ираида Георгиевна Топкина', 'name_raw': 'Ираида Георгиевна Топкина'}"
-        },
-        {
-          "@language": "ru",
-          "@value": "Ираида Георгиевна Топкина"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col023",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col023', 'label_en': 'col023', 'raw': 'col023'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/nar015",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar015"
-        },
-        {
-          "@language": "et",
-          "@value": "nar015"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 59
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/dariia-lipina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Dariia Lipina"
-        },
-        {
-          "@language": "ru",
-          "@value": "Дария Липина"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1851"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col022",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col022', 'label_en': 'col022', 'raw': 'col022'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/neizvestno",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
       ],
       "http://www.w3.org/2000/01/rdf-schema#label": [
         {
@@ -2376,57 +452,27 @@
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col014",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col034",
       "@type": [
         "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
         "http://www.w3.org/ns/prov#Agent",
         "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
       ],
       "http://www.w3.org/2000/01/rdf-schema#label": [
         {
           "@language": "et",
-          "@value": "{'person_id': 'col014', 'label_en': 'col014', 'raw': 'col014'}"
+          "@value": "{'person_id': 'col034', 'label_en': 'col034', 'raw': 'col034'}"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col017",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/fedor-koniaev",
       "@type": [
         "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
         "http://www.w3.org/ns/prov#Agent",
         "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col017', 'label_en': 'col017', 'raw': 'col017'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col008",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col008', 'label_en': 'col008', 'raw': 'col008'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/fedor-koniaev",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
       ],
       "http://www.w3.org/2000/01/rdf-schema#label": [
         {
@@ -2436,244 +482,156 @@
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col030",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/irin-ia-sal-nikova",
       "@type": [
         "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
         "http://www.w3.org/ns/prov#Agent",
         "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Irin'ia Sal'nikova"
+        },
+        {
+          "@language": "ru",
+          "@value": "Иринья Сальникова"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col005",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
       ],
       "http://www.w3.org/2000/01/rdf-schema#label": [
         {
           "@language": "et",
-          "@value": "{'person_id': 'col030', 'label_en': 'col030', 'raw': 'col030'}"
+          "@value": "{'person_id': 'col005', 'label_en': 'col005', 'raw': 'col005'}"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/zoia-dondukova",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/olga-brandt",
       "@type": [
         "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
         "http://www.w3.org/ns/prov#Agent",
         "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'zoia-dondukova', 'label_en': 'zoia dondukova', 'raw': 'Зоя Дондукова', 'name_raw': 'Зоя Дондукова'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/fedor-minushkin",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "слышал 40 лет назад"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Fedor Minushkin"
-        },
-        {
-          "@language": "ru",
-          "@value": "Федор Минушкин"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 60
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col042",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
       ],
       "http://www.w3.org/2000/01/rdf-schema#label": [
         {
           "@language": "et",
-          "@value": "{'person_id': 'col042', 'label_en': 'col042', 'raw': 'col042'}"
+          "@value": "{'person_id': 'olga-brandt', 'label_en': 'olga brandt', 'raw': 'Olga Brandt', 'name_raw': 'Olga Brandt'}"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/matrena-protaeva",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar009",
       "@type": [
         "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
         "http://www.w3.org/ns/prov#Agent",
         "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "слепая, неграмотная"
-        }
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
       ],
       "http://www.w3.org/2000/01/rdf-schema#label": [
         {
           "@language": "en",
-          "@value": "Matrena Protaeva"
+          "@value": "nar009"
         },
         {
-          "@language": "ru",
-          "@value": "Матрена Протаева"
+          "@language": "et",
+          "@value": "nar009"
         }
       ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
         {
           "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 85
+          "@value": 80
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col044",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/menda-erenberg",
       "@type": [
         "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
         "http://www.w3.org/ns/prov#Agent",
         "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
       ],
       "http://www.w3.org/2000/01/rdf-schema#label": [
         {
           "@language": "et",
-          "@value": "{'person_id': 'col044', 'label_en': 'col044', 'raw': 'col044'}"
+          "@value": "{'person_id': 'menda-erenberg', 'label_en': 'menda erenberg', 'raw': 'Menda Erenberg', 'name_raw': 'Menda Erenberg'}"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/sergei-dimitrievich-tsvetkov",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/marfa-petukhova",
       "@type": [
         "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
         "http://www.w3.org/ns/prov#Agent",
         "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
       ],
       "http://www.w3.org/2000/01/rdf-schema#label": [
         {
           "@language": "en",
-          "@value": "Sergei Dimitrievich Tsvetkov"
+          "@value": "Marfa Petukhova"
         },
         {
           "@language": "ru",
-          "@value": "{'person_id': 'sergei-dimitrievich-tsvetkov', 'label_en': 'sergei dimitrievich tsvetkov', 'raw': 'Сергей Димитриевич Цветков', 'name_raw': 'Сергей Димитриевич Цветков'}"
-        },
-        {
-          "@language": "ru",
-          "@value": "Сергей Димитриевич Цветков"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/ivan-petrovich-kirshinskii",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "православ"
+          "@value": "Марфа Петухова"
         }
       ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Ivan Petrovich Kirshinskii"
-        },
-        {
-          "@language": "ru",
-          "@value": "Иван Петрович Киршинский"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 63
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/vera-voogla",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'vera-voogla', 'label_en': 'vera voogla', 'raw': 'Вера Воогла', 'name_raw': 'Вера Воогла'}"
-        }
-      ]
-    },
-    {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/vassa-denisovna-gunina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Vassa Denisovna Gunina"
-        },
-        {
-          "@language": "ru",
-          "@value": "Васса Денисовна Гунина"
-        }
-      ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#birthYear": [
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
         {
           "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1876"
+          "@value": "1887"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/col040",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/maria-sokolova",
       "@type": [
         "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
         "http://www.w3.org/ns/prov#Agent",
         "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Collector"
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
       ],
       "http://www.w3.org/2000/01/rdf-schema#label": [
         {
           "@language": "et",
-          "@value": "{'person_id': 'col040', 'label_en': 'col040', 'raw': 'col040'}"
+          "@value": "{'person_id': 'maria-sokolova', 'label_en': 'maria sokolova', 'raw': 'Maria Sokolova', 'name_raw': 'Maria Sokolova'}"
         }
       ]
     },
     {
-      "@id": "https://github.com/eugeniavd/magic_tagger/rdf/person/avdot-ia-ershova",
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/tatiana-semukhina",
       "@type": [
         "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
         "http://www.w3.org/ns/prov#Agent",
         "http://xmlns.com/foaf/0.1/Person",
-        "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#Narrator"
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'tat-iana-semukhina', 'label_en': 'tat iana semukhina', 'raw': 'Татьяна Семухина', 'name_raw': 'Татьяна Семухина'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/avdot-ia-ershova",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
       ],
       "http://www.w3.org/2000/01/rdf-schema#comment": [
         {
@@ -2691,10 +649,2042 @@
           "@value": "Авдотья Ершова"
         }
       ],
-      "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#age": [
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
         {
           "@type": "http://www.w3.org/2001/XMLSchema#integer",
           "@value": 76
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col016",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col016', 'label_en': 'col016', 'raw': 'col016'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nastasja-kropetskaja",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Nastasja Kropetskaja"
+        },
+        {
+          "@language": "et",
+          "@value": "Nastasja Krõpetskaja"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 60
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar015",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "nar015"
+        },
+        {
+          "@language": "et",
+          "@value": "nar015"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 59
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col032",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col032', 'label_en': 'col032', 'raw': 'col032'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/ivan-petrovich-kirshinskii",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#comment": [
+        {
+          "@language": "ru",
+          "@value": "православ"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Ivan Petrovich Kirshinskii"
+        },
+        {
+          "@language": "ru",
+          "@value": "Иван Петрович Киршинский"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 63
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col021",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col021', 'label_en': 'col021', 'raw': 'col021'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/dariia-lipina",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Dariia Lipina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Дария Липина"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+          "@value": "1851"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/vassa-denisovna-gunina",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Vassa Denisovna Gunina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Васса Денисовна Гунина"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+          "@value": "1876"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/anatolii-semenov",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#comment": [
+        {
+          "@language": "ru",
+          "@value": "православный"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Anatolii Semenov"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анатолий Семенов"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 56
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/anna-khalat",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#comment": [
+        {
+          "@language": "ru",
+          "@value": "выучила от дедушки Алексея Кириловича"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Anna Khalat"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анна Халат"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 80
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/starukha-guseva",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#comment": [
+        {
+          "@language": "ru",
+          "@value": "слышала в детстве"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "starukha Guseva"
+        },
+        {
+          "@language": "ru",
+          "@value": "старуха Guseva"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 92
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col024",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col024', 'label_en': 'col024', 'raw': 'col024'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/m-sokolov",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'm-sokolov', 'label_en': 'm sokolov', 'raw': 'M. Sokolov', 'name_raw': 'M. Sokolov'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col043",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col043', 'label_en': 'col043', 'raw': 'col043'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/olga-gildebrandt",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'olga-gil-debrandt', 'label_en': 'olga gildebrandt', 'raw': 'Ольга Гильдебрандт', 'name_raw': 'Ольга Гильдебрандт'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col017",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col017', 'label_en': 'col017', 'raw': 'col017'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col008",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col008', 'label_en': 'col008', 'raw': 'col008'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/fedor-kolosov",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Fedor Kolosov"
+        },
+        {
+          "@language": "ru",
+          "@value": "Федор Колосов"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/olga-gromova",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'olga-gromova', 'label_en': 'olga gromova', 'raw': 'Ольга Громова', 'name_raw': 'Ольга Громова'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/zoia-dondukova",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'zoia-dondukova', 'label_en': 'zoia dondukova', 'raw': 'Зоя Дондукова', 'name_raw': 'Зоя Дондукова'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/leon-borkhov",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#comment": [
+        {
+          "@language": "ru",
+          "@value": "\"бывалый человек\""
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Leon Borkhov"
+        },
+        {
+          "@language": "ru",
+          "@value": "Леон Борхов"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 70
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col014",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col014', 'label_en': 'col014', 'raw': 'col014'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col022",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col022', 'label_en': 'col022', 'raw': 'col022'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/lewonty-borhov",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Lewonty Borhov"
+        },
+        {
+          "@language": "et",
+          "@value": "Lewonty Borhov"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 63
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/dar-ia-zalavskaia",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Dar'ia Zalavskaia"
+        },
+        {
+          "@language": "ru",
+          "@value": "Дарья Залавская"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 60
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/a-billio",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "A. Billio"
+        },
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'a-billio', 'label_en': 'a billio', 'raw': 'А. Биллио', 'name_raw': 'А. Биллио'}"
+        },
+        {
+          "@language": "ru",
+          "@value": "А. Биллио"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/ivan-mishin",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Ivan Mishin"
+        },
+        {
+          "@language": "ru",
+          "@value": "Иван Мишин"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 50
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col038",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col038', 'label_en': 'col038', 'raw': 'col038'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/andrei-ulanov",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Andrei Ulanov"
+        },
+        {
+          "@language": "ru",
+          "@value": "Андрей Уланов"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 48
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/an-mukhina",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "An. Mukhina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Ан. Мухина"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar002",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "nar002"
+        },
+        {
+          "@language": "et",
+          "@value": "nar002"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col025",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col025', 'label_en': 'col025', 'raw': 'col025'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/michail-dragunin",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Michail Dragunin"
+        },
+        {
+          "@language": "et",
+          "@value": "Michail Dragunin"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 34
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/zoia-aleksandrovna-iupatova",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#comment": [
+        {
+          "@language": "ru",
+          "@value": "православная"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Zoia Aleksandrovna Iupatova"
+        },
+        {
+          "@language": "ru",
+          "@value": "Зоя Александровна Юпатова"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+          "@value": "1927"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar004",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#comment": [
+        {
+          "@language": "ru",
+          "@value": "услышана от бабушки nar003"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "nar004"
+        },
+        {
+          "@language": "et",
+          "@value": "nar004"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 12
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/natalia-alekseevna-pagareva",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Natal'ia Alekseevna Pagareva"
+        },
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'natalia-alekseevna-pagareva', 'label_en': 'natalia alekseevna pagareva', 'raw': 'Наталья Алексеевна Пагарева', 'name_raw': 'Наталья Алексеевна Пагарева'}"
+        },
+        {
+          "@language": "ru",
+          "@value": "Наталья Алексеевна Пагарева"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col031",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col031', 'label_en': 'col031', 'raw': 'col031'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/dar-ia-rosolova",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#comment": [
+        {
+          "@language": "ru",
+          "@value": "неграмотная"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Dar'ia Rosolova"
+        },
+        {
+          "@language": "ru",
+          "@value": "Дарья Росолова"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 73
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col023",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col023', 'label_en': 'col023', 'raw': 'col023'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col020",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col020', 'label_en': 'col020', 'raw': 'col020'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar005",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "nar005"
+        },
+        {
+          "@language": "et",
+          "@value": "nar005"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 60
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/matrena-protaeva",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#comment": [
+        {
+          "@language": "ru",
+          "@value": "слепая, неграмотная"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Matrena Protaeva"
+        },
+        {
+          "@language": "ru",
+          "@value": "Матрена Протаева"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 85
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/anastasiia-kodar",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#comment": [
+        {
+          "@language": "ru",
+          "@value": "слышала от отца"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Anastasiia Kodar"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анастасия Кодар"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+          "@value": "1909"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nikolai-grecman",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Nikolai Grecman"
+        },
+        {
+          "@language": "et",
+          "@value": "Nikolai Grečman"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 73
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/maksim-tverdov",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#comment": [
+        {
+          "@language": "ru",
+          "@value": "православный"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Maksim Tverdov"
+        },
+        {
+          "@language": "ru",
+          "@value": "Максим Твердов"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 61
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/o-brandt",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'o-brandt', 'label_en': 'o brandt', 'raw': 'O. Brandt', 'name_raw': 'O. Brandt'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col003",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col003', 'label_en': 'col003', 'raw': 'col003'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar013",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "nar013"
+        },
+        {
+          "@language": "et",
+          "@value": "nar013"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar007",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "nar007"
+        },
+        {
+          "@language": "et",
+          "@value": "nar007"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+          "@value": "1908"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col009",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col009', 'label_en': 'col009', 'raw': 'col009'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/fedor-minushkin",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#comment": [
+        {
+          "@language": "ru",
+          "@value": "слышал 40 лет назад"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Fedor Minushkin"
+        },
+        {
+          "@language": "ru",
+          "@value": "Федор Минушкин"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 60
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/denisikha",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Denisikha"
+        },
+        {
+          "@language": "ru",
+          "@value": "Денисиха"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar019",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "nar019"
+        },
+        {
+          "@language": "et",
+          "@value": "nar019"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 67
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col012",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col012', 'label_en': 'col012', 'raw': 'col012'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col002",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col002', 'label_en': 'col002', 'raw': 'col002'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar012",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "nar012"
+        },
+        {
+          "@language": "et",
+          "@value": "nar012"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 80
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/sergei-dimitrievich-tsvetkov",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Sergei Dimitrievich Tsvetkov"
+        },
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'sergei-dimitrievich-tsvetkov', 'label_en': 'sergei dimitrievich tsvetkov', 'raw': 'Сергей Димитриевич Цветков', 'name_raw': 'Сергей Димитриевич Цветков'}"
+        },
+        {
+          "@language": "ru",
+          "@value": "Сергей Димитриевич Цветков"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/ivan-mal-tsev",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Ivan Mal'tsev"
+        },
+        {
+          "@language": "ru",
+          "@value": "Иван Мальцев"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/egorov-v",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'egorov-v', 'label_en': 'egorov v', 'raw': 'Egorov V.', 'name_raw': 'Egorov V.'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/anastasiia-dorofeevna-topkina",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Anastasiia Dorofeevna Topkina"
+        },
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'anastasiia-dorofeevna-topkina', 'label_en': 'anastasiia dorofeevna topkina', 'raw': 'Анастасия Дорофеевна Топкина', 'name_raw': 'Анастасия Дорофеевна Топкина'}"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анастасия Дорофеевна Топкина"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/iraida-georgievna-topkina",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Iraida Georgievna Topkina"
+        },
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'iraida-georgievna-topkina', 'label_en': 'iraida georgievna topkina', 'raw': 'Ираида Георгиевна Топкина', 'name_raw': 'Ираида Георгиевна Топкина'}"
+        },
+        {
+          "@language": "ru",
+          "@value": "Ираида Георгиевна Топкина"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col041",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col041', 'label_en': 'col041', 'raw': 'col041'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar011",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "nar011"
+        },
+        {
+          "@language": "et",
+          "@value": "nar011"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 39
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/anna-mukhina",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Anna Mukhina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анна Мухина"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col027",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col027', 'label_en': 'col027', 'raw': 'col027'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col015",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col015', 'label_en': 'col015', 'raw': 'col015'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col040",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col040', 'label_en': 'col040', 'raw': 'col040'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col006",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col006', 'label_en': 'col006', 'raw': 'col006'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col037",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col037', 'label_en': 'col037', 'raw': 'col037'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col035",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col035', 'label_en': 'col035', 'raw': 'col035'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/anna-fedorovna-neverovskaia",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Anna Fedorovna Neverovskaia"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анна Федоровна Неверовская"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 50
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/oleg-riumin-ivanov",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Oleg Riumin-Ivanov"
+        },
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'oleg-riumin-ivanov', 'label_en': 'oleg riumin ivanov', 'raw': 'Олег Рюмин-Иванов', 'name_raw': 'Олег Рюмин-Иванов'}"
+        },
+        {
+          "@language": "ru",
+          "@value": "Олег Рюмин-Иванов"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+          "@value": "1923"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nina-mukhina",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Nina Mukhina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Нина Мухина"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/tat-iana-semukhina",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Tat'iana Semukhina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Татьяна Семухина"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+          "@value": "1922"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/mariia-latkina",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Mariia Latkina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Мария Латкина"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 76
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col033",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col033', 'label_en': 'col033', 'raw': 'col033'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col026",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col026', 'label_en': 'col026', 'raw': 'col026'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col028",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col028', 'label_en': 'col028', 'raw': 'col028'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar003",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "nar003"
+        },
+        {
+          "@language": "et",
+          "@value": "nar003"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col007",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col007', 'label_en': 'col007', 'raw': 'col007'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/andrei-nikhandrovich-lik",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#comment": [
+        {
+          "@language": "ru",
+          "@value": "православный"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Andrei Nikhandrovich Lik"
+        },
+        {
+          "@language": "ru",
+          "@value": "Андрей Нихандрович Лик"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+          "@value": "1885"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col044",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col044', 'label_en': 'col044', 'raw': 'col044'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/aksin-ia",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#comment": [
+        {
+          "@language": "ru",
+          "@value": "неграмотная"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Aksin'ia"
+        },
+        {
+          "@language": "ru",
+          "@value": "Аксинья"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 72
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col013",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col013', 'label_en': 'col013', 'raw': 'col013'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar001",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "nar001"
+        },
+        {
+          "@language": "et",
+          "@value": "nar001"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 86
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/anastasiia-folomeevna-senetskaia",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Anastasiia Folomeevna Senetskaia"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анастасия Фоломеевна Сенецкая"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 73
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/e-protasova",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#comment": [
+        {
+          "@language": "et",
+          "@value": "kuulnud 20 aastat tagasi"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "E. Protasova"
+        },
+        {
+          "@language": "et",
+          "@value": "E. Protasova"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 82
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/anna-terent-evna-gunina",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Anna Terent'evna Gunina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анна Терентьевна Гунина"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+          "@value": "1896"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar008",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "nar008"
+        },
+        {
+          "@language": "et",
+          "@value": "nar008"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 80
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/z-vasilieva-suvorova",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'z-vasileva-suvorova', 'label_en': 'z vasileva suvorova', 'raw': 'З. Васильева-Суворова', 'name_raw': 'З. Васильева-Суворова'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col004",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col004', 'label_en': 'col004', 'raw': 'col004'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar014",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#comment": [
+        {
+          "@language": "ru",
+          "@value": "неграмотная"
+        }
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "nar014"
+        },
+        {
+          "@language": "et",
+          "@value": "nar014"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
+          "@value": "1894"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/vera-voogla",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'vera-voogla', 'label_en': 'vera voogla', 'raw': 'Вера Воогла', 'name_raw': 'Вера Воогла'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/avdot-ia-suvorova",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Avdot'ia Suvorova"
+        },
+        {
+          "@language": "ru",
+          "@value": "Авдотья Суворова"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 60
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col030",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Collector"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "et",
+          "@value": "{'person_id': 'col030', 'label_en': 'col030', 'raw': 'col030'}"
+        }
+      ]
+    },
+    {
+      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/vera-sumina",
+      "@type": [
+        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
+        "http://www.w3.org/ns/prov#Agent",
+        "http://xmlns.com/foaf/0.1/Person",
+        "https://eugeniavd.github.io/magic_tagger/rdf/ontology#Narrator"
+      ],
+      "http://www.w3.org/2000/01/rdf-schema#label": [
+        {
+          "@language": "en",
+          "@value": "Vera Sumina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Вера Сумина"
+        }
+      ],
+      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
+        {
+          "@type": "http://www.w3.org/2001/XMLSchema#integer",
+          "@value": 58
         }
       ]
     }

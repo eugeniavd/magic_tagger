@@ -1,4 +1,10 @@
 from __future__ import annotations
+from pathlib import Path
+import sys
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 import argparse
 import ast
@@ -6,12 +12,13 @@ import csv
 import json
 import os
 import re
-from pathlib import Path
+
 from typing import Dict, List, Optional
 
 import pandas as pd
 from rdflib import BNode, Graph, Literal, Namespace, URIRef
 from rdflib.namespace import RDF, RDFS, DCTERMS as DCT, XSD
+from src.uris import BASE_DATA, RFT
 
 # ---------------------------------------------------------------------
 # Repo paths
@@ -35,15 +42,13 @@ ENV_OUT = "CORPUS_VOLUMES_TTL"
 # ---------------------------------------------------------------------
 # Namespaces
 # ---------------------------------------------------------------------
-BASE = "https://github.com/eugeniavd/magic_tagger/rdf/"
-RFT = Namespace("https://github.com/eugeniavd/magic_tagger/rdf/ontology/#")
 PROV = Namespace("http://www.w3.org/ns/prov#")
 FOAF = Namespace("http://xmlns.com/foaf/0.1/")
 DCMITYPE = Namespace("http://purl.org/dc/dcmitype/")
 CRM = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
 
 # Dataset IRI (default; override via --dataset-iri)
-DEFAULT_DATASET_IRI = URIRef(f"{BASE}dataset/corpus/v1")
+DEFAULT_DATASET_IRI = URIRef(f"{BASE_DATA}dataset/corpus/v1")
 
 _WS = re.compile(r"\s+")
 _BAD = re.compile(r"[^a-z0-9\-]+")
@@ -53,16 +58,16 @@ _DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 # IRI policy (minimal)
 # ---------------------------------------------------------------------
 def iri_volume(volume_id: str) -> URIRef:
-    return URIRef(f"{BASE}volume/{volume_id}")
+    return URIRef(f"{BASE_DATA}volume/{volume_id}")
 
 def iri_collection(collection_code: str) -> URIRef:
-    return URIRef(f"{BASE}collection/{collection_code}")
+    return URIRef(f"{BASE_DATA}collection/{collection_code}")
 
 def iri_person(person_id_or_slug: str) -> URIRef:
-    return URIRef(f"{BASE}person/{person_id_or_slug}")
+    return URIRef(f"{BASE_DATA}person/{person_id_or_slug}")
 
 def iri_tale(tale_id: str) -> URIRef:
-    return URIRef(f"{BASE}tale/{tale_id}")
+    return URIRef(f"{BASE_DATA}tale/{tale_id}")
 
 def iri_atu(code: str) -> URIRef:
     """
@@ -73,9 +78,9 @@ def iri_atu(code: str) -> URIRef:
     """
     c = clean_ws(code).replace(" ", "").upper()
     if not c:
-        return URIRef(f"{BASE}taleType/atu/UNKNOWN")
+        return URIRef(f"{BASE_DATA}taleType/atu/UNKNOWN")
     c = c.replace("*", "-star")
-    return URIRef(f"{BASE}taleType/atu/{c}")
+    return URIRef(f"{BASE_DATA}taleType/atu/{c}")
 
 # ---------------------------------------------------------------------
 # Robust IO helpers (encoding + delimiter)

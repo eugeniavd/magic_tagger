@@ -1,10 +1,10 @@
 {
   "@context": {
     "@version": 1.1,
-    "@base": "https://github.com/eugeniavd/magic_tagger/rdf/",
+    "@base": "https://eugeniavd.github.io/magic_tagger/rdf/",
     "id": "@id",
     "type": "@type",
-    "rft": "https://github.com/eugeniavd/magic_tagger/rdf/ontology/#",
+    "rft": "https://eugeniavd.github.io/magic_tagger/rdf/ontology#",
     "dct": "http://purl.org/dc/terms/",
     "dcterms": "http://purl.org/dc/terms/",
     "dcat": "http://www.w3.org/ns/dcat#",

@@ -1,13 +1,20 @@
 from __future__ import annotations
+from pathlib import Path
+import sys
+
+REPO_ROOT = Path(__file__).resolve().parents[2]  
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 import argparse
 import json
 from datetime import datetime, timezone
-from pathlib import Path
 from typing import Dict, Set, Iterable
 
 from rdflib import Graph, URIRef
 from rdflib.namespace import RDF, RDFS, DCTERMS as DCT, XSD
+from src.uris import BASE_DATA  
+
 
 # Use explicit IRIs for robustness (do not rely on rdflib FOAF namespace mapping)
 FOAF_PAGE = URIRef("http://xmlns.com/foaf/0.1/page")
@@ -41,8 +48,8 @@ def main() -> int:
     ap.add_argument("--out", default="rdf/quality/quality_log.json", help="Output JSON metrics log")
     ap.add_argument(
         "--base",
-        default="https://github.com/eugeniavd/magic_tagger/rdf/",
-        help="BASE IRI prefix for heuristics (reserved; not required by current metrics).",
+        default=BASE_DATA,
+        help="BASE_DATA IRI prefix for heuristics (reserved; not required by current metrics).",
     )
     ap.add_argument(
         "--debug-volume",

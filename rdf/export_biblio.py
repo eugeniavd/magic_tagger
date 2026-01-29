@@ -2,9 +2,15 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
+import sys
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.namespace import RDF, RDFS, DCTERMS as DCT, XSD
+from src.uris import BASE_DATA, RFT
 
 # -----------------------------
 # Repo paths
@@ -17,8 +23,6 @@ ENV_OUT = "BIBLIO_OUT_TTL"
 # -----------------------------
 # Namespaces
 # -----------------------------
-BASE = "https://github.com/eugeniavd/magic_tagger/rdf/"
-RFT = Namespace("https://github.com/eugeniavd/magic_tagger/rdf/ontology/#")
 PROV = Namespace("http://www.w3.org/ns/prov#")
 FOAF = Namespace("http://xmlns.com/foaf/0.1/")
 
@@ -76,7 +80,7 @@ BIBLIO_SET = {
 
 
 def iri(local_path: str) -> URIRef:
-    return URIRef(f"{BASE}{local_path.lstrip('/')}")
+    return URIRef(f"{BASE_DATA}{local_path.lstrip('/')}")
 
 
 def add_person(g: Graph, person_id: str, name: str) -> URIRef:

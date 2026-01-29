@@ -20,15 +20,21 @@ This document defines the minimal, analysis-oriented knowledge model for the Unl
 - `rft:` — *Russian Folktales vocabulary* for project-specific classes and properties used when no adequate term exists in reused vocabularies (folklore-specific glue + classifier/export-specific properties such as confidence bands, decision policy references, dataset snapshot pointers, and input integrity hashes).
 
 **Ontology namespace:**
-- `rft:` = `https://raw.githubusercontent.com/eugeniavd/magic_tagger/main/rdf/ontology.ttl#`
+- `rft:` = `https://eugeniavd.github.io/magic_tagger/rdf/ontology#`
 
 **Data namespace (instances produced by the pipeline and the classifier):**
-- `BASE_DATA` = `https://github.com/eugeniavd/magic_tagger/rdf`
+- `BASE_DATA` = `https://eugeniavd.github.io/magic_tagger/rdf/`
 
-This separation is intentional:
-- the ontology (schema) is served from the raw GitHub TTL,
-- while concrete instances (runs, results, models, candidates, snapshots) use stable, human-browsable GitHub-backed IRIs under `BASE_DATA`.
+GitHub Pages gives us a stable HTTPS origin owned by the project, with human-browsable, dereferenceable links for static artifacts—without running a separate server. This makes the KG easier to inspect, cite, and reuse.
 
+Why we separate schema vs data:
+- Schema (TBox) uses a hash namespace (.../ontology#Term) for compact term IRIs.
+
+- Data (ABox) uses slash IRIs under BASE_DATA for large numbers of instances and predictable paths.
+Identity IRIs are minted under BASE_DATA for all instances: ".../tale/{tale_id}"
+Metadata exports include resolvable links to the exact artifacts used at inference time. Download URLs (machine-readable file content) are stored separately and must be resolvable links (no synthetic placeholders). 
+
+This keeps the graph stable and inspectable (canonical IRIs) while remaining reproducible (explicit file pointers).
 ---
 
 ## 2. Entity-level mapping

@@ -1,16 +1,22 @@
 
 from __future__ import annotations
 
+from pathlib import Path
+import sys
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
 import argparse
-import csv
 import os
 import re
-from pathlib import Path
 from typing import List, Optional
 
 import pandas as pd
 from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.namespace import RDF, RDFS, DCTERMS as DCT, XSD
+from src.uris import BASE_DATA, RFT
 
 # ---------------------------------------------------------------------
 # Repo paths
@@ -26,7 +32,7 @@ ENV_OUT = "CORPUS_DATASET_TTL"
 # ---------------------------------------------------------------------
 # Namespaces
 # ---------------------------------------------------------------------
-BASE = "https://github.com/eugeniavd/magic_tagger/rdf/"
+
 PROV = Namespace("http://www.w3.org/ns/prov#")
 FOAF = Namespace("http://xmlns.com/foaf/0.1/")
 DCAT = Namespace("http://www.w3.org/ns/dcat#")
@@ -41,16 +47,14 @@ def clean_ws(x: object) -> str:
 
 
 def iri_tale(tale_id: str) -> URIRef:
-    return URIRef(f"{BASE}tale/{tale_id}")
+    return URIRef(f"{BASE_DATA}tale/{tale_id}")
 
 
 def iri_dataset(dataset_id: str = "corpus/v1") -> URIRef:
-    return URIRef(f"{BASE}dataset/{dataset_id}")
-
+    return URIRef(f"{BASE_DATA}dataset/{dataset_id}")
 
 def iri_person(person_id_or_slug: str) -> URIRef:
-    return URIRef(f"{BASE}person/{person_id_or_slug}")
-
+    return URIRef(f"{BASE_DATA}person/{person_id_or_slug}")
 
 def add_distribution(
     g: Graph,
@@ -64,7 +68,7 @@ def add_distribution(
     """
     Create a dcat:Distribution and attach to dataset via dcat:distribution.
     """
-    dist_iri = URIRef(f"{BASE}distribution/corpus/v1/{dist_id}")
+    dist_iri = URIRef(f"{BASE_DATA}distribution/corpus/v1/{dist_id}")
 
     g.add((dist_iri, RDF.type, DCAT.Distribution))
     g.add((dist_iri, DCT.title, Literal(title_en, lang="en")))

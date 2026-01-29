@@ -1,44 +1,35 @@
-# src/export_jsonld.py
 from __future__ import annotations
 
 from datetime import datetime, timezone
 from typing import Any, Dict, Optional, List
 from urllib.parse import quote
 
-
-BASE_URI = "https://raw.githubusercontent.com/eugeniavd/magic_tagger/main/rdf/ontology.ttl"
-RFT_ONT = BASE_URI + "#"
-BASE_DATA = "https://github.com/eugeniavd/magic_tagger/rdf"
+from src.uris import BASE_DATA  
 
 # -----------------------------
-# External stable references
+# External stable references (CONTENT / DOWNLOAD URLs ONLY)
 # -----------------------------
-LABELS_URI = "https://github.com/eugeniavd/magic_tagger/blob/main/models/labels.json"
-POLICY_URI = "https://github.com/eugeniavd/magic_tagger/blob/main/models/meta.json"
+# Use raw (machine-readable). Avoid github.com/blob (HTML).
+LABELS_DOWNLOAD_URL = "https://raw.githubusercontent.com/eugeniavd/magic_tagger/main/models/labels.json"
+POLICY_DOWNLOAD_URL = "https://raw.githubusercontent.com/eugeniavd/magic_tagger/main/models/meta.json"
 
-# Dataset publication pointer (immutable permalink; can later be a release asset)
-DATASET_URI = "https://github.com/eugeniavd/magic_tagger/commit/1ebea31920a6adc352979b2518e072aa2d1a0332"
-
-# -----------------------------
-# OntoDM (for PredictiveModel typing)
-# -----------------------------
-ONTODM_NS = "http://kt.ijs.si/panovp/OntoDM#"
+# Dataset publication pointer (landing; resolvable, human-readable)
+DATASET_URL = "https://github.com/eugeniavd/magic_tagger/commit/1ebea31920a6adc352979b2518e072aa2d1a0332"
 
 # ---------------------------------------------------------------------
-# JSON-LD context (recommended style: local keys map to IRIs)
+# JSON-LD context
+# NOTE: policy/labels/dataset are stored as resolvable content/landing URLs (no empty identity URIs)
 # ---------------------------------------------------------------------
 CONTEXT: Dict[str, Any] = {
-    "ontoDM": ONTODM_NS,
+    "ontoDM": "http://kt.ijs.si/panovp/OntoDM#",
     "dcterms": "http://purl.org/dc/terms/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "prov": "http://www.w3.org/ns/prov#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "probabilisticPredictiveModel": {"@id": "ontoDM:OntoDM_000073", "@type": "@id"},
-    
 
-    # common JSON-LD aliases
+    # aliases
     "id": "@id",
     "type": "@type",
 
@@ -58,10 +49,12 @@ CONTEXT: Dict[str, Any] = {
     "finalSavedAt": {"@id": "rft:finalSavedAt", "@type": "xsd:dateTime"},
     "sha256": {"@id": "rft:sha256", "@type": "xsd:string"},
 
-    # IRIs (@id)
-    "decisionPolicy": {"@id": "rft:decisionPolicy", "@type": "@id"},
-    "labels": {"@id": "rft:labels", "@type": "@id"},
+    # IRIs (@id) — resolvable links only
+    "decisionPolicyDownload": {"@id": "rft:decisionPolicyDownload", "@type": "@id"},
+    "labelsDownload": {"@id": "rft:labelsDownload", "@type": "@id"},
+    "datasetUrl": {"@id": "rdfs:seeAlso", "@type": "@id"},
 
+    # links (@id)
     "forTale": {"@id": "rft:forTale", "@type": "@id"},
     "hasCandidate": {"@id": "rft:hasCandidate", "@type": "@id"},
     "predictedTaleType": {"@id": "rft:predictedTaleType", "@type": "@id"},
@@ -79,7 +72,7 @@ CONTEXT: Dict[str, Any] = {
     "wasDerivedFrom": {"@id": "prov:wasDerivedFrom", "@type": "@id"},
     "wasAttributedTo": {"@id": "prov:wasAttributedTo", "@type": "@id"},
 
-    # Dublin Core / RDFS
+    # DC/RDFS
     "created": {"@id": "dcterms:created", "@type": "xsd:dateTime"},
     "source": {"@id": "dcterms:source", "@type": "@id"},
     "bibliographicCitation": {"@id": "dcterms:bibliographicCitation", "@type": "xsd:string"},
@@ -87,10 +80,6 @@ CONTEXT: Dict[str, Any] = {
     "description": {"@id": "dcterms:description", "@type": "xsd:string"},
     "label": {"@id": "rdfs:label", "@type": "xsd:string"},
     "seeAlso": {"@id": "rdfs:seeAlso", "@type": "@id"},
-
-    # NEW: dataset publication pointer (typed as @id)
-    # we map it to rdfs:seeAlso to keep it lightweight and avoid inventing new rft terms
-    "datasetUri": {"@id": "rdfs:seeAlso", "@type": "@id"},
 }
 
 
@@ -99,6 +88,7 @@ def _utc_now_iso() -> str:
 
 
 def _iri_safe(s: str) -> str:
+    # Keep safe IRI characters; encode everything else.
     return quote(str(s), safe=":/#?&=@[]!$&'()*+,;-%._~")
 
 
@@ -116,8 +106,9 @@ def _ts_slug(iso_ts: str) -> str:
 
 
 def _rdf_iri(*parts: str) -> str:
+    base = str(BASE_DATA).rstrip("/")
     path = "/".join(p.strip("/") for p in parts if p is not None and str(p).strip() != "")
-    return f"{BASE_DATA}/{path}"
+    return f"{base}/{path}" if path else base
 
 
 def _atu_norm(code: str) -> str:
@@ -133,12 +124,8 @@ def to_jsonld(result: Dict[str, Any], tale_id: Optional[str] = None) -> Dict[str
     """
     LOD-ready JSON-LD export (lite PROV + rft), with reproducibility pointers.
 
-    Key behaviors:
-    - Prefer meta URIs: run_uri/model_uri/input_text_uri/result_uri if present, else mint from BASE_DATA.
-    - InputTextSnapshot carries sha256 (meta["text_sha256"]); source_version stays dataset snapshot version.
-    - decisionPolicy and labels are IRIs (@id) to meta.json and labels.json.
-    - Model typed as ontoDM predictive model (plus your rft classes).
-    - DatasetSnapshot optionally points to a published dataset URI (commit permalink / release asset / DOI).
+    IMPORTANT: policy/labels/dataset are stored as RESOLVABLE content/landing URLs only
+    (no synthetic identity URIs that could 404).
     """
     rid = str(result.get("id") or "").strip()
     tid = str(tale_id or rid or "unknown").strip()
@@ -167,11 +154,13 @@ def to_jsonld(result: Dict[str, Any], tale_id: Optional[str] = None) -> Dict[str
     # --- dataset snapshot (keep source_version as corpus snapshot version)
     source_version = str(meta.get("source_version") or "").strip() or None
 
-    # --- reproducibility pointers
+    # --- reproducibility pointers (ONLY resolvable links + short IDs)
     policy_id = str(meta.get("decision_policy") or "high_else").strip()
-    policy_uri = str(meta.get("decision_policy_uri") or POLICY_URI).strip()
-    labels_uri = str(meta.get("labels_uri") or LABELS_URI).strip()
-    dataset_uri = str(meta.get("dataset_uri") or DATASET_URI).strip()
+    labelset_id = str(meta.get("labelset_id") or meta.get("labels_id") or "labels-v1").strip()
+
+    policy_download_url = str(meta.get("decision_policy_download_url") or POLICY_DOWNLOAD_URL).strip()
+    labels_download_url = str(meta.get("labels_download_url") or LABELS_DOWNLOAD_URL).strip()
+    dataset_url = str(meta.get("dataset_landing_url") or DATASET_URL).strip()
 
     # --- decision values
     conf_band = _band_title(meta.get("confidence_band"))
@@ -193,7 +182,7 @@ def to_jsonld(result: Dict[str, Any], tale_id: Optional[str] = None) -> Dict[str
     text_sha256 = str(meta.get("text_sha256") or "").strip() or None
 
     # ------------------------------------------------------------------
-    # IRIs: prefer meta-provided URIs
+    # IRIs: prefer meta-provided URIs for minted KG nodes (NOT for policy/labels/dataset)
     # ------------------------------------------------------------------
     tale_iri = _rdf_iri("tale", _iri_safe(tid))
 
@@ -206,7 +195,9 @@ def to_jsonld(result: Dict[str, Any], tale_id: Optional[str] = None) -> Dict[str
     input_snapshot_iri = _rdf_iri("text", _iri_safe(tid), "snapshot", ts)
     dataset_snapshot_iri = _rdf_iri("datasetSnapshot", _iri_safe(source_version)) if source_version else None
 
-    # --- typing source (bibliographic resource)
+    # ------------------------------------------------------------------
+    # Typing source (bibliographic resource)
+    # ------------------------------------------------------------------
     typing_source = meta.get("typing_source") or {}
     biblio_node: Optional[Dict[str, Any]] = None
     biblio_iri: Optional[str] = None
@@ -254,17 +245,17 @@ def to_jsonld(result: Dict[str, Any], tale_id: Optional[str] = None) -> Dict[str
         )
 
     # ------------------------------------------------------------------
-    # prov:used (model + input snapshot + dataset snapshot + biblio + policy + labels)
+    # prov:used (model + input snapshot + dataset snapshot + biblio + policy content + labels content)
     # ------------------------------------------------------------------
     used_list: List[Dict[str, Any]] = [{"id": model_iri}, {"id": input_snapshot_iri}]
     if dataset_snapshot_iri:
         used_list.append({"id": dataset_snapshot_iri})
     if biblio_iri:
         used_list.append({"id": biblio_iri})
-    if policy_uri:
-        used_list.append({"id": policy_uri})
-    if labels_uri:
-        used_list.append({"id": labels_uri})
+    if policy_download_url:
+        used_list.append({"id": policy_download_url})
+    if labels_download_url:
+        used_list.append({"id": labels_download_url})
 
     # ------------------------------------------------------------------
     # Nodes
@@ -281,8 +272,10 @@ def to_jsonld(result: Dict[str, Any], tale_id: Optional[str] = None) -> Dict[str
 
         "confidenceBand": conf_band,
         "decisionPolicyId": policy_id,
-        "decisionPolicy": policy_uri,
-        "labels": labels_uri,
+
+        # resolvable content links only
+        "decisionPolicyDownload": policy_download_url,
+        "labelsDownload": labels_download_url,
 
         "primaryATU": {"id": _rdf_iri("taleType", "atu", _atu_norm(str(primary_atu)))} if primary_atu else None,
         "modelPrimaryATU": {"id": _rdf_iri("taleType", "atu", _atu_norm(str(model_primary_atu)))} if model_primary_atu else None,
@@ -310,14 +303,17 @@ def to_jsonld(result: Dict[str, Any], tale_id: Optional[str] = None) -> Dict[str
         "type": [
             "prov:Entity",
             "rft:Model",
-            "ontoDM:probabilistic_predictive_model",
+            "ontoDM:OntoDM_000073",  # probabilistic predictive model
         ],
         "identifier": model_key,
         "label": model_name,
         "modelSha": model_sha or None,
         "rft:modelTag": model_version_tag,
         "trainedAt": trained_at or None,
-        "datasetUri": dataset_uri, 
+
+        # resolvable publication pointer
+        "datasetUrl": dataset_url,
+
         "task": task,
         "rft:textCols": text_cols,
         "description": note,
@@ -353,7 +349,7 @@ def to_jsonld(result: Dict[str, Any], tale_id: Optional[str] = None) -> Dict[str
             "type": ["prov:Entity", "rft:DatasetSnapshot"],
             "identifier": source_version,
             "label": "Corpus snapshot (dataset version used for inference)",
-            "datasetUri": dataset_uri,  # maps to rdfs:seeAlso (typed as @id)
+            "datasetUrl": dataset_url,
         }
 
     # HITL as separate Activity if override

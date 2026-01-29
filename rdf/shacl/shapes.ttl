@@ -10,7 +10,7 @@
 @prefix crm:     <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix foaf:    <http://xmlns.com/foaf/0.1/> .
 
-@prefix rft:     <https://github.com/eugeniavd/magic_tagger/rdf/ontology/#> .
+@prefix rft:     <https://eugeniavd.github.io/magic_tagger/rdf/ontology#> .
 
 # ============================================================
 # 1) Tales
