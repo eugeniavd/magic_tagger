@@ -107,9 +107,8 @@ pip install rdflib pandas
 Run a query and export CSV:
 
 ```bash
-python -m rdf.queries.run Q2 \
-  --data rdf/rdf_serialization \
-  --out rdf/queries/query_results
+
+
 
 ```
 

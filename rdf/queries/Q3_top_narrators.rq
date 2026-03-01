@@ -1,15 +1,24 @@
-
 # Purpose: Q3 — Top narrators by number of tales
-# Model: narrator attribution via dcterms:contributor (IRI or literal)
+# Model (UPDATED): narrator attribution via PROV qualified attribution + LoC role URI
+#   tale prov:qualifiedAttribution [ a prov:Attribution ; prov:agent ?n ; prov:hadRole locrel:nrt ] .
 
 PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX prov:    <http://www.w3.org/ns/prov#>
+PREFIX locrel:  <http://id.loc.gov/vocabulary/relators/>
 PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT ?narratorKey (SAMPLE(?narratorLabel) AS ?narratorLabel) (COUNT(DISTINCT ?tale) AS ?taleCount)
+SELECT
+  ?narratorKey
+  (SAMPLE(?narratorLabel) AS ?narratorLabel)
+  (COUNT(DISTINCT ?tale) AS ?taleCount)
 WHERE {
-  ?tale dcterms:contributor ?n .
+  ?tale prov:qualifiedAttribution ?att .
 
-  # Key that groups IRIs and literals consistently
+  ?att a prov:Attribution ;
+       prov:agent ?n ;
+       prov:hadRole locrel:nrt .
+
+  # Key groups IRIs (and would also group literals if they ever appear)
   BIND(STR(?n) AS ?narratorKey)
 
   OPTIONAL { ?n rdfs:label ?lbl . }
@@ -21,7 +30,7 @@ WHERE {
     ) AS ?narratorLabel
   )
 
-  # Optional: keep only "person-like" IRIs but allow literals through
+  # Keep only person-like IRIs (your model uses person URIs)
   FILTER( !isIRI(?n) || CONTAINS(STR(?n), "/rdf/person/") )
 }
 GROUP BY ?narratorKey

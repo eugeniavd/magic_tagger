@@ -1,17 +1,18 @@
 {
-  "generatedAtTime": "2026-01-29T15:22:43.759737+00:00",
+  "generatedAtTime": "2026-03-01T18:33:49.310010+00:00",
   "inputs": {
     "ttl": "/Users/eugenia/Desktop/thesis/magic_tagger/rdf/rdf_serialization/corpus.ttl"
   },
   "size": {
-    "triples": 1633
+    "triples": 2494
   },
   "entities": {
     "tales": 97,
     "volumes": 27,
     "collections": 3,
     "atu_concepts_referenced": 85,
-    "persons_referenced": 120
+    "persons_referenced": 121,
+    "attribution_nodes": 158
   },
   "coverage": {
     "tales_with_isPartOf_volume": {
@@ -34,12 +35,16 @@
       "count": 0,
       "percent": 0.0
     },
-    "tales_with_contributor_narrator": {
+    "tales_with_spatial": {
+      "count": 97,
+      "percent": 100.0
+    },
+    "tales_with_narrator_attribution_locrel_nrt": {
       "count": 96,
       "percent": 98.97
     },
-    "tales_with_spatial": {
-      "count": 97,
+    "volumes_with_collector_attribution_locrel_col": {
+      "count": 27,
       "percent": 100.0
     },
     "collections_with_label_langtag": {
@@ -87,8 +92,14 @@
     "tales_created_wrong_datatype": 0
   },
   "notes": {
+    "tales_with_narrator_definition": "tale has prov:qualifiedAttribution node where prov:hadRole = locrel:nrt and prov:agent is a URI",
+    "volumes_with_collector_definition": "volume has prov:qualifiedAttribution node where prov:hadRole = locrel:col and prov:agent is a URI",
     "tales_with_source_definition": "direct: tale has dcterms:source OR dcterms:bibliographicCitation; fallback: tale dcterms:isPartOf volume AND volume has foaf:page OR dcterms:source OR rdfs:seeAlso",
     "volumes_with_source_definition": "volume has foaf:page OR dcterms:source OR rdfs:seeAlso",
-    "foaf_page_iri_used": "http://xmlns.com/foaf/0.1/page"
+    "foaf_page_iri_used": "http://xmlns.com/foaf/0.1/page",
+    "role_uris_used": {
+      "locrel:nrt": "http://id.loc.gov/vocabulary/relators/nrt",
+      "locrel:col": "http://id.loc.gov/vocabulary/relators/col"
+    }
   }
 }

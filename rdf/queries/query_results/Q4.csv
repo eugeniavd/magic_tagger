@@ -1,9 +1,17 @@
 collector,collectorLabel,year,taleCount
 https://eugeniavd.github.io/magic_tagger/rdf/person/fedor-koniaev,fedor koniaev,1928,6
+https://eugeniavd.github.io/magic_tagger/rdf/person/anastasiia-dorofeevna-topkina,Anastasiia Dorofeevna Topkina,1930,4
+https://eugeniavd.github.io/magic_tagger/rdf/person/iraida-georgievna-topkina,Iraida Georgievna Topkina,1930,4
 https://eugeniavd.github.io/magic_tagger/rdf/person/natalia-alekseevna-pagareva,Natal'ia Alekseevna Pagareva,1930,4
+https://eugeniavd.github.io/magic_tagger/rdf/person/sergei-dimitrievich-tsvetkov,Sergei Dimitrievich Tsvetkov,1930,4
 https://eugeniavd.github.io/magic_tagger/rdf/person/zoia-dondukova,zoia dondukova,1933,2
 https://eugeniavd.github.io/magic_tagger/rdf/person/maria-sokolova,maria sokolova,1934,5
+https://eugeniavd.github.io/magic_tagger/rdf/person/menda-erenberg,menda erenberg,1934,5
 https://eugeniavd.github.io/magic_tagger/rdf/person/m-sokolov,m sokolov,1935,8
+https://eugeniavd.github.io/magic_tagger/rdf/person/a-billio,A. Billio,1935,5
+https://eugeniavd.github.io/magic_tagger/rdf/person/kira-trubenkova,Kira Trubenkova,1935,5
+https://eugeniavd.github.io/magic_tagger/rdf/person/oleg-riumin-ivanov,Oleg Riumin-Ivanov,1935,5
+https://eugeniavd.github.io/magic_tagger/rdf/person/tatiana-semukhina,tat iana semukhina,1935,5
 https://eugeniavd.github.io/magic_tagger/rdf/person/z-vasilieva-suvorova,z vasileva suvorova,1935,5
 https://eugeniavd.github.io/magic_tagger/rdf/person/egorov-v,egorov v,1936,3
 https://eugeniavd.github.io/magic_tagger/rdf/person/olga-gromova,olga gromova,1938,10
@@ -20,12 +28,12 @@ https://eugeniavd.github.io/magic_tagger/rdf/person/col033,col033,1963,4
 https://eugeniavd.github.io/magic_tagger/rdf/person/col041,col041,1963,4
 https://eugeniavd.github.io/magic_tagger/rdf/person/col034,col034,1963,2
 https://eugeniavd.github.io/magic_tagger/rdf/person/col044,col044,1963,2
+https://eugeniavd.github.io/magic_tagger/rdf/person/col028,col028,1963,1
+https://eugeniavd.github.io/magic_tagger/rdf/person/col032,col032,1963,1
 https://eugeniavd.github.io/magic_tagger/rdf/person/col026,col026,1963,1
 https://eugeniavd.github.io/magic_tagger/rdf/person/col030,col030,1963,1
 https://eugeniavd.github.io/magic_tagger/rdf/person/col038,col038,1963,1
 https://eugeniavd.github.io/magic_tagger/rdf/person/col042,col042,1963,1
-https://eugeniavd.github.io/magic_tagger/rdf/person/col028,col028,1963,1
-https://eugeniavd.github.io/magic_tagger/rdf/person/col032,col032,1963,1
 https://eugeniavd.github.io/magic_tagger/rdf/person/col037,col037,1963,1
 https://eugeniavd.github.io/magic_tagger/rdf/person/col040,col040,1963,1
 https://eugeniavd.github.io/magic_tagger/rdf/person/col014,col014,1964,1

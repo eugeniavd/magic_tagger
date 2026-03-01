@@ -1,9 +1,11 @@
-# Purpose: Q5 — Coverage sanity checks 
+# Purpose: Q5 — Coverage sanity checks (FINAL; PROV attribution + LoC roles + dataset IRI fix)
 # Scope: Tales (crm:E33_Linguistic_Object)
 
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX crm:     <http://www.cidoc-crm.org/cidoc-crm/>
 PREFIX rft:     <https://eugeniavd.github.io/magic_tagger/rdf/ontology#>
+PREFIX prov:    <http://www.w3.org/ns/prov#>
+PREFIX locrel:  <http://id.loc.gov/vocabulary/relators/>
 PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
 
 SELECT ?metric (COUNT(DISTINCT ?tale) AS ?count)
@@ -28,10 +30,10 @@ WHERE {
     ?tale a crm:E33_Linguistic_Object .
     FILTER(isIRI(?tale))
 
-    # Requires dataset/container membership (adjust if you use different IRI patterns)
+    # Dataset IRIs in your TTL look like .../rdf/dataset/...
     FILTER NOT EXISTS {
       ?tale dcterms:isPartOf ?ds .
-      FILTER(CONTAINS(STR(?ds), "/rdf/dataset/"))
+      FILTER(CONTAINS(STR(?ds), "/dataset/"))
     }
   }
 
@@ -52,7 +54,6 @@ WHERE {
     ?tale a crm:E33_Linguistic_Object .
     FILTER(isIRI(?tale))
 
-    # Has subject, but none of the subjects looks like an ATU concept URI
     FILTER EXISTS { ?tale dcterms:subject ?s_any . }
     FILTER NOT EXISTS {
       ?tale dcterms:subject ?s_atu .
@@ -61,23 +62,28 @@ WHERE {
   }
 
   # ------------------------------------------------------------
-  # C) People
+  # C) People (PROV qualified attribution + LoC roles)
   # ------------------------------------------------------------
   UNION
   {
-    BIND("missing_narrator_contributor" AS ?metric)
+    BIND("missing_narrator_attribution" AS ?metric)
     ?tale a crm:E33_Linguistic_Object .
     FILTER(isIRI(?tale))
 
-    FILTER NOT EXISTS { ?tale dcterms:contributor ?narrator . }
+    FILTER NOT EXISTS {
+      ?tale prov:qualifiedAttribution ?att .
+      ?att a prov:Attribution ;
+           prov:agent ?narrator ;
+           prov:hadRole locrel:nrt .
+    }
   }
   UNION
   {
-    BIND("missing_collector_creator_on_volume" AS ?metric)
+    BIND("missing_collector_attribution_on_volume" AS ?metric)
     ?tale a crm:E33_Linguistic_Object .
     FILTER(isIRI(?tale))
 
-    # If tale has a volume container, ensure that volume has a collector (dcterms:creator)
+    # If tale has a volume container, ensure that volume has a collector attribution (locrel:col)
     FILTER EXISTS {
       ?tale dcterms:isPartOf ?v .
       FILTER(CONTAINS(STR(?v), "/rdf/volume/"))
@@ -85,7 +91,10 @@ WHERE {
     FILTER NOT EXISTS {
       ?tale dcterms:isPartOf ?v2 .
       FILTER(CONTAINS(STR(?v2), "/rdf/volume/")) .
-      ?v2 dcterms:creator ?collector .
+      ?v2 prov:qualifiedAttribution ?att2 .
+      ?att2 a prov:Attribution ;
+            prov:agent ?collector ;
+            prov:hadRole locrel:col .
     }
   }
 

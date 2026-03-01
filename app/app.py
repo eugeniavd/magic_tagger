@@ -656,6 +656,8 @@ def tales_by_atu_from_ttl(
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
 PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX prov:    <http://www.w3.org/ns/prov#>
+PREFIX locrel:  <http://id.loc.gov/vocabulary/relators/>
 
 SELECT DISTINCT
   ?tale
@@ -694,15 +696,25 @@ WHERE {
   OPTIONAL { ?tale dcterms:accessRights ?ar . }
   BIND(COALESCE(STR(?ar), "") AS ?rightsStatus)
 
-  OPTIONAL { ?tale dcterms:contributor ?narrator . }
-  OPTIONAL { ?narrator rdfs:label ?labEn . FILTER(LANG(?labEn) = "en") }
-  OPTIONAL { ?narrator rdfs:label ?labAny . }
+    # narrator via PROV qualified attribution (tale-level) + LoC role nrt
+  OPTIONAL {
+    ?tale prov:qualifiedAttribution ?att .
+    ?att a prov:Attribution ;
+         prov:hadRole locrel:nrt ;
+         prov:agent ?narrator .
 
+    OPTIONAL { ?narrator rdfs:label ?labEn . FILTER(LANG(?labEn) = "en") }
+  }
+
+  # IMPORTANT: bind label ONLY when narrator is bound (prevents cross-join explosion)
   BIND(
-    COALESCE(
-      STR(?labEn),
-      STR(?labAny),
-      IF(BOUND(?narrator), REPLACE(STR(?narrator), ".*/([^/]+)$", "$1"), "")
+    IF(
+      BOUND(?narrator),
+      COALESCE(
+        STR(?labEn),
+        REPLACE(STR(?narrator), ".*/([^/]+)$", "$1")
+      ),
+      ""
     ) AS ?narratorLabelEn
   )
 
@@ -1291,7 +1303,7 @@ def page_explore() -> None:
         - **Tale** (`crm:E33_Linguistic_Object`) with text/description and type links  
         - **Volume** as container with collection-level provenance  
         - **ATU Concept** (SKOS) linked via `dcterms:subject`  
-        - **People**: narrators (`dcterms:contributor` at tale level) and collectors (`dcterms:creator` at volume level)  
+        - **People**: narrators (`prov:qualifiedAttribution` at tale level with `prov:hadRole locrel:nrt`) and collectors (`prov:qualifiedAttribution` at volume level with `prov:hadRole locrel:col`)  
         - **Place**: `dcterms:spatial`, `dcterms:created` (tale-level coverage)   
         - **Time**: `dcterms:created` (tale-level coverage)   
         """
@@ -1632,7 +1644,7 @@ def page_explore() -> None:
         """
         - **Reuse-first vocabularies**: DCTERMS, SKOS, PROV-O, CIDOC-CRM, DCAT  
         - **Typing**: ATU types are linked with tales via `dcterms:subject` (`skos:Concept`)  
-        - **Attribution model**: **narrators at tale level** (`dcterms:contributor`), **collectors at volume level** (`dcterms:creator`)  
+        - **Attribution model**: **narrators at tale level** (`prov:qualifiedAttribution` with `prov:hadRole locrel:nrt`), **collectors at volume level** (`prov:qualifiedAttribution` with `prov:hadRole locrel:col`)  
         - **Time/Place**: tale/volume-level time metadata via `dcterms:created`; places via `dcterms:spatial` 
         - **Provenance**: exports are designed to keep processing context explicit and traceable (PROV-O) 
         """
@@ -1744,7 +1756,7 @@ def page_explore() -> None:
         rdf_dir = RDF_EXPORT_DIR
         if not rdf_dir.exists():
             st.info(f"RDF export directory not found. Expected: {rdf_dir}")
-            st.stop()  # IMPORTANT: stop only when missing, do NOT return when present
+            st.stop()  
 
         jsonld_dir = RDF_JSONLD_DIR
         if not jsonld_dir.exists():
@@ -1927,7 +1939,6 @@ def page_classify() -> None:
         st.session_state["last_export_result"] = export_result
 
         # If user starts a new run, do not carry old expert decision silently
-        # (optional but strongly recommended to avoid wrong exports)
         st.session_state["expert_decision"] = {}
 
     # -----------------------------
@@ -2003,9 +2014,8 @@ def page_classify() -> None:
 
     # -----------------------------
     # Effective result for export (model vs expert)
-    # IMPORTANT:
-    # - candidates stay model candidates
-    # - meta is rewritten for export + UI summary
+    # candidates stay model candidates
+    # meta is rewritten for export + UI summary
     # -----------------------------
     use_expert = (mode == "Expert override") and bool((expert_state or {}).get("atu"))
 

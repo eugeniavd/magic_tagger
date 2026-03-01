@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 from pathlib import Path
 import sys
@@ -18,14 +17,13 @@ from typing import Dict, List, Optional, Set, Tuple
 import pandas as pd
 from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.namespace import RDF, RDFS, DCTERMS as DCT, XSD
+
 from src.uris import BASE_DATA, RFT
 
 
 # ---------------------------------------------------------------------
 # Repo paths
 # ---------------------------------------------------------------------
-REPO_ROOT = Path("/Users/eugenia/Desktop/thesis/magic_tagger")
-
 DEFAULT_INPUT_CSV = REPO_ROOT / "data" / "processed" / "corpus_a_for_kg.csv"
 DEFAULT_OUT_TTL = REPO_ROOT / "rdf" / "rdf_serialization" / "agents.ttl"
 
@@ -38,9 +36,19 @@ ENV_OUT = "CORPUS_AGENTS_TTL"
 PROV = Namespace("http://www.w3.org/ns/prov#")
 FOAF = Namespace("http://xmlns.com/foaf/0.1/")
 CRM = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
+LOCREL = Namespace("http://id.loc.gov/vocabulary/relators/")
 
 _WS = re.compile(r"\s+")
 _CYR = re.compile(r"[\u0400-\u04FF]")  # Cyrillic block
+
+# ---------------------------------------------------------------------
+# Role URIs (LoC Relators)
+# ---------------------------------------------------------------------
+ROLE_COLLECTOR = LOCREL.col  # http://id.loc.gov/vocabulary/relators/col
+ROLE_NARRATOR = LOCREL.nrt   # http://id.loc.gov/vocabulary/relators/nrt
+
+# Use an existing ontology property, not a project-minted one
+HAS_ROLE = PROV.hadRole      # http://www.w3.org/ns/prov#hadRole
 
 # ---------------------------------------------------------------------
 # IRI policy
@@ -93,13 +101,6 @@ def clean_ws(x: object) -> str:
     return _WS.sub(" ", str(x)).strip()
 
 def ensure_list(x: object) -> List[str]:
-    """
-    Accepts:
-      - python-list string: "['a','b']"
-      - json list string: '["a","b"]'
-      - single string
-      - comma/semicolon/pipe separated string
-    """
     if x is None:
         return []
     if isinstance(x, list):
@@ -109,7 +110,6 @@ def ensure_list(x: object) -> List[str]:
     if not s or s.lower() in {"<na>", "na", "nan", "none"}:
         return []
 
-    # JSON
     try:
         v = json.loads(s)
         if isinstance(v, list):
@@ -119,7 +119,6 @@ def ensure_list(x: object) -> List[str]:
     except Exception:
         pass
 
-    # Python literal
     try:
         v = ast.literal_eval(s)
         if isinstance(v, list):
@@ -129,7 +128,6 @@ def ensure_list(x: object) -> List[str]:
     except Exception:
         pass
 
-    # Delimited fallback
     parts = re.split(r"[;,|]\s*|\s{2,}", s)
     return [clean_ws(p) for p in parts if clean_ws(p)]
 
@@ -164,7 +162,7 @@ def to_int(x: str) -> Optional[Literal]:
     return Literal(int(m.group(1)), datatype=XSD.integer)
 
 # ---------------------------------------------------------------------
-# Extractors (YOUR exact columns)
+# Extractors
 # ---------------------------------------------------------------------
 NARRATOR_ID_COL = "narrator_person_id"
 NARRATOR_LABEL_EN_COL = "narrator_label_en"
@@ -189,21 +187,12 @@ def extract_narrator_fields(row: pd.Series) -> Dict[str, str]:
     }
 
 def extract_collectors(row: pd.Series) -> Tuple[List[str], List[str]]:
-    """
-    Returns (collector_ids, collector_labels).
-
-    IDs: collector_person_ids_str (list-like string)
-    Labels: collectors_norm (list-like string)
-    """
     ids: List[str] = []
     labels: List[str] = []
-
     if COLLECTOR_IDS_COL in row.index:
         ids = ensure_list(row.get(COLLECTOR_IDS_COL))
-
     if COLLECTOR_LABELS_COL in row.index:
         labels = ensure_list(row.get(COLLECTOR_LABELS_COL))
-
     ids = [clean_ws(x) for x in ids if clean_ws(x)]
     labels = [clean_ws(x) for x in labels if clean_ws(x)]
     return ids, labels
@@ -220,6 +209,7 @@ def build_agents_graph(df: pd.DataFrame) -> Graph:
     g.bind("foaf", FOAF)
     g.bind("crm", CRM)
     g.bind("rft", RFT)
+    g.bind("locrel", LOCREL)
 
     narrator_ids: Set[str] = set()
     collector_ids: Set[str] = set()
@@ -228,7 +218,6 @@ def build_agents_graph(df: pd.DataFrame) -> Graph:
     collector_labels_by_id: Dict[str, Set[str]] = {}
 
     for _, row in df.iterrows():
-        # Narrators
         nid = extract_narrator_id(row)
         if nid:
             narrator_ids.add(nid)
@@ -236,25 +225,21 @@ def build_agents_graph(df: pd.DataFrame) -> Graph:
             if nid not in narrator_meta:
                 narrator_meta[nid] = meta
             else:
-                # fill only missing
                 for k, v in meta.items():
                     if v and not narrator_meta[nid].get(k):
                         narrator_meta[nid][k] = v
 
-        # Collectors
         cids, clabels = extract_collectors(row)
         for cid in cids:
             collector_ids.add(cid)
             collector_labels_by_id.setdefault(cid, set())
 
-        # Attach labels to ids when possible
         if cids and clabels:
             if len(cids) == len(clabels):
                 for cid, lab in zip(cids, clabels):
                     if lab:
                         collector_labels_by_id.setdefault(cid, set()).add(lab)
             else:
-                # if mismatch, add all labels to all ids (conservative)
                 for cid in cids:
                     for lab in clabels:
                         if lab:
@@ -270,13 +255,13 @@ def build_agents_graph(df: pd.DataFrame) -> Graph:
         g.add((p_uri, RDF.type, CRM.E21_Person))
         g.add((p_uri, RDF.type, FOAF.Person))
 
-        # Role typing (query-friendly)
-        if pid in narrator_ids:
-            g.add((p_uri, RDF.type, RFT.Narrator))
+        # Roles via PROV-O property (no project-minted hasRole)
         if pid in collector_ids:
-            g.add((p_uri, RDF.type, RFT.Collector))
+            g.add((p_uri, HAS_ROLE, ROLE_COLLECTOR))
+        if pid in narrator_ids:
+            g.add((p_uri, HAS_ROLE, ROLE_NARRATOR))
 
-        # Narrator-rich metadata
+        # Narrator metadata
         if pid in narrator_meta:
             meta = narrator_meta.get(pid, {})
 
@@ -304,17 +289,15 @@ def build_agents_graph(df: pd.DataFrame) -> Graph:
             if age is not None:
                 g.add((p_uri, RFT.age, age))
 
-        # Collector labels (from collectors_norm)
+        # Collector labels
         if pid in collector_ids:
             labs = sorted(collector_labels_by_id.get(pid, set()))
             for lab in labs:
-                # collectors_norm is usually a name (often ru/et; we’ll use heuristic)
                 l = lit_lang(lab)
                 if l is not None:
                     g.add((p_uri, RDFS.label, l))
 
-        # Absolute fallback: ensure there is at least one label
-        # (helps debugging & UI)
+        # Fallback label
         if (p_uri, RDFS.label, None) not in g:
             g.add((p_uri, RDFS.label, Literal(pid)))
 
@@ -324,7 +307,9 @@ def build_agents_graph(df: pd.DataFrame) -> Graph:
 # Main
 # ---------------------------------------------------------------------
 def main() -> int:
-    ap = argparse.ArgumentParser(description="Generate RDF (TTL) for Agents (Narrators + Collectors) from canonical table.")
+    ap = argparse.ArgumentParser(
+        description="Generate RDF (TTL) for Agents with LoC role URIs using prov:hadRole."
+    )
     ap.add_argument("--csv", default=None, help="Input canonical_table CSV path.")
     ap.add_argument("--out", default=None, help="Output TTL path.")
     ap.add_argument("--limit", type=int, default=None, help="Read only first N rows (debug).")

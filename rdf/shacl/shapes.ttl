@@ -9,8 +9,64 @@
 @prefix dcat:    <http://www.w3.org/ns/dcat#> .
 @prefix crm:     <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix locrel:  <http://id.loc.gov/vocabulary/relators/> .
 
 @prefix rft:     <https://eugeniavd.github.io/magic_tagger/rdf/ontology#> .
+
+# ============================================================
+# 0) Reusable shapes: Attribution / Agent
+# ============================================================
+
+rft:AttributionShape a sh:NodeShape ;
+  # enforce explicit attribution node typing + core fields
+  sh:property [
+    sh:path rdf:type ;
+    sh:minCount 1 ;
+    sh:hasValue prov:Attribution ;
+    sh:message "Attribution node must have rdf:type prov:Attribution." ;
+  ] ;
+  sh:property [
+    sh:path prov:agent ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:IRI ;
+    sh:message "Attribution must have prov:agent (IRI)." ;
+  ] ;
+  sh:property [
+    sh:path prov:hadRole ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:IRI ;
+    sh:in ( locrel:nrt locrel:col ) ;
+    sh:message "Attribution must have prov:hadRole in {locrel:nrt, locrel:col}." ;
+  ] .
+
+rft:AgentShape a sh:NodeShape ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:minCount 1 ;
+    sh:hasValue prov:Agent ;
+    sh:message "Agent must have rdf:type prov:Agent." ;
+  ] ;
+  sh:property [
+    sh:path rdfs:label ;
+    sh:minCount 1 ;
+    sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
+    sh:message "Agent must have rdfs:label (minCount=1) as string or langString." ;
+  ] ;
+  sh:property [
+    sh:path rft:birthYear ;
+    sh:datatype xsd:gYear ;
+    sh:message "If present, rft:birthYear should be xsd:gYear." ;
+  ] ;
+  sh:property [
+    sh:path rft:age ;
+    sh:datatype xsd:integer ;
+    sh:message "If present, rft:age should be xsd:integer." ;
+  ] ;
+  sh:property [
+    sh:path rdfs:comment ;
+    sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
+    sh:message "If present, rdfs:comment must be string or langString." ;
+  ] .
 
 # ============================================================
 # 1) Tales
@@ -18,49 +74,84 @@
 
 rft:TaleShape a sh:NodeShape ;
   sh:targetClass crm:E33_Linguistic_Object ;
-  sh:targetClass rft:Tale ;
 
-  # tale must belong to a volume (current graph uses dcterms:isPartOf)
+  # enforce that Tales also carry the project + PROV typing (your text claims both)
   sh:property [
-    sh:path dcterms:isPartOf ;
-    sh:minCount 1 ;
-    sh:nodeKind sh:IRI ;
-    sh:message "Tale must have dcterms:isPartOf (volume IRI) (minCount=1)." ;
+    sh:path rdf:type ;
+    sh:hasValue rft:Tale ;
+    sh:message "Tale must also be typed as rft:Tale." ;
+  ] ;
+  sh:property [
+    sh:path rdf:type ;
+    sh:hasValue prov:Entity ;
+    sh:message "Tale must also be typed as prov:Entity." ;
   ] ;
 
-  # tale must have >=1 ATU subject (current graph uses dcterms:subject -> ATU concept IRI)
-  sh:property [
-    sh:path dcterms:subject ;
-    sh:minCount 1 ;
-    sh:nodeKind sh:IRI ;
-    sh:message "Tale must have at least one dcterms:subject (ATU concept IRI) (minCount=1)." ;
-  ] ;
-
-  # rights/access rights must be present (you use dcterms:accessRights; allow dcterms:rights too)
-  sh:property [
-    sh:path [ sh:alternativePath ( dcterms:accessRights dcterms:rights ) ] ;
-    sh:minCount 1 ;
-    sh:or (
-      [ sh:nodeKind sh:IRI ]
-      [ sh:datatype xsd:string ]
-    ) ;
-    sh:message "Tale must have dcterms:accessRights or dcterms:rights (minCount=1), as IRI or string." ;
-  ] ;
-
-  # created date (if present) must be xsd:date (you generate it)
-  sh:property [
-    sh:path dcterms:created ;
-    sh:maxCount 1 ;
-    sh:datatype xsd:date ;
-    sh:message "If present, dcterms:created must be xsd:date and appear at most once." ;
-  ] ;
-
-  # identifier should be present (even if IRI contains it)
+  # identifier should be present
   sh:property [
     sh:path dcterms:identifier ;
     sh:minCount 1 ;
     sh:datatype xsd:string ;
     sh:message "Tale must have dcterms:identifier (minCount=1, xsd:string)." ;
+  ] ;
+
+  # membership: must have a volume container (…/volume/…)
+  sh:sparql [
+    a sh:SPARQLConstraint ;
+    sh:message "Tale must have dcterms:isPartOf a volume IRI (…/volume/…)." ;
+    sh:select """
+      SELECT $this WHERE {
+        FILTER NOT EXISTS {
+          $this dcterms:isPartOf ?v .
+          FILTER(CONTAINS(STR(?v), "/volume/"))
+        }
+      }
+    """ ;
+  ] ;
+
+  # membership: must have a dataset container (…/dataset/…); your dataset IRI is .../rdf/dataset/corpus/v1
+  sh:sparql [
+    a sh:SPARQLConstraint ;
+    sh:message "Tale must have dcterms:isPartOf a dataset IRI (…/dataset/…). Example: .../rdf/dataset/corpus/v1." ;
+    sh:select """
+      SELECT $this WHERE {
+        FILTER NOT EXISTS {
+          $this dcterms:isPartOf ?ds .
+          FILTER(CONTAINS(STR(?ds), "/dataset/"))
+        }
+      }
+    """ ;
+  ] ;
+
+  # ATU subject: at least one, and it should look like an ATU concept URI
+  sh:sparql [
+    a sh:SPARQLConstraint ;
+    sh:message "Tale must have at least one dcterms:subject pointing to an ATU concept IRI (…/taleType/atu/…)." ;
+    sh:select """
+      SELECT $this WHERE {
+        FILTER NOT EXISTS {
+          $this dcterms:subject ?s .
+          FILTER(isIRI(?s))
+          FILTER(CONTAINS(STR(?s), "/taleType/atu/"))
+        }
+      }
+    """ ;
+  ] ;
+
+  # rights/accessRights must be present
+  sh:property [
+    sh:path [ sh:alternativePath ( dcterms:accessRights dcterms:rights ) ] ;
+    sh:minCount 1 ;
+    sh:or ( [ sh:nodeKind sh:IRI ] [ sh:datatype xsd:string ] ) ;
+    sh:message "Tale must have dcterms:accessRights or dcterms:rights (minCount=1), as IRI or string." ;
+  ] ;
+
+  # created date (if present) must be xsd:date and appear at most once
+  sh:property [
+    sh:path dcterms:created ;
+    sh:maxCount 1 ;
+    sh:datatype xsd:date ;
+    sh:message "If present, dcterms:created must be xsd:date and appear at most once." ;
   ] ;
 
   # description (optional) must be string
@@ -70,30 +161,45 @@ rft:TaleShape a sh:NodeShape ;
     sh:message "If present, dcterms:description must be xsd:string." ;
   ] ;
 
-  # narrator link (optional): contributor must be IRI
+  # narrator attribution must exist: qualified attribution with role locrel:nrt
+  sh:sparql [
+    a sh:SPARQLConstraint ;
+    sh:message "Tale must have a narrator attribution: prov:qualifiedAttribution → prov:hadRole locrel:nrt." ;
+    sh:select """
+      SELECT $this WHERE {
+        FILTER NOT EXISTS {
+          $this prov:qualifiedAttribution ?att .
+          ?att rdf:type prov:Attribution ;
+               prov:hadRole locrel:nrt ;
+               prov:agent ?n .
+        }
+      }
+    """ ;
+  ] ;
+
+  # if any attributions exist, they must be well-formed
   sh:property [
-    sh:path dcterms:contributor ;
+    sh:path prov:qualifiedAttribution ;
     sh:nodeKind sh:IRI ;
-    sh:message "If present, dcterms:contributor must be an IRI (person)." ;
+    sh:node rft:AttributionShape ;
+    sh:message "If present, prov:qualifiedAttribution must point to a well-formed prov:Attribution node." ;
   ] ;
 
   # place (optional): spatial node should be a Place with label
   sh:property [
     sh:path dcterms:spatial ;
     sh:nodeKind sh:BlankNodeOrIRI ;
-    sh:message "If present, dcterms:spatial should point to a Place node (blank node or IRI)." ;
+    sh:node rft:PlaceShape ;
+    sh:message "If present, dcterms:spatial should point to a Place node (crm:E53_Place with rdfs:label)." ;
   ] .
 
-# validate the place blank node structure when present
+# validate the place node structure when present
 rft:PlaceShape a sh:NodeShape ;
   sh:targetClass crm:E53_Place ;
   sh:property [
     sh:path rdfs:label ;
     sh:minCount 1 ;
-    sh:or (
-      [ sh:datatype xsd:string ]
-      [ sh:datatype rdf:langString ]
-    ) ;
+    sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
     sh:message "Place must have rdfs:label (minCount=1) as string or langString." ;
   ] .
 
@@ -111,35 +217,56 @@ rft:VolumeShape a sh:NodeShape ;
     sh:message "Volume must have dcterms:identifier (minCount=1)." ;
   ] ;
 
-  sh:property [
-    sh:path dcterms:isPartOf ;
-    sh:minCount 1 ;
-    sh:nodeKind sh:IRI ;
-    sh:message "Volume must have dcterms:isPartOf (collection IRI) (minCount=1)." ;
+  # volume must belong to a collection (…/collection/…)
+  sh:sparql [
+    a sh:SPARQLConstraint ;
+    sh:message "Volume must have dcterms:isPartOf a collection IRI (…/collection/…)." ;
+    sh:select """
+      SELECT $this WHERE {
+        FILTER NOT EXISTS {
+          $this dcterms:isPartOf ?c .
+          FILTER(CONTAINS(STR(?c), "/collection/"))
+        }
+      }
+    """ ;
   ] ;
 
   sh:property [
     sh:path rdfs:label ;
     sh:minCount 1 ;
-    sh:or (
-      [ sh:datatype xsd:string ]
-      [ sh:datatype rdf:langString ]
-    ) ;
+    sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
     sh:message "Volume must have rdfs:label (minCount=1)." ;
   ] ;
 
-  # creators optional but if present must be IRIs
-  sh:property [
-    sh:path dcterms:creator ;
-    sh:nodeKind sh:IRI ;
-    sh:message "If present, dcterms:creator must be an IRI (person)." ;
+  # collector attribution must exist: qualified attribution with role locrel:col
+  sh:sparql [
+    a sh:SPARQLConstraint ;
+    sh:message "Volume must have a collector attribution: prov:qualifiedAttribution → prov:hadRole locrel:col." ;
+    sh:select """
+      SELECT $this WHERE {
+        FILTER NOT EXISTS {
+          $this prov:qualifiedAttribution ?att .
+          ?att rdf:type prov:Attribution ;
+               prov:hadRole locrel:col ;
+               prov:agent ?p .
+        }
+      }
+    """ ;
   ] ;
 
-  # seeAlso optional but if present must be IRI
+  # if any attributions exist, they must be well-formed
   sh:property [
-    sh:path rdfs:seeAlso ;
+    sh:path prov:qualifiedAttribution ;
     sh:nodeKind sh:IRI ;
-    sh:message "If present, rdfs:seeAlso must be an IRI (landing page)." ;
+    sh:node rft:AttributionShape ;
+    sh:message "If present, prov:qualifiedAttribution must point to a well-formed prov:Attribution node." ;
+  ] ;
+
+  # landing page/source links (your current model uses foaf:page)
+  sh:property [
+    sh:path [ sh:alternativePath ( foaf:page dcterms:source rdfs:seeAlso ) ] ;
+    sh:nodeKind sh:IRI ;
+    sh:message "If present, volume landing page/source link should be an IRI (foaf:page or dcterms:source or rdfs:seeAlso)." ;
   ] .
 
 # ============================================================
@@ -156,11 +283,12 @@ rft:CollectionShape a sh:NodeShape ;
     sh:message "Collection must have dcterms:identifier (minCount=1)." ;
   ] ;
 
+  # allow either langString or plain string (your generator may fallback to plain)
   sh:property [
     sh:path rdfs:label ;
     sh:minCount 1 ;
-    sh:datatype rdf:langString ;
-    sh:message "Collection must have rdfs:label with a language tag (minCount=1)." ;
+    sh:or ( [ sh:datatype rdf:langString ] [ sh:datatype xsd:string ] ) ;
+    sh:message "Collection must have rdfs:label (minCount=1) as langString or string." ;
   ] ;
 
   sh:property [
@@ -192,55 +320,36 @@ rft:ATUConceptShape a sh:NodeShape ;
 
   sh:property [
     sh:path skos:inScheme ;
+    sh:minCount 1 ;
     sh:nodeKind sh:IRI ;
-    sh:message "If present, skos:inScheme must be an IRI." ;
+    sh:message "ATU Concept must have skos:inScheme (minCount=1, IRI)." ;
   ] .
 
 # ============================================================
-# 5) Agents (Narrators / Collectors)
+# 5) Agents (no rft:Narrator / rft:Collector classes anymore)
 # ============================================================
 
-rft:NarratorShape a sh:NodeShape ;
-  sh:targetClass rft:Narrator ;
-
+rft:AgentNodeShape a sh:NodeShape ;
+  sh:targetClass prov:Agent ;
   sh:property [
     sh:path rdfs:label ;
     sh:minCount 1 ;
-    sh:datatype rdf:langString ;
-    sh:message "Narrator must have rdfs:label with a language tag (minCount=1)." ;
+    sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
+    sh:message "prov:Agent must have rdfs:label (minCount=1) as string or langString." ;
   ] ;
-
-  # optional, but typed
   sh:property [
     sh:path rft:birthYear ;
     sh:datatype xsd:gYear ;
     sh:message "If present, rft:birthYear should be xsd:gYear." ;
   ] ;
-
   sh:property [
     sh:path rft:age ;
     sh:datatype xsd:integer ;
     sh:message "If present, rft:age should be xsd:integer." ;
-  ] ;
-
-  sh:property [
-    sh:path rdfs:comment ;
-    sh:datatype xsd:string ;
-    sh:message "If present, rdfs:comment must be xsd:string." ;
-  ] .
-
-rft:CollectorShape a sh:NodeShape ;
-  sh:targetClass rft:Collector ;
-
-  sh:property [
-    sh:path rdfs:label ;
-    sh:minCount 1 ;
-    sh:datatype rdf:langString ;
-    sh:message "Collector must have rdfs:label with a language tag (minCount=1)." ;
   ] .
 
 # ============================================================
-# 6) Evidence Snippets (safe even if you don't have instances yet)
+# 6) Evidence Snippets (unchanged; safe if unused)
 # ============================================================
 
 rft:EvidenceSnippetShape a sh:NodeShape ;
@@ -261,7 +370,7 @@ rft:EvidenceSnippetShape a sh:NodeShape ;
   ] .
 
 # ============================================================
-# 7) Dataset (DCAT) - optional but valuable once you publish v1
+# 7) Dataset (DCAT) - optional
 # ============================================================
 
 rft:DatasetShape a sh:NodeShape ;
@@ -291,10 +400,7 @@ rft:DatasetShape a sh:NodeShape ;
   sh:property [
     sh:path dcterms:creator ;
     sh:minCount 1 ;
-    sh:or (
-      [ sh:nodeKind sh:IRI ]
-      [ sh:datatype xsd:string ]
-    ) ;
+    sh:or ( [ sh:nodeKind sh:IRI ] [ sh:datatype xsd:string ] ) ;
     sh:message "Dataset must have dcterms:creator (minCount=1), IRI or string." ;
   ] ;
 
@@ -305,7 +411,6 @@ rft:DatasetShape a sh:NodeShape ;
     sh:message "Dataset must have dcat:distribution (minCount=1, IRI)." ;
   ] ;
 
-  # your current file uses dcat:issued xsd:gYear
   sh:property [
     sh:path dcat:issued ;
     sh:datatype xsd:gYear ;

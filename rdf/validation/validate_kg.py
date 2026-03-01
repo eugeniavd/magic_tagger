@@ -10,8 +10,7 @@ from pyshacl import validate
 
 
 def main() -> int:
-    # This file: <repo>/rdf/validation/validate_kg.py
-    # Repo root: 3 levels up
+    
     repo_root = Path(__file__).resolve().parents[2]
 
     ap = argparse.ArgumentParser(

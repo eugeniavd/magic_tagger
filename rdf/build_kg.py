@@ -13,7 +13,7 @@ import json
 import os
 import re
 
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Set
 
 import pandas as pd
 from rdflib import BNode, Graph, Literal, Namespace, URIRef
@@ -46,6 +46,11 @@ PROV = Namespace("http://www.w3.org/ns/prov#")
 FOAF = Namespace("http://xmlns.com/foaf/0.1/")
 DCMITYPE = Namespace("http://purl.org/dc/dcmitype/")
 CRM = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
+
+# KEEP LoC MARC relators as role vocabulary
+LOCREL = Namespace("http://id.loc.gov/vocabulary/relators/")
+ROLE_NARRATOR = LOCREL.nrt  # narrator
+ROLE_COLLECTOR = LOCREL.col  # collector
 
 # Dataset IRI (default; override via --dataset-iri)
 DEFAULT_DATASET_IRI = URIRef(f"{BASE_DATA}dataset/corpus/v1")
@@ -81,6 +86,30 @@ def iri_atu(code: str) -> URIRef:
         return URIRef(f"{BASE_DATA}taleType/atu/UNKNOWN")
     c = c.replace("*", "-star")
     return URIRef(f"{BASE_DATA}taleType/atu/{c}")
+
+# Stable IRIs for attribution statements (so roles live in explicit attribution nodes)
+def iri_attribution_tale(tale_id: str, role_code: str, person_id: str) -> URIRef:
+    return URIRef(f"{BASE_DATA}attribution/tale/{tale_id}/{role_code}/{person_id}")
+
+def iri_attribution_volume(volume_id: str, role_code: str, person_id: str) -> URIRef:
+    return URIRef(f"{BASE_DATA}attribution/volume/{volume_id}/{role_code}/{person_id}")
+
+def add_attribution(g: Graph, entity_uri: URIRef, agent_uri: URIRef, role_uri: URIRef, att_uri: URIRef) -> None:
+    """
+    PROV qualified attribution:
+      entity prov:wasAttributedTo agent .
+      entity prov:qualifiedAttribution att .
+      att a prov:Attribution ;
+          prov:agent agent ;
+          prov:hadRole role .
+    """
+    g.add((entity_uri, RDF.type, PROV.Entity))
+    g.add((entity_uri, PROV.wasAttributedTo, agent_uri))
+
+    g.add((entity_uri, PROV.qualifiedAttribution, att_uri))
+    g.add((att_uri, RDF.type, PROV.Attribution))
+    g.add((att_uri, PROV.agent, agent_uri))
+    g.add((att_uri, PROV.hadRole, role_uri))
 
 # ---------------------------------------------------------------------
 # Robust IO helpers (encoding + delimiter)
@@ -170,11 +199,6 @@ def collection_code(raw: str) -> str:
     return slugify(raw)
 
 def ensure_url_list(x: object) -> List[str]:
-    """
-    Parse urls field that may contain:
-      - a single URL
-      - multiple URLs separated by | or whitespace or commas
-    """
     s = clean_ws(x)
     if not s:
         return []
@@ -301,11 +325,6 @@ def load_volume_kivike_map(path: Path) -> Dict[str, Dict[str, str]]:
 # Place label builder (single label)
 # ---------------------------------------------------------------------
 def build_place_label(row: pd.Series) -> str:
-    """
-    Build one human-readable label from available place fields:
-      recording_place_english, recording_parish_english, region_english, country_english
-      recording_place, recording_parish (original)
-    """
     parts_en: List[str] = []
     for c in ("recording_place_english", "recording_parish_english", "region_english", "country_english"):
         if c in row.index:
@@ -340,10 +359,6 @@ def narrator_person_id(row: pd.Series) -> str:
 # ATU codes resolver
 # ---------------------------------------------------------------------
 def atu_codes_from_row(row: pd.Series) -> List[str]:
-    """
-    Parse atu_codes column if present.
-    Column sometimes looks like: ['<NA>'] or "['300', '302*']"
-    """
     if "atu_codes" not in row.index:
         return []
     codes = ensure_list(row.get("atu_codes"))
@@ -377,6 +392,7 @@ def build_graph(
     g.bind("rft", RFT)
     g.bind("dcmitype", DCMITYPE)
     g.bind("crm", CRM)
+    g.bind("locrel", LOCREL)
 
     required = ["tale_id", "volume_id", "collection"]
     for c in required:
@@ -390,6 +406,27 @@ def build_graph(
 
     volume_map = volume_map or {}
     collections_map = collections_map or {}
+
+    # ----------------------------------------------------------
+    # Pre-aggregate attribution targets across all rows:
+    # - collectors by volume
+    # - narrators by tale
+    # (prevents loss due to drop_duplicates)
+    # ----------------------------------------------------------
+    collectors_by_volume: Dict[str, Set[str]] = {}
+    narrators_by_tale: Dict[str, Set[str]] = {}
+
+    for _, r in df.iterrows():
+        vid0 = clean_ws(r.get("volume_id"))
+        if vid0:
+            for pid in collectors_from_row(r):
+                collectors_by_volume.setdefault(vid0, set()).add(pid)
+
+        tid0 = clean_ws(r.get("tale_id"))
+        if tid0:
+            npid = narrator_person_id(r)
+            if npid:
+                narrators_by_tale.setdefault(tid0, set()).add(npid)
 
     # -------------------------
     # 1) Volumes + Collections
@@ -406,17 +443,20 @@ def build_graph(
         # Volume
         g.add((vol_uri, RDF.type, DCT.BibliographicResource))
         g.add((vol_uri, DCT.identifier, Literal(vid)))
+        g.add((vol_uri, DCT.isPartOf, coll_uri))
 
         if "source_ref" in row.index:
             lbl = volume_label_from_source_ref(row.get("source_ref"))
             if lbl:
                 g.add((vol_uri, RDFS.label, Literal(lbl)))
 
-        g.add((vol_uri, DCT.isPartOf, coll_uri))
+        # Collector attribution (capture attribution) as explicit PROV statements with LoC role URI
+        for pid in sorted(collectors_by_volume.get(vid, set())):
+            agent_uri = iri_person(pid)
+            att_uri = iri_attribution_volume(vid, "col", pid)
+            add_attribution(g, vol_uri, agent_uri, ROLE_COLLECTOR, att_uri)
 
-        for pid in collectors_from_row(row):
-            g.add((vol_uri, DCT.creator, iri_person(pid)))
-
+        # Kivike mappings
         m = volume_map.get(vid, {})
         kiv_pid = clean_ws(m.get("kivike_pid"))
         kiv_url = clean_ws(m.get("kivike_url"))
@@ -425,7 +465,6 @@ def build_graph(
             g.add((vol_uri, DCT.identifier, Literal(f"KIVIKE:{kiv_pid}")))
 
         if kiv_url:
-            # Prefer foaf:page for a human-readable web record page
             g.add((vol_uri, FOAF.page, URIRef(kiv_url)))
 
         # Collection
@@ -460,6 +499,8 @@ def build_graph(
 
         # type
         g.add((tale_uri, RDF.type, CRM.E33_Linguistic_Object))
+        g.add((tale_uri, RDF.type, RFT.Tale))
+        g.add((tale_uri, RDF.type, PROV.Entity))
 
         # identifier
         g.add((tale_uri, DCT.identifier, Literal(tid)))
@@ -472,14 +513,10 @@ def build_graph(
         if add_dataset_links and dataset_iri is not None:
             g.add((tale_uri, DCT.isPartOf, dataset_iri))
 
-        # -------------------------
-        # NEW: Source handling (no custom ontology)
-        # -------------------------
-        # 1) Always link to volume as the source if we have it
+        # source handling
         if vol_uri is not None and vid:
             g.add((tale_uri, DCT.source, vol_uri))
 
-        # 2) If you have full reference like "ERA, Vene 4, 403/29 (2)" -> bibliographicCitation on tale
         if "source_ref" in row.index:
             src = clean_ws(row.get("source_ref"))
             if src:
@@ -515,10 +552,11 @@ def build_graph(
             g.add((place_bn, RDFS.label, Literal(place_label)))
             g.add((tale_uri, DCT.spatial, place_bn))
 
-        # narrator: dcterms:contributor narratorIRI (ONLY by ID)
-        n_pid = narrator_person_id(row)
-        if n_pid:
-            g.add((tale_uri, DCT.contributor, iri_person(n_pid)))
+        # Narrator attribution (content attribution) as explicit PROV statements with LoC role URI
+        for n_pid in sorted(narrators_by_tale.get(tid, set())):
+            agent_uri = iri_person(n_pid)
+            att_uri = iri_attribution_tale(tid, "nrt", n_pid)
+            add_attribution(g, tale_uri, agent_uri, ROLE_NARRATOR, att_uri)
 
     return g
 
