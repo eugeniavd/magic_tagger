@@ -9,32 +9,38 @@ This document defines the minimal, analysis-oriented knowledge model for the Unl
 
 ### 1.1 Reused ontologies
 
-- `dcterms:` — DCTERMS (descriptive metadata, source, rights, part-of relations).
-- `skos:` — Simple Knowledge Organization System (controlled vocabularies (ATU types, genres/categories, optional keywords/motifs)
-- `prov:` — PROV-O (W3C Provenance Ontology) for provenance of transformations, classifier runs, generated artifacts.
-- `crm:` — CIDOC-CRM (for class-level alignment of events, persons, places, collections)
-- `ontoDM:` — OntoDM for typing predictive models (the exported model entity is a predictive model; in our JSON-LD it is currently typed as a probabilistic predictive model).
+- `dcterms:` — DCTERMS (descriptive metadata: identifiers, descriptions, rights/access rights, citations, and part–whole containment via `dcterms:isPartOf`, plus `dcterms:subject` links to ATU concepts).
+- `skos:` — SKOS (controlled vocabulary for ATU types: `skos:Concept`, `skos:inScheme`, `skos:notation`, `skos:prefLabel`).
+- `prov:` — PROV-O (used for attribution as explicit provenance statements: `prov:qualifiedAttribution` / `prov:Attribution` with `prov:agent` and `prov:hadRole`; also used for lightweight derivation links such as `prov:wasDerivedFrom`).
+- `locrel:` — Library of Congress MARC Relators (role URIs such as `locrel:nrt` and `locrel:col`, used as values of `prov:hadRole`).
+- `crm:` — CIDOC-CRM (class-level alignment for core entities in the corpus: tales as `crm:E33_Linguistic_Object`, persons as `crm:E21_Person`, places as `crm:E53_Place`; event-level modelling is an optional extension).
+- `dcmitype:` — DCMI Type Vocabulary (collections as `dcmitype:Collection`).
+- `foaf:` — FOAF (web-facing links such as `foaf:page` for landing pages; and optional typing/compatibility for persons via `foaf:Person` where used).
+- `dcat:` — DCAT (dataset/distribution packaging in the dataset export).
+- `ontoDM:` — OntoDM (only if/where the exported model JSON-LD uses it to type predictive models).
 
 ### 1.2 Project namespace and instance namespace
 
-- `rft:` — *Russian Folktales vocabulary* for project-specific classes and properties used when no adequate term exists in reused vocabularies (folklore-specific glue + classifier/export-specific properties such as confidence bands, decision policy references, dataset snapshot pointers, and input integrity hashes).
+- `rft:` — *Russian Folktales vocabulary* for project-specific classes and properties used where reused vocabularies are insufficient. In the classifier export JSON-LD, `rft:` carries governance and run-specific fields such as `rft:confidenceBand`, `rft:decisionPolicyId`, resolvable policy/labels pointers (`rft:decisionPolicyDownload`, `rft:labelsDownload`), dataset snapshot identifiers (`rft:sourceVersion` plus a `rft:DatasetSnapshot` node with a published pointer via `rdfs:seeAlso`), and input integrity hashes (`rft:sha256` on `rft:InputTextSnapshot`). 
 
-**Ontology namespace:**
+
+**Schema namespace:**
 - `rft:` = `https://eugeniavd.github.io/magic_tagger/rdf/ontology#`
 
 **Data namespace (instances produced by the pipeline and the classifier):**
 - `BASE_DATA` = `https://eugeniavd.github.io/magic_tagger/rdf/`
 
-GitHub Pages gives us a stable HTTPS origin owned by the project, with human-browsable, dereferenceable links for static artifacts—without running a separate server. This makes the KG easier to inspect, cite, and reuse.
+GitHub Pages provides a stable HTTPS origin owned by the project, enabling dereferenceable, human-browsable IRIs for published artefacts without running a separate server, which improves inspection and citation.
 
 Why we separate schema vs data:
-- Schema (TBox) uses a hash namespace (.../ontology#Term) for compact term IRIs.
+- Schema uses a hash namespace (.../ontology#Term) for compact term IRIs.
 
-- Data (ABox) uses slash IRIs under BASE_DATA for large numbers of instances and predictable paths.
-Identity IRIs are minted under BASE_DATA for all instances: ".../tale/{tale_id}"
-Metadata exports include resolvable links to the exact artifacts used at inference time. Download URLs (machine-readable file content) are stored separately and must be resolvable links (no synthetic placeholders). 
+- Data uses slash IRIs under `BASE_DATA` for large numbers of instances and predictable paths (".../tale/{tale_id}")
+
+Metadata exports include resolvable links to the exact artefacts used at inference time: the run enumerates its inputs (model, text snapshot, dataset snapshot, and external policy/labels resources). 
 
 This keeps the graph stable and inspectable (canonical IRIs) while remaining reproducible (explicit file pointers).
+
 ---
 
 ## 2. Entity-level mapping
@@ -47,10 +53,10 @@ We keep machine-learning provenance lightweight by relying on PROV-O for activit
 |--------------|-------------|---------------------------|
 | **Tale** | A single folktale text (one row in the index; stable unit for classification). | `rft:Tale` (project class), aligned to `crm:E33_Linguistic_Object` and `prov:Entity`. |
 | **Collection** | Archival collection / series such as “ERA, Vene”, “RKM, Vene”, “TRÜ, VKK”. | `dcmitype:Collection`; conceptually alignable to `crm:E78_Curated_Holding`. |
-| **Volume** | Physical volume within a collection (bound manuscript volume / archival unit). | `dcterms:BibliographicResource` (intellectual description) and `crm:E22_Man-Made_Object` (carrier). |
+| **Volume** | Physical volume within a collection (bound manuscript volume / archival unit). | `dcterms:BibliographicResource` (intellectual description), optionally alignable to `crm:E22_Man-Made_Object` (carrier) as an extension. |
 | **Place** | Settlement / parish used in recording and origin fields. | `crm:E53_Place`. |
-| **Type code** | Tale type codes and related classifications (controlled vocabularies). | `skos:Concept` in a `skos:ConceptScheme` (ATU, SUS, national schemes). Codes use `skos:notation`. |
-| **Recording event** | The act of recording a tale by one or more collectors from a narrator at a given time and place. | `prov:Activity` aligned with `crm:E7_Activity`.  |
+| **Type code** | Tale type codes and related classifications (controlled vocabularies). | `skos:Concept` in a `skos:ConceptScheme` (ATU Index in the current realisation; additional schemes such as SUS or other national folktale type systems are optional extensions). Codes use `skos:notation`. |
+| **Recording event** | Optional extension: a recording can be modelled as `prov:Activity` (alignable to `crm:E7_Activity`) if event-level modelling is introduced; the current corpus export encodes attribution without an explicit recording event. |
 
 **Classifier-specific entities (new, produced by the system)**
 
@@ -61,8 +67,8 @@ We keep machine-learning provenance lightweight by relying on PROV-O for activit
 | **Candidate** | A single ranked prediction (ATU code + score), linked to the predicted tale type concept. | `rft:ClassificationCandidate` (project class; represented as an entity node in JSON-LD exports). |
 | **Input text (stable)** | Stable input artifact identified by the external tale id (not the run id). | `prov:Entity` (e.g., the “InputText” node). |
 | **InputTextSnapshot (run-specific)** | A run-specific snapshot carrying integrity information (e.g., `rft:sha256` of the submitted text) and derivation from the stable input text. | `prov:Entity`, linked via `prov:wasDerivedFrom` to the stable input text.|
-| **DatasetSnapshot** | The corpus snapshot/version used at inference time (what the classifier had access to). Identified by `source_version` (e.g., `sha256:…`) and may point to a published dataset via `rdfs:seeAlso` (exposed as `datasetUri` in JSON-LD; e.g., a commit permalink or release asset). | `prov:Entity`  |
-| **Model** | The trained predictive model artifact used by the run. | `prov:Entity`, additionally typed with OntoDM as **`ontoDM:OntoDM_000073`** (probabilistic predictive model). *(No separate `rft:Model` class required.)* |
+| **DatasetSnapshot** | The corpus snapshot/version used at inference time (what the classifier had access to). Identified by `source_version` (e.g., `sha256:…`) and may point to a published dataset via `rdfs:seeAlso` (exposed as `datasetUrl` in the current JSON-LD export, e.g., a commit permalink or release asset). | `prov:Entity`  |
+| **Model** | The trained predictive model artifact used by the run. | `prov:Entity`, additionally typed with OntoDM as **`ontoDM:OntoDM_000073`** (probabilistic predictive model). |
 | **Human review** | A separate provenance activity only when the final decision is not the model (expert override), optionally attributed to an expert agent. | `prov:Activity`; optional `prov:Agent` via `prov:wasAttributedTo`.|
 
 
@@ -75,7 +81,7 @@ This section shows how fields from `corpus_a_index` map to RDF properties. It is
 **Principles**
 - For descriptive metadata (format, rights, source, dates), reuse DCTERMS (e.g., `dcterms:format`, `dcterms:rights`, `dcterms:created`, `dcterms:source`).
 - For controlled vocabularies (ATU/SUS/national types; genres/categories), use SKOS (`skos:Concept`, `skos:ConceptScheme`, `skos:notation`).
-- For provenance of transformations and classifier outputs, use PROV-O (`prov:Entity`, `prov:Activity`, `prov:used`, `prov:wasGeneratedBy`, `prov:wasDerivedFrom`).
+- For provenance and attribution statements, used PROV-O (in the corpus graph: `prov:Entity` and qualified attribution via `prov:qualifiedAttribution` / `prov:Attribution` with `prov:agent` and `prov:hadRole`; run-level provenance such as `prov:used` / `prov:wasGeneratedBy` appears in classifier export).
 - Introduce `rft:` properties **only** when there is no adequate reusable predicate, and keep them lightweight and stable.
 
 ### 3.1 Identification and source (corpus index)
@@ -84,103 +90,71 @@ This section shows how fields from `corpus_a_index` map to RDF properties. It is
 
 | Local field | Description | RDF property | Target vocabulary |
 |-------------|-------------|--------------|-------------------|
-| `tale_id` | Stable identifier within the corpus (used to mint the tale IRI). | `@id` (URI template), e.g. `https://github.com/eugeniavd/magic_tagger/rdf/tale/{tale_id}` | project / JSON-LD |
-| `collection` | Archival series (e.g., “ERA, Vene”, “RKM, Vene”, “TRÜ, VKK”). | `dcterms:isPartOf` → Collection resource | DCTERMS (+ optional CRM alignment) |
-| `volume_no` | Volume number within a collection (bound manuscript volume / archival unit). | `dcterms:isPartOf` → Volume resource; store the volume identifier on the volume as `dcterms:identifier` | DCTERMS |
-| `source_ref` | Full archival shelfmark string (as given in the index). | `dcterms:source` (literal or link to a source entity if modelled) | DCTERMS |
+| `tale_id` | Stable identifier within the corpus (used to mint the tale IRI). | `@id` (URI template), e.g. `https://eugeniavd.github.io/magic_tagger/rdf/tale/{tale_id}` | project / JSON-LD |
+| `collection` | Archival series (e.g., “ERA, Vene”, “RKM, Vene”, “TRÜ, VKK”). | on Volume: `dcterms:isPartOf` → Collection resource (Tale reaches Collection via its Volume) | DCTERMS (+ optional CRM alignment) |
+| `volume_no` | Volume number within a collection (bound manuscript volume / archival unit). | on Tale: `dcterms:isPartOf` → Volume resource; on Volume: store volume identifier as `dcterms:identifier` (and optionally `rdfs:label` for “ERA, Vene 2”) | DCTERMS |
+| `source_ref` | Full archival shelfmark string for a folktale text (as given in the index). | `dcterms:bibliographicCitation` (literal) | DCTERMS |
 
+---
 
-### 3.2 Digital carrier and rights
+### 3.2 Access rights
 
 **Domain:** Tale (`rft:Tale`)
 
 | Local field | Description | RDF property | Target vocabulary |
 |---|---|---|---|
-| `digital_carrier` | Digital carrier / representation type (e.g., scan, transcript-only). Prefer a controlled value set. | `dcterms:format` | DCTERMS |
-| `rights_status` | Access and reuse status (e.g., open, restricted; anonymised). | `dcterms:accessRights`, `dcterms:rights` | DCTERMS |
+| `rights_status` | Access and reuse status (e.g., open, restricted; anonymised). | `dcterms:accessRights` | DCTERMS |
 
+---
 
 ### 3.3 Agents: narrators and collectors
 
 This section models human agents in the archival corpus (narrators, collectors).  
 **Note:** classifier-related humans (e.g., a folklore expert who overrides a prediction) are handled separately under **Classifier provenance** (expert review as `prov:Activity` + optional `prov:wasAttributedTo prov:Agent`). We do not mix *archival roles* with *annotation roles*.
 
----
+- **Person (Agent)**: `prov:Agent` (alligned with `crm:E21_Person`, `foaf:Person`)
+- **Display name:** `rdfs:label`
+- **Biographical note:** `rdfs:comment`
 
-#### Core entities
+#### Role principle 
 
-- **Tale**: `rft:Tale` (project class; aligned with `crm:E33_Linguistic_Object` and `prov:Entity`)
-- **Volume**: `dcterms:BibliographicResource` (and optionally `crm:E22_Man-Made_Object` as carrier in the light profile)
-- **Person (Agent)**: `prov:Agent` (optionally `crm:E21_Person`)
-
----
-
-#### Role principle (no custom narrator/collector classes)
-
-- We mint stable **Person** URIs and keep roles **contextual** (expressed by the predicate + the domain of the statement).
-- We do **not** introduce `rft:Narrator` / `rft:Collector` classes (nor “facet tags”). Role is determined by where/how the person is linked.
+- We mint stable **Person** URIs and keep roles **contextual** (expressed by qualified attribution statements that link an agent to a specific Tale (for narrators) or Volume (for collectors, because collectors are responsible for producing a whole Volume, not a Tale)).
 
 **URI policy**
 - Preferred: `BASE_DATA + "/person/{person_id}"` (stable internal ID).
-- Fallback: `BASE_DATA + "/person/{slug}"` (deterministic and collision-safe).
 
----
+#### Role links 
 
-#### Canonical role links (two-layer attribution)
+We separate two attribution layers because narrators affect content variation, while collectors affect capture conditions (handwriting/legibility/HTR usability). In the current export, recording date is stored at tale level as `dcterms:created (xsd:date)`.
 
-We separate two attribution layers because narrators affect content variation, while collectors affect capture conditions (handwriting/legibility/HTR–OCR usability). Also, recording time is available at the volume level.
-
-| Context | Domain | Property | Range | Meaning |
+| Context | Domain | Property pattern | Range | Meaning |
 |---|---|---|---|---|
-| **Tale-level (content attribution)** | Tale | `dcterms:contributor` | Person | Narrator attribution (variant/content analysis) |
-| **Volume-level (capture attribution)** | Volume | `dcterms:creator` | Person | Collector/fieldworker attribution (capture/HTR quality analysis) |
+| **Tale-level (content attribution)** | Tale | `prov:qualifiedAttribution` → `prov:Attribution` with `prov:agent Person` and `prov:hadRole locrel:nrt` | Person | Narrator attribution (variant/content analysis) |
+| **Volume-level (capture process attribution)** | Volume | `prov:qualifiedAttribution` → `prov:Attribution` with `prov:agent Person` and `prov:hadRole locrel:col` | Person | Collector (fieldworker) attribution |
 | **Tale → Volume containment** | Tale | `dcterms:isPartOf` | Volume | Tale belongs to a volume (recording context carrier) |
 
 **Notes**
-- Collectors are attached to the **Volume**, because capture context (including recording time and handwriting) is volume-scoped in the available metadata.
-- Multiple collectors are represented as repeated `dcterms:creator` statements (no `collector_1…collector_5` in RDF).
-
----
-
-#### Person node
-
-On each **Person** resource:
-
-- **Types:** `prov:Agent` (required); optionally `crm:E21_Person`
-- **Display name:** `rdfs:label`
-- **Biographical note:** `dcterms:description`
-
-**Naming hygiene**
-- Keep `rdfs:label` strictly for the human-facing display name.
-- Store raw strings / parsing artifacts outside `rdfs:label` (e.g., `skos:altLabel` or a project literal like `rft:rawName`) if needed.
-
----
+- Multiple collectors are represented as repeated `prov:qualifiedAttribution` statements on the Volume (each with `prov:hadRole` `locrel:col`), rather than column-specific predicates.
+- In PROV-O we use both an unqualified shortcut and a qualified attribution node. `prov:wasAttributedTo` provides a direct, query-friendly link from the Tale to the agent (“this Tale is attributed to this person”), while `prov:qualifiedAttribution` points to an explicit `prov:Attribution` resource that carries the *context* of that attribution—most importantly the controlled role URI (e.g., `prov:hadRole locrel:nrt` for a narrator) and any further provenance fields if needed. 
 
 #### Mapping from local index fields
 
 | Local field | Description | RDF mapping | Comment |
 |---|---|---|---|
-| `narrator` | Narrator name + bio note (composite) | `Tale dcterms:contributor Person`; `Person rdfs:label` + `dcterms:description` | Repeat `dcterms:contributor` if multiple narrators |
-| `collector_1`–`collector_5` | Collectors listed for the volume | `Volume dcterms:creator Person` (repeated) | Index stays columnar; RDF becomes repeated assertions |
-| `volume_date` (or similar) | Recording/capture date at volume level | `Volume dcterms:created` (`xsd:date` / `xsd:gYear`) | Enables time coverage queries and capture-context filtering |
-
+| `narrator_person_id` (+ narrator label/note fields) | Narrator authority id + optional display fields | `Tale prov:qualifiedAttribution  p[ a prov:Attribution ; prov:agent Person ; prov:hadRole locrel:nrt ]`; `Person rdfs:label` + optional `rdfs:comment` | Repeat attribution if multiple narrators occur |
+| `collector_person_ids(_str)` | Collectors listed for the volume | `Volume prov:qualifiedAttribution [ a prov:Attribution ; prov:agent Person ; prov:hadRole locrel:col ]` | |
+| `recorded_date_start` | Recording date (tale-level in current realisation) | `Tale dcterms:created` (`xsd:date`) |
 
 ---
 
 ### 3.4 Institutions and organisations
 
-This section covers institutional affiliations recorded in the index (e.g., narrator’s school in pupil collections).  We keep the baseline lightweight and avoid role-specific agent subclasses.
+This section covers institutional affiliations.  We keep the baseline lightweight and avoid role-specific agent subclasses.
 
-**Domain:** Person (`prov:Agent`, optionally `crm:E21_Person`) referenced as narrator via `dcterms:contributor`
-
-| Local field | Description | RDF property | Target vocabulary |
-|---|---|---|---|
-| `narrator_school` | School associated with the narrator (mainly for pupil collections). | `dcterms:description` | DCTERMS |
-
-This avoids introducing a custom property and keeps interoperability high.
+**Domain:** Person (`prov:Agent`, optionally `crm:E21_Person`) referenced as narrator via tale-level qualified attribution (`prov:qualifiedAttribution` / `prov:Attribution` with `prov:hadRole locrel:nrt`).
 
 **Future upgrade**
-- We could introduce an **Organisation** node only if you actually need querying over institutions:
+- We could introduce an **Organisation** node :
   - Organisation: `crm:E74_Group` (and optionally `prov:Agent`)
   - Link: `dcterms:relation` (or `crm:P107_has_current_or_former_member`)
 - Then we could keep the literal as the raw label for traceability and add the organisation IRI for structured linking.
@@ -193,25 +167,22 @@ We model places primarily as `crm:E53_Place` nodes with human-readable labels, a
 
 **Domains:**  
 - Tale: `rft:Tale` (aligned to `crm:E33_Linguistic_Object`, `prov:Entity`)  
-- Person: `prov:Agent` (optionally `crm:E21_Person`) referenced as narrator via `dcterms:contributor`  
+- Person: `prov:Agent` (`crm:E21_Person`). 
 - Place: `crm:E53_Place`
 
-#### Baseline linking: Tale ↔ Place, Person ↔ Place
+#### Baseline linking: Tale ↔ Place
 
 | Local field | Description | RDF property / pattern | Target vocabulary |
 |---|---|---|---|
-| `recording_parish` | Parish where the tale was recorded. | `Tale dcterms:spatial Place` | DCTERMS / CIDOC-CRM |
 | `recording_place` | Settlement of recording. | `Tale dcterms:spatial Place` | DCTERMS / CIDOC-CRM |
-| `narrator_origin_parish` | Parish of narrator’s origin. | `Person dcterms:spatial Place` | DCTERMS / CIDOC-CRM |
-| `narrator_origin_place` | Settlement of narrator’s origin. | `Person dcterms:spatial Place` | DCTERMS / CIDOC-CRM |
 
 **Place node**
-- Label(s): `rdfs:label` in the original archival language.
+- Label(s): `rdfs:label` as a human-readable string; in the current export it may combine an English normalisation with the original (Russian, Estonian).
 - Optional additional labels: `skos:prefLabel` / `skos:altLabel` to manage multilingual place labels as a controlled vocabulary.
 
 #### Richer model 
 
-To distinct  “recording place” from “origin place” (beyond a generic `dcterms:spatial`), we introduce a recording activity:
+To distinct  “recording place” from “origin place” (beyond a generic `dcterms:spatial`), in future we could introduce a recording activity:
 
 - `rft:RecordingEvent a prov:Activity` 
 - `Tale prov:wasGeneratedBy rft:RecordingEvent`
@@ -235,29 +206,24 @@ This project distinguishes **two time axes**:
 
 #### 3.6.1 Recording time 
 
-**Preferred baseline: attach to Volume, not Tale**
-
-Rationale: recording context (including time) is usually consistent within a volume and co-varies with collectors and capture conditions. Tale-level recording dates can be introduced later if truly reliable at row level.
+**Baseline**
 
 | Local field | Description | RDF property / pattern | Target vocabulary |
 |---|---|---|---|
-| `recorded_date_start` | Start date of recording (index). | **Baseline:** `Volume dcterms:created` (ISO literal). | DCTERMS / PROV / CIDOC-CRM |
-| `recorded_date_end` | End date of recording (if given). | `RecordingEvent prov:endedAtTime` (ISO dateTime), or CIDOC `crm:P4_has_time-span` → `crm:E52_Time-Span`. | PROV / CIDOC-CRM |
+| `recorded_date_start` | Start date of recording (index). | Tale `dcterms:created` `(xsd:date)`. | DCTERMS / PROV / CIDOC-CRM |
+
 
 **Notes**
 - If the source provides only a single day, store it as `"YYYY-MM-DD"^^xsd:date` via `dcterms:created`.
 - If the source provides only a year (or year-month), we may use `xsd:gYear` and preserve the raw string separately.
 
-#### 3.6.2 Classifier run time (system provenance)
+#### 3.6.2 Classifier run time 
 
 Classifier outputs already contain run-time timestamps; these are not the historical recording dates.
 
 | Produced meta field | Meaning | RDF mapping in JSON-LD export | Target vocabulary |
 |---|---|---|---|
-| `created_at` | When the classifier run was executed (inference time). | `ClassificationRun prov:startedAtTime` | PROV-O |
 | `trained_at` | When the model artifact was trained (training time). | `Model rft:trainedAt` (typed `xsd:dateTime`) | rft (typed literal) |
-
-This separation prevents accidental mixing of “1930 fieldwork” with “2026 inference”.
 
 ---
 
@@ -277,17 +243,10 @@ Archival fields stay attached to the Tale; classifier outputs are exported as PR
 | Local field | Description | RDF property / pattern | Target vocabulary |
 |---|---|---|---|
 | `content_description` | Short content note. | `Tale dcterms:description` | DCTERMS |
-| `genre_1`–`genre_3` | Archival genres. | **Preferred:** `Tale dcterms:subject skos:Concept` (genre scheme). | SKOS / DCTERMS / (optional rft) |
-| `subgenre` | Subgenre (e.g., `imemuinasjutt`). | `Tale dcterms:subject skos:Concept`; on concept: `skos:broader` to main genre. | SKOS / DCTERMS |
-| `folklore_category` | Fine-grained category. | `Tale dcterms:subject skos:Concept`; relations via `skos:broader`, `skos:related`. | SKOS / DCTERMS |
-| `type_code_1`–`type_code_4` | ATU, SUS, national type codes (if present in index). | `Tale dcterms:subject skos:Concept` (typed as a type concept; scheme-specific via `skos:inScheme`; code via `skos:notation`). | SKOS / DCTERMS |
-
-**Key modelling choice:**
-- We use `dcterms:subject` as the canonical link from Tale → controlled concepts (types, genres, categories).  
+| `type_code_1`–`type_code_4` | ATU, SUS, national type codes (if present in index). | `Tale dcterms:subject skos:Concept` (typed as a type concept; classification name via `skos:inScheme`; folktale type code via `skos:notation`). | SKOS / DCTERMS |
 
 **Notes**
-- We kept archival descriptions in the source language in `dcterms:description`. English summaries we cpuld store as additional literals with language tags, or as a separate field mapped to `dcterms:description` with `"@language": "en"`.
-
+We store the archival content note as `dcterms:description` (typically in the source language, Russian); additional language-tagged summaries can be added as parallel literals.
 ---
 
 #### 3.7.2 Classifier-produced classification
@@ -295,7 +254,7 @@ Archival fields stay attached to the Tale; classifier outputs are exported as PR
 The classifier does not overwrite archival cataloguing because it was built for external folktales typing. It produces:
 - a **run** (`rft:ClassificationRun` / `prov:Activity`)  
 - a **result** (`rft:ClassificationResult` / `prov:Entity`)  
-- **candidates** (`rft:ClassificationCandidate`) pointing to ATU concepts (`skos:Concept`)
+- **candidates** (`rft:ClassificationCandidate`) pointing to ATU types.
 
 Minimal pattern:
 - `ClassificationResult rft:forTale Tale`
@@ -310,28 +269,21 @@ Minimal pattern:
 
 #### 3.7.3 Schemes and concept identifiers 
 
-- Every type/genre/category concept is a `skos:Concept` and must belong to a scheme: `skos:inScheme skos:ConceptScheme`.  
-- The code is stored as `skos:notation` (e.g., `"709"`, `"510A"`).  
+- Every ATU type is a `skos:Concept` and must belong to a scheme: `skos:inScheme skos:ConceptScheme`.  
+- The type number is stored as `skos:notation` (e.g., `"709"`, `"510A"`).  
 - In exports, predicted ATU concepts are referenced by IRIs like:  
   `.../rdf/taleType/atu/709`, and may additionally carry `skos:notation "709"`.
+- For type numbers with a star the URI path uses a normalised form while the original code is preserved in `skos:notation` (e.g., 1060* → .../atu/1060-star + `skos:notation` "1060*"). 
 
 This keeps the ontology clean: SKOS carries the semantics of classification systems; rft carries only the classifier artifacts and convenience typed literals.
 
 ---
 
-
 ## 4. Tale types as SKOS concepts
-
-Canonical statement in the published KG:
-
-- Tales point to classification concepts via **`dcterms:subject`**.
-- Tale types (ATU/SUS/national) are **`skos:Concept`** resources.
-
-This keeps the Tale neutral: catalogue assignments and model suggestions can coexist without overwriting each other. Classifier outputs link to the same concept URIs through rft:predictedTaleType / rft:primaryATU / rft:finalATU on the ClassificationResult
 
 ### 4.1 Concept schemes
 
-There is no universally accepted open URI authority for ATU distributed by the rights holders. ATU is a published reference work; current editions are commercial/controlled. Therefore:
+There is no universally accepted open URI authority for ATU distributed by the rights holders. ATU is a published reference work; current editions are controlled. Therefore:
 
 - We treat any web-published ATU vocabularies as optional outbound links, not a dependency.
 
@@ -343,19 +295,15 @@ Project knowledge graph remains self-contained and stable even if external URIs 
 1. Mint our own SKOS concept URIs for ATU types in our stable namespace.
 <.../rdf/taleType/atu/707>.
 
-2. Store the code as `skos:notation` and label(s) as `skos:prefLabel`.
+2. Store the folktale type numbers as `skos:notation` and type titles as `skos:prefLabel`.
 
-3. Link outward opportunistically using SKOS mapping properties when stable targets exist:
+3. In the current export, ATU concepts are self-contained (no outbound mapping links are asserted); mapping links are a supported future enhancement:
 
 - `skos:exactMatch` (strong equivalence),
 - `skos:closeMatch` (near equivalence),
 - `rdfs:seeAlso` (lightweight pointer),
-without making external sources a core dependency.
 
-We define at least three SKOS concept schemes:
-
-- `rft:ATU_Scheme`  
-  — Сoncept scheme for Aarne–Thompson–Uther tale types (ATU).
+The current export defines one concept scheme: `rft:ATU_Scheme` (ATU). Additional schemes (e.g., SUS or national type systems) are planned but not included in the present TTL exports.
 
 - `rft:SUS_Scheme`  
   — Сoncept scheme for East Slavic SUS tale types.
@@ -363,35 +311,13 @@ We define at least three SKOS concept schemes:
 - `rft:EE_Scheme`  
   — Сoncept scheme for Estonian national tale types.
 
-Each individual genre / subgenre / category is represented as:
+### 4.3. Classifier alignment
 
-- a `skos:Concept`
-- `skos:inScheme` 
-- `skos:prefLabel`, and optionally `skos:broader` to model subgenre/category hierarchies.
-
-<tale> dcterms:subject <genre/imemuinasjutt> .
-
-Each individual tale type (ATU, SUS, national schemes) is represented as:
-
-- a `skos:Concept`
-- `skos:inScheme` one of the type schemes (`rft:ATU_Scheme`, `rft:SUS_Scheme`, `rft:EE_Scheme`, …)
-- `skos:notation` carrying the code (e.g., "706", "510A", "1060*"), plus optional labels.
-
-<tale> dcterms:subject <taleType/atu/707> .
-
----
-
-### 4.3. Classifier alignment (important):
-
-The classifier does not assert dcterms:subject on the Tale.
-
-It produces a rft:ClassificationResult that references the same concept URIs via:
+The classifier produces a rft:ClassificationResult that references the same concept URIs via:
 
 - `rft:primaryATU` (effective decision in the export),
 - `rft:modelPrimaryATU` (model-only),
 - `rft:finalATU` + `rft:finalDecisionSource` (model vs expert),
-
-Also, it links candidates through rft:predictedTaleType.
 
 ---
 
@@ -432,7 +358,7 @@ Our goal is to make the “knowledge management” auditable and reproducible: e
 #### 2) Model
 
 - **Types:** `prov:Entity`, `rft:Model`, plus OntoDM typing  
-  (e.g., `ontoDM:probabilistic_predictive_model` or your chosen `ontoDM:OntoDM_000073` mapping)
+  (e.g., `ontoDM:probabilistic_predictive_model` typed as `ontoDM:OntoDM_000073` mapping)
 
 **Key fields (exported / in meta):**
 - `rft:modelTag` ← `meta.model_version`
@@ -443,7 +369,7 @@ Our goal is to make the “knowledge management” auditable and reproducible: e
 - `dcterms:source` → bibliographic typing source (ATU reference)
 
 **Training corpus pointer (meta):**
-- `meta.dataset_uri` — a stable publication pointer for the training dataset (currently a GitHub commit permalink; later may become a release asset/DOI).
+- `datasetUrl` — a stable publication pointer for the training dataset (currently a GitHub commit permalink; later may become a release asset/DOI).
 
 #### 3) ClassificationResult 
 
@@ -458,62 +384,44 @@ Our goal is to make the “knowledge management” auditable and reproducible: e
   - `rft:deltaTop12` ← `meta.delta_top12`
   - `rft:confidenceBand` ← `meta.confidence_band` (policy band)
   - `rft:decisionPolicyId` ← `meta.decision_policy`
-  - `rft:decisionPolicy` ← `meta.decision_policy_uri` (IRI)
-  - `rft:labels` ← `meta.labels_uri` (IRI)
+  - `rft:decisionPolicyDownload` ← resolvable URL (raw GitHub)
+  - `rft:labelsDownload` ← resolvable URL (raw GitHub)
   - `rft:primaryATU`, `rft:modelPrimaryATU`, `rft:finalATU`
-  - `rft:finalDecisionSource`, `rft:finalExpertNote`, `rft:finalSavedAt`
+  - `rft:finalDecisionSource`, `rft:finalExpertNote`
 
-#### 4) ClassificationCandidate 
-
-- **Types:** `rft:ClassificationCandidate`
-
-**Fields (exported):**
-- `rft:rank` → integer
-- `rft:predictedTaleType` → URI of the type concept (e.g., `…/taleType/atu/709`)
-- `skos:notation` → original code string (e.g., `"709"`, `"510A"`)
-- `rft:confidenceScore` → decimal score
-
-#### 5) InputTextSnapshot (integrity of submitted text)
+#### 4) InputTextSnapshot 
 
 - **Stable text entity:** `rft:InputText` (`prov:Entity`) identified by `meta.tale_id`
 - **Run snapshot:** `rft:InputTextSnapshot` (`prov:Entity`)
   - `prov:wasDerivedFrom` → `rft:InputText`
   - `rft:sha256` ← `meta.text_sha256` (hash of submitted text)
 
-#### 6) DatasetSnapshot (what the classifier had access to at inference)
+#### 5) DatasetSnapshot 
 
 - **Types:** `prov:Entity`, `rft:DatasetSnapshot`
 - **Identifier:** `meta.source_version` (e.g., `sha256:ea72…`)
-- **Publication pointer:** `datasetUri` (mapped to `rdfs:seeAlso`) ← `meta.dataset_uri`  
+- **Publication pointer:** `datasetUrl` (mapped to `rdfs:seeAlso`) ← `meta.dataset_url`  
   (points to the published training dataset version: commit permalink now; release asset later)
 
-### 5.3 Human-in-the-loop (HITL) handling
+### 5.3 Human-in-the-loop handling
 
 We record expert intervention only when the final decision is not the model:
 
 - `rft:finalDecisionSource` is `"model"` by default.
 - If expert overrides:
   - `rft:finalDecisionSource = "expert"`
-  - `rft:finalATU`, `rft:finalExpertNote`, `rft:finalSavedAt` are filled
+  - `rft:finalATU`, `rft:finalExpertNote` are filled
   - optionally emit a separate provenance activity:
     - `rft:HumanReview a prov:Activity`
     - `prov:used` → the model result entity
     - optional `prov:wasAttributedTo prov:Agent` (expert)
-
-### 5.4 Governance fields 
-
-- Decision + uncertainty: `tale_status`, `primary_atu`, `model_primary_atu`, `final_atu`, `final_decision_source`, `final_saved_at`, `final_expert_note`, `delta_top12`, `confidence_band`
-- Reproducibility pointers: `labels_uri`, `decision_policy_uri`, `decision_policy` (id), `source_version`, `dataset_uri`
-- Artifact identities: `run_id`, `model_sha`, plus minted IRIs: `run_uri`, `model_uri`, `input_text_uri`, `result_uri`
-- Integrity: `text_sha256`
-- Typing reference: `typing_source` (bibliographic resource node)
 
 ---
 
 ## 6. Dataset-level modeling
 
 The corpus is published as a versioned Dataset that contains many individual tale records.  
-We use DCAT for distribution metadata and DCTERMS/PROV for provenance and governance notes.
+We use DCAT for distribution metadata and DCTERMS for citation, rights, and release description; run-level provenance is captured in the classifier JSON-LD exports.
 
 ### 6.1 Rationale
 
@@ -528,25 +436,19 @@ We use DCAT for distribution metadata and DCTERMS/PROV for provenance and govern
 
 - `dcat:Dataset` — the corpus release / published snapshot
 - `dcat:Distribution` — concrete downloadable artifacts for the release (exports + validation assets)
-- `dcterms:hasPart` / `dcterms:isPartOf` — link Dataset ↔ Tale resources
-- `prov:wasDerivedFrom` + `dcterms:source` — capture source references and derivations
-- `dcterms:license`, `dcterms:rights`, `dcterms:accessRights` — rights and access constraints
-
-### 6.3 Dataset ↔ Tale policy
-
-- Each tale record is linked to the dataset:
-  - `Tale dcterms:isPartOf Dataset`
-  - (optionally also) `Dataset dcterms:hasPart Tale`
+- `dcterms:isPartOf` — link Tale ↔ Dataset
+- `dcterms:source` — and `dcterms:bibliographicCitation` capture archival source references at Tale/Volume level; derivation links (`prov:wasDerivedFrom`) are used in the classifier export for run inputs (e.g., text snapshots).
+- `dcterms:license`, `dcterms:accessRights` — rights and access constraints
 
 This enables cross-release governance and “what changed between versions” practices.
 
-### 6.4 Consistency with the classifier exports 
+### 6.3 Consistency with the classifier exports 
 
 - **Dataset-level (DCAT):** the authoritative publication record for a corpus release and its downloadable distributions.
 - **Classifier layer:**
   - `meta.dataset_uri` is a *publication pointer* to the training corpus package/version (commit permalink / release asset / DOI).
   - `meta.source_version` is a *checksum-style snapshot ID* recorded in `rft:DatasetSnapshot` to describe the inference-time snapshot.
-  - A `rft:DatasetSnapshot` node may include `rdfs:seeAlso` (exported as `datasetUri`) linking to the published dataset artifact that corresponds to that snapshot.
+  - A `rft:DatasetSnapshot` node may include `rdfs:seeAlso` (exported as `datasetUrl`) linking to the published dataset artifact that corresponds to that snapshot.
 
 ---
 
@@ -560,7 +462,6 @@ The knowledge graph explicitly commits key datatypes to ensure machine-actionabi
 - `rft:rank` → `xsd:integer`
 - `prov:startedAtTime` → `xsd:dateTime` 
 - `rft:trainedAt` → `xsd:dateTime`
-- `rft:finalSavedAt` → `xsd:dateTime`
 - `rft:modelSha` → `xsd:string`
 - `rft:sourceVersion` → `xsd:string`   
 - `rft:sha256` → `xsd:string`   
