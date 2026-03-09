@@ -682,7 +682,3 @@
     skos:notation "935" ;
     skos:prefLabel "ATU 935 The Prodigal’s Return"@en .
 
-rft:ATU_Scheme a skos:ConceptScheme ;
-    dcterms:source <https://eugeniavd.github.io/magic_tagger/rdf/biblio/ffc_284-286_2011_uther> ;
-    skos:prefLabel "THE TYPES OF INTERNATIONAL FOLKTALES Based on the System of Antti Aarne and Stith Thompson"@en .
-

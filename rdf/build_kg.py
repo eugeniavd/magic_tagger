@@ -18,7 +18,7 @@ from typing import Dict, List, Optional, Set
 import pandas as pd
 from rdflib import BNode, Graph, Literal, Namespace, URIRef
 from rdflib.namespace import RDF, RDFS, DCTERMS as DCT, XSD
-from src.uris import BASE_DATA, RFT
+from src.uris import BASE_DATA
 
 # ---------------------------------------------------------------------
 # Repo paths
@@ -46,18 +46,27 @@ PROV = Namespace("http://www.w3.org/ns/prov#")
 FOAF = Namespace("http://xmlns.com/foaf/0.1/")
 DCMITYPE = Namespace("http://purl.org/dc/dcmitype/")
 CRM = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
+RFT = Namespace(f"{BASE_DATA}ontology#")
 
 # KEEP LoC MARC relators as role vocabulary
 LOCREL = Namespace("http://id.loc.gov/vocabulary/relators/")
 ROLE_NARRATOR = LOCREL.nrt  # narrator
 ROLE_COLLECTOR = LOCREL.col  # collector
 
+RIGHTS_MAP = {
+    "open": RFT.rights_open,
+    "restricted_anon": RFT.rights_partly_anonymised,
+    "restricted-anon": RFT.rights_partly_anonymised,
+}
+
 # Dataset IRI (default; override via --dataset-iri)
 DEFAULT_DATASET_IRI = URIRef(f"{BASE_DATA}dataset/corpus/v1")
 
 _WS = re.compile(r"\s+")
 _BAD = re.compile(r"[^a-z0-9\-]+")
-_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+_DATE_FULL_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+_DATE_YM_RE = re.compile(r"^\d{4}-\d{2}$")
+_DATE_Y_RE = re.compile(r"^\d{4}$")
 
 # ---------------------------------------------------------------------
 # IRI policy (minimal)
@@ -71,8 +80,11 @@ def iri_collection(collection_code: str) -> URIRef:
 def iri_person(person_id_or_slug: str) -> URIRef:
     return URIRef(f"{BASE_DATA}person/{person_id_or_slug}")
 
-def iri_tale(tale_id: str) -> URIRef:
-    return URIRef(f"{BASE_DATA}tale/{tale_id}")
+def iri_tale_recording(tale_id: str) -> URIRef:
+    return URIRef(f"{BASE_DATA}TaleRecording/{tale_id}")
+
+def iri_tale_content(tale_id: str) -> URIRef:
+    return URIRef(f"{BASE_DATA}taleContent/{tale_id}")
 
 def iri_atu(code: str) -> URIRef:
     """
@@ -87,14 +99,16 @@ def iri_atu(code: str) -> URIRef:
     c = c.replace("*", "-star")
     return URIRef(f"{BASE_DATA}taleType/atu/{c}")
 
-# Stable IRIs for attribution statements (so roles live in explicit attribution nodes)
-def iri_attribution_tale(tale_id: str, role_code: str, person_id: str) -> URIRef:
-    return URIRef(f"{BASE_DATA}attribution/tale/{tale_id}/{role_code}/{person_id}")
+def iri_attribution_tale_recording(tale_id: str, role_code: str, person_id: str) -> URIRef:
+    return URIRef(f"{BASE_DATA}attribution/taleRecording/{tale_id}/{role_code}/{person_id}")
 
-def iri_attribution_volume(volume_id: str, role_code: str, person_id: str) -> URIRef:
-    return URIRef(f"{BASE_DATA}attribution/volume/{volume_id}/{role_code}/{person_id}")
-
-def add_attribution(g: Graph, entity_uri: URIRef, agent_uri: URIRef, role_uri: URIRef, att_uri: URIRef) -> None:
+def add_attribution(
+    g: Graph,
+    entity_uri: URIRef,
+    agent_uri: URIRef,
+    role_uri: URIRef,
+    att_uri: URIRef,
+) -> None:
     """
     PROV qualified attribution:
       entity prov:wasAttributedTo agent .
@@ -103,9 +117,11 @@ def add_attribution(g: Graph, entity_uri: URIRef, agent_uri: URIRef, role_uri: U
           prov:agent agent ;
           prov:hadRole role .
     """
-    g.add((entity_uri, RDF.type, PROV.Entity))
-    g.add((entity_uri, PROV.wasAttributedTo, agent_uri))
+    g.add((agent_uri, RDF.type, PROV.Agent))
+    g.add((agent_uri, RDF.type, FOAF.Person))
+    g.add((role_uri, RDF.type, PROV.Role))
 
+    g.add((entity_uri, PROV.wasAttributedTo, agent_uri))
     g.add((entity_uri, PROV.qualifiedAttribution, att_uri))
     g.add((att_uri, RDF.type, PROV.Attribution))
     g.add((att_uri, PROV.agent, agent_uri))
@@ -205,12 +221,21 @@ def ensure_url_list(x: object) -> List[str]:
     parts = re.split(r"\s*\|\s*|,\s*|\s+", s)
     return [p.strip() for p in parts if p.strip()]
 
-def norm_xsd_date(x: object) -> str:
+def normalize_rights_status(x: object) -> str:
+    return clean_ws(x).lower()
+
+def norm_date_literal(x: object) -> Optional[Literal]:
     s = clean_ws(x)
     if not s:
-        return ""
+        return None
     s = s.split(" ")[0]
-    return s if _DATE_RE.match(s) else ""
+    if _DATE_FULL_RE.match(s):
+        return Literal(s, datatype=XSD.date)
+    if _DATE_YM_RE.match(s):
+        return Literal(s, datatype=XSD.gYearMonth)
+    if _DATE_Y_RE.match(s):
+        return Literal(s, datatype=XSD.gYear)
+    return None
 
 # ---------------------------------------------------------------------
 # Collections map loader
@@ -322,7 +347,7 @@ def load_volume_kivike_map(path: Path) -> Dict[str, Dict[str, str]]:
     return out
 
 # ---------------------------------------------------------------------
-# Place label builder (single label)
+# Place label builder (single label, temporary until authority file)
 # ---------------------------------------------------------------------
 def build_place_label(row: pd.Series) -> str:
     parts_en: List[str] = []
@@ -347,7 +372,7 @@ def build_place_label(row: pd.Series) -> str:
     return s_en or s_orig
 
 # ---------------------------------------------------------------------
-# Narrator id resolver (ONLY narrator_person_id exists in your data)
+# Narrator id resolver (left unchanged on purpose)
 # ---------------------------------------------------------------------
 def narrator_person_id(row: pd.Series) -> str:
     v = clean_ws(row.get("narrator_person_id")) if "narrator_person_id" in row.index else ""
@@ -373,7 +398,7 @@ def atu_codes_from_row(row: pd.Series) -> List[str]:
     return out
 
 # ---------------------------------------------------------------------
-# Graph builder (Volumes + Collections + Tales)
+# Graph builder (Volumes + Collections + TaleRecordings + TaleContents)
 # ---------------------------------------------------------------------
 def build_graph(
     df: pd.DataFrame,
@@ -394,6 +419,9 @@ def build_graph(
     g.bind("crm", CRM)
     g.bind("locrel", LOCREL)
 
+    g.add((ROLE_NARRATOR, RDF.type, PROV.Role))
+    g.add((ROLE_COLLECTOR, RDF.type, PROV.Role))
+
     required = ["tale_id", "volume_id", "collection"]
     for c in required:
         if c not in df.columns:
@@ -410,20 +438,27 @@ def build_graph(
     # ----------------------------------------------------------
     # Pre-aggregate attribution targets across all rows:
     # - collectors by volume
+    # - collectors by tale
     # - narrators by tale
-    # (prevents loss due to drop_duplicates)
     # ----------------------------------------------------------
     collectors_by_volume: Dict[str, Set[str]] = {}
+    collectors_by_tale: Dict[str, Set[str]] = {}
     narrators_by_tale: Dict[str, Set[str]] = {}
 
     for _, r in df.iterrows():
         vid0 = clean_ws(r.get("volume_id"))
+        tid0 = clean_ws(r.get("tale_id"))
+
+        row_collectors = collectors_from_row(r)
+
         if vid0:
-            for pid in collectors_from_row(r):
+            for pid in row_collectors:
                 collectors_by_volume.setdefault(vid0, set()).add(pid)
 
-        tid0 = clean_ws(r.get("tale_id"))
         if tid0:
+            for pid in row_collectors:
+                collectors_by_tale.setdefault(tid0, set()).add(pid)
+
             npid = narrator_person_id(r)
             if npid:
                 narrators_by_tale.setdefault(tid0, set()).add(npid)
@@ -436,8 +471,8 @@ def build_graph(
 
     for _, row in vdf.iterrows():
         vid = row["volume_id"]
-        coll_raw = row["collection"]  # e.g. "era_vene"
-        coll_uri = iri_collection(collection_code(coll_raw))  # ".../collection/era-vene"
+        coll_raw = row["collection"]
+        coll_uri = iri_collection(collection_code(coll_raw))
         vol_uri = iri_volume(vid)
 
         # Volume
@@ -450,11 +485,12 @@ def build_graph(
             if lbl:
                 g.add((vol_uri, RDFS.label, Literal(lbl)))
 
-        # Collector attribution (capture attribution) as explicit PROV statements with LoC role URI
+        # Collectors on Volume via dcterms:creator
         for pid in sorted(collectors_by_volume.get(vid, set())):
             agent_uri = iri_person(pid)
-            att_uri = iri_attribution_volume(vid, "col", pid)
-            add_attribution(g, vol_uri, agent_uri, ROLE_COLLECTOR, att_uri)
+            g.add((agent_uri, RDF.type, PROV.Agent))
+            g.add((agent_uri, RDF.type, FOAF.Person))
+            g.add((vol_uri, DCT.creator, agent_uri))
 
         # Kivike mappings
         m = volume_map.get(vid, {})
@@ -486,7 +522,7 @@ def build_graph(
                     g.add((coll_uri, RDFS.seeAlso, URIRef(u)))
 
     # -------------------------
-    # 2) Tales
+    # 2) Tale recordings + Tale contents
     # -------------------------
     tdf = df[df["tale_id"] != ""].drop_duplicates(subset=["tale_id"], keep="first")
 
@@ -495,68 +531,79 @@ def build_graph(
         vid = clean_ws(row.get("volume_id"))
         vol_uri = iri_volume(vid) if vid else None
 
-        tale_uri = iri_tale(tid)
+        recording_uri = iri_tale_recording(tid)
+        content_uri = iri_tale_content(tid)
 
-        # type
-        g.add((tale_uri, RDF.type, CRM.E33_Linguistic_Object))
-        g.add((tale_uri, RDF.type, RFT.Tale))
-        g.add((tale_uri, RDF.type, PROV.Entity))
+        # Recording
+        g.add((recording_uri, RDF.type, CRM.E33_Linguistic_Object))
+        g.add((recording_uri, RDF.type, RFT.TaleRecording))
+        g.add((recording_uri, DCT.identifier, Literal(tid)))
 
-        # identifier
-        g.add((tale_uri, DCT.identifier, Literal(tid)))
+        # Content
+        g.add((content_uri, RDF.type, CRM.E28_Conceptual_Object))
+        g.add((content_uri, RDF.type, RFT.TaleContent))
 
-        # isPartOf volume (structural containment)
+        # Recording -> content
+        g.add((recording_uri, PROV.wasDerivedFrom, content_uri))
+
+        # isPartOf volume
         if vol_uri is not None and vid:
-            g.add((tale_uri, DCT.isPartOf, vol_uri))
+            g.add((recording_uri, DCT.isPartOf, vol_uri))
 
-        # isPartOf dataset (publishing-level container)
+        # isPartOf dataset
         if add_dataset_links and dataset_iri is not None:
-            g.add((tale_uri, DCT.isPartOf, dataset_iri))
+            g.add((recording_uri, DCT.isPartOf, dataset_iri))
 
-        # source handling
-        if vol_uri is not None and vid:
-            g.add((tale_uri, DCT.source, vol_uri))
-
+        # bibliographic citation
         if "source_ref" in row.index:
             src = clean_ws(row.get("source_ref"))
             if src:
-                g.add((tale_uri, DCT.bibliographicCitation, Literal(src)))
+                g.add((recording_uri, DCT.bibliographicCitation, Literal(src)))
 
         # description/title
         if "content_description_clean" in row.index:
             desc = clean_ws(row.get("content_description_clean"))
             if desc:
-                g.add((tale_uri, DCT.description, Literal(desc)))
+                g.add((recording_uri, DCT.description, Literal(desc)))
 
-        # rights (accessRights)
+        # rights (map table values -> ontology individuals)
         if "rights_status" in row.index:
-            rs = clean_ws(row.get("rights_status"))
+            rs = normalize_rights_status(row.get("rights_status"))
             if rs:
-                g.add((tale_uri, DCT.accessRights, Literal(rs)))
+                rights_uri = RIGHTS_MAP.get(rs)
+                if rights_uri is None:
+                    raise ValueError(f"Unknown rights_status value: {rs}")
+                g.add((recording_uri, DCT.accessRights, rights_uri))
 
         # created date
         if "recorded_date_start" in row.index:
-            d = norm_xsd_date(row.get("recorded_date_start"))
-            if d:
-                g.add((tale_uri, DCT.created, Literal(d, datatype=XSD.date)))
+            d = norm_date_literal(row.get("recorded_date_start"))
+            if d is not None:
+                g.add((recording_uri, DCT.created, d))
 
-        # subjects: ATU codes -> dcterms:subject atuIRI
+        # subjects on TaleContent
         for code in atu_codes_from_row(row):
-            g.add((tale_uri, DCT.subject, iri_atu(code)))
+            g.add((content_uri, DCT.subject, iri_atu(code)))
 
-        # place: dcterms:spatial [ a crm:E53_Place ; rdfs:label "..." ]
+        # place as temporary blank node label
         place_label = build_place_label(row)
         if place_label:
             place_bn = BNode()
             g.add((place_bn, RDF.type, CRM.E53_Place))
             g.add((place_bn, RDFS.label, Literal(place_label)))
-            g.add((tale_uri, DCT.spatial, place_bn))
+            g.add((recording_uri, DCT.spatial, place_bn))
 
-        # Narrator attribution (content attribution) as explicit PROV statements with LoC role URI
+        # Narrator attribution on TaleRecording
         for n_pid in sorted(narrators_by_tale.get(tid, set())):
             agent_uri = iri_person(n_pid)
-            att_uri = iri_attribution_tale(tid, "nrt", n_pid)
-            add_attribution(g, tale_uri, agent_uri, ROLE_NARRATOR, att_uri)
+            att_uri = iri_attribution_tale_recording(tid, "nrt", n_pid)
+            add_attribution(g, recording_uri, agent_uri, ROLE_NARRATOR, att_uri)
+
+        # Collector attribution on TaleRecording
+        for c_pid in sorted(collectors_by_tale.get(tid, set())):
+            agent_uri = iri_person(c_pid)
+            att_uri = iri_attribution_tale_recording(tid, "col", c_pid)
+            add_attribution(g, recording_uri, agent_uri, ROLE_COLLECTOR, att_uri)
 
     return g
 
@@ -565,7 +612,7 @@ def build_graph(
 # ---------------------------------------------------------------------
 def main() -> int:
     ap = argparse.ArgumentParser(
-        description="Generate RDF (TTL) for Collections, Volumes, and Tales from canonical table."
+        description="Generate RDF (TTL) for Collections, Volumes, TaleRecordings, and TaleContents from canonical table."
     )
     ap.add_argument("--csv", default=None, help="Input canonical_table CSV path.")
     ap.add_argument("--out", default=None, help="Output TTL path.")
@@ -585,12 +632,12 @@ def main() -> int:
     ap.add_argument(
         "--dataset-iri",
         default=str(DEFAULT_DATASET_IRI),
-        help=f"Dataset IRI to link tales to via dcterms:isPartOf (default: {DEFAULT_DATASET_IRI}).",
+        help=f"Dataset IRI to link tale recordings to via dcterms:isPartOf (default: {DEFAULT_DATASET_IRI}).",
     )
     ap.add_argument(
         "--no-dataset-links",
         action="store_true",
-        help="Disable adding dcterms:isPartOf datasetIRI links for tales.",
+        help="Disable adding dcterms:isPartOf datasetIRI links for tale recordings.",
     )
 
     args = ap.parse_args()

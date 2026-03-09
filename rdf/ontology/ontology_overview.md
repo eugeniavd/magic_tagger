@@ -3,8 +3,6 @@
 
 This document defines the minimal, analysis-oriented knowledge model for the Unlocking Russian Folklore corpus and the classifier layer. The model is designed to support (a) faceted retrieval and (b) type-assignment decision support (Top-3 + expert validation)
 
----
-
 ## 1. Core vocabularies and namespaces
 
 ### 1.1 Reused ontologies
@@ -95,7 +93,6 @@ This section shows how fields from `corpus_a_index` map to RDF properties. It is
 | `volume_no` | Volume number within a collection (bound manuscript volume / archival unit). | on Tale: `dcterms:isPartOf` → Volume resource; on Volume: store volume identifier as `dcterms:identifier` (and optionally `rdfs:label` for “ERA, Vene 2”) | DCTERMS |
 | `source_ref` | Full archival shelfmark string for a folktale text (as given in the index). | `dcterms:bibliographicCitation` (literal) | DCTERMS |
 
----
 
 ### 3.2 Access rights
 
@@ -104,8 +101,6 @@ This section shows how fields from `corpus_a_index` map to RDF properties. It is
 | Local field | Description | RDF property | Target vocabulary |
 |---|---|---|---|
 | `rights_status` | Access and reuse status (e.g., open, restricted; anonymised). | `dcterms:accessRights` | DCTERMS |
-
----
 
 ### 3.3 Agents: narrators and collectors
 
@@ -145,8 +140,6 @@ We separate two attribution layers because narrators affect content variation, w
 | `collector_person_ids(_str)` | Collectors listed for the volume | `Volume prov:qualifiedAttribution [ a prov:Attribution ; prov:agent Person ; prov:hadRole locrel:col ]` | |
 | `recorded_date_start` | Recording date (tale-level in current realisation) | `Tale dcterms:created` (`xsd:date`) |
 
----
-
 ### 3.4 Institutions and organisations
 
 This section covers institutional affiliations.  We keep the baseline lightweight and avoid role-specific agent subclasses.
@@ -158,8 +151,6 @@ This section covers institutional affiliations.  We keep the baseline lightweigh
   - Organisation: `crm:E74_Group` (and optionally `prov:Agent`)
   - Link: `dcterms:relation` (or `crm:P107_has_current_or_former_member`)
 - Then we could keep the literal as the raw label for traceability and add the organisation IRI for structured linking.
-
----
 
 ### 3.5 Places and spatial information
 
@@ -191,7 +182,6 @@ To distinct  “recording place” from “origin place” (beyond a generic `dc
 
 This keeps the baseline simple while providing an upgrade path for CRM-style event modelling.
 
----
 
 ### 3.6 Temporal information
 
@@ -204,7 +194,7 @@ This project distinguishes **two time axes**:
 1. **Fieldworktime** (historical capture of the tale) — archival metadata, typically volume-scoped.  
 2. **Computation time** (when the classifier was executed) — system provenance (run timestamps).
 
-#### 3.6.1 Recording time 
+### 3.7 Recording time 
 
 **Baseline**
 
@@ -217,7 +207,7 @@ This project distinguishes **two time axes**:
 - If the source provides only a single day, store it as `"YYYY-MM-DD"^^xsd:date` via `dcterms:created`.
 - If the source provides only a year (or year-month), we may use `xsd:gYear` and preserve the raw string separately.
 
-#### 3.6.2 Classifier run time 
+### 3.7 Classifier run time 
 
 Classifier outputs already contain run-time timestamps; these are not the historical recording dates.
 
@@ -227,7 +217,7 @@ Classifier outputs already contain run-time timestamps; these are not the histor
 
 ---
 
-### 3.7 Content and classification
+### 3.8 Content and classification
 
 **Domain:**  
 - **Tale (archival text unit):** `rft:Tale` aligned to `crm:E33_Linguistic_Object` / `prov:Entity`  
@@ -236,9 +226,7 @@ Classifier outputs already contain run-time timestamps; these are not the histor
 This section separates **archival content description & cataloguing** from **system-produced classifier outputs**.  
 Archival fields stay attached to the Tale; classifier outputs are exported as PROV-described artifacts (`ClassificationRun`, `ClassificationResult`, `ClassificationCandidate`) that *refer to* ATU concepts.
 
----
-
-#### 3.7.1 Archival content description and cataloguing 
+#### 3.8.1 Archival content description and cataloguing 
 
 | Local field | Description | RDF property / pattern | Target vocabulary |
 |---|---|---|---|
@@ -247,9 +235,8 @@ Archival fields stay attached to the Tale; classifier outputs are exported as PR
 
 **Notes**
 We store the archival content note as `dcterms:description` (typically in the source language, Russian); additional language-tagged summaries can be added as parallel literals.
----
 
-#### 3.7.2 Classifier-produced classification
+#### 3.8.2 Classifier-produced classification
 
 The classifier does not overwrite archival cataloguing because it was built for external folktales typing. It produces:
 - a **run** (`rft:ClassificationRun` / `prov:Activity`)  
@@ -265,9 +252,7 @@ Minimal pattern:
 
 **Important:** classifier decisions (`primaryATU`, `finalATU`, `confidenceBand`, `decisionPolicyId`, `deltaTop12`) live on the **ClassificationResult**, not on the Tale, to preserve scholarly neutrality and provenance.
 
----
-
-#### 3.7.3 Schemes and concept identifiers 
+#### 3.8.3 Schemes and concept identifiers 
 
 - Every ATU type is a `skos:Concept` and must belong to a scheme: `skos:inScheme skos:ConceptScheme`.  
 - The type number is stored as `skos:notation` (e.g., `"709"`, `"510A"`).  

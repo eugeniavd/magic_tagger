@@ -1,893 +1,758 @@
-@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix locrel: <http://id.loc.gov/vocabulary/relators/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rft: <https://eugeniavd.github.io/magic_tagger/rdf/ontology#> .
+@prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/a-billio> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/a-billio> a prov:Agent,
         foaf:Person ;
     rdfs:label "A. Billio"@en,
         "{'person_id': 'a-billio', 'label_en': 'a billio', 'raw': 'А. Биллио', 'name_raw': 'А. Биллио'}"@ru,
         "А. Биллио"@ru ;
-    prov:hadRole locrel:col,
-        locrel:nrt .
+    dcterms:identifier "a-billio" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/aksin-ia> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/aksinia> a prov:Agent,
         foaf:Person ;
     rdfs:label "Aksin'ia"@en,
         "Аксинья"@ru ;
+    dcterms:identifier "aksinia" ;
     rdfs:comment "неграмотная"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:age 72 .
+    rft:ageAtRecording 72 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/aleksandr-osipovich-iariomin> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/aleksandr-osipovich-iariomin> a prov:Agent,
         foaf:Person ;
     rdfs:label "Aleksandr Osipovich Iariomin"@en,
         "Александр Осипович Ярёмин"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:age 60 .
+    dcterms:identifier "aleksandr-osipovich-iariomin" ;
+    rft:ageAtRecording 60 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/an-mukhina> a crm:E21_Person,
-        prov:Agent,
-        foaf:Person ;
-    rdfs:label "An. Mukhina"@en,
-        "Ан. Мухина"@ru ;
-    prov:hadRole locrel:nrt .
-
-<https://eugeniavd.github.io/magic_tagger/rdf/person/anastasiia-dorofeevna-topkina> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/anastasiia-dorofeevna-topkina> a prov:Agent,
         foaf:Person ;
     rdfs:label "Anastasiia Dorofeevna Topkina"@en,
         "{'person_id': 'anastasiia-dorofeevna-topkina', 'label_en': 'anastasiia dorofeevna topkina', 'raw': 'Анастасия Дорофеевна Топкина', 'name_raw': 'Анастасия Дорофеевна Топкина'}"@ru,
         "Анастасия Дорофеевна Топкина"@ru ;
-    prov:hadRole locrel:col,
-        locrel:nrt .
+    dcterms:identifier "anastasiia-dorofeevna-topkina" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/anastasiia-folomeevna-senetskaia> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/anastasiia-folomeevna-senetskaia> a prov:Agent,
         foaf:Person ;
     rdfs:label "Anastasiia Folomeevna Senetskaia"@en,
         "Анастасия Фоломеевна Сенецкая"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:age 73 .
+    dcterms:identifier "anastasiia-folomeevna-senetskaia" ;
+    rft:ageAtRecording 73 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/anastasiia-kodar> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/anastasiia-kodar> a prov:Agent,
         foaf:Person ;
     rdfs:label "Anastasiia Kodar"@en,
         "Анастасия Кодар"@ru ;
+    dcterms:identifier "anastasiia-kodar" ;
     rdfs:comment "слышала от отца"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:birthYear "1909"^^xsd:gYear .
+    schema:birthDate "1909"^^xsd:gYear .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/anatolii-semenov> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/anatolii-semenov> a prov:Agent,
         foaf:Person ;
     rdfs:label "Anatolii Semenov"@en,
         "Анатолий Семенов"@ru ;
+    dcterms:identifier "anatolii-semenov" ;
     rdfs:comment "православный"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:age 56 .
+    rft:ageAtRecording 56 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/andrei-nikhandrovich-lik> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/andrei-nikhandrovich-lik> a prov:Agent,
         foaf:Person ;
     rdfs:label "Andrei Nikhandrovich Lik"@en,
         "Андрей Нихандрович Лик"@ru ;
+    dcterms:identifier "andrei-nikhandrovich-lik" ;
     rdfs:comment "православный"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:birthYear "1885"^^xsd:gYear .
+    schema:birthDate "1885"^^xsd:gYear .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/andrei-ulanov> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/andrei-ulanov> a prov:Agent,
         foaf:Person ;
     rdfs:label "Andrei Ulanov"@en,
         "Андрей Уланов"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:age 48 .
+    dcterms:identifier "andrei-ulanov" ;
+    rft:ageAtRecording 48 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/anna-fedorovna-neverovskaia> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/anna-fedorovna-neverovskaia> a prov:Agent,
         foaf:Person ;
     rdfs:label "Anna Fedorovna Neverovskaia"@en,
         "Анна Федоровна Неверовская"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:age 50 .
+    dcterms:identifier "anna-fedorovna-neverovskaia" ;
+    rft:ageAtRecording 50 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/anna-karpulistova> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/anna-karpulistova> a prov:Agent,
         foaf:Person ;
     rdfs:label "Anna Karpulistova"@en,
         "Анна Карпулистова"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:age 68 .
+    dcterms:identifier "anna-karpulistova" ;
+    rft:ageAtRecording 68 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/anna-khalat> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/anna-khalat> a prov:Agent,
         foaf:Person ;
     rdfs:label "Anna Khalat"@en,
         "Анна Халат"@ru ;
+    dcterms:identifier "anna-khalat" ;
     rdfs:comment "выучила от дедушки Алексея Кириловича"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:age 80 .
+    rft:ageAtRecording 80 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/anna-mikhailovna-seniushkina> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/anna-mikhailovna-seniushkina> a prov:Agent,
         foaf:Person ;
     rdfs:label "Anna Mikhailovna Seniushkina"@en,
         "Анна Михайловна Сенюшкина"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:birthYear "1900"^^xsd:gYear .
+    dcterms:identifier "anna-mikhailovna-seniushkina" ;
+    schema:birthDate "1900"^^xsd:gYear .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/anna-mukhina> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/anna-mukhina> a prov:Agent,
         foaf:Person ;
     rdfs:label "Anna Mukhina"@en,
         "Анна Мухина"@ru ;
-    prov:hadRole locrel:nrt .
+    dcterms:identifier "anna-mukhina" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/anna-terent-evna-gunina> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/anna-terent-evna-gunina> a prov:Agent,
         foaf:Person ;
     rdfs:label "Anna Terent'evna Gunina"@en,
         "Анна Терентьевна Гунина"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:birthYear "1896"^^xsd:gYear .
+    dcterms:identifier "anna-terent-evna-gunina" ;
+    schema:birthDate "1896"^^xsd:gYear .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/avdot-ia-ershova> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/avdotia-ershova> a prov:Agent,
         foaf:Person ;
     rdfs:label "Avdot'ia Ershova"@en,
         "Авдотья Ершова"@ru ;
+    dcterms:identifier "avdotia-ershova" ;
     rdfs:comment "неграмотная"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:age 76 .
+    rft:ageAtRecording 76 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/avdot-ia-suvorova> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/avdotia-suvorova> a prov:Agent,
         foaf:Person ;
     rdfs:label "Avdot'ia Suvorova"@en,
         "Авдотья Суворова"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:age 60 .
+    dcterms:identifier "avdotia-suvorova" ;
+    rft:ageAtRecording 60 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col002> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col002> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col002', 'label_en': 'col002', 'raw': 'col002'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col002" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col003> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col003> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col003', 'label_en': 'col003', 'raw': 'col003'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col003" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col004> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col004> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col004', 'label_en': 'col004', 'raw': 'col004'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col004" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col005> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col005> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col005', 'label_en': 'col005', 'raw': 'col005'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col005" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col006> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col006> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col006', 'label_en': 'col006', 'raw': 'col006'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col006" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col007> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col007> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col007', 'label_en': 'col007', 'raw': 'col007'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col007" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col008> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col008> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col008', 'label_en': 'col008', 'raw': 'col008'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col008" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col009> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col009> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col009', 'label_en': 'col009', 'raw': 'col009'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col009" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col011> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col011> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col011', 'label_en': 'col011', 'raw': 'col011'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col011" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col012> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col012> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col012', 'label_en': 'col012', 'raw': 'col012'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col012" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col013> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col013> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col013', 'label_en': 'col013', 'raw': 'col013'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col013" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col014> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col014> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col014', 'label_en': 'col014', 'raw': 'col014'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col014" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col015> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col015> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col015', 'label_en': 'col015', 'raw': 'col015'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col015" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col016> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col016> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col016', 'label_en': 'col016', 'raw': 'col016'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col016" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col017> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col017> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col017', 'label_en': 'col017', 'raw': 'col017'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col017" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col018> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col018> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col018', 'label_en': 'col018', 'raw': 'col018'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col018" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col019> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col019> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col019', 'label_en': 'col019', 'raw': 'col019'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col019" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col020> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col020> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col020', 'label_en': 'col020', 'raw': 'col020'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col020" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col021> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col021> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col021', 'label_en': 'col021', 'raw': 'col021'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col021" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col022> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col022> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col022', 'label_en': 'col022', 'raw': 'col022'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col022" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col023> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col023> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col023', 'label_en': 'col023', 'raw': 'col023'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col023" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col024> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col024> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col024', 'label_en': 'col024', 'raw': 'col024'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col024" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col025> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col025> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col025', 'label_en': 'col025', 'raw': 'col025'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col025" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col026> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col026> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col026', 'label_en': 'col026', 'raw': 'col026'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col026" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col027> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col027> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col027', 'label_en': 'col027', 'raw': 'col027'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col027" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col028> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col028> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col028', 'label_en': 'col028', 'raw': 'col028'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col028" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col029> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col029> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col029', 'label_en': 'col029', 'raw': 'col029'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col029" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col030> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col030> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col030', 'label_en': 'col030', 'raw': 'col030'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col030" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col031> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col031> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col031', 'label_en': 'col031', 'raw': 'col031'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col031" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col032> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col032> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col032', 'label_en': 'col032', 'raw': 'col032'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col032" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col033> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col033> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col033', 'label_en': 'col033', 'raw': 'col033'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col033" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col034> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col034> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col034', 'label_en': 'col034', 'raw': 'col034'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col034" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col035> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col035> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col035', 'label_en': 'col035', 'raw': 'col035'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col035" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col037> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col037> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col037', 'label_en': 'col037', 'raw': 'col037'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col037" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col038> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col038> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col038', 'label_en': 'col038', 'raw': 'col038'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col038" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col040> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col040> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col040', 'label_en': 'col040', 'raw': 'col040'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col040" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col041> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col041> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col041', 'label_en': 'col041', 'raw': 'col041'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col041" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col042> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col042> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col042', 'label_en': 'col042', 'raw': 'col042'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col042" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col043> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col043> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col043', 'label_en': 'col043', 'raw': 'col043'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col043" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/col044> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/col044> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'col044', 'label_en': 'col044', 'raw': 'col044'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "col044" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/dar-ia-rosolova> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/daria-rosolova> a prov:Agent,
         foaf:Person ;
     rdfs:label "Dar'ia Rosolova"@en,
         "Дарья Росолова"@ru ;
+    dcterms:identifier "daria-rosolova" ;
     rdfs:comment "неграмотная"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:age 73 .
+    rft:ageAtRecording 73 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/dar-ia-zalavskaia> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/daria-zalavskaia> a prov:Agent,
         foaf:Person ;
     rdfs:label "Dar'ia Zalavskaia"@en,
         "Дарья Залавская"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:age 60 .
+    dcterms:identifier "daria-zalavskaia" ;
+    rft:ageAtRecording 60 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/dariia-lipina> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/dariia-lipina> a prov:Agent,
         foaf:Person ;
     rdfs:label "Dariia Lipina"@en,
         "Дария Липина"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:birthYear "1851"^^xsd:gYear .
+    dcterms:identifier "dariia-lipina" ;
+    schema:birthDate "1851"^^xsd:gYear .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/denisikha> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/denisikha> a prov:Agent,
         foaf:Person ;
     rdfs:label "Denisikha"@en,
         "Денисиха"@ru ;
-    prov:hadRole locrel:nrt .
+    dcterms:identifier "denisikha" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/e-protasova> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/e-protasova> a prov:Agent,
         foaf:Person ;
     rdfs:label "E. Protasova"@en,
         "E. Protasova"@et ;
+    dcterms:identifier "e-protasova" ;
     rdfs:comment "kuulnud 20 aastat tagasi"@et ;
-    prov:hadRole locrel:nrt ;
-    rft:age 82 .
+    rft:ageAtRecording 82 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/egorov-v> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/egorov-v> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'egorov-v', 'label_en': 'egorov v', 'raw': 'Egorov V.', 'name_raw': 'Egorov V.'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "egorov-v" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/fedor-kolosov> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/fedor-kolosov> a prov:Agent,
         foaf:Person ;
     rdfs:label "Fedor Kolosov"@en,
         "Федор Колосов"@ru ;
-    prov:hadRole locrel:nrt .
+    dcterms:identifier "fedor-kolosov" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/fedor-koniaev> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/fedor-koniaev> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'fedor-koniaev', 'label_en': 'fedor koniaev', 'raw': 'Федор Коняев', 'name_raw': 'Федор Коняев'}"@ru ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "fedor-koniaev" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/fedor-minushkin> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/fedor-minushkin> a prov:Agent,
         foaf:Person ;
     rdfs:label "Fedor Minushkin"@en,
         "Федор Минушкин"@ru ;
+    dcterms:identifier "fedor-minushkin" ;
     rdfs:comment "слышал 40 лет назад"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:age 60 .
+    rft:ageAtRecording 60 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/iraida-georgievna-topkina> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/iraida-georgievna-topkina> a prov:Agent,
         foaf:Person ;
     rdfs:label "Iraida Georgievna Topkina"@en,
         "{'person_id': 'iraida-georgievna-topkina', 'label_en': 'iraida georgievna topkina', 'raw': 'Ираида Георгиевна Топкина', 'name_raw': 'Ираида Георгиевна Топкина'}"@ru,
         "Ираида Георгиевна Топкина"@ru ;
-    prov:hadRole locrel:col,
-        locrel:nrt .
+    dcterms:identifier "iraida-georgievna-topkina" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/irin-ia-sal-nikova> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/irinia-salnikova> a prov:Agent,
         foaf:Person ;
     rdfs:label "Irin'ia Sal'nikova"@en,
         "Иринья Сальникова"@ru ;
-    prov:hadRole locrel:nrt .
+    dcterms:identifier "irinia-salnikova" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/ivan-mal-tsev> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/ivan-maltsev> a prov:Agent,
         foaf:Person ;
     rdfs:label "Ivan Mal'tsev"@en,
         "Иван Мальцев"@ru ;
-    prov:hadRole locrel:nrt .
+    dcterms:identifier "ivan-maltsev" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/ivan-mishin> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/ivan-mishin> a prov:Agent,
         foaf:Person ;
     rdfs:label "Ivan Mishin"@en,
         "Иван Мишин"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:age 50 .
+    dcterms:identifier "ivan-mishin" ;
+    rft:ageAtRecording 50 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/ivan-petrovich-kirshinskii> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/ivan-petrovich-kirshinskii> a prov:Agent,
         foaf:Person ;
     rdfs:label "Ivan Petrovich Kirshinskii"@en,
         "Иван Петрович Киршинский"@ru ;
+    dcterms:identifier "ivan-petrovich-kirshinskii" ;
     rdfs:comment "православ"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:age 63 .
+    rft:ageAtRecording 63 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/ivan-petrovich-somov> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/ivan-petrovich-somov> a prov:Agent,
         foaf:Person ;
     rdfs:label "Ivan Petrovich Somov"@en,
         "Иван Петрович Сомов"@ru ;
+    dcterms:identifier "ivan-petrovich-somov" ;
     rdfs:comment "православный"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:birthYear "1870"^^xsd:gYear .
+    schema:birthDate "1870"^^xsd:gYear .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/kira-trubenkova> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/kira-trubenkova> a prov:Agent,
         foaf:Person ;
     rdfs:label "Kira Trubenkova"@en,
         "{'person_id': 'kira-trubenkova', 'label_en': 'kira trubenkova', 'raw': 'Кира Трубенкова', 'name_raw': 'Кира Трубенкова'}"@ru,
         "Кира Трубенкова"@ru ;
-    prov:hadRole locrel:col,
-        locrel:nrt ;
-    rft:birthYear "1920"^^xsd:gYear .
+    dcterms:identifier "kira-trubenkova" ;
+    schema:birthDate "1920"^^xsd:gYear .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/leon-borkhov> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/leon-borkhov> a prov:Agent,
         foaf:Person ;
     rdfs:label "Leon Borkhov"@en,
         "Леон Борхов"@ru ;
+    dcterms:identifier "leon-borkhov" ;
     rdfs:comment "\"бывалый человек\""@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:age 70 .
+    rft:ageAtRecording 70 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/lewonty-borhov> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/lewonty-borhov> a prov:Agent,
         foaf:Person ;
     rdfs:label "Lewonty Borhov"@en,
         "Lewonty Borhov"@et ;
-    prov:hadRole locrel:nrt ;
-    rft:age 63 .
+    dcterms:identifier "lewonty-borhov" ;
+    rft:ageAtRecording 63 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/m-sokolov> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/m-sokolov> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'm-sokolov', 'label_en': 'm sokolov', 'raw': 'M. Sokolov', 'name_raw': 'M. Sokolov'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "m-sokolov" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/maksim-tverdov> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/maksim-tverdov> a prov:Agent,
         foaf:Person ;
     rdfs:label "Maksim Tverdov"@en,
         "Максим Твердов"@ru ;
+    dcterms:identifier "maksim-tverdov" ;
     rdfs:comment "православный"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:age 61 .
+    rft:ageAtRecording 61 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/marfa-petukhova> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/marfa-petukhova> a prov:Agent,
         foaf:Person ;
     rdfs:label "Marfa Petukhova"@en,
         "Марфа Петухова"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:birthYear "1887"^^xsd:gYear .
+    dcterms:identifier "marfa-petukhova" ;
+    schema:birthDate "1887"^^xsd:gYear .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/marfa-shilova> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/marfa-shilova> a prov:Agent,
         foaf:Person ;
     rdfs:label "Marfa Shilova"@en,
         "Марфа Шилова"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:age 48 .
+    dcterms:identifier "marfa-shilova" ;
+    rft:ageAtRecording 48 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/maria-sokolova> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/maria-sokolova> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'maria-sokolova', 'label_en': 'maria sokolova', 'raw': 'Maria Sokolova', 'name_raw': 'Maria Sokolova'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "maria-sokolova" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/mariia-latkina> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/mariia-latkina> a prov:Agent,
         foaf:Person ;
     rdfs:label "Mariia Latkina"@en,
         "Мария Латкина"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:age 76 .
+    dcterms:identifier "mariia-latkina" ;
+    rft:ageAtRecording 76 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/matrena-protaeva> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/matrena-protaeva> a prov:Agent,
         foaf:Person ;
     rdfs:label "Matrena Protaeva"@en,
         "Матрена Протаева"@ru ;
+    dcterms:identifier "matrena-protaeva" ;
     rdfs:comment "слепая, неграмотная"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:age 85 .
+    rft:ageAtRecording 85 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/menda-erenberg> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/menda-erenberg> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'menda-erenberg', 'label_en': 'menda erenberg', 'raw': 'Menda Erenberg', 'name_raw': 'Menda Erenberg'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "menda-erenberg" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/michail-dragunin> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/michail-dragunin> a prov:Agent,
         foaf:Person ;
     rdfs:label "Michail Dragunin"@en,
         "Michail Dragunin"@et ;
-    prov:hadRole locrel:nrt ;
-    rft:age 34 .
+    dcterms:identifier "michail-dragunin" ;
+    rft:ageAtRecording 34 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/nar001> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/nar001> a prov:Agent,
         foaf:Person ;
     rdfs:label "nar001"@en,
         "nar001"@et ;
-    prov:hadRole locrel:nrt ;
-    rft:age 86 .
+    dcterms:identifier "nar001" ;
+    rft:ageAtRecording 86 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/nar002> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/nar002> a prov:Agent,
         foaf:Person ;
     rdfs:label "nar002"@en,
         "nar002"@et ;
-    prov:hadRole locrel:nrt .
+    dcterms:identifier "nar002" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/nar003> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/nar003> a prov:Agent,
         foaf:Person ;
     rdfs:label "nar003"@en,
         "nar003"@et ;
-    prov:hadRole locrel:nrt .
+    dcterms:identifier "nar003" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/nar004> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/nar004> a prov:Agent,
         foaf:Person ;
     rdfs:label "nar004"@en,
         "nar004"@et ;
+    dcterms:identifier "nar004" ;
     rdfs:comment "услышана от бабушки nar003"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:age 12 .
+    rft:ageAtRecording 12 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/nar005> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/nar005> a prov:Agent,
         foaf:Person ;
     rdfs:label "nar005"@en,
         "nar005"@et ;
-    prov:hadRole locrel:nrt ;
-    rft:age 60 .
+    dcterms:identifier "nar005" ;
+    rft:ageAtRecording 60 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/nar007> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/nar007> a prov:Agent,
         foaf:Person ;
     rdfs:label "nar007"@en,
         "nar007"@et ;
-    prov:hadRole locrel:nrt ;
-    rft:birthYear "1908"^^xsd:gYear .
+    dcterms:identifier "nar007" ;
+    schema:birthDate "1908"^^xsd:gYear .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/nar008> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/nar008> a prov:Agent,
         foaf:Person ;
     rdfs:label "nar008"@en,
         "nar008"@et ;
-    prov:hadRole locrel:nrt ;
-    rft:age 80 .
+    dcterms:identifier "nar008" ;
+    rft:ageAtRecording 80 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/nar009> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/nar009> a prov:Agent,
         foaf:Person ;
     rdfs:label "nar009"@en,
         "nar009"@et ;
-    prov:hadRole locrel:nrt ;
-    rft:age 80 .
+    dcterms:identifier "nar009" ;
+    rft:ageAtRecording 80 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/nar011> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/nar011> a prov:Agent,
         foaf:Person ;
     rdfs:label "nar011"@en,
         "nar011"@et ;
-    prov:hadRole locrel:nrt ;
-    rft:age 39 .
+    dcterms:identifier "nar011" ;
+    rft:ageAtRecording 39 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/nar012> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/nar012> a prov:Agent,
         foaf:Person ;
     rdfs:label "nar012"@en,
         "nar012"@et ;
-    prov:hadRole locrel:nrt ;
-    rft:age 80 .
+    dcterms:identifier "nar012" ;
+    rft:ageAtRecording 80 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/nar013> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/nar013> a prov:Agent,
         foaf:Person ;
     rdfs:label "nar013"@en,
         "nar013"@et ;
-    prov:hadRole locrel:nrt .
+    dcterms:identifier "nar013" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/nar014> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/nar014> a prov:Agent,
         foaf:Person ;
     rdfs:label "nar014"@en,
         "nar014"@et ;
+    dcterms:identifier "nar014" ;
     rdfs:comment "неграмотная"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:birthYear "1894"^^xsd:gYear .
+    schema:birthDate "1894"^^xsd:gYear .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/nar015> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/nar015> a prov:Agent,
         foaf:Person ;
     rdfs:label "nar015"@en,
         "nar015"@et ;
-    prov:hadRole locrel:nrt ;
-    rft:age 59 .
+    dcterms:identifier "nar015" ;
+    rft:ageAtRecording 59 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/nar019> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/nar019> a prov:Agent,
         foaf:Person ;
     rdfs:label "nar019"@en,
         "nar019"@et ;
-    prov:hadRole locrel:nrt ;
-    rft:age 67 .
+    dcterms:identifier "nar019" ;
+    rft:ageAtRecording 67 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/nastasja-kropetskaja> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/nastasja-kropetskaja> a prov:Agent,
         foaf:Person ;
     rdfs:label "Nastasja Kropetskaja"@en,
         "Nastasja Krõpetskaja"@et ;
-    prov:hadRole locrel:nrt ;
-    rft:age 60 .
+    dcterms:identifier "nastasja-kropetskaja" ;
+    rft:ageAtRecording 60 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/natalia-alekseevna-pagareva> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/natalia-alekseevna-pagareva> a prov:Agent,
         foaf:Person ;
     rdfs:label "Natal'ia Alekseevna Pagareva"@en,
         "{'person_id': 'natalia-alekseevna-pagareva', 'label_en': 'natalia alekseevna pagareva', 'raw': 'Наталья Алексеевна Пагарева', 'name_raw': 'Наталья Алексеевна Пагарева'}"@ru,
         "Наталья Алексеевна Пагарева"@ru ;
-    prov:hadRole locrel:col,
-        locrel:nrt .
+    dcterms:identifier "natalia-alekseevna-pagareva" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/neizvestno> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/neizvestno> a prov:Agent,
         foaf:Person ;
     rdfs:label "neizvestno"@en,
         "неизвестно"@ru ;
-    prov:hadRole locrel:nrt .
+    dcterms:identifier "neizvestno" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/nikolai-grecman> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/nikolai-grecman> a prov:Agent,
         foaf:Person ;
     rdfs:label "Nikolai Grecman"@en,
         "Nikolai Grečman"@et ;
-    prov:hadRole locrel:nrt ;
-    rft:age 73 .
+    dcterms:identifier "nikolai-grecman" ;
+    rft:ageAtRecording 73 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/nina-mukhina> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/nina-mukhina> a prov:Agent,
         foaf:Person ;
     rdfs:label "Nina Mukhina"@en,
         "Нина Мухина"@ru ;
-    prov:hadRole locrel:nrt .
+    dcterms:identifier "nina-mukhina" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/o-brandt> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/o-brandt> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'o-brandt', 'label_en': 'o brandt', 'raw': 'O. Brandt', 'name_raw': 'O. Brandt'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "o-brandt" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/oleg-riumin-ivanov> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/oleg-riumin-ivanov> a prov:Agent,
         foaf:Person ;
     rdfs:label "Oleg Riumin-Ivanov"@en,
         "{'person_id': 'oleg-riumin-ivanov', 'label_en': 'oleg riumin ivanov', 'raw': 'Олег Рюмин-Иванов', 'name_raw': 'Олег Рюмин-Иванов'}"@ru,
         "Олег Рюмин-Иванов"@ru ;
-    prov:hadRole locrel:col,
-        locrel:nrt ;
-    rft:birthYear "1923"^^xsd:gYear .
+    dcterms:identifier "oleg-riumin-ivanov" ;
+    schema:birthDate "1923"^^xsd:gYear .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/olga-brandt> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/olga-brandt> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'olga-brandt', 'label_en': 'olga brandt', 'raw': 'Olga Brandt', 'name_raw': 'Olga Brandt'}"@et ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "olga-brandt" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/olga-gildebrandt> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/olga-gildebrandt> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'olga-gil-debrandt', 'label_en': 'olga gildebrandt', 'raw': 'Ольга Гильдебрандт', 'name_raw': 'Ольга Гильдебрандт'}"@ru ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "olga-gildebrandt" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/olga-gromova> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/olga-gromova> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'olga-gromova', 'label_en': 'olga gromova', 'raw': 'Ольга Громова', 'name_raw': 'Ольга Громова'}"@ru ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "olga-gromova" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/s-minusov> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/s-minusov> a prov:Agent,
         foaf:Person ;
     rdfs:label "S. Minusov"@en,
         "S. Minusov"@et ;
+    dcterms:identifier "s-minusov" ;
     rdfs:comment "kuulnud 50 aastat tagasi; kirjaoskamatu"@et ;
-    prov:hadRole locrel:nrt ;
-    rft:age 76 .
+    rft:ageAtRecording 76 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/sergei-dimitrievich-tsvetkov> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/sergei-dimitrievich-tsvetkov> a prov:Agent,
         foaf:Person ;
     rdfs:label "Sergei Dimitrievich Tsvetkov"@en,
         "{'person_id': 'sergei-dimitrievich-tsvetkov', 'label_en': 'sergei dimitrievich tsvetkov', 'raw': 'Сергей Димитриевич Цветков', 'name_raw': 'Сергей Димитриевич Цветков'}"@ru,
         "Сергей Димитриевич Цветков"@ru ;
-    prov:hadRole locrel:col,
-        locrel:nrt .
+    dcterms:identifier "sergei-dimitrievich-tsvetkov" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/starukha-guseva> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/starukha-guseva> a prov:Agent,
         foaf:Person ;
     rdfs:label "starukha Guseva"@en,
         "старуха Guseva"@ru ;
+    dcterms:identifier "starukha-guseva" ;
     rdfs:comment "слышала в детстве"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:age 92 .
+    rft:ageAtRecording 92 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/tat-iana-semukhina> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/tat-iana-semukhina> a prov:Agent,
         foaf:Person ;
     rdfs:label "Tat'iana Semukhina"@en,
         "Татьяна Семухина"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:birthYear "1922"^^xsd:gYear .
+    dcterms:identifier "tat-iana-semukhina" ;
+    schema:birthDate "1922"^^xsd:gYear .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/tatiana-semukhina> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/tatiana-semukhina> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'tat-iana-semukhina', 'label_en': 'tat iana semukhina', 'raw': 'Татьяна Семухина', 'name_raw': 'Татьяна Семухина'}"@ru ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "tatiana-semukhina" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/vassa-denisovna-gunina> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/vassa-denisovna-gunina> a prov:Agent,
         foaf:Person ;
     rdfs:label "Vassa Denisovna Gunina"@en,
         "Васса Денисовна Гунина"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:birthYear "1876"^^xsd:gYear .
+    dcterms:identifier "vassa-denisovna-gunina" ;
+    schema:birthDate "1876"^^xsd:gYear .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/vera-sumina> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/vera-sumina> a prov:Agent,
         foaf:Person ;
     rdfs:label "Vera Sumina"@en,
         "Вера Сумина"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:age 58 .
+    dcterms:identifier "vera-sumina" ;
+    rft:ageAtRecording 58 .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/vera-voogla> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/vera-voogla> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'vera-voogla', 'label_en': 'vera voogla', 'raw': 'Вера Воогла', 'name_raw': 'Вера Воогла'}"@ru ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "vera-voogla" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/z-vasileva-suvorova> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/z-vasileva-suvorova> a prov:Agent,
         foaf:Person ;
     rdfs:label "Z. Vasil'eva-Suvorova"@en,
         "З. Васильева-Суворова"@ru ;
-    rdfs:comment "слышала от бабушки"@ru ;
-    prov:hadRole locrel:nrt .
+    dcterms:identifier "z-vasileva-suvorova" ;
+    rdfs:comment "слышала от бабушки"@ru .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/z-vasilieva-suvorova> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/z-vasilieva-suvorova> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'z-vasileva-suvorova', 'label_en': 'z vasileva suvorova', 'raw': 'З. Васильева-Суворова', 'name_raw': 'З. Васильева-Суворова'}"@ru ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "z-vasilieva-suvorova" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/zoia-aleksandrovna-iupatova> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/zoia-aleksandrovna-iupatova> a prov:Agent,
         foaf:Person ;
     rdfs:label "Zoia Aleksandrovna Iupatova"@en,
         "Зоя Александровна Юпатова"@ru ;
+    dcterms:identifier "zoia-aleksandrovna-iupatova" ;
     rdfs:comment "православная"@ru ;
-    prov:hadRole locrel:nrt ;
-    rft:birthYear "1927"^^xsd:gYear .
+    schema:birthDate "1927"^^xsd:gYear .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/zoia-dondukova> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/zoia-dondukova> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'zoia-dondukova', 'label_en': 'zoia dondukova', 'raw': 'Зоя Дондукова', 'name_raw': 'Зоя Дондукова'}"@ru ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "zoia-dondukova" .
 
-<https://eugeniavd.github.io/magic_tagger/rdf/person/zoia-zhemchuzhina> a crm:E21_Person,
-        prov:Agent,
+<https://eugeniavd.github.io/magic_tagger/rdf/person/zoia-zhemchuzhina> a prov:Agent,
         foaf:Person ;
     rdfs:label "{'person_id': 'zoia-zhemchuzhina', 'label_en': 'zoia zhemchuzhina', 'raw': 'Зоя Жемчужина', 'name_raw': 'Зоя Жемчужина'}"@ru ;
-    prov:hadRole locrel:col .
+    dcterms:identifier "zoia-zhemchuzhina" .
 

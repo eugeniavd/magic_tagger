@@ -35,20 +35,10 @@ ENV_OUT = "CORPUS_AGENTS_TTL"
 # ---------------------------------------------------------------------
 PROV = Namespace("http://www.w3.org/ns/prov#")
 FOAF = Namespace("http://xmlns.com/foaf/0.1/")
-CRM = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
-LOCREL = Namespace("http://id.loc.gov/vocabulary/relators/")
+SCHEMA = Namespace("https://schema.org/")
 
 _WS = re.compile(r"\s+")
 _CYR = re.compile(r"[\u0400-\u04FF]")  # Cyrillic block
-
-# ---------------------------------------------------------------------
-# Role URIs (LoC Relators)
-# ---------------------------------------------------------------------
-ROLE_COLLECTOR = LOCREL.col  # http://id.loc.gov/vocabulary/relators/col
-ROLE_NARRATOR = LOCREL.nrt   # http://id.loc.gov/vocabulary/relators/nrt
-
-# Use an existing ontology property, not a project-minted one
-HAS_ROLE = PROV.hadRole      # http://www.w3.org/ns/prov#hadRole
 
 # ---------------------------------------------------------------------
 # IRI policy
@@ -207,9 +197,8 @@ def build_agents_graph(df: pd.DataFrame) -> Graph:
     g.bind("dcterms", DCT)
     g.bind("prov", PROV)
     g.bind("foaf", FOAF)
-    g.bind("crm", CRM)
     g.bind("rft", RFT)
-    g.bind("locrel", LOCREL)
+    g.bind("schema", SCHEMA)
 
     narrator_ids: Set[str] = set()
     collector_ids: Set[str] = set()
@@ -252,14 +241,8 @@ def build_agents_graph(df: pd.DataFrame) -> Graph:
 
         # Core typing
         g.add((p_uri, RDF.type, PROV.Agent))
-        g.add((p_uri, RDF.type, CRM.E21_Person))
         g.add((p_uri, RDF.type, FOAF.Person))
-
-        # Roles via PROV-O property (no project-minted hasRole)
-        if pid in collector_ids:
-            g.add((p_uri, HAS_ROLE, ROLE_COLLECTOR))
-        if pid in narrator_ids:
-            g.add((p_uri, HAS_ROLE, ROLE_NARRATOR))
+        g.add((p_uri, DCT.identifier, Literal(pid)))
 
         # Narrator metadata
         if pid in narrator_meta:
@@ -283,11 +266,11 @@ def build_agents_graph(df: pd.DataFrame) -> Graph:
 
             by = to_gyear(meta.get("birth_year", ""))
             if by is not None:
-                g.add((p_uri, RFT.birthYear, by))
+                g.add((p_uri, SCHEMA.birthDate, by))
 
             age = to_int(meta.get("age", ""))
             if age is not None:
-                g.add((p_uri, RFT.age, age))
+                g.add((p_uri, RFT.ageAtRecording, age))
 
         # Collector labels
         if pid in collector_ids:
@@ -308,7 +291,7 @@ def build_agents_graph(df: pd.DataFrame) -> Graph:
 # ---------------------------------------------------------------------
 def main() -> int:
     ap = argparse.ArgumentParser(
-        description="Generate RDF (TTL) for Agents with LoC role URIs using prov:hadRole."
+        description="Generate RDF (TTL) for Agents as authority nodes under the updated ontology."
     )
     ap.add_argument("--csv", default=None, help="Input canonical_table CSV path.")
     ap.add_argument("--out", default=None, help="Output TTL path.")

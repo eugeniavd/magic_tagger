@@ -10,7 +10,7 @@ if str(REPO_ROOT) not in sys.path:
 
 from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.namespace import RDF, RDFS, DCTERMS as DCT, XSD
-from src.uris import BASE_DATA, RFT
+from src.uris import BASE_DATA
 
 # -----------------------------
 # Repo paths
@@ -23,7 +23,6 @@ ENV_OUT = "BIBLIO_OUT_TTL"
 # -----------------------------
 # Namespaces
 # -----------------------------
-PROV = Namespace("http://www.w3.org/ns/prov#")
 FOAF = Namespace("http://xmlns.com/foaf/0.1/")
 
 # -----------------------------
@@ -36,14 +35,11 @@ BIBLIO_SET = {
         "Folklore Fellows’ Communications (FFC) 284–286. "
         "Sastamala: Vammalan Kirjapaino Oy, 2011. First published in 2004."
     ),
-    # Set-level landing page (the set as a whole)
     "see_also_set": [
         "https://edition.fi/kalevalaseura/catalog/view/763/715/2750-1",
     ],
     "identifiers_set": [],
     "contributors": [],
-
-    # Volumes as parts with per-volume edition.fi + per-volume WorldCat (and OCLC)
     "parts": [
         {
             "id": "biblio/ffc_284_2011",
@@ -53,7 +49,6 @@ BIBLIO_SET = {
                 "https://edition.fi/kalevalaseura/catalog/book/763",
                 "https://search.worldcat.org/it/title/974404961",
             ],
-            # "isbn": "978-951-41-1054-2",
         },
         {
             "id": "biblio/ffc_285_2011",
@@ -63,7 +58,6 @@ BIBLIO_SET = {
                 "https://edition.fi/kalevalaseura/catalog/book/765",
                 "https://search.worldcat.org/it/title/974406311",
             ],
-            # "isbn": "978-951-41-1055-9",
         },
         {
             "id": "biblio/ffc_286_2011",
@@ -73,7 +67,6 @@ BIBLIO_SET = {
                 "https://edition.fi/kalevalaseura/catalog/book/769",
                 "https://search.worldcat.org/it/title/974415887",
             ],
-            # "isbn": "978-951-41-1067-2",
         },
     ],
 }
@@ -114,15 +107,12 @@ def build_graph() -> Graph:
     g.bind("dcterms", DCT)
     g.bind("rdfs", RDFS)
     g.bind("xsd", XSD)
-    g.bind("prov", PROV)
     g.bind("foaf", FOAF)
-    g.bind("rft", RFT)
 
     set_uri = iri(BIBLIO_SET["id"])
 
     # --- The set (FFC 284–286 as a whole)
     g.add((set_uri, RDF.type, DCT.BibliographicResource))
-    g.add((set_uri, RDF.type, PROV.Entity))
     g.add((set_uri, RDFS.label, Literal(BIBLIO_SET["label_en"], lang="en")))
     g.add((set_uri, DCT.bibliographicCitation, Literal(BIBLIO_SET["citation_en"], lang="en")))
 
@@ -131,7 +121,7 @@ def build_graph() -> Graph:
     for ident in BIBLIO_SET.get("identifiers_set", []):
         add_identifier(g, set_uri, ident)
 
-    # contributors (optional)
+    # Optional contributors
     for c in BIBLIO_SET.get("contributors", []):
         pid = (c.get("id") or "").strip()
         pname = (c.get("name") or "").strip()
@@ -146,25 +136,23 @@ def build_graph() -> Graph:
         else:
             g.add((set_uri, DCT.contributor, p_uri))
 
-    # --- Parts linked to the set, each with its own OCLC + pages
+    # --- Parts linked to the set
     for part in BIBLIO_SET.get("parts", []):
         part_uri = iri(part["id"])
 
         g.add((part_uri, RDF.type, DCT.BibliographicResource))
-        g.add((part_uri, RDF.type, PROV.Entity))
         g.add((part_uri, RDFS.label, Literal(part["label_en"], lang="en")))
 
-        # membership
+        # part-whole
         g.add((part_uri, DCT.isPartOf, set_uri))
         g.add((set_uri, DCT.hasPart, part_uri))
 
-        # per-volume pages (edition.fi + worldcat)
+        # per-volume pages
         add_see_also(g, part_uri, part.get("see_also"))
 
-        # per-volume IDs
+        # per-volume identifiers
         if part.get("oclc"):
             add_identifier(g, part_uri, f"OCLC:{part['oclc']}")
-
         if part.get("isbn"):
             add_identifier(g, part_uri, f"ISBN:{part['isbn']}")
 

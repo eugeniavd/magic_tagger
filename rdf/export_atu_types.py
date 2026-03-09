@@ -19,28 +19,25 @@ from src.uris import BASE_DATA, RFT
 # ---------------------------------------------------------------------
 # Repo paths
 # ---------------------------------------------------------------------
-repo_root = Path("/Users/eugenia/Desktop/thesis/magic_tagger")
-
-DEFAULT_INPUT_CSV = repo_root / "data" / "processed" / "atu_reference.csv"
-DEFAULT_OUT_TTL = repo_root / "rdf" / "rdf_serialization" / "atu_types.ttl"
+DEFAULT_INPUT_CSV = REPO_ROOT / "data" / "processed" / "atu_reference.csv"
+DEFAULT_OUT_TTL = REPO_ROOT / "rdf" / "rdf_serialization" / "atu_types.ttl"
 
 ENV_INPUT = "ATU_REF_CSV"
 ENV_OUT = "ATU_OUT_TTL"
 
 # ---------------------------------------------------------------------
-# Namespaces (project)
+# Namespaces
 # ---------------------------------------------------------------------
 SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
-PROV = Namespace("http://www.w3.org/ns/prov#")
 
 # ---------------------------------------------------------------------
-# Bibliographic sources
+# Reused individuals from ontology / project namespace
 # ---------------------------------------------------------------------
-BIBLIO_SET_IRI = f"{BASE_DATA}biblio/ffc_284-286_2011_uther"
-BIBLIO_VOL1_IRI = f"{BASE_DATA}biblio/ffc_284_2011"  # < 1000
-BIBLIO_VOL2_IRI = f"{BASE_DATA}biblio/ffc_285_2011"  # >= 1000
+ATU_SCHEME_URI = RFT.ATU_Scheme
 
-SCHEME_LABEL_EN = "THE TYPES OF INTERNATIONAL FOLKTALES Based on the System of Antti Aarne and Stith Thompson"
+BIBLIO_SET_IRI = URIRef(f"{BASE_DATA}biblio/ffc_284-286_2011_uther")
+BIBLIO_VOL1_IRI = URIRef(f"{BASE_DATA}biblio/ffc_284_2011")  # < 1000
+BIBLIO_VOL2_IRI = URIRef(f"{BASE_DATA}biblio/ffc_285_2011")  # >= 1000
 
 # ---------------------------------------------------------------------
 # Normalization helpers
@@ -54,10 +51,12 @@ CYR_TO_LAT = str.maketrans({
 
 _WS = re.compile(r"\s+")
 
+
 def clean_ws(x: object) -> str:
     if x is None:
         return ""
     return _WS.sub(" ", str(x)).strip()
+
 
 def norm_code_for_notation(x: object) -> str:
     """
@@ -68,6 +67,7 @@ def norm_code_for_notation(x: object) -> str:
     if not s or s.lower() in {"<na>", "nan", "none"}:
         return ""
     return s.translate(CYR_TO_LAT).replace(" ", "").upper()
+
 
 def normalize_code_for_iri(code: str, star_policy: str = "hyphen") -> str:
     """
@@ -87,12 +87,24 @@ def normalize_code_for_iri(code: str, star_policy: str = "hyphen") -> str:
         raise ValueError("star_policy must be 'hyphen' or 'percent'")
     return c
 
+
 def iri_atu(code: str, star_policy: str = "hyphen") -> URIRef:
     seg = normalize_code_for_iri(code, star_policy=star_policy)
     return URIRef(f"{BASE_DATA}taleType/atu/{seg}")
 
+
+def read_sample_text(path: Path, n: int = 5000) -> str:
+    raw = path.read_bytes()[: n * 4]
+    for enc in ("utf-8-sig", "utf-8", "cp1251", "cp1252", "latin-1"):
+        try:
+            return raw.decode(enc)
+        except UnicodeDecodeError:
+            continue
+    return raw.decode("utf-8", errors="replace")
+
+
 def detect_delimiter(path: Path) -> str:
-    sample = path.read_text(encoding="utf-8")[:5000]
+    sample = read_sample_text(path, n=5000)
     try:
         dialect = csv.Sniffer().sniff(sample, delimiters=[",", ";", "\t", "|"])
         return dialect.delimiter
@@ -101,6 +113,23 @@ def detect_delimiter(path: Path) -> str:
         candidates = [",", ";", "\t", "|"]
         return max(candidates, key=lambda d: header.count(d))
 
+
+def read_csv_fallback(path: Path, sep: str) -> pd.DataFrame:
+    for enc in ("utf-8-sig", "utf-8", "cp1251", "cp1252", "latin-1"):
+        try:
+            return pd.read_csv(path, sep=sep, dtype=str, keep_default_na=False, encoding=enc)
+        except UnicodeDecodeError:
+            continue
+    return pd.read_csv(
+        path,
+        sep=sep,
+        dtype=str,
+        keep_default_na=False,
+        encoding="utf-8",
+        encoding_errors="replace",
+    )
+
+
 def sort_key(code: str):
     base = re.sub(r"\*+$", "", code)
     stars = len(code) - len(base)
@@ -108,6 +137,7 @@ def sort_key(code: str):
     if not m:
         return (10**9, base, stars)
     return (int(m.group(1)), m.group(2), stars)
+
 
 def numeric_prefix(code: str) -> int:
     """
@@ -128,13 +158,15 @@ def numeric_prefix(code: str) -> int:
         return 10**9
     return int(m.group(1))
 
+
 def source_for_code(code: str) -> URIRef:
     """
     Rule:
       - numeric part < 1000 -> vol 1 (FFC 284)
       - numeric part >= 1000 -> vol 2 (FFC 285)
     """
-    return URIRef(BIBLIO_VOL2_IRI) if numeric_prefix(code) >= 1000 else URIRef(BIBLIO_VOL1_IRI)
+    return BIBLIO_VOL2_IRI if numeric_prefix(code) >= 1000 else BIBLIO_VOL1_IRI
+
 
 # ---------------------------------------------------------------------
 # Graph builder
@@ -143,18 +175,14 @@ def build_graph(
     df: pd.DataFrame,
     *,
     star_policy: str = "hyphen",
-    scheme_label_en: str = SCHEME_LABEL_EN,
-    biblio_set_iri: str = BIBLIO_SET_IRI,
 ) -> Graph:
     g = Graph()
 
-    # Prefixes
     g.bind("rft", RFT)
     g.bind("skos", SKOS)
     g.bind("dcterms", DCT)
     g.bind("rdfs", RDFS)
     g.bind("xsd", XSD)
-    g.bind("prov", PROV)
 
     # Validate columns
     if "code" not in df.columns:
@@ -173,49 +201,51 @@ def build_graph(
     df = df[df["code"].ne("")].drop_duplicates(subset=["code"], keep="first")
     df = df.sort_values(by="code", key=lambda s: s.map(sort_key), kind="mergesort")
 
-    scheme = RFT.ATU_Scheme
-    set_src = URIRef(biblio_set_iri)
+    # The scheme is already defined as an ontology individual: rft:ATU_Scheme
+    scheme = ATU_SCHEME_URI
 
-    # --- Scheme triples (source points to the SET)
-    g.add((scheme, RDF.type, SKOS.ConceptScheme))
-    g.add((scheme, SKOS.prefLabel, Literal(scheme_label_en, lang="en")))
-    g.add((scheme, DCT.source, set_src))
-
-    # --- Concepts
     for _, row in df.iterrows():
         code = row["code"]
-        title = (row.get("title_en") or "").strip()
-        desc = (row.get("desc_en") or "").strip()
+        title = row.get("title_en", "")
+        desc = row.get("desc_en", "")
 
         concept = iri_atu(code, star_policy=star_policy)
 
+        # Core typing from the profile:
+        # TaleType ⊆ skos:Concept
         g.add((concept, RDF.type, SKOS.Concept))
         g.add((concept, RDF.type, RFT.TaleType))
 
+        # Scheme membership
         g.add((concept, SKOS.inScheme, scheme))
+
+        # Canonical code storage
         g.add((concept, SKOS.notation, Literal(code)))
 
-        # Concept-level provenance: vol 1 for <1000, vol 2 for >=1000
+        # Bibliographic source belongs on TaleType
         g.add((concept, DCT.source, source_for_code(code)))
 
+        # Preferred label
         pref = f"ATU {code} {title}".strip() if title else f"ATU {code}"
         g.add((concept, SKOS.prefLabel, Literal(pref, lang="en")))
 
+        # Optional prose definition
         if desc:
             g.add((concept, SKOS.definition, Literal(desc, lang="en")))
 
     return g
 
+
 # ---------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------
 def main() -> int:
-    ap = argparse.ArgumentParser(description="Generate ATU SKOS vocabulary TTL from atu_reference CSV.")
+    ap = argparse.ArgumentParser(
+        description="Generate ATU TaleType SKOS vocabulary TTL from atu_reference CSV."
+    )
     ap.add_argument("--csv", default=None, help="Input CSV path (optional if ENV/DEFAULT is set).")
     ap.add_argument("--out", default=None, help="Output TTL path (optional if ENV/DEFAULT is set).")
     ap.add_argument("--star-policy", choices=["hyphen", "percent"], default="hyphen")
-    ap.add_argument("--scheme-label", default=SCHEME_LABEL_EN)
-    ap.add_argument("--biblio-set-iri", default=BIBLIO_SET_IRI)
 
     args = ap.parse_args()
 
@@ -241,18 +271,17 @@ def main() -> int:
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
     sep = detect_delimiter(csv_path)
-    df = pd.read_csv(csv_path, sep=sep, dtype=str, keep_default_na=False)
+    df = read_csv_fallback(csv_path, sep=sep)
 
     g = build_graph(
         df,
         star_policy=args.star_policy,
-        scheme_label_en=args.scheme_label,
-        biblio_set_iri=args.biblio_set_iri,
     )
 
     out_path.write_text(g.serialize(format="turtle"), encoding="utf-8")
     print(f"Wrote: {out_path}")
     return 0
+
 
 if __name__ == "__main__":
     raise SystemExit(main())
