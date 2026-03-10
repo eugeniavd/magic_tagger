@@ -26,11 +26,11 @@ https://eugeniavd.github.io/magic_tagger/rdf/
 
 ## 2. Ontology
 
-The current ontology for MagicTagger is available below as a preview and as an OWL file.
+The current ontology for MagicTagger is available below as preview.
 
 ![Russian Folktales ontology](rdf/ontology/rft.owl.svg)
 
-**Dynamic OWL Scheme:** [rft.owl](https://service.tib.eu/webvowl/#opts=sidebar=0;cd=50;filter_disjoint=false;#file=rft.owl)
+**OWL File:** [rft.owl](rdf/rft.owl)
 
 ---
 
