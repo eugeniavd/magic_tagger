@@ -1,24 +1,24 @@
-# Purpose: Q3 — Top narrators by number of tales
-# Model (UPDATED): narrator attribution via PROV qualified attribution + LoC role URI
-#   tale prov:qualifiedAttribution [ a prov:Attribution ; prov:agent ?n ; prov:hadRole locrel:nrt ] .
+# Purpose: Q3 — Top narrators by number of tale recordings
+# Model: narrator attribution via PROV qualified attribution + LoC role URI
+#   recording prov:qualifiedAttribution [ a prov:Attribution ; prov:agent ?n ; prov:hadRole locrel:nrt ] .
 
-PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX prov:    <http://www.w3.org/ns/prov#>
 PREFIX locrel:  <http://id.loc.gov/vocabulary/relators/>
 PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rft:     <https://eugeniavd.github.io/magic_tagger/rdf/ontology#>
 
 SELECT
   ?narratorKey
-  (SAMPLE(?narratorLabel) AS ?narratorLabel)
-  (COUNT(DISTINCT ?tale) AS ?taleCount)
+  (SAMPLE(?narratorLabelFinal) AS ?narratorLabel)
+  (COUNT(DISTINCT ?recording) AS ?taleCount)
 WHERE {
-  ?tale prov:qualifiedAttribution ?att .
+  ?recording a rft:TaleRecording ;
+             prov:qualifiedAttribution ?att .
 
   ?att a prov:Attribution ;
        prov:agent ?n ;
        prov:hadRole locrel:nrt .
 
-  # Key groups IRIs (and would also group literals if they ever appear)
   BIND(STR(?n) AS ?narratorKey)
 
   OPTIONAL { ?n rdfs:label ?lbl . }
@@ -27,11 +27,10 @@ WHERE {
     COALESCE(
       STR(?lbl),
       IF(isIRI(?n), REPLACE(STR(?n), "^.*/", ""), STR(?n))
-    ) AS ?narratorLabel
+    ) AS ?narratorLabelFinal
   )
 
-  # Keep only person-like IRIs (your model uses person URIs)
-  FILTER( !isIRI(?n) || CONTAINS(STR(?n), "/rdf/person/") )
+  FILTER(!isIRI(?n) || CONTAINS(STR(?n), "/rdf/person/"))
 }
 GROUP BY ?narratorKey
 ORDER BY DESC(?taleCount) LCASE(STR(?narratorLabel))

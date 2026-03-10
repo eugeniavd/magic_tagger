@@ -5,11 +5,11 @@
 [] a sh:ValidationReport ;
     sh:conforms false ;
     sh:result [ a sh:ValidationResult ;
-            sh:focusNode <https://eugeniavd.github.io/magic_tagger/rdf/tale/tru_vkk_25_120_23> ;
-            sh:resultMessage "Tale must have a narrator attribution: prov:qualifiedAttribution → prov:hadRole locrel:nrt." ;
+            sh:focusNode <https://eugeniavd.github.io/magic_tagger/rdf/TaleRecording/tru_vkk_25_120_23> ;
+            sh:resultMessage "TaleRecording must have at least one narrator attribution (prov:hadRole locrel:nrt)." ;
             sh:resultSeverity sh:Violation ;
             sh:sourceConstraint [ a sh:SPARQLConstraint ;
-                    sh:message "Tale must have a narrator attribution: prov:qualifiedAttribution → prov:hadRole locrel:nrt." ;
+                    sh:message "TaleRecording must have at least one narrator attribution (prov:hadRole locrel:nrt)." ;
                     sh:select """
       SELECT $this WHERE {
         FILTER NOT EXISTS {
@@ -21,6 +21,6 @@
       }
     """ ] ;
             sh:sourceConstraintComponent sh:SPARQLConstraintComponent ;
-            sh:sourceShape rft:TaleShape ;
-            sh:value <https://eugeniavd.github.io/magic_tagger/rdf/tale/tru_vkk_25_120_23> ] .
+            sh:sourceShape rft:TaleRecordingShape ;
+            sh:value <https://eugeniavd.github.io/magic_tagger/rdf/TaleRecording/tru_vkk_25_120_23> ] .
 

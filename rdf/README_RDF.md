@@ -48,7 +48,15 @@ Validation is intentionally lightweight and runs locally.
 ### 4.1 Syntax / parse validation (Turtle)
 
 ```bash
-python rdf/validation/validate_kg.py
+python rdf/validation/validate_kg.py \
+  --data rdf/rdf_serialization/corpus.ttl \
+         rdf/rdf_serialization/agents.ttl \
+         rdf/rdf_serialization/atu_types.ttl \
+         rdf/rdf_serialization/biblio_sources.ttl \
+         rdf/rdf_serialization/dataset_corpus_v1.ttl \
+  --shapes rdf/shacl/shapes.ttl \
+  --report rdf/validation/report.ttl \
+  --report-text rdf/validation/report.txt
 ```
 This writes: `rdf/validation/report.txt`, `rdf/validation/report.ttl`.
 
@@ -87,12 +95,11 @@ Release alignment:
 
 | ID | File | Competency question | Output |
 |----|------|---------------------|--------|
-| Q1 | `Q1_tales_by_atu_type.rq` | List all tales for a given **ATU type code X** (baseline snapshot uses a fixed code, e.g. `707`). ATU code is derived from the ATU concept URI (fallback: `skos:notation` if present). | `tale, taleDesc, volume, atuConcept, atuCode` |
-| Q2 | `Q2_top_atu_types.rq` | Compute the **Top-N ATU types** by number of tales (distribution). ATU is identified via `dcterms:subject` to ATU concept URIs. | `atuConcept, atuCode, taleCount` |
-| Q3 | `Q3_top_narrators.rq` | List **Top narrators** by number of tales, where narrators are linked at tale level via `dcterms:contributor` (labels from `rdfs:label`, with URI fallback if missing). | `narrator, narratorLabel, taleCount` *(or `narratorKey, narratorLabel, taleCount` if using the IRI-or-literal variant)* |
-| Q4 | `Q4_yearly_collectors_labeled.rq` | For each collector (linked to volumes via dcterms:creator), count distinct tales per year. The year is derived from tale-level `dcterms:created` (xsd:date) using YEAR(). Collector labels are resolved with preference for `rdfs:label@en`, with fallbacks to parsed dict-like strings (`label_en`, `name_raw`) and finally the local IRI identifier. | `collector`, `collectorLabel`, `year`, `taleCount` |
-| Q5 | `Q5_coverage_sanity_checks.rq` | Coverage sanity checks over **Tales** (`crm:E33_Linguistic_Object`, IRIs only). Returns counts of distinct tales per metric across five groups: **A) Containers/provenance** — missing **volume container** (`dcterms:isPartOf` to an IRI containing `/rdf/volume/`), missing **dataset container** (`dcterms:isPartOf` to an IRI containing `/rdf/dataset/`); **B) Typing** — missing `dcterms:subject`, or subject present but **not an ATU concept URI** (no `dcterms:subject` containing `/rdf/taleType/atu/`); **C) People** — missing **narrator** (`dcterms:contributor`), or missing **collector on volume** (tale is in a volume, but that volume lacks `dcterms:creator`); **D) Place** — missing place across all supported predicates (`dcterms:spatial` / `rft:recordingPlace` / `rft:recordingParish`); **E) Time** — missing `dcterms:created`, or created date present but **not typed as `xsd:date`**. | `metric, count` |
-
+| Q1 | `Q1_tales_by_atu_type.rq` | List all **tale recordings** for a given **ATU type code X**. The query starts from `rft:TaleRecording`, follows `prov:wasDerivedFrom` to `rft:TaleContent`, and retrieves the ATU type via `dcterms:subject`. ATU code is taken from `skos:notation` when available, with fallback from the ATU concept URI. | `recording, taleDesc, volume, content, atuConcept, atuCode` |
+| Q2 | `Q2_top_atu_types.rq` | Compute the distribution of **Top-N ATU types** by number of **tale recordings**. Counting is done over `rft:TaleRecording`, while type assignment is resolved through `rft:TaleContent -> dcterms:subject -> rft:TaleType`. | `atuConcept, atuCode, atuPrefLabel, atuTitle, taleCount` |
+| Q3 | `Q3_top_narrators.rq` | List **Top narrators** by number of **tale recordings**. Narrators are linked to `rft:TaleRecording` through `prov:qualifiedAttribution`, with `prov:hadRole locrel:nrt` and `prov:agent ?narrator`. Labels are taken from `rdfs:label`, with fallback to the local identifier from the IRI. | `narratorKey, narratorLabel, taleCount` |
+| Q4 | `Q4_yearly_collectors_labeled.rq` | For each collector, count distinct **tale recordings** per year. Collectors are linked directly to `rft:TaleRecording` via `prov:qualifiedAttribution` with `prov:hadRole locrel:col`. Year is derived from `dcterms:created` by extracting the first four digits, so the query supports `xsd:date`, `xsd:gYearMonth`, and `xsd:gYear`. Collector labels are resolved from `rdfs:label`, with fallback to the local IRI identifier. | `collector, collectorLabel, year, taleCount` |
+| Q5 | `Q5_coverage_sanity_checks.rq` | Coverage sanity checks over **TaleRecordings** (`rft:TaleRecording`, IRIs only). Returns counts of distinct recordings per metric across five groups: **A) Containers/provenance** — missing **volume container** (`dcterms:isPartOf` to an IRI containing `/rdf/volume/`), missing **dataset container** (`dcterms:isPartOf` to an IRI containing `/dataset/`), missing **content link** (`prov:wasDerivedFrom`); **B) Typing** — missing `dcterms:subject` on the linked `rft:TaleContent`, or subject present but **not an ATU concept URI**; **C) People** — missing **narrator attribution** (`prov:qualifiedAttribution` with `prov:hadRole locrel:nrt`), or missing **collector attribution** (`prov:qualifiedAttribution` with `prov:hadRole locrel:col`); **D) Place** — missing `dcterms:spatial`; **E) Time** — missing `dcterms:created`, or created date present but not typed as one of `xsd:date`, `xsd:gYearMonth`, or `xsd:gYear`. | `metric, count` |
 
 ### How to run 
 
@@ -107,12 +114,10 @@ pip install rdflib pandas
 Run a query and export CSV:
 
 ```bash
-
-
-
+python -m rdf.queries.run Q1 --data rdf/rdf_serialization
 ```
 
-This writes: `rdf/queries/query_results/Q2.csv` and prints a short preview to stdout.
+This writes: `rdf/queries/query_results/Q1.csv` and prints a short preview to stdout.
 
 ## 6) Export JSON-LD using the canonical context
 

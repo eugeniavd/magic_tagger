@@ -1,71 +1,111 @@
 {
-  "generatedAtTime": "2026-03-01T18:33:49.310010+00:00",
+  "generatedAtTime": "2026-03-09T21:32:25.353023+00:00",
   "inputs": {
-    "ttl": "/Users/eugenia/Desktop/thesis/magic_tagger/rdf/rdf_serialization/corpus.ttl"
+    "ttl": [
+      "/Users/eugenia/Desktop/thesis/magic_tagger/rdf/rdf_serialization/corpus.ttl",
+      "/Users/eugenia/Desktop/thesis/magic_tagger/rdf/rdf_serialization/agents.ttl",
+      "/Users/eugenia/Desktop/thesis/magic_tagger/rdf/rdf_serialization/atu_types.ttl",
+      "/Users/eugenia/Desktop/thesis/magic_tagger/rdf/rdf_serialization/biblio_sources.ttl",
+      "/Users/eugenia/Desktop/thesis/magic_tagger/rdf/rdf_serialization/dataset_corpus_v1.ttl"
+    ]
   },
   "size": {
-    "triples": 2494
+    "triples": 4267
   },
   "entities": {
-    "tales": 97,
+    "tale_recordings": 97,
+    "tale_contents": 97,
     "volumes": 27,
     "collections": 3,
+    "atu_concepts_defined": 85,
     "atu_concepts_referenced": 85,
-    "persons_referenced": 121,
-    "attribution_nodes": 158
+    "persons_defined": 122,
+    "persons_referenced": 122,
+    "attribution_nodes": 224,
+    "bibliographic_sources": 4,
+    "datasets": 1,
+    "distributions": 7
   },
   "coverage": {
-    "tales_with_isPartOf_volume": {
+    "recordings_with_isPartOf_volume": {
       "count": 97,
       "percent": 100.0
     },
-    "tales_with_atu_subject": {
+    "recordings_with_isPartOf_dataset": {
       "count": 97,
       "percent": 100.0
     },
-    "tales_with_created": {
+    "recordings_with_created": {
       "count": 97,
       "percent": 100.0
     },
-    "tales_with_accessRights": {
+    "recordings_with_accessRights_or_rights": {
       "count": 97,
       "percent": 100.0
     },
-    "tales_with_rights": {
-      "count": 0,
-      "percent": 0.0
-    },
-    "tales_with_spatial": {
+    "recordings_with_spatial": {
       "count": 97,
       "percent": 100.0
     },
-    "tales_with_narrator_attribution_locrel_nrt": {
+    "recordings_with_bibliographicCitation": {
+      "count": 97,
+      "percent": 100.0
+    },
+    "recordings_with_content_link": {
+      "count": 97,
+      "percent": 100.0
+    },
+    "recordings_with_narrator_attribution_locrel_nrt": {
       "count": 96,
       "percent": 98.97
     },
-    "volumes_with_collector_attribution_locrel_col": {
+    "recordings_with_collector_attribution_locrel_col": {
+      "count": 97,
+      "percent": 100.0
+    },
+    "contents_with_atu_subject": {
+      "count": 97,
+      "percent": 100.0
+    },
+    "volumes_with_creator": {
       "count": 27,
       "percent": 100.0
     },
     "collections_with_label_langtag": {
       "count": 3,
       "percent": 100.0
+    },
+    "datasets_with_distribution": {
+      "count": 1,
+      "percent": 100.0
+    },
+    "datasets_with_issued": {
+      "count": 1,
+      "percent": 100.0
     }
   },
   "completeness": {
-    "tales_with_rights": {
+    "recordings_with_rights": {
       "count": 97,
       "percent": 100.0
     },
-    "tales_with_source": {
+    "recordings_with_source": {
       "count": 97,
       "percent": 100.0
     },
-    "tales_with_place": {
+    "recordings_with_place": {
       "count": 97,
       "percent": 100.0
     },
-    "tales_with_date": {
+    "recordings_with_date": {
+      "count": 97,
+      "percent": 100.0
+    },
+    "recordings_with_content": {
+      "count": 97,
+      "percent": 100.0
+    },
+    "contents_with_subject": {
       "count": 97,
       "percent": 100.0
     },
@@ -89,13 +129,32 @@
     }
   },
   "sanity": {
-    "tales_created_wrong_datatype": 0
+    "recordings_created_wrong_datatype": 0,
+    "agents_birthDate_wrong_datatype": 0,
+    "agents_ageAtRecording_wrong_datatype": 0,
+    "recordings_accessRights_uncontrolled": 0,
+    "contents_subject_non_atu_iri": 0
   },
   "notes": {
-    "tales_with_narrator_definition": "tale has prov:qualifiedAttribution node where prov:hadRole = locrel:nrt and prov:agent is a URI",
-    "volumes_with_collector_definition": "volume has prov:qualifiedAttribution node where prov:hadRole = locrel:col and prov:agent is a URI",
-    "tales_with_source_definition": "direct: tale has dcterms:source OR dcterms:bibliographicCitation; fallback: tale dcterms:isPartOf volume AND volume has foaf:page OR dcterms:source OR rdfs:seeAlso",
+    "recordings_with_narrator_definition": "TaleRecording has prov:qualifiedAttribution node where prov:hadRole = locrel:nrt and prov:agent is a URI",
+    "recordings_with_collector_definition": "TaleRecording has prov:qualifiedAttribution node where prov:hadRole = locrel:col and prov:agent is a URI",
+    "recordings_with_source_definition": "direct: TaleRecording has dcterms:bibliographicCitation OR dcterms:source; fallback: TaleRecording dcterms:isPartOf volume AND volume has foaf:page OR dcterms:source OR rdfs:seeAlso",
+    "contents_with_subject_definition": "TaleContent has dcterms:subject pointing to /taleType/atu/ IRI",
     "volumes_with_source_definition": "volume has foaf:page OR dcterms:source OR rdfs:seeAlso",
+    "rights_controlled_values": {
+      "rft:rights_open": "https://eugeniavd.github.io/magic_tagger/rdf/ontology#rights_open",
+      "rft:rights_partly_anonymised": "https://eugeniavd.github.io/magic_tagger/rdf/ontology#rights_partly_anonymised"
+    },
+    "allowed_created_datatypes": [
+      "http://www.w3.org/2001/XMLSchema#date",
+      "http://www.w3.org/2001/XMLSchema#gYearMonth",
+      "http://www.w3.org/2001/XMLSchema#gYear"
+    ],
+    "allowed_birthDate_datatypes": [
+      "http://www.w3.org/2001/XMLSchema#date",
+      "http://www.w3.org/2001/XMLSchema#gYearMonth",
+      "http://www.w3.org/2001/XMLSchema#gYear"
+    ],
     "foaf_page_iri_used": "http://xmlns.com/foaf/0.1/page",
     "role_uris_used": {
       "locrel:nrt": "http://id.loc.gov/vocabulary/relators/nrt",

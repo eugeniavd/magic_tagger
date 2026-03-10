@@ -1,31 +1,36 @@
-
-# Purpose: Q1 — Tales by ATU type (faceted retrieval)
+# Purpose: Q1 — TaleRecordings by ATU type (faceted retrieval)
 # Baseline policy: keep a fixed ATU code for the expected output snapshot.
 
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX prov:    <http://www.w3.org/ns/prov#>
+PREFIX rft:     <https://eugeniavd.github.io/magic_tagger/rdf/ontology#>
 
-SELECT ?tale ?taleDesc ?volume ?atuConcept ?atuCode
+SELECT ?recording ?taleDesc ?volume ?content ?atuConcept ?atuCode
 WHERE {
-  ?tale dcterms:subject ?atuConcept .
+  ?recording a rft:TaleRecording ;
+             prov:wasDerivedFrom ?content .
 
-  # Prefer explicit skos:notation if you later add SKOS for ATU concepts,
-  # otherwise derive code from the minted URI.
+  ?content a rft:TaleContent ;
+           dcterms:subject ?atuConcept .
+
   OPTIONAL { ?atuConcept skos:notation ?atuCodeSkos . }
+
   BIND(
     COALESCE(
       STR(?atuCodeSkos),
-      STRAFTER(STR(?atuConcept), "/rdf/taleType/atu/")
+      REPLACE(STRAFTER(STR(?atuConcept), "/rdf/taleType/atu/"), "-star$", "*")
     ) AS ?atuCode
   )
 
-  # Fixed baseline parameter:
+  # Fixed baseline parameter
   FILTER(?atuCode = "707")
 
   OPTIONAL {
-    ?tale dcterms:isPartOf ?volume .
+    ?recording dcterms:isPartOf ?volume .
     FILTER(CONTAINS(STR(?volume), "/rdf/volume/"))
   }
-  OPTIONAL { ?tale dcterms:description ?taleDesc . }
+
+  OPTIONAL { ?recording dcterms:description ?taleDesc . }
 }
-ORDER BY ?tale
+ORDER BY ?recording

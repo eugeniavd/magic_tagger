@@ -139,7 +139,10 @@ def main() -> int:
     me = iri_person("evgeniia-vdovichenko")
     g.add((me, RDF.type, FOAF.Person))
     g.add((me, RDF.type, PROV.Agent))
+    g.add((me, DCT.identifier, Literal("evgeniia-vdovichenko")))
+    g.add((me, DCT.identifier, Literal("ORCID:0009-0003-0695-3910")))
     g.add((me, RDFS.label, Literal("Evgeniia Vdovichenko")))
+    g.add((me, RDFS.seeAlso, URIRef("https://orcid.org/0009-0003-0695-3910")))
 
     # --- Dataset core
     g.add((dataset, RDF.type, DCAT.Dataset))

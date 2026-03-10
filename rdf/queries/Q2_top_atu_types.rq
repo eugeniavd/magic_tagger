@@ -3,19 +3,25 @@
 
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX prov:    <http://www.w3.org/ns/prov#>
+PREFIX rft:     <https://eugeniavd.github.io/magic_tagger/rdf/ontology#>
 
 SELECT
   ?atuConcept
   ?atuCode
   (SAMPLE(?atuPrefLabelFinal) AS ?atuPrefLabel)
   (SAMPLE(?atuTitleFinal) AS ?atuTitle)
-  (COUNT(DISTINCT ?tale) AS ?taleCount)
+  (COUNT(DISTINCT ?recording) AS ?taleCount)
 WHERE {
-  ?tale dcterms:subject ?atuConcept .
+  ?recording a rft:TaleRecording ;
+             prov:wasDerivedFrom ?content .
+
+  ?content a rft:TaleContent ;
+           dcterms:subject ?atuConcept .
 
   FILTER(STRSTARTS(STR(?atuConcept), "https://eugeniavd.github.io/magic_tagger/rdf/taleType/atu/"))
 
-  # --- code: prefer skos:notation (handles 556A* even if URI is 556A-star)
+  # code: prefer skos:notation
   OPTIONAL { ?atuConcept skos:notation ?not . }
   BIND(STR(?not) AS ?notStr)
 
@@ -26,7 +32,7 @@ WHERE {
   )
   BIND(COALESCE(?notStr, ?codeFromUri) AS ?atuCode)
 
-  # --- prefLabel: prefer EN, fallback to any prefLabel, else use code
+  # prefLabel: prefer EN, fallback to any prefLabel, else use code
   OPTIONAL { ?atuConcept skos:prefLabel ?prefEn . FILTER(LANG(?prefEn) = "en") }
   OPTIONAL { ?atuConcept skos:prefLabel ?prefAny . }
 
@@ -38,7 +44,7 @@ WHERE {
     ) AS ?atuPrefLabelFinal
   )
 
-  # --- title: remove leading "ATU <code> " if present; fallback to prefLabel/code
+  # title: strip leading "ATU <code> " if present
   BIND(
     COALESCE(
       REPLACE(?atuPrefLabelFinal, "^ATU\\s+[^\\s]+\\s+", ""),

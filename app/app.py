@@ -23,7 +23,8 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 import streamlit as st
 from functools import lru_cache
 import altair as alt
-from rdflib import Graph 
+from rdflib import Graph, URIRef, Literal, Namespace
+from rdflib.namespace import RDF, RDFS, DCTERMS as DCT
 
 from src.service import classify
 from src.export_jsonld import to_jsonld
@@ -638,13 +639,19 @@ def tales_by_atu_from_ttl(
     limit: int = 300,
 ) -> pd.DataFrame:
     """
-    RDFlib-safe: one row per tale (no GROUP BY / no aggregates / no regex).
-    Requires ttl_files=(corpus.ttl, agents.ttl) for narrator labels.
-    Returns:
+    One row per TaleRecording under the new model:
+      TaleRecording --prov:wasDerivedFrom--> TaleContent --dcterms:subject--> ATU concept
+
+    Expected output columns:
       tale, atuConcept, atuCode,
       taleId, sourceRef, rightsStatus,
       narratorLabelEn, createdIn, place, taleDesc
     """
+
+    PROV = Namespace("http://www.w3.org/ns/prov#")
+    SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
+    LOCREL_NRT = URIRef("http://id.loc.gov/vocabulary/relators/nrt")
+    RFT = Namespace("https://eugeniavd.github.io/magic_tagger/rdf/ontology#")
 
     g = Graph()
     for fp in ttl_files:
@@ -655,89 +662,125 @@ def tales_by_atu_from_ttl(
     sparql = """
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
-PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX prov:    <http://www.w3.org/ns/prov#>
-PREFIX locrel:  <http://id.loc.gov/vocabulary/relators/>
+PREFIX rft:     <https://eugeniavd.github.io/magic_tagger/rdf/ontology#>
 
 SELECT DISTINCT
-  ?tale
+  ?recording
+  ?content
   ?atuConcept
   ?atuCode
-  ?taleId
-  ?sourceRef
-  ?rightsStatus
-  ?narratorLabelEn
-  ?createdIn
-  ?place
-  ?taleDesc
+  ?taleIdRaw
+  ?sourceRefRaw
+  ?createdRaw
+  ?taleDescRaw
 WHERE {
-  ?tale dcterms:subject ?atuConcept .
+  ?recording a rft:TaleRecording ;
+             prov:wasDerivedFrom ?content .
+
+  ?content a rft:TaleContent ;
+           dcterms:subject ?atuConcept .
 
   OPTIONAL { ?atuConcept skos:notation ?atuCodeSkos . }
+
   BIND(
     COALESCE(
       STR(?atuCodeSkos),
       REPLACE(STRAFTER(STR(?atuConcept), "/rdf/taleType/atu/"), "-star$", "*")
     ) AS ?atuCode
   )
-  FILTER(?atuCode = "%s") .
 
-  OPTIONAL { ?tale dcterms:identifier ?id . }
-  BIND(
-    COALESCE(
-      STR(?id),
-      REPLACE(STR(?tale), ".*/([^/]+)$", "$1")
-    ) AS ?taleId
-  )
+  FILTER(?atuCode = "%s")
 
-  OPTIONAL { ?tale dcterms:bibliographicCitation ?bc . }
-  BIND(COALESCE(STR(?bc), "") AS ?sourceRef)
-
-  OPTIONAL { ?tale dcterms:accessRights ?ar . }
-  BIND(COALESCE(STR(?ar), "") AS ?rightsStatus)
-
-    # narrator via PROV qualified attribution (tale-level) + LoC role nrt
-  OPTIONAL {
-    ?tale prov:qualifiedAttribution ?att .
-    ?att a prov:Attribution ;
-         prov:hadRole locrel:nrt ;
-         prov:agent ?narrator .
-
-    OPTIONAL { ?narrator rdfs:label ?labEn . FILTER(LANG(?labEn) = "en") }
-  }
-
-  # IMPORTANT: bind label ONLY when narrator is bound (prevents cross-join explosion)
-  BIND(
-    IF(
-      BOUND(?narrator),
-      COALESCE(
-        STR(?labEn),
-        REPLACE(STR(?narrator), ".*/([^/]+)$", "$1")
-      ),
-      ""
-    ) AS ?narratorLabelEn
-  )
-
-  OPTIONAL { ?tale dcterms:created ?created . }
-  BIND(COALESCE(STR(?created), "") AS ?createdIn)
-
-  OPTIONAL {
-    ?tale dcterms:spatial ?pl .
-    OPTIONAL { ?pl rdfs:label ?plLab . }
-  }
-  BIND(COALESCE(STR(?plLab), "") AS ?place)
-
-  OPTIONAL { ?tale dcterms:description ?desc . }
-  BIND(COALESCE(STR(?desc), "") AS ?taleDesc)
+  OPTIONAL { ?recording dcterms:identifier ?taleIdRaw . }
+  OPTIONAL { ?recording dcterms:bibliographicCitation ?sourceRefRaw . }
+  OPTIONAL { ?recording dcterms:created ?createdRaw . }
+  OPTIONAL { ?recording dcterms:description ?taleDescRaw . }
 }
-ORDER BY ?createdIn ?tale
+ORDER BY ?createdRaw ?recording
 LIMIT %d
 """ % (code, int(limit))
 
+    def _local_id(term) -> str:
+        s = str(term)
+        return s.rstrip("/").split("/")[-1]
+
+    def _best_label(node: URIRef, prefer_en: bool = True) -> str:
+        labels = list(g.objects(node, RDFS.label))
+        if not labels:
+            return _local_id(node)
+
+        if prefer_en:
+            en = [str(x) for x in labels if isinstance(x, Literal) and x.language == "en"]
+            if en:
+                return sorted(en)[0]
+
+        tagged = [str(x) for x in labels if isinstance(x, Literal) and x.language]
+        if tagged:
+            return sorted(tagged)[0]
+
+        plain = [str(x) for x in labels]
+        return sorted(plain)[0] if plain else _local_id(node)
+
+    def _rights_status(recording: URIRef) -> str:
+        vals = list(g.objects(recording, DCT.accessRights)) + list(g.objects(recording, DCT.rights))
+        if not vals:
+            return ""
+        first = vals[0]
+        if isinstance(first, URIRef):
+            labels = list(g.objects(first, RDFS.label))
+            if labels:
+                return str(labels[0])
+        return str(first)
+
+    def _narrator_label(recording: URIRef) -> str:
+        narrators = []
+        for att in g.objects(recording, PROV.qualifiedAttribution):
+            if (att, PROV.hadRole, LOCREL_NRT) not in g:
+                continue
+            for ag in g.objects(att, PROV.agent):
+                if isinstance(ag, URIRef):
+                    narrators.append(ag)
+
+        if not narrators:
+            return ""
+
+        narrators = sorted({str(n): n for n in narrators}.values(), key=str)
+        return _best_label(narrators[0], prefer_en=True)
+
+    def _place_label(recording: URIRef) -> str:
+        places = list(g.objects(recording, DCT.spatial))
+        if not places:
+            return ""
+        p = places[0]
+        labels = list(g.objects(p, RDFS.label))
+        if labels:
+            return str(labels[0])
+        return str(p)
+
     res = g.query(sparql)
-    cols = [str(v) for v in res.vars]
-    rows = [[("" if v is None else str(v)) for v in row] for row in res]
-    df = pd.DataFrame(rows, columns=cols)
+
+    rows = []
+    for row in res:
+        recording = row.recording
+        tale_id = str(row.taleIdRaw) if row.taleIdRaw is not None else _local_id(recording)
+
+        rows.append(
+            {
+                "tale": str(recording),  # legacy column name kept for compatibility
+                "atuConcept": "" if row.atuConcept is None else str(row.atuConcept),
+                "atuCode": "" if row.atuCode is None else str(row.atuCode),
+                "taleId": tale_id,
+                "sourceRef": "" if row.sourceRefRaw is None else str(row.sourceRefRaw),
+                "rightsStatus": _rights_status(recording),
+                "narratorLabelEn": _narrator_label(recording),
+                "createdIn": "" if row.createdRaw is None else str(row.createdRaw),
+                "place": _place_label(recording),
+                "taleDesc": "" if row.taleDescRaw is None else str(row.taleDescRaw),
+            }
+        )
+
+    df = pd.DataFrame(rows)
 
     expected = [
         "tale", "atuConcept", "atuCode",
@@ -748,7 +791,7 @@ LIMIT %d
         if c not in df.columns:
             df[c] = ""
 
-    return df
+    return df[expected]
 
 
 
@@ -884,7 +927,7 @@ def page_home() -> None:
 
         **Derivative data (RDF / exports)**  
         - The derived metadata and RDF knowledge graph exports generated by this project are released under [**ODbL 1.0**](https://opendatacommons.org/licenses/odbl/1-0/).  
-        - Some records may be flagged as `restricted_anon` via `dcterms:accessRights`; these flags reflect source constraints and must be respected in reuse.
+        - Some records may be flagged as `partly anonymised` via `dcterms:accessRights`; these flags reflect source constraints and must be respected in reuse.
 
         **Code**  
         - The source code is released under the [**MIT License**](https://opensource.org/license/mit).
@@ -1300,12 +1343,11 @@ def page_explore() -> None:
         st.markdown(
         """
         **Core entities and links**
-        - **Tale** (`crm:E33_Linguistic_Object`) with text/description and type links  
-        - **Volume** as container with collection-level provenance  
+        - **TaleRecording** (`crm:E33_Linguistic_Object`) with text/description and type links  
+        - **Volume** as container with collection-level provenance (`dcterms:isPartOf` Collection)  
         - **ATU Concept** (SKOS) linked via `dcterms:subject`  
-        - **People**: narrators (`prov:qualifiedAttribution` at tale level with `prov:hadRole locrel:nrt`) and collectors (`prov:qualifiedAttribution` at volume level with `prov:hadRole locrel:col`)  
-        - **Place**: `dcterms:spatial`, `dcterms:created` (tale-level coverage)   
-        - **Time**: `dcterms:created` (tale-level coverage)   
+        - **People**: narrators (`prov:qualifiedAttribution` at tale level with `prov:hadRole locrel:nrt`) and collectors (`prov:qualifiedAttribution` with `prov:hadRole locrel:col`)  
+        - **Place / Time**: `dcterms:spatial`, `dcterms:created` (on TaleRecording)   
         """
     )
         st.divider()
@@ -1596,12 +1638,26 @@ def page_explore() -> None:
     # --- 3-column grid like your example
             cols = st.columns(3, vertical_alignment="top")
 
+            def format_rights_label(value: str) -> str:
+                v = (value or "").strip()
+                if not v:
+                    return ""
+
+                if "#" in v:
+                    v = v.split("#", 1)[1]
+                elif "/" in v:
+                    v = v.rsplit("/", 1)[-1]
+
+                if v.startswith("rights_"):
+                    v = v[len("rights_"):]
+                    return v
+        
             for i, row in d_tales.reset_index(drop=True).iterrows():
                 with cols[i % 3]:
                    tale_iri = row.get("tale", "")
                    tale_id = row.get("taleId", "") or (tale_iri.rsplit("/", 1)[-1] if "/" in tale_iri else tale_iri)
                    source_ref = row.get("sourceRef", "")
-                   rights = row.get("rightsStatus", "")
+                   rights = format_rights_label(row.get("rightsStatus", ""))
                    narrator_en = row.get("narratorLabelEn", "")
                    created_in = row.get("createdIn", "")
                    place = row.get("place", "")
@@ -1642,11 +1698,11 @@ def page_explore() -> None:
 
         st.markdown(
         """
-        - **Reuse-first vocabularies**: DCTERMS, SKOS, PROV-O, CIDOC-CRM, DCAT  
-        - **Typing**: ATU types are linked with tales via `dcterms:subject` (`skos:Concept`)  
-        - **Attribution model**: **narrators at tale level** (`prov:qualifiedAttribution` with `prov:hadRole locrel:nrt`), **collectors at volume level** (`prov:qualifiedAttribution` with `prov:hadRole locrel:col`)  
-        - **Time/Place**: tale/volume-level time metadata via `dcterms:created`; places via `dcterms:spatial` 
-        - **Provenance**: exports are designed to keep processing context explicit and traceable (PROV-O) 
+        - **Reuse-first vocabularies**: DCTERMS, SKOS, PROV-O, CIDOC-CRM, DCAT, FOAF, Schema.org, LoC Relators.
+        - **Typing**: ATU types are linked to `rft:TaleContent` via `dcterms:subject`, where each ATU type is a `skos:Concept` / `rft:TaleType`; the archival record is modeled separately as `rft:TaleRecording`.
+        - **Attribution model**: narrators and collectors are represented through `prov:qualifiedAttribution` on the `rft:TaleRecording`, with `prov:hadRole` `locrel:nrt` for narrators and `prov:hadRole` `locrel:col` for collectors.
+        - **Time/Place**: time and place are recorded at the `rft:TaleRecording` level via `dcterms:created` and `dcterms:spatial`.
+        - **Provenance**: the relation between archival record and abstract content is made explicit through `prov:wasDerivedFrom` (TaleRecording → TaleContent), while the exports are designed to preserve processing context and traceability through PROV-O.
         """
       )
 

@@ -1,77 +1,90 @@
-# Purpose: Q5 — Coverage sanity checks (FINAL; PROV attribution + LoC roles + dataset IRI fix)
-# Scope: Tales (crm:E33_Linguistic_Object)
+# Purpose: Q5 — Coverage sanity checks (updated for TaleRecording / TaleContent model)
 
 PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX crm:     <http://www.cidoc-crm.org/cidoc-crm/>
 PREFIX rft:     <https://eugeniavd.github.io/magic_tagger/rdf/ontology#>
 PREFIX prov:    <http://www.w3.org/ns/prov#>
 PREFIX locrel:  <http://id.loc.gov/vocabulary/relators/>
 PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
 
-SELECT ?metric (COUNT(DISTINCT ?tale) AS ?count)
+SELECT ?metric (COUNT(DISTINCT ?recording) AS ?count)
 WHERE {
   # ------------------------------------------------------------
   # A) Containers / provenance
   # ------------------------------------------------------------
   {
     BIND("missing_volume_container" AS ?metric)
-    ?tale a crm:E33_Linguistic_Object .
-    FILTER(isIRI(?tale))
+    ?recording a rft:TaleRecording .
+    FILTER(isIRI(?recording))
 
-    # No volume membership (avoid counting dataset isPartOf as volume)
     FILTER NOT EXISTS {
-      ?tale dcterms:isPartOf ?v .
+      ?recording dcterms:isPartOf ?v .
       FILTER(CONTAINS(STR(?v), "/rdf/volume/"))
     }
   }
   UNION
   {
     BIND("missing_dataset_container" AS ?metric)
-    ?tale a crm:E33_Linguistic_Object .
-    FILTER(isIRI(?tale))
+    ?recording a rft:TaleRecording .
+    FILTER(isIRI(?recording))
 
-    # Dataset IRIs in your TTL look like .../rdf/dataset/...
     FILTER NOT EXISTS {
-      ?tale dcterms:isPartOf ?ds .
+      ?recording dcterms:isPartOf ?ds .
       FILTER(CONTAINS(STR(?ds), "/dataset/"))
+    }
+  }
+  UNION
+  {
+    BIND("missing_content_link" AS ?metric)
+    ?recording a rft:TaleRecording .
+    FILTER(isIRI(?recording))
+
+    FILTER NOT EXISTS {
+      ?recording prov:wasDerivedFrom ?content .
     }
   }
 
   # ------------------------------------------------------------
-  # B) Typing (ATU via dcterms:subject)
+  # B) Typing (ATU via TaleContent -> dcterms:subject)
   # ------------------------------------------------------------
   UNION
   {
     BIND("missing_subject" AS ?metric)
-    ?tale a crm:E33_Linguistic_Object .
-    FILTER(isIRI(?tale))
+    ?recording a rft:TaleRecording .
+    FILTER(isIRI(?recording))
 
-    FILTER NOT EXISTS { ?tale dcterms:subject ?s . }
+    FILTER NOT EXISTS {
+      ?recording prov:wasDerivedFrom ?content .
+      ?content dcterms:subject ?s .
+    }
   }
   UNION
   {
     BIND("subject_not_atu_concept" AS ?metric)
-    ?tale a crm:E33_Linguistic_Object .
-    FILTER(isIRI(?tale))
+    ?recording a rft:TaleRecording .
+    FILTER(isIRI(?recording))
 
-    FILTER EXISTS { ?tale dcterms:subject ?s_any . }
+    FILTER EXISTS {
+      ?recording prov:wasDerivedFrom ?contentAny .
+      ?contentAny dcterms:subject ?s_any .
+    }
     FILTER NOT EXISTS {
-      ?tale dcterms:subject ?s_atu .
+      ?recording prov:wasDerivedFrom ?content2 .
+      ?content2 dcterms:subject ?s_atu .
       FILTER(CONTAINS(STR(?s_atu), "/rdf/taleType/atu/"))
     }
   }
 
   # ------------------------------------------------------------
-  # C) People (PROV qualified attribution + LoC roles)
+  # C) People (PROV qualified attribution + LoC roles on recording)
   # ------------------------------------------------------------
   UNION
   {
     BIND("missing_narrator_attribution" AS ?metric)
-    ?tale a crm:E33_Linguistic_Object .
-    FILTER(isIRI(?tale))
+    ?recording a rft:TaleRecording .
+    FILTER(isIRI(?recording))
 
     FILTER NOT EXISTS {
-      ?tale prov:qualifiedAttribution ?att .
+      ?recording prov:qualifiedAttribution ?att .
       ?att a prov:Attribution ;
            prov:agent ?narrator ;
            prov:hadRole locrel:nrt .
@@ -79,19 +92,12 @@ WHERE {
   }
   UNION
   {
-    BIND("missing_collector_attribution_on_volume" AS ?metric)
-    ?tale a crm:E33_Linguistic_Object .
-    FILTER(isIRI(?tale))
+    BIND("missing_collector_attribution" AS ?metric)
+    ?recording a rft:TaleRecording .
+    FILTER(isIRI(?recording))
 
-    # If tale has a volume container, ensure that volume has a collector attribution (locrel:col)
-    FILTER EXISTS {
-      ?tale dcterms:isPartOf ?v .
-      FILTER(CONTAINS(STR(?v), "/rdf/volume/"))
-    }
     FILTER NOT EXISTS {
-      ?tale dcterms:isPartOf ?v2 .
-      FILTER(CONTAINS(STR(?v2), "/rdf/volume/")) .
-      ?v2 prov:qualifiedAttribution ?att2 .
+      ?recording prov:qualifiedAttribution ?att2 .
       ?att2 a prov:Attribution ;
             prov:agent ?collector ;
             prov:hadRole locrel:col .
@@ -104,37 +110,35 @@ WHERE {
   UNION
   {
     BIND("missing_place" AS ?metric)
-    ?tale a crm:E33_Linguistic_Object .
-    FILTER(isIRI(?tale))
+    ?recording a rft:TaleRecording .
+    FILTER(isIRI(?recording))
 
     FILTER NOT EXISTS {
-      { ?tale dcterms:spatial ?p . }
-      UNION { ?tale rft:recordingPlace ?p . }
-      UNION { ?tale rft:recordingParish ?p . }
+      ?recording dcterms:spatial ?p .
     }
   }
 
   # ------------------------------------------------------------
-  # E) Time (tale-level dcterms:created)
+  # E) Time
   # ------------------------------------------------------------
   UNION
   {
     BIND("missing_created_date" AS ?metric)
-    ?tale a crm:E33_Linguistic_Object .
-    FILTER(isIRI(?tale))
+    ?recording a rft:TaleRecording .
+    FILTER(isIRI(?recording))
 
-    FILTER NOT EXISTS { ?tale dcterms:created ?dt . }
+    FILTER NOT EXISTS { ?recording dcterms:created ?dt . }
   }
   UNION
   {
-    BIND("created_date_not_xsd_date" AS ?metric)
-    ?tale a crm:E33_Linguistic_Object .
-    FILTER(isIRI(?tale))
+    BIND("created_date_not_expected_datatype" AS ?metric)
+    ?recording a rft:TaleRecording .
+    FILTER(isIRI(?recording))
 
-    FILTER EXISTS { ?tale dcterms:created ?dt_any . }
+    FILTER EXISTS { ?recording dcterms:created ?dt_any . }
     FILTER NOT EXISTS {
-      ?tale dcterms:created ?dt_ok .
-      FILTER(datatype(?dt_ok) = xsd:date)
+      ?recording dcterms:created ?dt_ok .
+      FILTER(datatype(?dt_ok) IN (xsd:date, xsd:gYearMonth, xsd:gYear))
     }
   }
 }

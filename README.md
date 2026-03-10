@@ -24,7 +24,17 @@ https://eugeniavd.github.io/magic_tagger/rdf/
 
 ---
 
-## 2. Licensing
+## 2. Ontology
+
+The current ontology for MagicTagger is available below as a preview and as an OWL file.
+
+![Russian Folktales ontology](rdf/ontology/rft.owl.svg)
+
+**Dynamic OWL Scheme:** [rft.owl](https://service.tib.eu/webvowl/#opts=sidebar=0;cd=50;filter_disjoint=false;#file=rft.owl)
+
+---
+
+## 3. Licensing
 
 MagicTagger distinguishes between **archival source materials**, **derived data**, and **code**.
 
@@ -44,5 +54,5 @@ MagicTagger distinguishes between **archival source materials**, **derived data*
 
 ---
 
-## 3. Contact
+## 4. Contact
 evgeniia.vdovichenko@studio.unibo.it

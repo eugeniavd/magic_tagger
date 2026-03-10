@@ -3,29 +3,31 @@ PREFIX prov:    <http://www.w3.org/ns/prov#>
 PREFIX locrel:  <http://id.loc.gov/vocabulary/relators/>
 PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
+PREFIX rft:     <https://eugeniavd.github.io/magic_tagger/rdf/ontology#>
 
 SELECT
   ?collector
   (SAMPLE(?collectorLabelFinal) AS ?collectorLabel)
   ?year
-  (COUNT(DISTINCT ?tale) AS ?taleCount)
+  (COUNT(DISTINCT ?recording) AS ?taleCount)
 WHERE {
-  ?tale dcterms:isPartOf ?volume .
-  FILTER(CONTAINS(STR(?volume), "/rdf/volume/")) .
+  ?recording a rft:TaleRecording ;
+             prov:qualifiedAttribution ?att ;
+             dcterms:created ?taleDate .
 
-  ?volume prov:qualifiedAttribution ?att .
   ?att a prov:Attribution ;
        prov:agent ?collector ;
        prov:hadRole locrel:col .
 
-  ?tale dcterms:created ?taleDate .
-  FILTER(datatype(?taleDate) = xsd:date) .
-  BIND(YEAR(?taleDate) AS ?year) .
+  BIND(STR(?taleDate) AS ?dateLex)
+  FILTER(REGEX(?dateLex, "^\\d{4}"))
+  BIND(xsd:integer(SUBSTR(?dateLex, 1, 4)) AS ?year)
 
   OPTIONAL { ?collector rdfs:label ?lblEn . FILTER(LANG(?lblEn) = "en") }
-
   OPTIONAL { ?collector rdfs:label ?lblAny . }
-  BIND(STR(?lblAny) AS ?lblStr) .
+
+  BIND(STR(?lblAny) AS ?lblStr)
+
   BIND(
     IF(
       REGEX(?lblStr, "'label_en'\\s*:\\s*'[^']+'"),
@@ -35,10 +37,20 @@ WHERE {
   )
 
   BIND(
-    COALESCE(STR(?lblEn), ?labelEnExtracted) AS ?collectorLabelFinal
+    IF(
+      BOUND(?lblEn) && STRLEN(STR(?lblEn)) > 0,
+      STR(?lblEn),
+      IF(
+        STRLEN(?labelEnExtracted) > 0,
+        ?labelEnExtracted,
+        IF(
+          BOUND(?lblAny) && STRLEN(STR(?lblAny)) > 0,
+          STR(?lblAny),
+          IF(isIRI(?collector), REPLACE(STR(?collector), "^.*/", ""), STR(?collector))
+        )
+      )
+    ) AS ?collectorLabelFinal
   )
-
-  FILTER(STRLEN(?collectorLabelFinal) > 0)
 }
 GROUP BY ?collector ?year
-ORDER BY ?year DESC(?taleCount)
+ORDER BY DESC(?year) DESC(?taleCount)

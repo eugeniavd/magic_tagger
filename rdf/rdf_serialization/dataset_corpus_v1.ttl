@@ -242,7 +242,10 @@
 
 <https://eugeniavd.github.io/magic_tagger/rdf/person/evgeniia-vdovichenko> a prov:Agent,
         foaf:Person ;
-    rdfs:label "Evgeniia Vdovichenko" .
+    rdfs:label "Evgeniia Vdovichenko" ;
+    dcterms:identifier "ORCID:0009-0003-0695-3910",
+        "evgeniia-vdovichenko" ;
+    rdfs:seeAlso <https://orcid.org/0009-0003-0695-3910> .
 
 <https://eugeniavd.github.io/magic_tagger/rdf/dataset/corpus/v1> a dcat:Dataset ;
     dcterms:accessRights <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;

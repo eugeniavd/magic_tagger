@@ -14,6 +14,7 @@
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "dcmitype": "http://purl.org/dc/dcmitype/",
     "locrel": "http://id.loc.gov/vocabulary/relators/",
+    "schema": "https://schema.org/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
@@ -40,10 +41,12 @@
       "@id": "dct:bibliographicCitation"
     },
     "accessRights": {
-      "@id": "dct:accessRights"
+      "@id": "dct:accessRights",
+      "@type": "@id"
     },
     "rights": {
-      "@id": "dct:rights"
+      "@id": "dct:rights",
+      "@type": "@id"
     },
     "language": {
       "@id": "dct:language"
@@ -55,8 +58,20 @@
       "@id": "dct:publisher",
       "@type": "@id"
     },
+    "creator": {
+      "@id": "dct:creator",
+      "@type": "@id"
+    },
+    "contributor": {
+      "@id": "dct:contributor",
+      "@type": "@id"
+    },
     "isPartOf": {
       "@id": "dct:isPartOf",
+      "@type": "@id"
+    },
+    "hasPart": {
+      "@id": "dct:hasPart",
       "@type": "@id"
     },
     "source": {
@@ -75,49 +90,14 @@
       "@id": "dct:spatial"
     },
     "created": {
-      "@id": "dct:created",
-      "@type": "xsd:date"
+      "@id": "dct:created"
+    },
+    "issued": {
+      "@id": "dct:issued",
+      "@type": "xsd:gYear"
     },
     "wasDerivedFrom": {
       "@id": "prov:wasDerivedFrom",
-      "@type": "@id"
-    },
-    "distribution": {
-      "@id": "dcat:distribution",
-      "@type": "@id"
-    },
-    "downloadURL": {
-      "@id": "dcat:downloadURL",
-      "@type": "@id"
-    },
-    "accessURL": {
-      "@id": "dcat:accessURL",
-      "@type": "@id"
-    },
-    "mediaType": {
-      "@id": "dcat:mediaType"
-    },
-    "issued": {
-      "@id": "dcat:issued",
-      "@type": "xsd:gYear"
-    },
-    "keyword": {
-      "@id": "dcat:keyword"
-    },
-    "theme": {
-      "@id": "dcat:theme",
-      "@type": "@id"
-    },
-    "age": {
-      "@id": "rft:age",
-      "@type": "xsd:integer"
-    },
-    "birthYear": {
-      "@id": "rft:birthYear",
-      "@type": "xsd:gYear"
-    },
-    "page": {
-      "@id": "foaf:page",
       "@type": "@id"
     },
     "qualifiedAttribution": {
@@ -135,566 +115,47 @@
     "hadRole": {
       "@id": "prov:hadRole",
       "@type": "@id"
+    },
+    "distribution": {
+      "@id": "dcat:distribution",
+      "@type": "@id"
+    },
+    "downloadURL": {
+      "@id": "dcat:downloadURL",
+      "@type": "@id"
+    },
+    "accessURL": {
+      "@id": "dcat:accessURL",
+      "@type": "@id"
+    },
+    "mediaType": {
+      "@id": "dcat:mediaType"
+    },
+    "keyword": {
+      "@id": "dcat:keyword"
+    },
+    "theme": {
+      "@id": "dcat:theme",
+      "@type": "@id"
+    },
+    "ageAtRecording": {
+      "@id": "rft:ageAtRecording",
+      "@type": "xsd:integer"
+    },
+    "birthDate": {
+      "@id": "schema:birthDate"
+    },
+    "page": {
+      "@id": "foaf:page",
+      "@type": "@id"
     }
   },
   "@graph": [
     {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col018",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col018', 'label_en': 'col018', 'raw': 'col018'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar009",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar009"
-        },
-        {
-          "@language": "et",
-          "@value": "nar009"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 80
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col041",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col041', 'label_en': 'col041', 'raw': 'col041'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/fedor-kolosov",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Fedor Kolosov"
-        },
-        {
-          "@language": "ru",
-          "@value": "Федор Колосов"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col011",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col011', 'label_en': 'col011', 'raw': 'col011'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col033",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col033', 'label_en': 'col033', 'raw': 'col033'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar011",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar011"
-        },
-        {
-          "@language": "et",
-          "@value": "nar011"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 39
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/m-sokolov",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'm-sokolov', 'label_en': 'm sokolov', 'raw': 'M. Sokolov', 'name_raw': 'M. Sokolov'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/maksim-tverdov",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "православный"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Maksim Tverdov"
-        },
-        {
-          "@language": "ru",
-          "@value": "Максим Твердов"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 61
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col027",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col027', 'label_en': 'col027', 'raw': 'col027'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/zoia-aleksandrovna-iupatova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "православная"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Zoia Aleksandrovna Iupatova"
-        },
-        {
-          "@language": "ru",
-          "@value": "Зоя Александровна Юпатова"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1927"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/z-vasileva-suvorova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "слышала от бабушки"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Z. Vasil'eva-Suvorova"
-        },
-        {
-          "@language": "ru",
-          "@value": "З. Васильева-Суворова"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/anastasiia-dorofeevna-topkina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Anastasiia Dorofeevna Topkina"
-        },
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'anastasiia-dorofeevna-topkina', 'label_en': 'anastasiia dorofeevna topkina', 'raw': 'Анастасия Дорофеевна Топкина', 'name_raw': 'Анастасия Дорофеевна Топкина'}"
-        },
-        {
-          "@language": "ru",
-          "@value": "Анастасия Дорофеевна Топкина"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        },
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/natalia-alekseevna-pagareva",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Natal'ia Alekseevna Pagareva"
-        },
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'natalia-alekseevna-pagareva', 'label_en': 'natalia alekseevna pagareva', 'raw': 'Наталья Алексеевна Пагарева', 'name_raw': 'Наталья Алексеевна Пагарева'}"
-        },
-        {
-          "@language": "ru",
-          "@value": "Наталья Алексеевна Пагарева"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        },
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/o-brandt",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'o-brandt', 'label_en': 'o brandt', 'raw': 'O. Brandt', 'name_raw': 'O. Brandt'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col024",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col024', 'label_en': 'col024', 'raw': 'col024'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar001",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar001"
-        },
-        {
-          "@language": "et",
-          "@value": "nar001"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 86
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/irin-ia-sal-nikova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Irin'ia Sal'nikova"
-        },
-        {
-          "@language": "ru",
-          "@value": "Иринья Сальникова"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col022",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col022', 'label_en': 'col022', 'raw': 'col022'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar015",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar015"
-        },
-        {
-          "@language": "et",
-          "@value": "nar015"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 59
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col005",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col005', 'label_en': 'col005', 'raw': 'col005'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/olga-gildebrandt",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'olga-gil-debrandt', 'label_en': 'olga gildebrandt', 'raw': 'Ольга Гильдебрандт', 'name_raw': 'Ольга Гильдебрандт'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col026",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col026', 'label_en': 'col026', 'raw': 'col026'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nikolai-grecman",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
+      "ageAtRecording": "73",
+      "id": "/magic_tagger/rdf/person/nikolai-grecman",
+      "identifier": "nikolai-grecman",
+      "label": [
         {
           "@language": "en",
           "@value": "Nikolai Grecman"
@@ -704,612 +165,19 @@
           "@value": "Nikolai Grečman"
         }
       ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 73
-        }
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
       ]
     },
     {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/marfa-petukhova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Marfa Petukhova"
-        },
-        {
-          "@language": "ru",
-          "@value": "Марфа Петухова"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1887"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col008",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col008', 'label_en': 'col008', 'raw': 'col008'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col007",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col007', 'label_en': 'col007', 'raw': 'col007'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/ivan-petrovich-kirshinskii",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "православ"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Ivan Petrovich Kirshinskii"
-        },
-        {
-          "@language": "ru",
-          "@value": "Иван Петрович Киршинский"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 63
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/denisikha",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Denisikha"
-        },
-        {
-          "@language": "ru",
-          "@value": "Денисиха"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col025",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col025', 'label_en': 'col025', 'raw': 'col025'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar005",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar005"
-        },
-        {
-          "@language": "et",
-          "@value": "nar005"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 60
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/starukha-guseva",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "слышала в детстве"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "starukha Guseva"
-        },
-        {
-          "@language": "ru",
-          "@value": "старуха Guseva"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 92
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/vera-sumina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Vera Sumina"
-        },
-        {
-          "@language": "ru",
-          "@value": "Вера Сумина"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 58
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/z-vasilieva-suvorova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'z-vasileva-suvorova', 'label_en': 'z vasileva suvorova', 'raw': 'З. Васильева-Суворова', 'name_raw': 'З. Васильева-Суворова'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col034",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col034', 'label_en': 'col034', 'raw': 'col034'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col037",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col037', 'label_en': 'col037', 'raw': 'col037'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar008",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar008"
-        },
-        {
-          "@language": "et",
-          "@value": "nar008"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 80
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col004",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col004', 'label_en': 'col004', 'raw': 'col004'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col020",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col020', 'label_en': 'col020', 'raw': 'col020'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/fedor-koniaev",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'fedor-koniaev', 'label_en': 'fedor koniaev', 'raw': 'Федор Коняев', 'name_raw': 'Федор Коняев'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col002",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col002', 'label_en': 'col002', 'raw': 'col002'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/zoia-zhemchuzhina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'zoia-zhemchuzhina', 'label_en': 'zoia zhemchuzhina', 'raw': 'Зоя Жемчужина', 'name_raw': 'Зоя Жемчужина'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col038",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col038', 'label_en': 'col038', 'raw': 'col038'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col040",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col040', 'label_en': 'col040', 'raw': 'col040'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/sergei-dimitrievich-tsvetkov",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Sergei Dimitrievich Tsvetkov"
-        },
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'sergei-dimitrievich-tsvetkov', 'label_en': 'sergei dimitrievich tsvetkov', 'raw': 'Сергей Димитриевич Цветков', 'name_raw': 'Сергей Димитриевич Цветков'}"
-        },
-        {
-          "@language": "ru",
-          "@value": "Сергей Димитриевич Цветков"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        },
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/anna-terent-evna-gunina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Anna Terent'evna Gunina"
-        },
-        {
-          "@language": "ru",
-          "@value": "Анна Терентьевна Гунина"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1896"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/avdot-ia-suvorova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Avdot'ia Suvorova"
-        },
-        {
-          "@language": "ru",
-          "@value": "Авдотья Суворова"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 60
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar013",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar013"
-        },
-        {
-          "@language": "et",
-          "@value": "nar013"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/tatiana-semukhina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'tat-iana-semukhina', 'label_en': 'tat iana semukhina', 'raw': 'Татьяна Семухина', 'name_raw': 'Татьяна Семухина'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/tat-iana-semukhina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
+      "birthDate": {
+        "@value": "1922",
+        "type": "xsd:gYear"
+      },
+      "id": "/magic_tagger/rdf/person/tat-iana-semukhina",
+      "identifier": "tat-iana-semukhina",
+      "label": [
         {
           "@language": "en",
           "@value": "Tat'iana Semukhina"
@@ -1319,608 +187,34 @@
           "@value": "Татьяна Семухина"
         }
       ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1922"
-        }
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
       ]
     },
     {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/s-minusov",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "et",
-          "@value": "kuulnud 50 aastat tagasi; kirjaoskamatu"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
+      "id": "/magic_tagger/rdf/person/nar013",
+      "identifier": "nar013",
+      "label": [
         {
           "@language": "en",
-          "@value": "S. Minusov"
+          "@value": "nar013"
         },
         {
           "@language": "et",
-          "@value": "S. Minusov"
+          "@value": "nar013"
         }
       ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 76
-        }
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
       ]
     },
     {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/andrei-nikhandrovich-lik",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "православный"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Andrei Nikhandrovich Lik"
-        },
-        {
-          "@language": "ru",
-          "@value": "Андрей Нихандрович Лик"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1885"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar003",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar003"
-        },
-        {
-          "@language": "et",
-          "@value": "nar003"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/dar-ia-rosolova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "неграмотная"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Dar'ia Rosolova"
-        },
-        {
-          "@language": "ru",
-          "@value": "Дарья Росолова"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 73
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nastasja-kropetskaja",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Nastasja Kropetskaja"
-        },
-        {
-          "@language": "et",
-          "@value": "Nastasja Krõpetskaja"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 60
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col015",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col015', 'label_en': 'col015', 'raw': 'col015'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/iraida-georgievna-topkina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Iraida Georgievna Topkina"
-        },
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'iraida-georgievna-topkina', 'label_en': 'iraida georgievna topkina', 'raw': 'Ираида Георгиевна Топкина', 'name_raw': 'Ираида Георгиевна Топкина'}"
-        },
-        {
-          "@language": "ru",
-          "@value": "Ираида Георгиевна Топкина"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        },
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/vassa-denisovna-gunina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Vassa Denisovna Gunina"
-        },
-        {
-          "@language": "ru",
-          "@value": "Васса Денисовна Гунина"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1876"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/olga-gromova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'olga-gromova', 'label_en': 'olga gromova', 'raw': 'Ольга Громова', 'name_raw': 'Ольга Громова'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col017",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col017', 'label_en': 'col017', 'raw': 'col017'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col006",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col006', 'label_en': 'col006', 'raw': 'col006'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nina-mukhina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Nina Mukhina"
-        },
-        {
-          "@language": "ru",
-          "@value": "Нина Мухина"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/ivan-mal-tsev",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Ivan Mal'tsev"
-        },
-        {
-          "@language": "ru",
-          "@value": "Иван Мальцев"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar012",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar012"
-        },
-        {
-          "@language": "et",
-          "@value": "nar012"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 80
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/anna-mikhailovna-seniushkina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Anna Mikhailovna Seniushkina"
-        },
-        {
-          "@language": "ru",
-          "@value": "Анна Михайловна Сенюшкина"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1900"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/matrena-protaeva",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "слепая, неграмотная"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Matrena Protaeva"
-        },
-        {
-          "@language": "ru",
-          "@value": "Матрена Протаева"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 85
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col043",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col043', 'label_en': 'col043', 'raw': 'col043'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/oleg-riumin-ivanov",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Oleg Riumin-Ivanov"
-        },
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'oleg-riumin-ivanov', 'label_en': 'oleg riumin ivanov', 'raw': 'Олег Рюмин-Иванов', 'name_raw': 'Олег Рюмин-Иванов'}"
-        },
-        {
-          "@language": "ru",
-          "@value": "Олег Рюмин-Иванов"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        },
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1923"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar019",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar019"
-        },
-        {
-          "@language": "et",
-          "@value": "nar019"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 67
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col042",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col042', 'label_en': 'col042', 'raw': 'col042'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/dariia-lipina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Dariia Lipina"
-        },
-        {
-          "@language": "ru",
-          "@value": "Дария Липина"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1851"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/menda-erenberg",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'menda-erenberg', 'label_en': 'menda erenberg', 'raw': 'Menda Erenberg', 'name_raw': 'Menda Erenberg'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/marfa-shilova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
+      "ageAtRecording": "48",
+      "id": "/magic_tagger/rdf/person/marfa-shilova",
+      "identifier": "marfa-shilova",
+      "label": [
         {
           "@language": "en",
           "@value": "Marfa Shilova"
@@ -1930,629 +224,98 @@
           "@value": "Марфа Шилова"
         }
       ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 48
-        }
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
       ]
     },
     {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/ivan-petrovich-somov",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "православный"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
+      "id": "/magic_tagger/rdf/person/col038",
+      "identifier": "col038",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col038', 'label_en': 'col038', 'raw': 'col038'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "comment": {
+        "@language": "ru",
+        "@value": "слышала от бабушки"
+      },
+      "id": "/magic_tagger/rdf/person/z-vasileva-suvorova",
+      "identifier": "z-vasileva-suvorova",
+      "label": [
         {
           "@language": "en",
-          "@value": "Ivan Petrovich Somov"
+          "@value": "Z. Vasil'eva-Suvorova"
         },
         {
           "@language": "ru",
-          "@value": "Иван Петрович Сомов"
+          "@value": "З. Васильева-Суворова"
         }
       ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1870"
-        }
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
       ]
     },
     {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/avdot-ia-ershova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "неграмотная"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
+      "id": "/magic_tagger/rdf/person/col030",
+      "identifier": "col030",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col030', 'label_en': 'col030', 'raw': 'col030'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "60",
+      "id": "/magic_tagger/rdf/person/avdotia-suvorova",
+      "identifier": "avdotia-suvorova",
+      "label": [
         {
           "@language": "en",
-          "@value": "Avdot'ia Ershova"
+          "@value": "Avdot'ia Suvorova"
         },
         {
           "@language": "ru",
-          "@value": "Авдотья Ершова"
+          "@value": "Авдотья Суворова"
         }
       ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 76
-        }
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
       ]
     },
     {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/lewonty-borhov",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
+      "id": "/magic_tagger/rdf/person/ivan-maltsev",
+      "identifier": "ivan-maltsev",
+      "label": [
         {
           "@language": "en",
-          "@value": "Lewonty Borhov"
-        },
-        {
-          "@language": "et",
-          "@value": "Lewonty Borhov"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 63
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar014",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "неграмотная"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar014"
-        },
-        {
-          "@language": "et",
-          "@value": "nar014"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1894"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar002",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "nar002"
-        },
-        {
-          "@language": "et",
-          "@value": "nar002"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/anastasiia-kodar",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "слышала от отца"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Anastasiia Kodar"
+          "@value": "Ivan Mal'tsev"
         },
         {
           "@language": "ru",
-          "@value": "Анастасия Кодар"
+          "@value": "Иван Мальцев"
         }
       ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1909"
-        }
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
       ]
     },
     {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col028",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col028', 'label_en': 'col028', 'raw': 'col028'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col014",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col014', 'label_en': 'col014', 'raw': 'col014'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/anna-fedorovna-neverovskaia",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Anna Fedorovna Neverovskaia"
-        },
-        {
-          "@language": "ru",
-          "@value": "Анна Федоровна Неверовская"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 50
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/e-protasova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "et",
-          "@value": "kuulnud 20 aastat tagasi"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "E. Protasova"
-        },
-        {
-          "@language": "et",
-          "@value": "E. Protasova"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 82
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/maria-sokolova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'maria-sokolova', 'label_en': 'maria sokolova', 'raw': 'Maria Sokolova', 'name_raw': 'Maria Sokolova'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/aleksandr-osipovich-iariomin",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Aleksandr Osipovich Iariomin"
-        },
-        {
-          "@language": "ru",
-          "@value": "Александр Осипович Ярёмин"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 60
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/fedor-minushkin",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "слышал 40 лет назад"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Fedor Minushkin"
-        },
-        {
-          "@language": "ru",
-          "@value": "Федор Минушкин"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 60
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col019",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col019', 'label_en': 'col019', 'raw': 'col019'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/zoia-dondukova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'zoia-dondukova', 'label_en': 'zoia dondukova', 'raw': 'Зоя Дондукова', 'name_raw': 'Зоя Дондукова'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col013",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col013', 'label_en': 'col013', 'raw': 'col013'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col031",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col031', 'label_en': 'col031', 'raw': 'col031'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/leon-borkhov",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "\"бывалый человек\""
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Leon Borkhov"
-        },
-        {
-          "@language": "ru",
-          "@value": "Леон Борхов"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 70
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/vera-voogla",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "ru",
-          "@value": "{'person_id': 'vera-voogla', 'label_en': 'vera voogla', 'raw': 'Вера Воогла', 'name_raw': 'Вера Воогла'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/andrei-ulanov",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Andrei Ulanov"
-        },
-        {
-          "@language": "ru",
-          "@value": "Андрей Уланов"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 48
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col012",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col012', 'label_en': 'col012', 'raw': 'col012'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col016",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col016', 'label_en': 'col016', 'raw': 'col016'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/ivan-mishin",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Ivan Mishin"
-        },
-        {
-          "@language": "ru",
-          "@value": "Иван Мишин"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 50
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/neizvestno",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
+      "id": "/magic_tagger/rdf/person/neizvestno",
+      "identifier": "neizvestno",
+      "label": [
         {
           "@language": "en",
           "@value": "neizvestno"
@@ -2562,43 +325,162 @@
           "@value": "неизвестно"
         }
       ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
       ]
     },
     {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/an-mukhina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
+      "id": "/magic_tagger/rdf/person/maria-sokolova",
+      "identifier": "maria-sokolova",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'maria-sokolova', 'label_en': 'maria sokolova', 'raw': 'Maria Sokolova', 'name_raw': 'Maria Sokolova'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "73",
+      "comment": {
+        "@language": "ru",
+        "@value": "неграмотная"
+      },
+      "id": "/magic_tagger/rdf/person/daria-rosolova",
+      "identifier": "daria-rosolova",
+      "label": [
         {
           "@language": "en",
-          "@value": "An. Mukhina"
+          "@value": "Dar'ia Rosolova"
         },
         {
           "@language": "ru",
-          "@value": "Ан. Мухина"
+          "@value": "Дарья Росолова"
         }
       ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
       ]
     },
     {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/kira-trubenkova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
+      "id": "/magic_tagger/rdf/person/vera-voogla",
+      "identifier": "vera-voogla",
+      "label": {
+        "@language": "ru",
+        "@value": "{'person_id': 'vera-voogla', 'label_en': 'vera voogla', 'raw': 'Вера Воогла', 'name_raw': 'Вера Воогла'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col003",
+      "identifier": "col003",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col003', 'label_en': 'col003', 'raw': 'col003'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "68",
+      "id": "/magic_tagger/rdf/person/anna-karpulistova",
+      "identifier": "anna-karpulistova",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Anna Karpulistova"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анна Карпулистова"
+        }
       ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "50",
+      "id": "/magic_tagger/rdf/person/anna-fedorovna-neverovskaia",
+      "identifier": "anna-fedorovna-neverovskaia",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Anna Fedorovna Neverovskaia"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анна Федоровна Неверовская"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "birthDate": {
+        "@value": "1896",
+        "type": "xsd:gYear"
+      },
+      "id": "/magic_tagger/rdf/person/anna-terent-evna-gunina",
+      "identifier": "anna-terent-evna-gunina",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Anna Terent'evna Gunina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анна Терентьевна Гунина"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col040",
+      "identifier": "col040",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col040', 'label_en': 'col040', 'raw': 'col040'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/o-brandt",
+      "identifier": "o-brandt",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'o-brandt', 'label_en': 'o brandt', 'raw': 'O. Brandt', 'name_raw': 'O. Brandt'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "birthDate": {
+        "@value": "1920",
+        "type": "xsd:gYear"
+      },
+      "id": "/magic_tagger/rdf/person/kira-trubenkova",
+      "identifier": "kira-trubenkova",
+      "label": [
         {
           "@language": "en",
           "@value": "Kira Trubenkova"
@@ -2612,207 +494,404 @@
           "@value": "Кира Трубенкова"
         }
       ],
-      "http://www.w3.org/ns/prov#hadRole": [
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/zoia-zhemchuzhina",
+      "identifier": "zoia-zhemchuzhina",
+      "label": {
+        "@language": "ru",
+        "@value": "{'person_id': 'zoia-zhemchuzhina', 'label_en': 'zoia zhemchuzhina', 'raw': 'Зоя Жемчужина', 'name_raw': 'Зоя Жемчужина'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col017",
+      "identifier": "col017",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col017', 'label_en': 'col017', 'raw': 'col017'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col034",
+      "identifier": "col034",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col034', 'label_en': 'col034', 'raw': 'col034'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "70",
+      "comment": {
+        "@language": "ru",
+        "@value": "\"бывалый человек\""
+      },
+      "id": "/magic_tagger/rdf/person/leon-borkhov",
+      "identifier": "leon-borkhov",
+      "label": [
         {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
+          "@language": "en",
+          "@value": "Leon Borkhov"
         },
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1920"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col021",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col021', 'label_en': 'col021', 'raw': 'col021'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar004",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
         {
           "@language": "ru",
-          "@value": "услышана от бабушки nar003"
+          "@value": "Леон Борхов"
         }
       ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "60",
+      "id": "/magic_tagger/rdf/person/aleksandr-osipovich-iariomin",
+      "identifier": "aleksandr-osipovich-iariomin",
+      "label": [
         {
           "@language": "en",
-          "@value": "nar004"
+          "@value": "Aleksandr Osipovich Iariomin"
+        },
+        {
+          "@language": "ru",
+          "@value": "Александр Осипович Ярёмин"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "63",
+      "comment": {
+        "@language": "ru",
+        "@value": "православ"
+      },
+      "id": "/magic_tagger/rdf/person/ivan-petrovich-kirshinskii",
+      "identifier": "ivan-petrovich-kirshinskii",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Ivan Petrovich Kirshinskii"
+        },
+        {
+          "@language": "ru",
+          "@value": "Иван Петрович Киршинский"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col026",
+      "identifier": "col026",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col026', 'label_en': 'col026', 'raw': 'col026'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "48",
+      "id": "/magic_tagger/rdf/person/andrei-ulanov",
+      "identifier": "andrei-ulanov",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Andrei Ulanov"
+        },
+        {
+          "@language": "ru",
+          "@value": "Андрей Уланов"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col037",
+      "identifier": "col037",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col037', 'label_en': 'col037', 'raw': 'col037'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/sergei-dimitrievich-tsvetkov",
+      "identifier": "sergei-dimitrievich-tsvetkov",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Sergei Dimitrievich Tsvetkov"
+        },
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'sergei-dimitrievich-tsvetkov', 'label_en': 'sergei dimitrievich tsvetkov', 'raw': 'Сергей Димитриевич Цветков', 'name_raw': 'Сергей Димитриевич Цветков'}"
+        },
+        {
+          "@language": "ru",
+          "@value": "Сергей Димитриевич Цветков"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/tatiana-semukhina",
+      "identifier": "tatiana-semukhina",
+      "label": {
+        "@language": "ru",
+        "@value": "{'person_id': 'tat-iana-semukhina', 'label_en': 'tat iana semukhina', 'raw': 'Татьяна Семухина', 'name_raw': 'Татьяна Семухина'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/nar002",
+      "identifier": "nar002",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "nar002"
         },
         {
           "@language": "et",
-          "@value": "nar004"
+          "@value": "nar002"
         }
       ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 12
-        }
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
       ]
     },
     {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col030",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col030', 'label_en': 'col030', 'raw': 'col030'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
+      "id": "/magic_tagger/rdf/person/col005",
+      "identifier": "col005",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col005', 'label_en': 'col005', 'raw': 'col005'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
       ]
     },
     {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col009",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col009', 'label_en': 'col009', 'raw': 'col009'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
+      "id": "/magic_tagger/rdf/person/col042",
+      "identifier": "col042",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col042', 'label_en': 'col042', 'raw': 'col042'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
       ]
     },
     {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col029",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col029', 'label_en': 'col029', 'raw': 'col029'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
+      "id": "/magic_tagger/rdf/person/egorov-v",
+      "identifier": "egorov-v",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'egorov-v', 'label_en': 'egorov v', 'raw': 'Egorov V.', 'name_raw': 'Egorov V.'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
       ]
     },
     {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col035",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col035', 'label_en': 'col035', 'raw': 'col035'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col032",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col032', 'label_en': 'col032', 'raw': 'col032'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/michail-dragunin",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
+      "ageAtRecording": "60",
+      "id": "/magic_tagger/rdf/person/nastasja-kropetskaja",
+      "identifier": "nastasja-kropetskaja",
+      "label": [
         {
           "@language": "en",
-          "@value": "Michail Dragunin"
+          "@value": "Nastasja Kropetskaja"
         },
         {
           "@language": "et",
-          "@value": "Michail Dragunin"
+          "@value": "Nastasja Krõpetskaja"
         }
       ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 34
-        }
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
       ]
     },
     {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/a-billio",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
+      "ageAtRecording": "76",
+      "comment": {
+        "@language": "ru",
+        "@value": "неграмотная"
+      },
+      "id": "/magic_tagger/rdf/person/avdotia-ershova",
+      "identifier": "avdotia-ershova",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Avdot'ia Ershova"
+        },
+        {
+          "@language": "ru",
+          "@value": "Авдотья Ершова"
+        }
       ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "birthDate": {
+        "@value": "1923",
+        "type": "xsd:gYear"
+      },
+      "id": "/magic_tagger/rdf/person/oleg-riumin-ivanov",
+      "identifier": "oleg-riumin-ivanov",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Oleg Riumin-Ivanov"
+        },
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'oleg-riumin-ivanov', 'label_en': 'oleg riumin ivanov', 'raw': 'Олег Рюмин-Иванов', 'name_raw': 'Олег Рюмин-Иванов'}"
+        },
+        {
+          "@language": "ru",
+          "@value": "Олег Рюмин-Иванов"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "birthDate": {
+        "@value": "1885",
+        "type": "xsd:gYear"
+      },
+      "comment": {
+        "@language": "ru",
+        "@value": "православный"
+      },
+      "id": "/magic_tagger/rdf/person/andrei-nikhandrovich-lik",
+      "identifier": "andrei-nikhandrovich-lik",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Andrei Nikhandrovich Lik"
+        },
+        {
+          "@language": "ru",
+          "@value": "Андрей Нихандрович Лик"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "birthDate": {
+        "@value": "1894",
+        "type": "xsd:gYear"
+      },
+      "comment": {
+        "@language": "ru",
+        "@value": "неграмотная"
+      },
+      "id": "/magic_tagger/rdf/person/nar014",
+      "identifier": "nar014",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "nar014"
+        },
+        {
+          "@language": "et",
+          "@value": "nar014"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/fedor-kolosov",
+      "identifier": "fedor-kolosov",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Fedor Kolosov"
+        },
+        {
+          "@language": "ru",
+          "@value": "Федор Колосов"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "60",
+      "id": "/magic_tagger/rdf/person/nar005",
+      "identifier": "nar005",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "nar005"
+        },
+        {
+          "@language": "et",
+          "@value": "nar005"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/a-billio",
+      "identifier": "a-billio",
+      "label": [
         {
           "@language": "en",
           "@value": "A. Billio"
@@ -2826,94 +905,170 @@
           "@value": "А. Биллио"
         }
       ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        },
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
       ]
     },
     {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/anna-mukhina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
+      "ageAtRecording": "67",
+      "id": "/magic_tagger/rdf/person/nar019",
+      "identifier": "nar019",
+      "label": [
         {
           "@language": "en",
-          "@value": "Anna Mukhina"
+          "@value": "nar019"
         },
-        {
-          "@language": "ru",
-          "@value": "Анна Мухина"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col044",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
         {
           "@language": "et",
-          "@value": "{'person_id': 'col044', 'label_en': 'col044', 'raw': 'col044'}"
+          "@value": "nar019"
         }
       ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
       ]
     },
     {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/anna-karpulistova",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
+      "id": "/magic_tagger/rdf/person/col018",
+      "identifier": "col018",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col018', 'label_en': 'col018', 'raw': 'col018'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/fedor-koniaev",
+      "identifier": "fedor-koniaev",
+      "label": {
+        "@language": "ru",
+        "@value": "{'person_id': 'fedor-koniaev', 'label_en': 'fedor koniaev', 'raw': 'Федор Коняев', 'name_raw': 'Федор Коняев'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "34",
+      "id": "/magic_tagger/rdf/person/michail-dragunin",
+      "identifier": "michail-dragunin",
+      "label": [
         {
           "@language": "en",
-          "@value": "Anna Karpulistova"
+          "@value": "Michail Dragunin"
+        },
+        {
+          "@language": "et",
+          "@value": "Michail Dragunin"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/z-vasilieva-suvorova",
+      "identifier": "z-vasilieva-suvorova",
+      "label": {
+        "@language": "ru",
+        "@value": "{'person_id': 'z-vasileva-suvorova', 'label_en': 'z vasileva suvorova', 'raw': 'З. Васильева-Суворова', 'name_raw': 'З. Васильева-Суворова'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col008",
+      "identifier": "col008",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col008', 'label_en': 'col008', 'raw': 'col008'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/iraida-georgievna-topkina",
+      "identifier": "iraida-georgievna-topkina",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Iraida Georgievna Topkina"
         },
         {
           "@language": "ru",
-          "@value": "Анна Карпулистова"
+          "@value": "{'person_id': 'iraida-georgievna-topkina', 'label_en': 'iraida georgievna topkina', 'raw': 'Ираида Георгиевна Топкина', 'name_raw': 'Ираида Георгиевна Топкина'}"
+        },
+        {
+          "@language": "ru",
+          "@value": "Ираида Георгиевна Топкина"
         }
       ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 68
-        }
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
       ]
     },
     {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/anastasiia-folomeevna-senetskaia",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
+      "id": "/magic_tagger/rdf/person/natalia-alekseevna-pagareva",
+      "identifier": "natalia-alekseevna-pagareva",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Natal'ia Alekseevna Pagareva"
+        },
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'natalia-alekseevna-pagareva', 'label_en': 'natalia alekseevna pagareva', 'raw': 'Наталья Алексеевна Пагарева', 'name_raw': 'Наталья Алексеевна Пагарева'}"
+        },
+        {
+          "@language": "ru",
+          "@value": "Наталья Алексеевна Пагарева"
+        }
       ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col028",
+      "identifier": "col028",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col028', 'label_en': 'col028', 'raw': 'col028'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col020",
+      "identifier": "col020",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col020', 'label_en': 'col020', 'raw': 'col020'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "73",
+      "id": "/magic_tagger/rdf/person/anastasiia-folomeevna-senetskaia",
+      "identifier": "anastasiia-folomeevna-senetskaia",
+      "label": [
         {
           "@language": "en",
           "@value": "Anastasiia Folomeevna Senetskaia"
@@ -2923,217 +1078,52 @@
           "@value": "Анастасия Фоломеевна Сенецкая"
         }
       ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 73
-        }
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
       ]
     },
     {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/anna-khalat",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "выучила от дедушки Алексея Кириловича"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
+      "id": "/magic_tagger/rdf/person/anna-mukhina",
+      "identifier": "anna-mukhina",
+      "label": [
         {
           "@language": "en",
-          "@value": "Anna Khalat"
+          "@value": "Anna Mukhina"
         },
         {
           "@language": "ru",
-          "@value": "Анна Халат"
+          "@value": "Анна Мухина"
         }
       ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 80
-        }
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
       ]
     },
     {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/mariia-latkina",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
+      "id": "/magic_tagger/rdf/person/irinia-salnikova",
+      "identifier": "irinia-salnikova",
+      "label": [
         {
           "@language": "en",
-          "@value": "Mariia Latkina"
+          "@value": "Irin'ia Sal'nikova"
         },
         {
           "@language": "ru",
-          "@value": "Мария Латкина"
+          "@value": "Иринья Сальникова"
         }
       ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 76
-        }
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
       ]
     },
     {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/aksin-ia",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "неграмотная"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Aksin'ia"
-        },
-        {
-          "@language": "ru",
-          "@value": "Аксинья"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 72
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/olga-brandt",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'olga-brandt', 'label_en': 'olga brandt', 'raw': 'Olga Brandt', 'name_raw': 'Olga Brandt'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col023",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'col023', 'label_en': 'col023', 'raw': 'col023'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/egorov-v",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "et",
-          "@value": "{'person_id': 'egorov-v', 'label_en': 'egorov v', 'raw': 'Egorov V.', 'name_raw': 'Egorov V.'}"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/anatolii-semenov",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#comment": [
-        {
-          "@language": "ru",
-          "@value": "православный"
-        }
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
-        {
-          "@language": "en",
-          "@value": "Anatolii Semenov"
-        },
-        {
-          "@language": "ru",
-          "@value": "Анатолий Семенов"
-        }
-      ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 56
-        }
-      ]
-    },
-    {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/dar-ia-zalavskaia",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
+      "ageAtRecording": "60",
+      "id": "/magic_tagger/rdf/person/daria-zalavskaia",
+      "identifier": "daria-zalavskaia",
+      "label": [
         {
           "@language": "en",
           "@value": "Dar'ia Zalavskaia"
@@ -3143,45 +1133,1043 @@
           "@value": "Дарья Залавская"
         }
       ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
-        }
-      ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#age": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#integer",
-          "@value": 60
-        }
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
       ]
     },
     {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/col003",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
-      ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
+      "ageAtRecording": "80",
+      "id": "/magic_tagger/rdf/person/nar009",
+      "identifier": "nar009",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "nar009"
+        },
         {
           "@language": "et",
-          "@value": "{'person_id': 'col003', 'label_en': 'col003', 'raw': 'col003'}"
+          "@value": "nar009"
         }
       ],
-      "http://www.w3.org/ns/prov#hadRole": [
-        {
-          "@id": "http://id.loc.gov/vocabulary/relators/col"
-        }
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
       ]
     },
     {
-      "@id": "https://eugeniavd.github.io/magic_tagger/rdf/person/nar007",
-      "@type": [
-        "http://www.cidoc-crm.org/cidoc-crm/E21_Person",
-        "http://www.w3.org/ns/prov#Agent",
-        "http://xmlns.com/foaf/0.1/Person"
+      "ageAtRecording": "92",
+      "comment": {
+        "@language": "ru",
+        "@value": "слышала в детстве"
+      },
+      "id": "/magic_tagger/rdf/person/starukha-guseva",
+      "identifier": "starukha-guseva",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "starukha Guseva"
+        },
+        {
+          "@language": "ru",
+          "@value": "старуха Guseva"
+        }
       ],
-      "http://www.w3.org/2000/01/rdf-schema#label": [
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col016",
+      "identifier": "col016",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col016', 'label_en': 'col016', 'raw': 'col016'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "80",
+      "comment": {
+        "@language": "ru",
+        "@value": "выучила от дедушки Алексея Кириловича"
+      },
+      "id": "/magic_tagger/rdf/person/anna-khalat",
+      "identifier": "anna-khalat",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Anna Khalat"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анна Халат"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col043",
+      "identifier": "col043",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col043', 'label_en': 'col043', 'raw': 'col043'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col006",
+      "identifier": "col006",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col006', 'label_en': 'col006', 'raw': 'col006'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "56",
+      "comment": {
+        "@language": "ru",
+        "@value": "православный"
+      },
+      "id": "/magic_tagger/rdf/person/anatolii-semenov",
+      "identifier": "anatolii-semenov",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Anatolii Semenov"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анатолий Семенов"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col014",
+      "identifier": "col014",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col014', 'label_en': 'col014', 'raw': 'col014'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col007",
+      "identifier": "col007",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col007', 'label_en': 'col007', 'raw': 'col007'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "80",
+      "id": "/magic_tagger/rdf/person/nar008",
+      "identifier": "nar008",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "nar008"
+        },
+        {
+          "@language": "et",
+          "@value": "nar008"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col011",
+      "identifier": "col011",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col011', 'label_en': 'col011', 'raw': 'col011'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "76",
+      "comment": {
+        "@language": "et",
+        "@value": "kuulnud 50 aastat tagasi; kirjaoskamatu"
+      },
+      "id": "/magic_tagger/rdf/person/s-minusov",
+      "identifier": "s-minusov",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "S. Minusov"
+        },
+        {
+          "@language": "et",
+          "@value": "S. Minusov"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col004",
+      "identifier": "col004",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col004', 'label_en': 'col004', 'raw': 'col004'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/anastasiia-dorofeevna-topkina",
+      "identifier": "anastasiia-dorofeevna-topkina",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Anastasiia Dorofeevna Topkina"
+        },
+        {
+          "@language": "ru",
+          "@value": "{'person_id': 'anastasiia-dorofeevna-topkina', 'label_en': 'anastasiia dorofeevna topkina', 'raw': 'Анастасия Дорофеевна Топкина', 'name_raw': 'Анастасия Дорофеевна Топкина'}"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анастасия Дорофеевна Топкина"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col022",
+      "identifier": "col022",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col022', 'label_en': 'col022', 'raw': 'col022'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col002",
+      "identifier": "col002",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col002', 'label_en': 'col002', 'raw': 'col002'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "63",
+      "id": "/magic_tagger/rdf/person/lewonty-borhov",
+      "identifier": "lewonty-borhov",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Lewonty Borhov"
+        },
+        {
+          "@language": "et",
+          "@value": "Lewonty Borhov"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col044",
+      "identifier": "col044",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col044', 'label_en': 'col044', 'raw': 'col044'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "72",
+      "comment": {
+        "@language": "ru",
+        "@value": "неграмотная"
+      },
+      "id": "/magic_tagger/rdf/person/aksinia",
+      "identifier": "aksinia",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Aksin'ia"
+        },
+        {
+          "@language": "ru",
+          "@value": "Аксинья"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col032",
+      "identifier": "col032",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col032', 'label_en': 'col032', 'raw': 'col032'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/m-sokolov",
+      "identifier": "m-sokolov",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'm-sokolov', 'label_en': 'm sokolov', 'raw': 'M. Sokolov', 'name_raw': 'M. Sokolov'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "39",
+      "id": "/magic_tagger/rdf/person/nar011",
+      "identifier": "nar011",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "nar011"
+        },
+        {
+          "@language": "et",
+          "@value": "nar011"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/menda-erenberg",
+      "identifier": "menda-erenberg",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'menda-erenberg', 'label_en': 'menda erenberg', 'raw': 'Menda Erenberg', 'name_raw': 'Menda Erenberg'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col019",
+      "identifier": "col019",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col019', 'label_en': 'col019', 'raw': 'col019'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "60",
+      "comment": {
+        "@language": "ru",
+        "@value": "слышал 40 лет назад"
+      },
+      "id": "/magic_tagger/rdf/person/fedor-minushkin",
+      "identifier": "fedor-minushkin",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Fedor Minushkin"
+        },
+        {
+          "@language": "ru",
+          "@value": "Федор Минушкин"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "85",
+      "comment": {
+        "@language": "ru",
+        "@value": "слепая, неграмотная"
+      },
+      "id": "/magic_tagger/rdf/person/matrena-protaeva",
+      "identifier": "matrena-protaeva",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Matrena Protaeva"
+        },
+        {
+          "@language": "ru",
+          "@value": "Матрена Протаева"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/nar003",
+      "identifier": "nar003",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "nar003"
+        },
+        {
+          "@language": "et",
+          "@value": "nar003"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "80",
+      "id": "/magic_tagger/rdf/person/nar012",
+      "identifier": "nar012",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "nar012"
+        },
+        {
+          "@language": "et",
+          "@value": "nar012"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col009",
+      "identifier": "col009",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col009', 'label_en': 'col009', 'raw': 'col009'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "birthDate": {
+        "@value": "1887",
+        "type": "xsd:gYear"
+      },
+      "id": "/magic_tagger/rdf/person/marfa-petukhova",
+      "identifier": "marfa-petukhova",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Marfa Petukhova"
+        },
+        {
+          "@language": "ru",
+          "@value": "Марфа Петухова"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "76",
+      "id": "/magic_tagger/rdf/person/mariia-latkina",
+      "identifier": "mariia-latkina",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Mariia Latkina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Мария Латкина"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col035",
+      "identifier": "col035",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col035', 'label_en': 'col035', 'raw': 'col035'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col012",
+      "identifier": "col012",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col012', 'label_en': 'col012', 'raw': 'col012'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/olga-brandt",
+      "identifier": "olga-brandt",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'olga-brandt', 'label_en': 'olga brandt', 'raw': 'Olga Brandt', 'name_raw': 'Olga Brandt'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "61",
+      "comment": {
+        "@language": "ru",
+        "@value": "православный"
+      },
+      "id": "/magic_tagger/rdf/person/maksim-tverdov",
+      "identifier": "maksim-tverdov",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Maksim Tverdov"
+        },
+        {
+          "@language": "ru",
+          "@value": "Максим Твердов"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/denisikha",
+      "identifier": "denisikha",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Denisikha"
+        },
+        {
+          "@language": "ru",
+          "@value": "Денисиха"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "birthDate": {
+        "@value": "1876",
+        "type": "xsd:gYear"
+      },
+      "id": "/magic_tagger/rdf/person/vassa-denisovna-gunina",
+      "identifier": "vassa-denisovna-gunina",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Vassa Denisovna Gunina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Васса Денисовна Гунина"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/zoia-dondukova",
+      "identifier": "zoia-dondukova",
+      "label": {
+        "@language": "ru",
+        "@value": "{'person_id': 'zoia-dondukova', 'label_en': 'zoia dondukova', 'raw': 'Зоя Дондукова', 'name_raw': 'Зоя Дондукова'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "58",
+      "id": "/magic_tagger/rdf/person/vera-sumina",
+      "identifier": "vera-sumina",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Vera Sumina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Вера Сумина"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col029",
+      "identifier": "col029",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col029', 'label_en': 'col029', 'raw': 'col029'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col021",
+      "identifier": "col021",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col021', 'label_en': 'col021', 'raw': 'col021'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col031",
+      "identifier": "col031",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col031', 'label_en': 'col031', 'raw': 'col031'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "12",
+      "comment": {
+        "@language": "ru",
+        "@value": "услышана от бабушки nar003"
+      },
+      "id": "/magic_tagger/rdf/person/nar004",
+      "identifier": "nar004",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "nar004"
+        },
+        {
+          "@language": "et",
+          "@value": "nar004"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/olga-gildebrandt",
+      "identifier": "olga-gildebrandt",
+      "label": {
+        "@language": "ru",
+        "@value": "{'person_id': 'olga-gil-debrandt', 'label_en': 'olga gildebrandt', 'raw': 'Ольга Гильдебрандт', 'name_raw': 'Ольга Гильдебрандт'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col033",
+      "identifier": "col033",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col033', 'label_en': 'col033', 'raw': 'col033'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col023",
+      "identifier": "col023",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col023', 'label_en': 'col023', 'raw': 'col023'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "birthDate": {
+        "@value": "1851",
+        "type": "xsd:gYear"
+      },
+      "id": "/magic_tagger/rdf/person/dariia-lipina",
+      "identifier": "dariia-lipina",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Dariia Lipina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Дария Липина"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "birthDate": {
+        "@value": "1909",
+        "type": "xsd:gYear"
+      },
+      "comment": {
+        "@language": "ru",
+        "@value": "слышала от отца"
+      },
+      "id": "/magic_tagger/rdf/person/anastasiia-kodar",
+      "identifier": "anastasiia-kodar",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Anastasiia Kodar"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анастасия Кодар"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "birthDate": {
+        "@value": "1927",
+        "type": "xsd:gYear"
+      },
+      "comment": {
+        "@language": "ru",
+        "@value": "православная"
+      },
+      "id": "/magic_tagger/rdf/person/zoia-aleksandrovna-iupatova",
+      "identifier": "zoia-aleksandrovna-iupatova",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Zoia Aleksandrovna Iupatova"
+        },
+        {
+          "@language": "ru",
+          "@value": "Зоя Александровна Юпатова"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "86",
+      "id": "/magic_tagger/rdf/person/nar001",
+      "identifier": "nar001",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "nar001"
+        },
+        {
+          "@language": "et",
+          "@value": "nar001"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col015",
+      "identifier": "col015",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col015', 'label_en': 'col015', 'raw': 'col015'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col025",
+      "identifier": "col025",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col025', 'label_en': 'col025', 'raw': 'col025'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "82",
+      "comment": {
+        "@language": "et",
+        "@value": "kuulnud 20 aastat tagasi"
+      },
+      "id": "/magic_tagger/rdf/person/e-protasova",
+      "identifier": "e-protasova",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "E. Protasova"
+        },
+        {
+          "@language": "et",
+          "@value": "E. Protasova"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "50",
+      "id": "/magic_tagger/rdf/person/ivan-mishin",
+      "identifier": "ivan-mishin",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Ivan Mishin"
+        },
+        {
+          "@language": "ru",
+          "@value": "Иван Мишин"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "birthDate": {
+        "@value": "1870",
+        "type": "xsd:gYear"
+      },
+      "comment": {
+        "@language": "ru",
+        "@value": "православный"
+      },
+      "id": "/magic_tagger/rdf/person/ivan-petrovich-somov",
+      "identifier": "ivan-petrovich-somov",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Ivan Petrovich Somov"
+        },
+        {
+          "@language": "ru",
+          "@value": "Иван Петрович Сомов"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/nina-mukhina",
+      "identifier": "nina-mukhina",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "Nina Mukhina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Нина Мухина"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/olga-gromova",
+      "identifier": "olga-gromova",
+      "label": {
+        "@language": "ru",
+        "@value": "{'person_id': 'olga-gromova', 'label_en': 'olga gromova', 'raw': 'Ольга Громова', 'name_raw': 'Ольга Громова'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col024",
+      "identifier": "col024",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col024', 'label_en': 'col024', 'raw': 'col024'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col013",
+      "identifier": "col013",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col013', 'label_en': 'col013', 'raw': 'col013'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "ageAtRecording": "59",
+      "id": "/magic_tagger/rdf/person/nar015",
+      "identifier": "nar015",
+      "label": [
+        {
+          "@language": "en",
+          "@value": "nar015"
+        },
+        {
+          "@language": "et",
+          "@value": "nar015"
+        }
+      ],
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col041",
+      "identifier": "col041",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col041', 'label_en': 'col041', 'raw': 'col041'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "id": "/magic_tagger/rdf/person/col027",
+      "identifier": "col027",
+      "label": {
+        "@language": "et",
+        "@value": "{'person_id': 'col027', 'label_en': 'col027', 'raw': 'col027'}"
+      },
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "birthDate": {
+        "@value": "1908",
+        "type": "xsd:gYear"
+      },
+      "id": "/magic_tagger/rdf/person/nar007",
+      "identifier": "nar007",
+      "label": [
         {
           "@language": "en",
           "@value": "nar007"
@@ -3191,16 +2179,31 @@
           "@value": "nar007"
         }
       ],
-      "http://www.w3.org/ns/prov#hadRole": [
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
+      ]
+    },
+    {
+      "birthDate": {
+        "@value": "1900",
+        "type": "xsd:gYear"
+      },
+      "id": "/magic_tagger/rdf/person/anna-mikhailovna-seniushkina",
+      "identifier": "anna-mikhailovna-seniushkina",
+      "label": [
         {
-          "@id": "http://id.loc.gov/vocabulary/relators/nrt"
+          "@language": "en",
+          "@value": "Anna Mikhailovna Seniushkina"
+        },
+        {
+          "@language": "ru",
+          "@value": "Анна Михайловна Сенюшкина"
         }
       ],
-      "https://eugeniavd.github.io/magic_tagger/rdf/ontology#birthYear": [
-        {
-          "@type": "http://www.w3.org/2001/XMLSchema#gYear",
-          "@value": "1908"
-        }
+      "type": [
+        "prov:Agent",
+        "foaf:Person"
       ]
     }
   ]

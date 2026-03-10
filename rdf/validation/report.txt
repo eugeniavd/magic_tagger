@@ -3,10 +3,10 @@ Conforms: False
 Results (1):
 Constraint Violation in SPARQLConstraintComponent (http://www.w3.org/ns/shacl#SPARQLConstraintComponent):
 	Severity: sh:Violation
-	Source Shape: rft:TaleShape
-	Focus Node: <https://eugeniavd.github.io/magic_tagger/rdf/tale/tru_vkk_25_120_23>
-	Value Node: <https://eugeniavd.github.io/magic_tagger/rdf/tale/tru_vkk_25_120_23>
-	Source Constraint: [ rdf:type sh:SPARQLConstraint ; sh:message Literal("Tale must have a narrator attribution: prov:qualifiedAttribution → prov:hadRole locrel:nrt.") ; sh:select Literal("
+	Source Shape: rft:TaleRecordingShape
+	Focus Node: <https://eugeniavd.github.io/magic_tagger/rdf/TaleRecording/tru_vkk_25_120_23>
+	Value Node: <https://eugeniavd.github.io/magic_tagger/rdf/TaleRecording/tru_vkk_25_120_23>
+	Source Constraint: [ rdf:type sh:SPARQLConstraint ; sh:message Literal("TaleRecording must have at least one narrator attribution (prov:hadRole locrel:nrt).") ; sh:select Literal("
       SELECT $this WHERE {
         FILTER NOT EXISTS {
           $this prov:qualifiedAttribution ?att .
@@ -16,4 +16,4 @@ Constraint Violation in SPARQLConstraintComponent (http://www.w3.org/ns/shacl#SP
         }
       }
     ") ]
-	Message: Tale must have a narrator attribution: prov:qualifiedAttribution → prov:hadRole locrel:nrt.
+	Message: TaleRecording must have at least one narrator attribution (prov:hadRole locrel:nrt).
