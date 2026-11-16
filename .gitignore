@@ -40,3 +40,4 @@ data/raw/scans/
 
 # --- nested repo copy (do not track)
 notebooks/magic_tagger/
+~$*
